@@ -13,9 +13,9 @@ using namespace llvm;
 
 namespace{
 
-	struct Constant: public FunctionPass{
+	struct Threshold: public FunctionPass{
 	static char ID;
-	Constant() : FunctionPass(ID){}
+	Threshold() : FunctionPass(ID){}
 
 	bool runOnFunction(Function &F) override{
 		errs() << "Hello: ";
@@ -26,5 +26,5 @@ namespace{
 
 }
 
-char Constant::ID = 0;
-static RegisterPass<Constant> X("constant", "Constant Finder Pass", false, false);
+char Threshold::ID = 0;
+static RegisterPass<Threshold> X("threshold", "Treshold Finder Pass", false, false);
