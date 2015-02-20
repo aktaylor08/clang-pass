@@ -45,12 +45,19 @@ public:
     //implement this
 	name = F.getName().str();
 	int args = F.getArgumentList().size();
+	int block_size = F.getBasicBlockList().size();
+	int total_inst = 0;
+	for(Function::iterator I = F.begin(), E=F.end(); I != E; ++I){
+		BasicBlock *BB = dyn_cast<BasicBlock>(&*I);
+		total_inst += BB -> size();
+	}
+	int uses = F.getNumUses();
+	std::cerr << name << " : " << args << " : " << block_size <<  " : " << uses <<  " : " << total_inst << std::endl;
     return false;
   }
   
   virtual bool runOnModule(Module& M)
   {
-    std::cerr << "15745 Functions Information Pass \n"; //remove this
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
 	runOnFunction(*MI);
@@ -61,5 +68,5 @@ public:
 };
 
 char FunctionInfo::ID = 0;
-RegisterPass<FunctionInfo> X("function-info", "15745: Functions Information");
+RegisterPass<FunctionInfo> X("threshold", "15745: Functions Information");
 }

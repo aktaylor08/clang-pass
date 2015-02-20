@@ -22,7 +22,7 @@ namespace{
 		errs() << "Hello: ";
 		errs() << F.getName() << "\n";
 		if (F.getName().str() == "main"){
-			F.viewCFGOnly();
+			F.viewCFG();
 
 		}
 		return false;

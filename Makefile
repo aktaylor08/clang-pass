@@ -3,7 +3,8 @@
 # Path to top level of LLVM hierarchy
 LEVEL = ../../..
 
-SOURCES=constant.cpp
+SOURCES=FunctionInfo.cpp
+# SOURCES=constant.cpp
 
 # Name of the library to build
 LIBRARYNAME = Threshold
