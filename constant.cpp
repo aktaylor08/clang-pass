@@ -7,19 +7,26 @@
 
 #include "llvm/Pass.h"
 #include "llvm/IR/Function.h"
+#include "llvm/IR/Module.h"
 #include "llvm/Support/raw_ostream.h"
 
 using namespace llvm;
 
 namespace{
 
-	struct Threshold: public FunctionPass{
+	struct Threshold: public ModulePass{
 	static char ID;
-	Threshold() : FunctionPass(ID){}
+	Threshold() : ModulePass(ID){}
 
-	bool runOnFunction(Function &F) override{
+	bool runOnModule(Module &M) override{
 		errs() << "Hello: ";
-		errs().write_escaped(F.getName()) << "\n";
+		errs() << M.getName() << "\n";
+		llvm::Module::FunctionListType func_list;
+		func_list = M.getFunctionList();
+		for(i=0;i<func_list.size();i++){
+			func_list.get
+		}
+
 		return false;
 		}
 	};
@@ -27,4 +34,4 @@ namespace{
 }
 
 char Threshold::ID = 0;
-static RegisterPass<Threshold> X("threshold", "Treshold Finder Pass", false, false);
+static RegisterPass<Threshold> X("threshold", "Threshold Finder Pass", false, false);
