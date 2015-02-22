@@ -3,7 +3,7 @@
 # Path to top level of LLVM hierarchy
 LEVEL = ../../..
 
-SOURCES=FunctionInfo.cpp
+SOURCES=PubCallFinder.cpp
 # SOURCES=constant.cpp
 
 # Name of the library to build
