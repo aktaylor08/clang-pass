@@ -23,13 +23,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::detail::sp_counted_base" = type { i32 (...)**, i32, i32 }
 %"class.boost::shared_ptr.27" = type { i8*, %"class.boost::detail::shared_count" }
 %"class.std::type_info" = type { i32 (...)**, i8* }
-%"struct.boost::detail::function::basic_vtable0.41" = type { %"struct.boost::detail::function::vtable_base", void (%"class.boost::shared_ptr.42"*, %"union.boost::detail::function::function_buffer"*)* }
-%"class.boost::shared_ptr.42" = type { %"struct.std_msgs::Float64_"*, %"class.boost::detail::shared_count" }
+%"struct.boost::detail::function::basic_vtable0.49" = type { %"struct.boost::detail::function::vtable_base", void (%"class.boost::shared_ptr.50"*, %"union.boost::detail::function::function_buffer"*)* }
+%"class.boost::shared_ptr.50" = type { %"struct.std_msgs::Float64_"*, %"class.boost::detail::shared_count" }
 %"struct.std_msgs::Float64_" = type { double }
-%"struct.boost::detail::function::basic_vtable1" = type { %"struct.boost::detail::function::vtable_base", void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* }
+%"struct.boost::detail::function::basic_vtable1.48" = type { %"struct.boost::detail::function::vtable_base", void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* }
 %"class.boost::shared_ptr.26" = type { %"struct.std_msgs::Float64_"*, %"class.boost::detail::shared_count" }
-%"struct.boost::detail::function::basic_vtable1.52" = type { %"struct.boost::detail::function::vtable_base", void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* }
-%class.Test = type { %"class.ros::NodeHandle", %"class.ros::NodeHandle", i32, %"class.ros::Subscriber", %"class.ros::Publisher" }
+%"struct.boost::detail::function::basic_vtable1.60" = type { %"struct.boost::detail::function::vtable_base", void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* }
+%class.Test = type { %"class.ros::NodeHandle", %"class.ros::NodeHandle", i32, %"class.ros::Subscriber", %"class.ros::Publisher", %"class.ros::Publisher" }
 %"class.ros::NodeHandle" = type { %"class.std::basic_string", %"class.std::basic_string", %"class.std::map", %"class.std::map", %"class.ros::CallbackQueueInterface"*, %"class.ros::NodeHandleBackingCollection"*, i8 }
 %"class.std::basic_string" = type { %"struct.std::basic_string<char, std::char_traits<char>, std::allocator<char> >::_Alloc_hider" }
 %"struct.std::basic_string<char, std::char_traits<char>, std::allocator<char> >::_Alloc_hider" = type { i8* }
@@ -64,16 +64,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ros::console::FilterBase" = type { i32 (...)** }
 %"struct.ros::AdvertiseOptions" = type { %"class.std::basic_string", i32, %"class.std::basic_string", %"class.std::basic_string", %"class.std::basic_string", %"class.boost::function", %"class.boost::function", %"class.ros::CallbackQueueInterface"*, %"class.boost::shared_ptr.27", i8, i8 }
 %"struct.ros::SubscribeOptions" = type { %"class.std::basic_string", i32, %"class.std::basic_string", %"class.std::basic_string", %"class.boost::shared_ptr.20", %"class.ros::CallbackQueueInterface"*, i8, %"class.boost::shared_ptr.27", %"class.ros::TransportHints" }
-%"class.boost::function.30" = type { %"class.boost::function1.31" }
-%"class.boost::function1.31" = type { %"class.boost::function_base" }
-%"class.boost::_bi::bind_t.35" = type { %"class.boost::_mfi::mf1", %"class.boost::_bi::list2" }
+%"class.boost::function.37" = type { %"class.boost::function1.38" }
+%"class.boost::function1.38" = type { %"class.boost::function_base" }
+%"class.boost::_bi::bind_t.42" = type { %"class.boost::_mfi::mf1", %"class.boost::_bi::list2" }
 %"class.boost::_mfi::mf1" = type { { i64, i64 } }
 %"class.boost::_bi::list2" = type { %"struct.boost::_bi::storage2" }
-%"struct.boost::_bi::storage2" = type { %"struct.boost::_bi::storage1.36" }
-%"struct.boost::_bi::storage1.36" = type { %"class.boost::_bi::value" }
+%"struct.boost::_bi::storage2" = type { %"struct.boost::_bi::storage1.43" }
+%"struct.boost::_bi::storage1.43" = type { %"class.boost::_bi::value" }
 %"class.boost::_bi::value" = type { %class.Test* }
-%"class.boost::function.33" = type { %"class.boost::function0.34" }
-%"class.boost::function0.34" = type { %"class.boost::function_base" }
+%"class.boost::function.40" = type { %"class.boost::function0.41" }
+%"class.boost::function0.41" = type { %"class.boost::function_base" }
 %"struct.ros::DefaultMessageCreator" = type { i8 }
 %"struct.std_msgs::String_" = type { %"class.std::basic_string" }
 %"class.std::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::basic_stringbuf", %"class.std::basic_ios" }
@@ -97,10 +97,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::num_get" = type { [12 x i8], [4 x i8] }
 %"class.boost::function.28" = type { %"class.boost::function0" }
 %"class.boost::function0" = type { %"class.boost::function_base" }
-%"class.boost::_bi::bind_t" = type { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"class.boost::_bi::list1" }
+%"class.boost::_bi::bind_t.30" = type { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"class.boost::_bi::list1.31" }
+%"class.boost::_bi::list1.31" = type { %"struct.boost::_bi::storage1.32" }
+%"struct.boost::_bi::storage1.32" = type { %"class.boost::reference_wrapper.33" }
+%"class.boost::reference_wrapper.33" = type { %"struct.std_msgs::String_"* }
+%"struct.std_msgs::Int16_" = type { i16 }
+%"class.boost::_bi::bind_t" = type { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"class.boost::_bi::list1" }
 %"class.boost::_bi::list1" = type { %"struct.boost::_bi::storage1" }
 %"struct.boost::_bi::storage1" = type { %"class.boost::reference_wrapper" }
-%"class.boost::reference_wrapper" = type { %"struct.std_msgs::String_"* }
+%"class.boost::reference_wrapper" = type { %"struct.std_msgs::Int16_"* }
 %"struct.ros::serialization::OStream" = type { %"struct.ros::serialization::Stream" }
 %"struct.ros::serialization::Stream" = type { i8*, i8* }
 %"struct.boost::detail::function::function_obj_tag" = type { i8 }
@@ -109,47 +114,54 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::detail::addr_impl_ref" = type { %"class.boost::_bi::bind_t"* }
 %"class.boost::_bi::list0" = type { i8 }
 %"class.boost::_bi::type" = type { i8 }
-%"struct.boost::detail::addr_impl_ref.29" = type { %"struct.std_msgs::String_"* }
+%"struct.boost::detail::addr_impl_ref.29" = type { %"struct.std_msgs::Int16_"* }
 %"struct.boost::checked_array_deleter" = type { i8 }
 %"class.boost::detail::sp_counted_impl_pd" = type { %"class.boost::detail::sp_counted_base", i8*, %"struct.boost::checked_array_deleter" }
 %"struct.ros::serialization::LStream" = type { i32 }
-%"class.boost::function.49" = type { %"class.boost::function1.50" }
-%"class.boost::function1.50" = type { %"class.boost::function_base" }
-%"class.ros::SubscriptionCallbackHelperT" = type { %"class.ros::SubscriptionCallbackHelper", %"class.boost::function.49", %"class.boost::function.33" }
+%"struct.boost::detail::addr_impl_ref.34" = type { %"class.boost::_bi::bind_t.30"* }
+%"struct.boost::detail::addr_impl_ref.35" = type { %"struct.std_msgs::String_"* }
+%"struct.boost::detail::function::basic_vtable1" = type { %"struct.boost::detail::function::vtable_base", void (%"union.boost::detail::function::function_buffer"*, %"class.ros::SingleSubscriberPublisher"*)* }
+%"class.ros::SingleSubscriberPublisher" = type { %"class.boost::shared_ptr.36" }
+%"class.boost::shared_ptr.36" = type { %"class.ros::SubscriberLink"*, %"class.boost::detail::shared_count" }
+%"class.ros::SubscriberLink" = type opaque
+%"struct.std::unary_function" = type { i8 }
+%"class.boost::function.57" = type { %"class.boost::function1.58" }
+%"class.boost::function1.58" = type { %"class.boost::function_base" }
+%"class.ros::SubscriptionCallbackHelperT" = type { %"class.ros::SubscriptionCallbackHelper", %"class.boost::function.57", %"class.boost::function.40" }
 %"class.__gnu_cxx::__normal_iterator" = type { %"class.std::basic_string"* }
-%"class.__gnu_cxx::__normal_iterator.40" = type { %"class.std::basic_string"* }
+%"class.__gnu_cxx::__normal_iterator.47" = type { %"class.std::basic_string"* }
 %"class.std::allocator.23" = type { i8 }
 %"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.std::pair" }
 %"struct.std::pair" = type { %"class.std::basic_string", %"class.std::basic_string" }
-%"class.std::allocator.37" = type { i8 }
-%"class.__gnu_cxx::new_allocator.38" = type { i8 }
+%"class.std::allocator.44" = type { i8 }
+%"class.__gnu_cxx::new_allocator.45" = type { i8 }
 %"class.std::allocator.16" = type { i8 }
 %"class.__gnu_cxx::new_allocator.17" = type { i8 }
 %"class.__gnu_cxx::new_allocator.24" = type { i8 }
-%"struct.boost::detail::addr_impl_ref.43" = type { %"struct.ros::DefaultMessageCreator"* }
+%"struct.boost::detail::addr_impl_ref.51" = type { %"struct.ros::DefaultMessageCreator"* }
 %"struct.boost::detail::sp_inplace_tag" = type { i8 }
 %"class.boost::detail::sp_ms_deleter" = type { i8, [7 x i8], %"union.boost::detail::sp_aligned_storage<8, 8>::type" }
 %"union.boost::detail::sp_aligned_storage<8, 8>::type" = type { [8 x i8] }
-%"class.boost::detail::sp_counted_impl_pd.44" = type { %"class.boost::detail::sp_counted_base", %"struct.std_msgs::Float64_"*, %"class.boost::detail::sp_ms_deleter" }
-%"struct.std::unary_function.32" = type { i8 }
-%"struct.boost::detail::addr_impl_ref.45" = type { %"class.boost::_bi::bind_t.35"* }
-%"class.boost::_bi::list1.46" = type { %"struct.boost::_bi::storage1.47" }
-%"struct.boost::_bi::storage1.47" = type { %"class.boost::shared_ptr.26"* }
-%"class.boost::_bi::type.48" = type { i8 }
+%"class.boost::detail::sp_counted_impl_pd.52" = type { %"class.boost::detail::sp_counted_base", %"struct.std_msgs::Float64_"*, %"class.boost::detail::sp_ms_deleter" }
+%"struct.std::unary_function.39" = type { i8 }
+%"struct.boost::detail::addr_impl_ref.53" = type { %"class.boost::_bi::bind_t.42"* }
+%"class.boost::_bi::list1.54" = type { %"struct.boost::_bi::storage1.55" }
+%"struct.boost::_bi::storage1.55" = type { %"class.boost::shared_ptr.26"* }
+%"class.boost::_bi::type.56" = type { i8 }
 %"class.boost::detail::sp_counted_impl_p" = type { %"class.boost::detail::sp_counted_base", %"class.ros::SubscriptionCallbackHelperT"* }
-%"struct.ros::SubscriptionCallbackHelperDeserializeParams" = type { i8*, i32, %"class.boost::shared_ptr.53" }
-%"class.boost::shared_ptr.53" = type { %"class.std::map"*, %"class.boost::detail::shared_count" }
-%"struct.ros::serialization::PreDeserializeParams" = type { %"class.boost::shared_ptr.42", %"class.boost::shared_ptr.53" }
+%"struct.ros::SubscriptionCallbackHelperDeserializeParams" = type { i8*, i32, %"class.boost::shared_ptr.61" }
+%"class.boost::shared_ptr.61" = type { %"class.std::map"*, %"class.boost::detail::shared_count" }
+%"struct.ros::serialization::PreDeserializeParams" = type { %"class.boost::shared_ptr.50", %"class.boost::shared_ptr.61" }
 %"struct.ros::serialization::IStream" = type { %"struct.ros::serialization::Stream" }
 %"struct.boost::detail::sp_empty" = type { i8 }
 %"struct.ros::SubscriptionCallbackHelperCallParams" = type { %"class.ros::MessageEvent" }
-%"class.ros::MessageEvent" = type { %"class.boost::shared_ptr.27", %"class.boost::shared_ptr.54", %"class.boost::shared_ptr.53", %"class.ros::Time", i8, %"class.boost::function.55" }
-%"class.boost::shared_ptr.54" = type { i8*, %"class.boost::detail::shared_count" }
+%"class.ros::MessageEvent" = type { %"class.boost::shared_ptr.27", %"class.boost::shared_ptr.62", %"class.boost::shared_ptr.61", %"class.ros::Time", i8, %"class.boost::function.63" }
+%"class.boost::shared_ptr.62" = type { i8*, %"class.boost::detail::shared_count" }
 %"class.ros::Time" = type { %"class.ros::TimeBase" }
 %"class.ros::TimeBase" = type { i32, i32 }
-%"class.boost::function.55" = type { %"class.boost::function0.56" }
-%"class.boost::function0.56" = type { %"class.boost::function_base" }
-%"class.ros::MessageEvent.57" = type { %"class.boost::shared_ptr.26", %"class.boost::shared_ptr.42", %"class.boost::shared_ptr.53", %"class.ros::Time", i8, %"class.boost::function.33" }
+%"class.boost::function.63" = type { %"class.boost::function0.64" }
+%"class.boost::function0.64" = type { %"class.boost::function_base" }
+%"class.ros::MessageEvent.65" = type { %"class.boost::shared_ptr.26", %"class.boost::shared_ptr.50", %"class.boost::shared_ptr.61", %"class.ros::Time", i8, %"class.boost::function.40" }
 %"class.boost::bad_function_call" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"class.std::basic_string" }
 %"class.std::exception" = type { i32 (...)** }
@@ -160,14 +172,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::exception_detail::refcount_ptr" = type { %"struct.boost::exception_detail::error_info_container"* }
 %"struct.boost::exception_detail::error_info_container" = type { i32 (...)** }
 %"struct.boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<boost::bad_function_call> >::clone_tag" = type { i8 }
-%"struct.std::unary_function.51" = type { i8 }
-%"struct.mpl_::bool_.58" = type { i8 }
-%"struct.boost::detail::addr_impl_ref.59" = type { %"class.boost::function.30"* }
-%"struct.boost::detail::function::basic_vtable1.60" = type { %"struct.boost::detail::function::vtable_base", void (%"union.boost::detail::function::function_buffer"*, %"class.ros::SingleSubscriberPublisher"*)* }
-%"class.ros::SingleSubscriberPublisher" = type { %"class.boost::shared_ptr.61" }
-%"class.boost::shared_ptr.61" = type { %"class.ros::SubscriberLink"*, %"class.boost::detail::shared_count" }
-%"class.ros::SubscriberLink" = type opaque
-%"struct.std::unary_function" = type { i8 }
+%"struct.std::unary_function.59" = type { i8 }
+%"struct.mpl_::bool_.66" = type { i8 }
+%"struct.boost::detail::addr_impl_ref.67" = type { %"class.boost::function.37"* }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external global i8
@@ -190,33 +197,34 @@ target triple = "x86_64-pc-linux-gnu"
 @.str13 = private unnamed_addr constant [15 x i8] c"Kalman started\00", align 1
 @.str14 = private unnamed_addr constant [15 x i8] c"i_like_turtles\00", align 1
 @.str15 = private unnamed_addr constant [13 x i8] c"give_me_info\00", align 1
-@.str16 = private unnamed_addr constant [13 x i8] c"hello world \00", align 1
-@.str17 = private unnamed_addr constant [7 x i8] c"Kalman\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str18 = private unnamed_addr constant [40 x i8] c"/opt/ros/indigo/include/ros/publisher.h\00", align 1
-@__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_ = private unnamed_addr constant [93 x i8] c"void ros::Publisher::publish(const M &) const [M = std_msgs::String_<std::allocator<void> >]\00", align 1
-@.str19 = private unnamed_addr constant [62 x i8] c"ASSERTION FAILED\0A\09file = %s\0A\09line = %d\0A\09cond = %s\0A\09message = \00", align 1
-@.str20 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str21 = private unnamed_addr constant [42 x i8] c"Call to publish() on an invalid Publisher\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str22 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str23 = private unnamed_addr constant [55 x i8] c"Call to publish() on an invalid Publisher (topic [%s])\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str24 = private unnamed_addr constant [2 x i8] c"*\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str25 = private unnamed_addr constant [112 x i8] c"impl_->md5sum_ == \22*\22 || std::string(mt::md5sum<M>(message)) == \22*\22 || impl_->md5sum_ == mt::md5sum<M>(message)\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str26 = private unnamed_addr constant [75 x i8] c"Trying to publish message of type [%s/%s] on a publisher with type [%s/%s]\00", align 1
-@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable0" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE6manageERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE }, void (%"class.ros::SerializedMessage"*, %"union.boost::detail::function::function_buffer"*)* @_ZN5boost6detail8function21function_obj_invoker0INS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEES6_E6invokeERNS1_15function_bufferE }, align 8
+@.str16 = private unnamed_addr constant [10 x i8] c"int_topic\00", align 1
+@.str17 = private unnamed_addr constant [13 x i8] c"hello world \00", align 1
+@.str18 = private unnamed_addr constant [7 x i8] c"Kalman\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str19 = private unnamed_addr constant [40 x i8] c"/opt/ros/indigo/include/ros/publisher.h\00", align 1
+@__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_ = private unnamed_addr constant [92 x i8] c"void ros::Publisher::publish(const M &) const [M = std_msgs::Int16_<std::allocator<void> >]\00", align 1
+@.str20 = private unnamed_addr constant [62 x i8] c"ASSERTION FAILED\0A\09file = %s\0A\09line = %d\0A\09cond = %s\0A\09message = \00", align 1
+@.str21 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str22 = private unnamed_addr constant [42 x i8] c"Call to publish() on an invalid Publisher\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str23 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str24 = private unnamed_addr constant [55 x i8] c"Call to publish() on an invalid Publisher (topic [%s])\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str25 = private unnamed_addr constant [2 x i8] c"*\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str26 = private unnamed_addr constant [112 x i8] c"impl_->md5sum_ == \22*\22 || std::string(mt::md5sum<M>(message)) == \22*\22 || impl_->md5sum_ == mt::md5sum<M>(message)\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@.str27 = private unnamed_addr constant [75 x i8] c"Trying to publish message of type [%s/%s] on a publisher with type [%s/%s]\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable0" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE6manageERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE }, void (%"class.ros::SerializedMessage"*, %"union.boost::detail::function::function_buffer"*)* @_ZN5boost6detail8function21function_obj_invoker0INS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEES6_E6invokeERNS1_15function_bufferE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global i8*
-@_ZTSN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE = linkonce_odr constant [122 x i8] c"N5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE\00"
-@_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([122 x i8]* @_ZTSN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE, i32 0, i32 0) }
-@.str27 = private unnamed_addr constant [18 x i8] c"p == 0 || p != px\00", align 1
-@.str28 = private unnamed_addr constant [46 x i8] c"/usr/include/boost/smart_ptr/shared_array.hpp\00", align 1
+@_ZTSN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE = linkonce_odr constant [121 x i8] c"N5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE\00"
+@_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([121 x i8]* @_ZTSN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE, i32 0, i32 0) }
+@.str28 = private unnamed_addr constant [18 x i8] c"p == 0 || p != px\00", align 1
+@.str29 = private unnamed_addr constant [46 x i8] c"/usr/include/boost/smart_ptr/shared_array.hpp\00", align 1
 @__PRETTY_FUNCTION__._ZN5boost12shared_arrayIhE5resetIhEEvPT_ = private unnamed_addr constant [91 x i8] c"void boost::shared_array<unsigned char>::reset(Y *) [T = unsigned char, Y = unsigned char]\00", align 1
 @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE = linkonce_odr unnamed_addr constant [8 x i8*] [i8* null, i8* bitcast ({ i8*, i8*, i8* }* @_ZTIN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd"*)* @_ZN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEED2Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd"*)* @_ZN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEED0Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd"*)* @_ZN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEE7disposeEv to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_base7destroyEv to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_pd"*, %"class.std::type_info"*)* @_ZN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEE11get_deleterERKSt9type_info to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_pd"*)* @_ZN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEE19get_untyped_deleterEv to i8*)]
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global i8*
@@ -227,21 +235,37 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTSN5boost21checked_array_deleterIhEE = linkonce_odr constant [35 x i8] c"N5boost21checked_array_deleterIhEE\00"
 @_ZTIN5boost21checked_array_deleterIhEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([35 x i8]* @_ZTSN5boost21checked_array_deleterIhEE, i32 0, i32 0) }
 @_ZTVN5boost6detail15sp_counted_baseE = linkonce_odr unnamed_addr constant [8 x i8*] [i8* null, i8* bitcast ({ i8*, i8* }* @_ZTIN5boost6detail15sp_counted_baseE to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_baseD2Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_baseD0Ev to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_base7destroyEv to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*)]
-@.str29 = private unnamed_addr constant [16 x i8] c"std_msgs/String\00", align 1
-@.str30 = private unnamed_addr constant [33 x i8] c"992ce8a1687cec8c8bd883ec73ca41d1\00", align 1
-@.str31 = private unnamed_addr constant [8 x i8] c"px != 0\00", align 1
-@.str32 = private unnamed_addr constant [44 x i8] c"/usr/include/boost/smart_ptr/shared_ptr.hpp\00", align 1
+@.str30 = private unnamed_addr constant [15 x i8] c"std_msgs/Int16\00", align 1
+@.str31 = private unnamed_addr constant [33 x i8] c"8524586e34fbd7cb1c08c5f5f1ca0e57\00", align 1
+@.str32 = private unnamed_addr constant [8 x i8] c"px != 0\00", align 1
+@.str33 = private unnamed_addr constant [44 x i8] c"/usr/include/boost/smart_ptr/shared_ptr.hpp\00", align 1
 @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv = private unnamed_addr constant [137 x i8] c"typename boost::detail::sp_member_access<T>::type boost::shared_ptr<ros::Publisher::Impl>::operator->() const [Y = ros::Publisher::Impl]\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_ = private unnamed_addr constant [93 x i8] c"void ros::Publisher::publish(const M &) const [M = std_msgs::String_<std::allocator<void> >]\00", align 1
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7 = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
+@_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable0" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE6manageERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE }, void (%"class.ros::SerializedMessage"*, %"union.boost::detail::function::function_buffer"*)* @_ZN5boost6detail8function21function_obj_invoker0INS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEES6_E6invokeERNS1_15function_bufferE }, align 8
+@_ZTSN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE = linkonce_odr constant [122 x i8] c"N5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE\00"
+@_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([122 x i8]* @_ZTSN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE, i32 0, i32 0) }
+@.str34 = private unnamed_addr constant [16 x i8] c"std_msgs/String\00", align 1
+@.str35 = private unnamed_addr constant [33 x i8] c"992ce8a1687cec8c8bd883ec73ca41d1\00", align 1
 @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEptEv = private unnamed_addr constant [192 x i8] c"typename boost::detail::sp_member_access<T>::type boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > >::operator->() const [Y = const std_msgs::Float64_<std::allocator<void> >]\00", align 1
-@_ZZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable0.41" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEE6manageERKNS1_15function_bufferERSB_NS1_30functor_manager_operation_typeE }, void (%"class.boost::shared_ptr.42"*, %"union.boost::detail::function::function_buffer"*)* @_ZN5boost6detail8function21function_obj_invoker0IN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEENS_10shared_ptrIS8_EEE6invokeERNS1_15function_bufferE }, align 8
-@_ZTVN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE = linkonce_odr unnamed_addr constant [8 x i8*] [i8* null, i8* bitcast ({ i8*, i8*, i8* }* @_ZTIN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd.44"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED2Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd.44"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED0Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd.44"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE7disposeEv to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_base7destroyEv to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_pd.44"*, %"class.std::type_info"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE11get_deleterERKSt9type_info to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_pd.44"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE19get_untyped_deleterEv to i8*)]
+@.str36 = private unnamed_addr constant [12 x i8] c"int16 data\0A\00", align 1
+@_ZZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable0.49" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEE6manageERKNS1_15function_bufferERSB_NS1_30functor_manager_operation_typeE }, void (%"class.boost::shared_ptr.50"*, %"union.boost::detail::function::function_buffer"*)* @_ZN5boost6detail8function21function_obj_invoker0IN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEENS_10shared_ptrIS8_EEE6invokeERNS1_15function_bufferE }, align 8
+@_ZTVN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE = linkonce_odr unnamed_addr constant [8 x i8*] [i8* null, i8* bitcast ({ i8*, i8*, i8* }* @_ZTIN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd.52"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED2Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd.52"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED0Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_pd.52"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE7disposeEv to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_base7destroyEv to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_pd.52"*, %"class.std::type_info"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE11get_deleterERKSt9type_info to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_pd.52"*)* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE19get_untyped_deleterEv to i8*)]
 @_ZTSN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE = linkonce_odr constant [91 x i8] c"N5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE\00"
 @_ZTIN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE = linkonce_odr constant { i8*, i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([91 x i8]* @_ZTSN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE, i32 0, i32 0), i8* bitcast ({ i8*, i8* }* @_ZTIN5boost6detail15sp_counted_baseE to i8*) }
 @_ZTSN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEE = linkonce_odr constant [60 x i8] c"N5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEE\00"
 @_ZTIN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([60 x i8]* @_ZTSN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEE, i32 0, i32 0) }
 @_ZTSN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEE = linkonce_odr constant [59 x i8] c"N3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEE\00"
 @_ZTIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([59 x i8]* @_ZTSN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEE, i32 0, i32 0) }
-@_ZZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable1" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS3_5list2INS3_5valueIPS7_EENS_3argILi1EEEEEEEE6manageERKNS1_15function_bufferERSR_NS1_30functor_manager_operation_typeE }, void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* @_ZN5boost6detail8function26void_function_obj_invoker1INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS3_5list2INS3_5valueIPS7_EENS_3argILi1EEEEEEEvSG_E6invokeERNS1_15function_bufferESG_ }, align 8
+@_ZZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable1.48" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS3_5list2INS3_5valueIPS7_EENS_3argILi1EEEEEEEE6manageERKNS1_15function_bufferERSR_NS1_30functor_manager_operation_typeE }, void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* @_ZN5boost6detail8function26void_function_obj_invoker1INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS3_5list2INS3_5valueIPS7_EENS_3argILi1EEEEEEEvSG_E6invokeERNS1_15function_bufferESG_ }, align 8
 @_ZTSN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEE = linkonce_odr constant [136 x i8] c"N5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEE\00"
 @_ZTIN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([136 x i8]* @_ZTSN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEE, i32 0, i32 0) }
 @_ZTVN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEEE = linkonce_odr unnamed_addr constant [8 x i8*] [i8* null, i8* bitcast ({ i8*, i8*, i8* }* @_ZTIN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEEE to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_p"*)* @_ZN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEED2Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_p"*)* @_ZN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEED0Ev to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_impl_p"*)* @_ZN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEE7disposeEv to i8*), i8* bitcast (void (%"class.boost::detail::sp_counted_base"*)* @_ZN5boost6detail15sp_counted_base7destroyEv to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_p"*, %"class.std::type_info"*)* @_ZN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEE11get_deleterERKSt9type_info to i8*), i8* bitcast (i8* (%"class.boost::detail::sp_counted_impl_p"*)* @_ZN5boost6detail17sp_counted_impl_pIN3ros27SubscriptionCallbackHelperTIRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEEE19get_untyped_deleterEv to i8*)]
@@ -254,7 +278,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTIN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEE = linkonce_odr constant { i8*, i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([91 x i8]* @_ZTSN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEE, i32 0, i32 0), i8* bitcast ({ i8*, i8* }* @_ZTIN3ros26SubscriptionCallbackHelperE to i8*) }
 @_ZTSN8std_msgs8Float64_ISaIvEEE = linkonce_odr constant [28 x i8] c"N8std_msgs8Float64_ISaIvEEE\00"
 @_ZTIN8std_msgs8Float64_ISaIvEEE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([28 x i8]* @_ZTSN8std_msgs8Float64_ISaIvEEE, i32 0, i32 0) }
-@.str33 = private unnamed_addr constant [30 x i8] c"call to empty boost::function\00", align 1
+@.str37 = private unnamed_addr constant [30 x i8] c"call to empty boost::function\00", align 1
 @_ZTVN5boost17bad_function_callE = linkonce_odr unnamed_addr constant [5 x i8*] [i8* null, i8* bitcast ({ i8*, i8*, i8* }* @_ZTIN5boost17bad_function_callE to i8*), i8* bitcast (void (%"class.boost::bad_function_call"*)* @_ZN5boost17bad_function_callD2Ev to i8*), i8* bitcast (void (%"class.boost::bad_function_call"*)* @_ZN5boost17bad_function_callD0Ev to i8*), i8* bitcast (i8* (%"class.std::runtime_error"*)* @_ZNKSt13runtime_error4whatEv to i8*)]
 @_ZTSN5boost17bad_function_callE = linkonce_odr constant [28 x i8] c"N5boost17bad_function_callE\00"
 @_ZTISt13runtime_error = external constant i8*
@@ -276,12 +300,12 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTVSt9exception = external unnamed_addr constant [5 x i8*]
 @_ZTVN5boost16exception_detail10clone_baseE = linkonce_odr unnamed_addr constant [6 x i8*] [i8* null, i8* bitcast ({ i8*, i8* }* @_ZTIN5boost16exception_detail10clone_baseE to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void (%"class.boost::exception_detail::clone_base"*)* @_ZN5boost16exception_detail10clone_baseD2Ev to i8*), i8* bitcast (void (%"class.boost::exception_detail::clone_base"*)* @_ZN5boost16exception_detail10clone_baseD0Ev to i8*)]
 @_ZZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE11deserializeERKNS_43SubscriptionCallbackHelperDeserializeParamsEE33__rosconsole_define_location__loc = linkonce_odr global %"struct.ros::console::LogLocation" { i8 0, i8 0, i32 5, i8* null }, align 8
-@.str34 = private unnamed_addr constant [59 x i8] c"/opt/ros/indigo/include/ros/subscription_callback_helper.h\00", align 1
+@.str38 = private unnamed_addr constant [59 x i8] c"/opt/ros/indigo/include/ros/subscription_callback_helper.h\00", align 1
 @__PRETTY_FUNCTION__._ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE11deserializeERKNS_43SubscriptionCallbackHelperDeserializeParamsE = private unnamed_addr constant [306 x i8] c"virtual VoidConstPtr ros::SubscriptionCallbackHelperT<const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > > &, void>::deserialize(const ros::SubscriptionCallbackHelperDeserializeParams &) [P = const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > > &, Enabled = void]\00", align 1
-@.str35 = private unnamed_addr constant [43 x i8] c"Allocation failed for message of type [%s]\00", align 1
+@.str39 = private unnamed_addr constant [43 x i8] c"Allocation failed for message of type [%s]\00", align 1
 @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv = private unnamed_addr constant [177 x i8] c"typename boost::detail::sp_dereference<T>::type boost::shared_ptr<std_msgs::Float64_<std::allocator<void> > >::operator*() const [Y = std_msgs::Float64_<std::allocator<void> >]\00", align 1
 @_ZTVN3ros26SubscriptionCallbackHelperE = linkonce_odr unnamed_addr constant [9 x i8*] [i8* null, i8* bitcast ({ i8*, i8* }* @_ZTIN3ros26SubscriptionCallbackHelperE to i8*), i8* bitcast (void (%"class.ros::SubscriptionCallbackHelper"*)* @_ZN3ros26SubscriptionCallbackHelperD2Ev to i8*), i8* bitcast (void (%"class.ros::SubscriptionCallbackHelper"*)* @_ZN3ros26SubscriptionCallbackHelperD0Ev to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*), i8* bitcast (void ()* @__cxa_pure_virtual to i8*)]
-@_ZZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable1.52" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE6manageERKNS1_15function_bufferERSG_NS1_30functor_manager_operation_typeE }, void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* @_ZN5boost6detail8function26void_function_obj_invoker1INS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEvSA_E6invokeERNS1_15function_bufferESA_ }, align 8
+@_ZZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_E13stored_vtable = linkonce_odr constant %"struct.boost::detail::function::basic_vtable1.60" { %"struct.boost::detail::function::vtable_base" { void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* @_ZN5boost6detail8function15functor_managerINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE6manageERKNS1_15function_bufferERSG_NS1_30functor_manager_operation_typeE }, void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)* @_ZN5boost6detail8function26void_function_obj_invoker1INS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEvSA_E6invokeERNS1_15function_bufferESA_ }, align 8
 @_ZTSN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEE = linkonce_odr constant [71 x i8] c"N5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEE\00"
 @_ZTSN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEE = linkonce_odr constant [70 x i8] c"N5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEE\00"
 @_ZTSN5boost13function_baseE = linkonce_odr constant [24 x i8] c"N5boost13function_baseE\00"
@@ -290,9 +314,9 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTISt14unary_functionIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE = linkonce_odr constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([74 x i8]* @_ZTSSt14unary_functionIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE, i32 0, i32 0) }
 @_ZTIN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEE = linkonce_odr constant { i8*, i8*, i32, i32, i8*, i64, i8*, i64 } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([70 x i8]* @_ZTSN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEE, i32 0, i32 0), i32 0, i32 2, i8* bitcast ({ i8*, i8* }* @_ZTIN5boost13function_baseE to i8*), i64 2, i8* bitcast ({ i8*, i8* }* @_ZTISt14unary_functionIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE to i8*), i64 2 }
 @_ZTIN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEE = linkonce_odr constant { i8*, i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8** @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([71 x i8]* @_ZTSN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEE, i32 0, i32 0), i8* bitcast ({ i8*, i8*, i32, i32, i8*, i64, i8*, i64 }* @_ZTIN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEE to i8*) }
-@.str36 = private unnamed_addr constant [17 x i8] c"std_msgs/Float64\00", align 1
-@.str37 = private unnamed_addr constant [33 x i8] c"fdb28210bfa9d7c91146260178d9a584\00", align 1
-@.str38 = private unnamed_addr constant [13 x i8] c"string data\0A\00", align 1
+@.str40 = private unnamed_addr constant [17 x i8] c"std_msgs/Float64\00", align 1
+@.str41 = private unnamed_addr constant [33 x i8] c"fdb28210bfa9d7c91146260178d9a584\00", align 1
+@.str42 = private unnamed_addr constant [13 x i8] c"string data\0A\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, void ()* }] [{ i32, void ()* } { i32 65535, void ()* @_GLOBAL__I_a }]
 
 @_ZN4TestC1Ev = alias void (%class.Test*)* @_ZN4TestC2Ev
@@ -451,550 +475,640 @@ define void @_ZN4TestC2Ev(%class.Test* %this) unnamed_addr #3 align 2 {
   %19 = alloca %"class.std::allocator", align 1
   %20 = alloca %"class.ros::TransportHints", align 8
   %21 = alloca { i64, i64 }, align 8
+  %22 = alloca %"class.ros::Publisher", align 8
+  %23 = alloca %"class.std::basic_string", align 8
+  %24 = alloca %"class.std::allocator", align 1
   store %class.Test* %this, %class.Test** %1, align 8
-  %22 = load %class.Test** %1
-  %23 = getelementptr inbounds %class.Test* %22, i32 0, i32 0
+  %25 = load %class.Test** %1
+  %26 = getelementptr inbounds %class.Test* %25, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %3) #1
   invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %2, i8* getelementptr inbounds ([2 x i8]* @.str, i32 0, i32 0), %"class.std::allocator"* %3)
-          to label %24 unwind label %54
+          to label %27 unwind label %59
 
-; <label>:24                                      ; preds = %0
+; <label>:27                                      ; preds = %0
   invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEC2Ev(%"class.std::map"* %6)
-          to label %25 unwind label %58
-
-; <label>:25                                      ; preds = %24
-  invoke void @_ZN3ros10NodeHandleC1ERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS1_SsEEE(%"class.ros::NodeHandle"* %23, %"class.std::basic_string"* %2, %"class.std::map"* %6)
-          to label %26 unwind label %62
-
-; <label>:26                                      ; preds = %25
-  invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEED2Ev(%"class.std::map"* %6)
-          to label %27 unwind label %58
-
-; <label>:27                                      ; preds = %26
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %2)
-          to label %28 unwind label %54
+          to label %28 unwind label %63
 
 ; <label>:28                                      ; preds = %27
-  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %3) #1
-  %29 = getelementptr inbounds %class.Test* %22, i32 0, i32 1
-  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %7)
-          to label %30 unwind label %70
+  invoke void @_ZN3ros10NodeHandleC1ERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS1_SsEEE(%"class.ros::NodeHandle"* %26, %"class.std::basic_string"* %2, %"class.std::map"* %6)
+          to label %29 unwind label %67
 
-; <label>:30                                      ; preds = %28
-  invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEC2Ev(%"class.std::map"* %8)
-          to label %31 unwind label %74
+; <label>:29                                      ; preds = %28
+  invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEED2Ev(%"class.std::map"* %6)
+          to label %30 unwind label %63
+
+; <label>:30                                      ; preds = %29
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %2)
+          to label %31 unwind label %59
 
 ; <label>:31                                      ; preds = %30
-  invoke void @_ZN3ros10NodeHandleC1ERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS1_SsEEE(%"class.ros::NodeHandle"* %29, %"class.std::basic_string"* %7, %"class.std::map"* %8)
-          to label %32 unwind label %78
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %3) #1
+  %32 = getelementptr inbounds %class.Test* %25, i32 0, i32 1
+  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %7)
+          to label %33 unwind label %75
 
-; <label>:32                                      ; preds = %31
-  invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEED2Ev(%"class.std::map"* %8)
-          to label %33 unwind label %74
-
-; <label>:33                                      ; preds = %32
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %7)
-          to label %34 unwind label %70
+; <label>:33                                      ; preds = %31
+  invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEC2Ev(%"class.std::map"* %8)
+          to label %34 unwind label %79
 
 ; <label>:34                                      ; preds = %33
-  %35 = getelementptr inbounds %class.Test* %22, i32 0, i32 3
-  invoke void @_ZN3ros10SubscriberC2Ev(%"class.ros::Subscriber"* %35)
-          to label %36 unwind label %85
+  invoke void @_ZN3ros10NodeHandleC1ERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS1_SsEEE(%"class.ros::NodeHandle"* %32, %"class.std::basic_string"* %7, %"class.std::map"* %8)
+          to label %35 unwind label %83
 
-; <label>:36                                      ; preds = %34
-  %37 = getelementptr inbounds %class.Test* %22, i32 0, i32 4
-  invoke void @_ZN3ros9PublisherC2Ev(%"class.ros::Publisher"* %37)
-          to label %38 unwind label %89
+; <label>:35                                      ; preds = %34
+  invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEED2Ev(%"class.std::map"* %8)
+          to label %36 unwind label %79
 
-; <label>:38                                      ; preds = %36
-  %39 = getelementptr inbounds %class.Test* %22, i32 0, i32 0
+; <label>:36                                      ; preds = %35
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %7)
+          to label %37 unwind label %75
+
+; <label>:37                                      ; preds = %36
+  %38 = getelementptr inbounds %class.Test* %25, i32 0, i32 3
+  invoke void @_ZN3ros10SubscriberC2Ev(%"class.ros::Subscriber"* %38)
+          to label %39 unwind label %90
+
+; <label>:39                                      ; preds = %37
+  %40 = getelementptr inbounds %class.Test* %25, i32 0, i32 4
+  invoke void @_ZN3ros9PublisherC2Ev(%"class.ros::Publisher"* %40)
+          to label %41 unwind label %94
+
+; <label>:41                                      ; preds = %39
+  %42 = getelementptr inbounds %class.Test* %25, i32 0, i32 5
+  invoke void @_ZN3ros9PublisherC2Ev(%"class.ros::Publisher"* %42)
+          to label %43 unwind label %98
+
+; <label>:43                                      ; preds = %41
+  %44 = getelementptr inbounds %class.Test* %25, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %10) #1
   invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %9, i8* getelementptr inbounds ([11 x i8]* @.str10, i32 0, i32 0), %"class.std::allocator"* %10)
-          to label %40 unwind label %93
+          to label %45 unwind label %102
 
-; <label>:40                                      ; preds = %38
-  %41 = getelementptr inbounds %class.Test* %22, i32 0, i32 2
+; <label>:45                                      ; preds = %43
+  %46 = getelementptr inbounds %class.Test* %25, i32 0, i32 2
   store i32 42, i32* %11
-  invoke void @_ZNK3ros10NodeHandle5paramIiEEvRKSsRT_RKS4_(%"class.ros::NodeHandle"* %39, %"class.std::basic_string"* %9, i32* %41, i32* %11)
-          to label %42 unwind label %97
+  invoke void @_ZNK3ros10NodeHandle5paramIiEEvRKSsRT_RKS4_(%"class.ros::NodeHandle"* %44, %"class.std::basic_string"* %9, i32* %46, i32* %11)
+          to label %47 unwind label %106
 
-; <label>:42                                      ; preds = %40
+; <label>:47                                      ; preds = %45
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %9)
-          to label %43 unwind label %93
+          to label %48 unwind label %102
 
-; <label>:43                                      ; preds = %42
+; <label>:48                                      ; preds = %47
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %10) #1
-  br label %44
+  br label %49
 
-; <label>:44                                      ; preds = %43
-  br label %45
+; <label>:49                                      ; preds = %48
+  br label %50
 
-; <label>:45                                      ; preds = %44
-  %46 = load i8* @_ZN3ros7console13g_initializedE, align 1
-  %47 = trunc i8 %46 to i1
-  %48 = xor i1 %47, true
-  %49 = zext i1 %48 to i64
-  %50 = call i64 @llvm.expect.i64(i64 %49, i64 0)
-  %51 = icmp ne i64 %50, 0
-  br i1 %51, label %52, label %107
+; <label>:50                                      ; preds = %49
+  %51 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %52 = trunc i8 %51 to i1
+  %53 = xor i1 %52, true
+  %54 = zext i1 %53 to i64
+  %55 = call i64 @llvm.expect.i64(i64 %54, i64 0)
+  %56 = icmp ne i64 %55, 0
+  br i1 %56, label %57, label %116
 
-; <label>:52                                      ; preds = %45
+; <label>:57                                      ; preds = %50
   invoke void @_ZN3ros7console10initializeEv()
-          to label %53 unwind label %103
+          to label %58 unwind label %112
 
-; <label>:53                                      ; preds = %52
-  br label %107
+; <label>:58                                      ; preds = %57
+  br label %116
 
-; <label>:54                                      ; preds = %27, %0
-  %55 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:59                                      ; preds = %30, %0
+  %60 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %56 = extractvalue { i8*, i32 } %55, 0
-  store i8* %56, i8** %4
-  %57 = extractvalue { i8*, i32 } %55, 1
-  store i32 %57, i32* %5
-  br label %69
+  %61 = extractvalue { i8*, i32 } %60, 0
+  store i8* %61, i8** %4
+  %62 = extractvalue { i8*, i32 } %60, 1
+  store i32 %62, i32* %5
+  br label %74
 
-; <label>:58                                      ; preds = %26, %24
-  %59 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:63                                      ; preds = %29, %27
+  %64 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %60 = extractvalue { i8*, i32 } %59, 0
-  store i8* %60, i8** %4
-  %61 = extractvalue { i8*, i32 } %59, 1
-  store i32 %61, i32* %5
-  br label %67
+  %65 = extractvalue { i8*, i32 } %64, 0
+  store i8* %65, i8** %4
+  %66 = extractvalue { i8*, i32 } %64, 1
+  store i32 %66, i32* %5
+  br label %72
 
-; <label>:62                                      ; preds = %25
-  %63 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:67                                      ; preds = %28
+  %68 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %64 = extractvalue { i8*, i32 } %63, 0
-  store i8* %64, i8** %4
-  %65 = extractvalue { i8*, i32 } %63, 1
-  store i32 %65, i32* %5
+  %69 = extractvalue { i8*, i32 } %68, 0
+  store i8* %69, i8** %4
+  %70 = extractvalue { i8*, i32 } %68, 1
+  store i32 %70, i32* %5
   invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEED2Ev(%"class.std::map"* %6)
-          to label %66 unwind label %232
+          to label %71 unwind label %267
 
-; <label>:66                                      ; preds = %62
-  br label %67
+; <label>:71                                      ; preds = %67
+  br label %72
 
-; <label>:67                                      ; preds = %66, %58
+; <label>:72                                      ; preds = %71, %63
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %2)
-          to label %68 unwind label %232
+          to label %73 unwind label %267
 
-; <label>:68                                      ; preds = %67
-  br label %69
+; <label>:73                                      ; preds = %72
+  br label %74
 
-; <label>:69                                      ; preds = %68, %54
+; <label>:74                                      ; preds = %73, %59
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %3) #1
-  br label %227
+  br label %262
 
-; <label>:70                                      ; preds = %33, %28
-  %71 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:75                                      ; preds = %36, %31
+  %76 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %72 = extractvalue { i8*, i32 } %71, 0
-  store i8* %72, i8** %4
-  %73 = extractvalue { i8*, i32 } %71, 1
-  store i32 %73, i32* %5
-  br label %225
+  %77 = extractvalue { i8*, i32 } %76, 0
+  store i8* %77, i8** %4
+  %78 = extractvalue { i8*, i32 } %76, 1
+  store i32 %78, i32* %5
+  br label %260
 
-; <label>:74                                      ; preds = %32, %30
-  %75 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:79                                      ; preds = %35, %33
+  %80 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %76 = extractvalue { i8*, i32 } %75, 0
-  store i8* %76, i8** %4
-  %77 = extractvalue { i8*, i32 } %75, 1
-  store i32 %77, i32* %5
-  br label %83
+  %81 = extractvalue { i8*, i32 } %80, 0
+  store i8* %81, i8** %4
+  %82 = extractvalue { i8*, i32 } %80, 1
+  store i32 %82, i32* %5
+  br label %88
 
-; <label>:78                                      ; preds = %31
-  %79 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:83                                      ; preds = %34
+  %84 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %80 = extractvalue { i8*, i32 } %79, 0
-  store i8* %80, i8** %4
-  %81 = extractvalue { i8*, i32 } %79, 1
-  store i32 %81, i32* %5
+  %85 = extractvalue { i8*, i32 } %84, 0
+  store i8* %85, i8** %4
+  %86 = extractvalue { i8*, i32 } %84, 1
+  store i32 %86, i32* %5
   invoke void @_ZNSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEED2Ev(%"class.std::map"* %8)
-          to label %82 unwind label %232
+          to label %87 unwind label %267
 
-; <label>:82                                      ; preds = %78
-  br label %83
+; <label>:87                                      ; preds = %83
+  br label %88
 
-; <label>:83                                      ; preds = %82, %74
+; <label>:88                                      ; preds = %87, %79
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %7)
-          to label %84 unwind label %232
+          to label %89 unwind label %267
 
-; <label>:84                                      ; preds = %83
-  br label %225
+; <label>:89                                      ; preds = %88
+  br label %260
 
-; <label>:85                                      ; preds = %34
-  %86 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:90                                      ; preds = %37
+  %91 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %87 = extractvalue { i8*, i32 } %86, 0
-  store i8* %87, i8** %4
-  %88 = extractvalue { i8*, i32 } %86, 1
-  store i32 %88, i32* %5
-  br label %223
+  %92 = extractvalue { i8*, i32 } %91, 0
+  store i8* %92, i8** %4
+  %93 = extractvalue { i8*, i32 } %91, 1
+  store i32 %93, i32* %5
+  br label %258
 
-; <label>:89                                      ; preds = %36
-  %90 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:94                                      ; preds = %39
+  %95 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %91 = extractvalue { i8*, i32 } %90, 0
-  store i8* %91, i8** %4
-  %92 = extractvalue { i8*, i32 } %90, 1
-  store i32 %92, i32* %5
-  br label %221
+  %96 = extractvalue { i8*, i32 } %95, 0
+  store i8* %96, i8** %4
+  %97 = extractvalue { i8*, i32 } %95, 1
+  store i32 %97, i32* %5
+  br label %256
 
-; <label>:93                                      ; preds = %42, %38
-  %94 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:98                                      ; preds = %41
+  %99 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %95 = extractvalue { i8*, i32 } %94, 0
-  store i8* %95, i8** %4
-  %96 = extractvalue { i8*, i32 } %94, 1
-  store i32 %96, i32* %5
-  br label %102
+  %100 = extractvalue { i8*, i32 } %99, 0
+  store i8* %100, i8** %4
+  %101 = extractvalue { i8*, i32 } %99, 1
+  store i32 %101, i32* %5
+  br label %254
 
-; <label>:97                                      ; preds = %40
-  %98 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:102                                     ; preds = %47, %43
+  %103 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %99 = extractvalue { i8*, i32 } %98, 0
-  store i8* %99, i8** %4
-  %100 = extractvalue { i8*, i32 } %98, 1
-  store i32 %100, i32* %5
+  %104 = extractvalue { i8*, i32 } %103, 0
+  store i8* %104, i8** %4
+  %105 = extractvalue { i8*, i32 } %103, 1
+  store i32 %105, i32* %5
+  br label %111
+
+; <label>:106                                     ; preds = %45
+  %107 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %108 = extractvalue { i8*, i32 } %107, 0
+  store i8* %108, i8** %4
+  %109 = extractvalue { i8*, i32 } %107, 1
+  store i32 %109, i32* %5
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %9)
-          to label %101 unwind label %232
+          to label %110 unwind label %267
 
-; <label>:101                                     ; preds = %97
-  br label %102
+; <label>:110                                     ; preds = %106
+  br label %111
 
-; <label>:102                                     ; preds = %101, %93
+; <label>:111                                     ; preds = %110, %102
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %10) #1
-  br label %219
+  br label %252
 
-; <label>:103                                     ; preds = %151, %137, %136, %52
-  %104 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:112                                     ; preds = %160, %146, %145, %57
+  %113 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %105 = extractvalue { i8*, i32 } %104, 0
-  store i8* %105, i8** %4
-  %106 = extractvalue { i8*, i32 } %104, 1
-  store i32 %106, i32* %5
-  br label %219
+  %114 = extractvalue { i8*, i32 } %113, 0
+  store i8* %114, i8** %4
+  %115 = extractvalue { i8*, i32 } %113, 1
+  store i32 %115, i32* %5
+  br label %252
 
-; <label>:107                                     ; preds = %53, %45
-  br label %108
-
-; <label>:108                                     ; preds = %107
-  br label %109
-
-; <label>:109                                     ; preds = %108
-  %110 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 0), align 1
-  %111 = trunc i8 %110 to i1
-  %112 = xor i1 %111, true
-  %113 = zext i1 %112 to i64
-  %114 = call i64 @llvm.expect.i64(i64 %113, i64 0)
-  %115 = icmp ne i64 %114, 0
-  br i1 %115, label %116, label %130
-
-; <label>:116                                     ; preds = %109
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %13) #1
-  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %12, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %13)
-          to label %117 unwind label %120
+; <label>:116                                     ; preds = %58, %50
+  br label %117
 
 ; <label>:117                                     ; preds = %116
-  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, %"class.std::basic_string"* %12, i32 1)
-          to label %118 unwind label %124
+  br label %118
 
 ; <label>:118                                     ; preds = %117
+  %119 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 0), align 1
+  %120 = trunc i8 %119 to i1
+  %121 = xor i1 %120, true
+  %122 = zext i1 %121 to i64
+  %123 = call i64 @llvm.expect.i64(i64 %122, i64 0)
+  %124 = icmp ne i64 %123, 0
+  br i1 %124, label %125, label %139
+
+; <label>:125                                     ; preds = %118
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %13) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %12, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %13)
+          to label %126 unwind label %129
+
+; <label>:126                                     ; preds = %125
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, %"class.std::basic_string"* %12, i32 1)
+          to label %127 unwind label %133
+
+; <label>:127                                     ; preds = %126
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %12)
-          to label %119 unwind label %120
+          to label %128 unwind label %129
 
-; <label>:119                                     ; preds = %118
+; <label>:128                                     ; preds = %127
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %13) #1
-  br label %130
-
-; <label>:120                                     ; preds = %118, %116
-  %121 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %122 = extractvalue { i8*, i32 } %121, 0
-  store i8* %122, i8** %4
-  %123 = extractvalue { i8*, i32 } %121, 1
-  store i32 %123, i32* %5
-  br label %129
-
-; <label>:124                                     ; preds = %117
-  %125 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %126 = extractvalue { i8*, i32 } %125, 0
-  store i8* %126, i8** %4
-  %127 = extractvalue { i8*, i32 } %125, 1
-  store i32 %127, i32* %5
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %12)
-          to label %128 unwind label %232
-
-; <label>:128                                     ; preds = %124
-  br label %129
-
-; <label>:129                                     ; preds = %128, %120
-  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %13) #1
-  br label %219
-
-; <label>:130                                     ; preds = %119, %109
-  %131 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 2), align 4
-  %132 = icmp ne i32 %131, 1
-  %133 = zext i1 %132 to i64
-  %134 = call i64 @llvm.expect.i64(i64 %133, i64 0)
-  %135 = icmp ne i64 %134, 0
-  br i1 %135, label %136, label %139
-
-; <label>:136                                     ; preds = %130
-  invoke void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 1)
-          to label %137 unwind label %103
-
-; <label>:137                                     ; preds = %136
-  invoke void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc)
-          to label %138 unwind label %103
-
-; <label>:138                                     ; preds = %137
   br label %139
 
-; <label>:139                                     ; preds = %138, %130
-  %140 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 1), align 1
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %142, label %143
+; <label>:129                                     ; preds = %127, %125
+  %130 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %131 = extractvalue { i8*, i32 } %130, 0
+  store i8* %131, i8** %4
+  %132 = extractvalue { i8*, i32 } %130, 1
+  store i32 %132, i32* %5
+  br label %138
 
-; <label>:142                                     ; preds = %139
-  br label %143
+; <label>:133                                     ; preds = %126
+  %134 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %135 = extractvalue { i8*, i32 } %134, 0
+  store i8* %135, i8** %4
+  %136 = extractvalue { i8*, i32 } %134, 1
+  store i32 %136, i32* %5
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %12)
+          to label %137 unwind label %267
 
-; <label>:143                                     ; preds = %142, %139
-  %144 = phi i1 [ false, %139 ], [ true, %142 ]
-  %145 = zext i1 %144 to i8
-  store i8 %145, i8* %__rosconsole_define_location__enabled, align 1
-  %146 = load i8* %__rosconsole_define_location__enabled, align 1
-  %147 = trunc i8 %146 to i1
-  %148 = zext i1 %147 to i64
-  %149 = call i64 @llvm.expect.i64(i64 %148, i64 0)
-  %150 = icmp ne i64 %149, 0
-  br i1 %150, label %151, label %155
+; <label>:137                                     ; preds = %133
+  br label %138
 
-; <label>:151                                     ; preds = %143
-  %152 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 3), align 8
-  %153 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 2), align 4
-  invoke void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %152, i32 %153, i8* getelementptr inbounds ([15 x i8]* @.str12, i32 0, i32 0), i32 31, i8* getelementptr inbounds ([13 x i8]* @__PRETTY_FUNCTION__._ZN4TestC2Ev, i32 0, i32 0), i8* getelementptr inbounds ([15 x i8]* @.str13, i32 0, i32 0))
-          to label %154 unwind label %103
+; <label>:138                                     ; preds = %137, %129
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %13) #1
+  br label %252
 
-; <label>:154                                     ; preds = %151
-  br label %155
+; <label>:139                                     ; preds = %128, %118
+  %140 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 2), align 4
+  %141 = icmp ne i32 %140, 1
+  %142 = zext i1 %141 to i64
+  %143 = call i64 @llvm.expect.i64(i64 %142, i64 0)
+  %144 = icmp ne i64 %143, 0
+  br i1 %144, label %145, label %148
 
-; <label>:155                                     ; preds = %154, %143
-  br label %156
+; <label>:145                                     ; preds = %139
+  invoke void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 1)
+          to label %146 unwind label %112
 
-; <label>:156                                     ; preds = %155
-  br label %157
+; <label>:146                                     ; preds = %145
+  invoke void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc)
+          to label %147 unwind label %112
 
-; <label>:157                                     ; preds = %156
-  %158 = getelementptr inbounds %class.Test* %22, i32 0, i32 4
-  %159 = getelementptr inbounds %class.Test* %22, i32 0, i32 1
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %16) #1
-  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %15, i8* getelementptr inbounds ([15 x i8]* @.str14, i32 0, i32 0), %"class.std::allocator"* %16)
-          to label %160 unwind label %181
+; <label>:147                                     ; preds = %146
+  br label %148
 
-; <label>:160                                     ; preds = %157
-  invoke void @_ZN3ros10NodeHandle9advertiseIN8std_msgs7String_ISaIvEEEEENS_9PublisherERKSsjb(%"class.ros::Publisher"* sret %14, %"class.ros::NodeHandle"* %159, %"class.std::basic_string"* %15, i32 2, i1 zeroext false)
-          to label %161 unwind label %185
+; <label>:148                                     ; preds = %147, %139
+  %149 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 1), align 1
+  %150 = trunc i8 %149 to i1
+  br i1 %150, label %151, label %152
 
-; <label>:161                                     ; preds = %160
-  %162 = invoke %"class.ros::Publisher"* @_ZN3ros9PublisheraSERKS0_(%"class.ros::Publisher"* %158, %"class.ros::Publisher"* %14)
-          to label %163 unwind label %189
+; <label>:151                                     ; preds = %148
+  br label %152
 
-; <label>:163                                     ; preds = %161
-  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %14)
-          to label %164 unwind label %185
+; <label>:152                                     ; preds = %151, %148
+  %153 = phi i1 [ false, %148 ], [ true, %151 ]
+  %154 = zext i1 %153 to i8
+  store i8 %154, i8* %__rosconsole_define_location__enabled, align 1
+  %155 = load i8* %__rosconsole_define_location__enabled, align 1
+  %156 = trunc i8 %155 to i1
+  %157 = zext i1 %156 to i64
+  %158 = call i64 @llvm.expect.i64(i64 %157, i64 0)
+  %159 = icmp ne i64 %158, 0
+  br i1 %159, label %160, label %164
 
-; <label>:164                                     ; preds = %163
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
-          to label %165 unwind label %181
+; <label>:160                                     ; preds = %152
+  %161 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 3), align 8
+  %162 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZN4TestC1EvE33__rosconsole_define_location__loc, i32 0, i32 2), align 4
+  invoke void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %161, i32 %162, i8* getelementptr inbounds ([15 x i8]* @.str12, i32 0, i32 0), i32 34, i8* getelementptr inbounds ([13 x i8]* @__PRETTY_FUNCTION__._ZN4TestC2Ev, i32 0, i32 0), i8* getelementptr inbounds ([15 x i8]* @.str13, i32 0, i32 0))
+          to label %163 unwind label %112
+
+; <label>:163                                     ; preds = %160
+  br label %164
+
+; <label>:164                                     ; preds = %163, %152
+  br label %165
 
 ; <label>:165                                     ; preds = %164
+  br label %166
+
+; <label>:166                                     ; preds = %165
+  %167 = getelementptr inbounds %class.Test* %25, i32 0, i32 4
+  %168 = getelementptr inbounds %class.Test* %25, i32 0, i32 1
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %16) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %15, i8* getelementptr inbounds ([15 x i8]* @.str14, i32 0, i32 0), %"class.std::allocator"* %16)
+          to label %169 unwind label %198
+
+; <label>:169                                     ; preds = %166
+  invoke void @_ZN3ros10NodeHandle9advertiseIN8std_msgs7String_ISaIvEEEEENS_9PublisherERKSsjb(%"class.ros::Publisher"* sret %14, %"class.ros::NodeHandle"* %168, %"class.std::basic_string"* %15, i32 2, i1 zeroext false)
+          to label %170 unwind label %202
+
+; <label>:170                                     ; preds = %169
+  %171 = invoke %"class.ros::Publisher"* @_ZN3ros9PublisheraSERKS0_(%"class.ros::Publisher"* %167, %"class.ros::Publisher"* %14)
+          to label %172 unwind label %206
+
+; <label>:172                                     ; preds = %170
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %14)
+          to label %173 unwind label %202
+
+; <label>:173                                     ; preds = %172
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
+          to label %174 unwind label %198
+
+; <label>:174                                     ; preds = %173
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %16) #1
-  %166 = getelementptr inbounds %class.Test* %22, i32 0, i32 3
-  %167 = getelementptr inbounds %class.Test* %22, i32 0, i32 1
+  %175 = getelementptr inbounds %class.Test* %25, i32 0, i32 3
+  %176 = getelementptr inbounds %class.Test* %25, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %19) #1
   invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %18, i8* getelementptr inbounds ([13 x i8]* @.str15, i32 0, i32 0), %"class.std::allocator"* %19)
-          to label %168 unwind label %197
+          to label %177 unwind label %214
 
-; <label>:168                                     ; preds = %165
-  %169 = bitcast %"class.ros::TransportHints"* %20 to i8*
-  call void @llvm.memset.p0i8.i64(i8* %169, i8 0, i64 72, i32 8, i1 false)
+; <label>:177                                     ; preds = %174
+  %178 = bitcast %"class.ros::TransportHints"* %20 to i8*
+  call void @llvm.memset.p0i8.i64(i8* %178, i8 0, i64 72, i32 8, i1 false)
   invoke void @_ZN3ros14TransportHintsC2Ev(%"class.ros::TransportHints"* %20)
-          to label %170 unwind label %201
+          to label %179 unwind label %218
 
-; <label>:170                                     ; preds = %168
+; <label>:179                                     ; preds = %177
   store { i64, i64 } { i64 ptrtoint (void (%class.Test*, %"class.boost::shared_ptr.26"*)* @_ZN4Test14callbackSimpleERKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEE to i64), i64 0 }, { i64, i64 }* %21, align 8
-  %171 = getelementptr { i64, i64 }* %21, i32 0, i32 0
-  %172 = load i64* %171, align 1
-  %173 = getelementptr { i64, i64 }* %21, i32 0, i32 1
-  %174 = load i64* %173, align 1
-  invoke void @_ZN3ros10NodeHandle9subscribeIN8std_msgs8Float64_ISaIvEEE4TestEENS_10SubscriberERKSsjMT0_FvRKN5boost10shared_ptrIKT_EEEPSA_RKNS_14TransportHintsE(%"class.ros::Subscriber"* sret %17, %"class.ros::NodeHandle"* %167, %"class.std::basic_string"* %18, i32 1, i64 %172, i64 %174, %class.Test* %22, %"class.ros::TransportHints"* %20)
-          to label %175 unwind label %205
+  %180 = getelementptr { i64, i64 }* %21, i32 0, i32 0
+  %181 = load i64* %180, align 1
+  %182 = getelementptr { i64, i64 }* %21, i32 0, i32 1
+  %183 = load i64* %182, align 1
+  invoke void @_ZN3ros10NodeHandle9subscribeIN8std_msgs8Float64_ISaIvEEE4TestEENS_10SubscriberERKSsjMT0_FvRKN5boost10shared_ptrIKT_EEEPSA_RKNS_14TransportHintsE(%"class.ros::Subscriber"* sret %17, %"class.ros::NodeHandle"* %176, %"class.std::basic_string"* %18, i32 1, i64 %181, i64 %183, %class.Test* %25, %"class.ros::TransportHints"* %20)
+          to label %184 unwind label %222
 
-; <label>:175                                     ; preds = %170
-  %176 = invoke %"class.ros::Subscriber"* @_ZN3ros10SubscriberaSERKS0_(%"class.ros::Subscriber"* %166, %"class.ros::Subscriber"* %17)
-          to label %177 unwind label %209
+; <label>:184                                     ; preds = %179
+  %185 = invoke %"class.ros::Subscriber"* @_ZN3ros10SubscriberaSERKS0_(%"class.ros::Subscriber"* %175, %"class.ros::Subscriber"* %17)
+          to label %186 unwind label %226
 
-; <label>:177                                     ; preds = %175
+; <label>:186                                     ; preds = %184
   invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %17)
-          to label %178 unwind label %205
+          to label %187 unwind label %222
 
-; <label>:178                                     ; preds = %177
+; <label>:187                                     ; preds = %186
   invoke void @_ZN3ros14TransportHintsD2Ev(%"class.ros::TransportHints"* %20)
-          to label %179 unwind label %201
+          to label %188 unwind label %218
 
-; <label>:179                                     ; preds = %178
+; <label>:188                                     ; preds = %187
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %18)
-          to label %180 unwind label %197
+          to label %189 unwind label %214
 
-; <label>:180                                     ; preds = %179
+; <label>:189                                     ; preds = %188
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %19) #1
+  %190 = getelementptr inbounds %class.Test* %25, i32 0, i32 5
+  %191 = getelementptr inbounds %class.Test* %25, i32 0, i32 1
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %24) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %23, i8* getelementptr inbounds ([10 x i8]* @.str16, i32 0, i32 0), %"class.std::allocator"* %24)
+          to label %192 unwind label %236
+
+; <label>:192                                     ; preds = %189
+  invoke void @_ZN3ros10NodeHandle9advertiseIN8std_msgs6Int16_ISaIvEEEEENS_9PublisherERKSsjb(%"class.ros::Publisher"* sret %22, %"class.ros::NodeHandle"* %191, %"class.std::basic_string"* %23, i32 3, i1 zeroext false)
+          to label %193 unwind label %240
+
+; <label>:193                                     ; preds = %192
+  %194 = invoke %"class.ros::Publisher"* @_ZN3ros9PublisheraSERKS0_(%"class.ros::Publisher"* %190, %"class.ros::Publisher"* %22)
+          to label %195 unwind label %244
+
+; <label>:195                                     ; preds = %193
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %22)
+          to label %196 unwind label %240
+
+; <label>:196                                     ; preds = %195
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %23)
+          to label %197 unwind label %236
+
+; <label>:197                                     ; preds = %196
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %24) #1
   ret void
 
-; <label>:181                                     ; preds = %164, %157
-  %182 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:198                                     ; preds = %173, %166
+  %199 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %183 = extractvalue { i8*, i32 } %182, 0
-  store i8* %183, i8** %4
-  %184 = extractvalue { i8*, i32 } %182, 1
-  store i32 %184, i32* %5
-  br label %196
+  %200 = extractvalue { i8*, i32 } %199, 0
+  store i8* %200, i8** %4
+  %201 = extractvalue { i8*, i32 } %199, 1
+  store i32 %201, i32* %5
+  br label %213
 
-; <label>:185                                     ; preds = %163, %160
-  %186 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:202                                     ; preds = %172, %169
+  %203 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %187 = extractvalue { i8*, i32 } %186, 0
-  store i8* %187, i8** %4
-  %188 = extractvalue { i8*, i32 } %186, 1
-  store i32 %188, i32* %5
-  br label %194
+  %204 = extractvalue { i8*, i32 } %203, 0
+  store i8* %204, i8** %4
+  %205 = extractvalue { i8*, i32 } %203, 1
+  store i32 %205, i32* %5
+  br label %211
 
-; <label>:189                                     ; preds = %161
-  %190 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:206                                     ; preds = %170
+  %207 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %191 = extractvalue { i8*, i32 } %190, 0
-  store i8* %191, i8** %4
-  %192 = extractvalue { i8*, i32 } %190, 1
-  store i32 %192, i32* %5
+  %208 = extractvalue { i8*, i32 } %207, 0
+  store i8* %208, i8** %4
+  %209 = extractvalue { i8*, i32 } %207, 1
+  store i32 %209, i32* %5
   invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %14)
-          to label %193 unwind label %232
+          to label %210 unwind label %267
 
-; <label>:193                                     ; preds = %189
-  br label %194
+; <label>:210                                     ; preds = %206
+  br label %211
 
-; <label>:194                                     ; preds = %193, %185
+; <label>:211                                     ; preds = %210, %202
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
-          to label %195 unwind label %232
+          to label %212 unwind label %267
 
-; <label>:195                                     ; preds = %194
-  br label %196
+; <label>:212                                     ; preds = %211
+  br label %213
 
-; <label>:196                                     ; preds = %195, %181
+; <label>:213                                     ; preds = %212, %198
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %16) #1
-  br label %219
+  br label %252
 
-; <label>:197                                     ; preds = %179, %165
-  %198 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:214                                     ; preds = %188, %174
+  %215 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %199 = extractvalue { i8*, i32 } %198, 0
-  store i8* %199, i8** %4
-  %200 = extractvalue { i8*, i32 } %198, 1
-  store i32 %200, i32* %5
-  br label %218
+  %216 = extractvalue { i8*, i32 } %215, 0
+  store i8* %216, i8** %4
+  %217 = extractvalue { i8*, i32 } %215, 1
+  store i32 %217, i32* %5
+  br label %235
 
-; <label>:201                                     ; preds = %178, %168
-  %202 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:218                                     ; preds = %187, %177
+  %219 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %203 = extractvalue { i8*, i32 } %202, 0
-  store i8* %203, i8** %4
-  %204 = extractvalue { i8*, i32 } %202, 1
-  store i32 %204, i32* %5
-  br label %216
+  %220 = extractvalue { i8*, i32 } %219, 0
+  store i8* %220, i8** %4
+  %221 = extractvalue { i8*, i32 } %219, 1
+  store i32 %221, i32* %5
+  br label %233
 
-; <label>:205                                     ; preds = %177, %170
-  %206 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:222                                     ; preds = %186, %179
+  %223 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %207 = extractvalue { i8*, i32 } %206, 0
-  store i8* %207, i8** %4
-  %208 = extractvalue { i8*, i32 } %206, 1
-  store i32 %208, i32* %5
-  br label %214
+  %224 = extractvalue { i8*, i32 } %223, 0
+  store i8* %224, i8** %4
+  %225 = extractvalue { i8*, i32 } %223, 1
+  store i32 %225, i32* %5
+  br label %231
 
-; <label>:209                                     ; preds = %175
-  %210 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:226                                     ; preds = %184
+  %227 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %211 = extractvalue { i8*, i32 } %210, 0
-  store i8* %211, i8** %4
-  %212 = extractvalue { i8*, i32 } %210, 1
-  store i32 %212, i32* %5
+  %228 = extractvalue { i8*, i32 } %227, 0
+  store i8* %228, i8** %4
+  %229 = extractvalue { i8*, i32 } %227, 1
+  store i32 %229, i32* %5
   invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %17)
-          to label %213 unwind label %232
+          to label %230 unwind label %267
 
-; <label>:213                                     ; preds = %209
-  br label %214
+; <label>:230                                     ; preds = %226
+  br label %231
 
-; <label>:214                                     ; preds = %213, %205
+; <label>:231                                     ; preds = %230, %222
   invoke void @_ZN3ros14TransportHintsD2Ev(%"class.ros::TransportHints"* %20)
-          to label %215 unwind label %232
+          to label %232 unwind label %267
 
-; <label>:215                                     ; preds = %214
-  br label %216
+; <label>:232                                     ; preds = %231
+  br label %233
 
-; <label>:216                                     ; preds = %215, %201
+; <label>:233                                     ; preds = %232, %218
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %18)
-          to label %217 unwind label %232
+          to label %234 unwind label %267
 
-; <label>:217                                     ; preds = %216
-  br label %218
+; <label>:234                                     ; preds = %233
+  br label %235
 
-; <label>:218                                     ; preds = %217, %197
+; <label>:235                                     ; preds = %234, %214
   call void @_ZNSaIcED1Ev(%"class.std::allocator"* %19) #1
-  br label %219
+  br label %252
 
-; <label>:219                                     ; preds = %218, %196, %129, %103, %102
-  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %37)
-          to label %220 unwind label %232
+; <label>:236                                     ; preds = %196, %189
+  %237 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %238 = extractvalue { i8*, i32 } %237, 0
+  store i8* %238, i8** %4
+  %239 = extractvalue { i8*, i32 } %237, 1
+  store i32 %239, i32* %5
+  br label %251
 
-; <label>:220                                     ; preds = %219
-  br label %221
+; <label>:240                                     ; preds = %195, %192
+  %241 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %242 = extractvalue { i8*, i32 } %241, 0
+  store i8* %242, i8** %4
+  %243 = extractvalue { i8*, i32 } %241, 1
+  store i32 %243, i32* %5
+  br label %249
 
-; <label>:221                                     ; preds = %220, %89
-  invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %35)
-          to label %222 unwind label %232
+; <label>:244                                     ; preds = %193
+  %245 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %246 = extractvalue { i8*, i32 } %245, 0
+  store i8* %246, i8** %4
+  %247 = extractvalue { i8*, i32 } %245, 1
+  store i32 %247, i32* %5
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %22)
+          to label %248 unwind label %267
 
-; <label>:222                                     ; preds = %221
-  br label %223
+; <label>:248                                     ; preds = %244
+  br label %249
 
-; <label>:223                                     ; preds = %222, %85
-  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %29)
-          to label %224 unwind label %232
+; <label>:249                                     ; preds = %248, %240
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %23)
+          to label %250 unwind label %267
 
-; <label>:224                                     ; preds = %223
-  br label %225
+; <label>:250                                     ; preds = %249
+  br label %251
 
-; <label>:225                                     ; preds = %224, %84, %70
-  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %23)
-          to label %226 unwind label %232
+; <label>:251                                     ; preds = %250, %236
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %24) #1
+  br label %252
 
-; <label>:226                                     ; preds = %225
-  br label %227
+; <label>:252                                     ; preds = %251, %235, %213, %138, %112, %111
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %42)
+          to label %253 unwind label %267
 
-; <label>:227                                     ; preds = %226, %69
-  %228 = load i8** %4
-  %229 = load i32* %5
-  %230 = insertvalue { i8*, i32 } undef, i8* %228, 0
-  %231 = insertvalue { i8*, i32 } %230, i32 %229, 1
-  resume { i8*, i32 } %231
+; <label>:253                                     ; preds = %252
+  br label %254
 
-; <label>:232                                     ; preds = %225, %223, %221, %219, %216, %214, %209, %194, %189, %124, %97, %83, %78, %67, %62
-  %233 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:254                                     ; preds = %253, %98
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %40)
+          to label %255 unwind label %267
+
+; <label>:255                                     ; preds = %254
+  br label %256
+
+; <label>:256                                     ; preds = %255, %94
+  invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %38)
+          to label %257 unwind label %267
+
+; <label>:257                                     ; preds = %256
+  br label %258
+
+; <label>:258                                     ; preds = %257, %90
+  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %32)
+          to label %259 unwind label %267
+
+; <label>:259                                     ; preds = %258
+  br label %260
+
+; <label>:260                                     ; preds = %259, %89, %75
+  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %26)
+          to label %261 unwind label %267
+
+; <label>:261                                     ; preds = %260
+  br label %262
+
+; <label>:262                                     ; preds = %261, %74
+  %263 = load i8** %4
+  %264 = load i32* %5
+  %265 = insertvalue { i8*, i32 } undef, i8* %263, 0
+  %266 = insertvalue { i8*, i32 } %265, i32 %264, 1
+  resume { i8*, i32 } %266
+
+; <label>:267                                     ; preds = %260, %258, %256, %254, %252, %249, %244, %233, %231, %226, %211, %206, %133, %106, %88, %83, %72, %67
+  %268 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           catch i8* null
-  %234 = extractvalue { i8*, i32 } %233, 0
-  call void @__clang_call_terminate(i8* %234) #14
+  %269 = extractvalue { i8*, i32 } %268, 0
+  call void @__clang_call_terminate(i8* %269) #14
   unreachable
 }
 
@@ -1270,13 +1384,13 @@ define linkonce_odr void @_ZN3ros10NodeHandle9subscribeIN8std_msgs8Float64_ISaIv
   %6 = alloca %class.Test*, align 8
   %7 = alloca %"class.ros::TransportHints"*, align 8
   %ops = alloca %"struct.ros::SubscribeOptions", align 8
-  %8 = alloca %"class.boost::function.30", align 8
-  %9 = alloca %"class.boost::_bi::bind_t.35", align 8
+  %8 = alloca %"class.boost::function.37", align 8
+  %9 = alloca %"class.boost::_bi::bind_t.42", align 8
   %10 = alloca %"struct.boost::arg", align 1
   %11 = alloca { i64, i64 }, align 8
   %12 = alloca i8*
   %13 = alloca i32
-  %14 = alloca %"class.boost::function.33", align 8
+  %14 = alloca %"class.boost::function.40", align 8
   %15 = alloca %"struct.ros::DefaultMessageCreator", align 1
   %16 = alloca i32
   %17 = getelementptr { i64, i64 }* %1, i32 0, i32 0
@@ -1301,27 +1415,27 @@ define linkonce_odr void @_ZN3ros10NodeHandle9subscribeIN8std_msgs8Float64_ISaIv
   %25 = load i64* %24, align 1
   %26 = getelementptr { i64, i64 }* %11, i32 0, i32 1
   %27 = load i64* %26, align 1
-  invoke void @_ZN5boost4bindIv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEPS1_NS_3argILi1EEEEENS_3_bi6bind_tIT_NS_4_mfi3mf1ISG_T0_T1_EENSE_9list_av_2IT2_T3_E4typeEEEMSJ_FSG_SK_ESN_SO_(%"class.boost::_bi::bind_t.35"* sret %9, i64 %25, i64 %27, %class.Test* %23)
+  invoke void @_ZN5boost4bindIv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEPS1_NS_3argILi1EEEEENS_3_bi6bind_tIT_NS_4_mfi3mf1ISG_T0_T1_EENSE_9list_av_2IT2_T3_E4typeEEEMSJ_FSG_SK_ESN_SO_(%"class.boost::_bi::bind_t.42"* sret %9, i64 %25, i64 %27, %class.Test* %23)
           to label %28 unwind label %39
 
 ; <label>:28                                      ; preds = %0
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSD_5list2INSD_5valueIPSH_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISR_EE5valueEEE5valueEiE4typeE(%"class.boost::function.30"* %8, %"class.boost::_bi::bind_t.35"* byval align 8 %9, i32 0)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSD_5list2INSD_5valueIPSH_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISR_EE5valueEEE5valueEiE4typeE(%"class.boost::function.37"* %8, %"class.boost::_bi::bind_t.42"* byval align 8 %9, i32 0)
           to label %29 unwind label %39
 
 ; <label>:29                                      ; preds = %28
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISD_EE5valueEEE5valueEiE4typeE(%"class.boost::function.33"* %14, i32 0)
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISD_EE5valueEEE5valueEiE4typeE(%"class.boost::function.40"* %14, i32 0)
           to label %30 unwind label %43
 
 ; <label>:30                                      ; preds = %29
-  invoke void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaIvEEEEEvRKSsjRKN5boost8functionIFvRKNS8_10shared_ptrIKT_EEEEERKNS9_IFNSA_ISB_EEvEEE(%"struct.ros::SubscribeOptions"* %ops, %"class.std::basic_string"* %20, i32 %21, %"class.boost::function.30"* %8, %"class.boost::function.33"* %14)
+  invoke void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaIvEEEEEvRKSsjRKN5boost8functionIFvRKNS8_10shared_ptrIKT_EEEEERKNS9_IFNSA_ISB_EEvEEE(%"struct.ros::SubscribeOptions"* %ops, %"class.std::basic_string"* %20, i32 %21, %"class.boost::function.37"* %8, %"class.boost::function.40"* %14)
           to label %31 unwind label %47
 
 ; <label>:31                                      ; preds = %30
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %14)
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %14)
           to label %32 unwind label %43
 
 ; <label>:32                                      ; preds = %31
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %8)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %8)
           to label %33 unwind label %39
 
 ; <label>:33                                      ; preds = %32
@@ -1364,14 +1478,14 @@ define linkonce_odr void @_ZN3ros10NodeHandle9subscribeIN8std_msgs8Float64_ISaIv
   store i8* %49, i8** %12
   %50 = extractvalue { i8*, i32 } %48, 1
   store i32 %50, i32* %13
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %14)
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %14)
           to label %51 unwind label %61
 
 ; <label>:51                                      ; preds = %47
   br label %52
 
 ; <label>:52                                      ; preds = %51, %43
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %8)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %8)
           to label %53 unwind label %61
 
 ; <label>:53                                      ; preds = %52
@@ -1434,7 +1548,7 @@ define void @_ZN4Test14callbackSimpleERKN5boost10shared_ptrIKN8std_msgs8Float64_
   %19 = bitcast %"class.std::basic_stringstream"* %ss to i8*
   %20 = getelementptr inbounds i8* %19, i64 16
   %21 = bitcast i8* %20 to %"class.std::basic_ostream"*
-  %22 = invoke %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* %21, i8* getelementptr inbounds ([13 x i8]* @.str16, i32 0, i32 0))
+  %22 = invoke %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* %21, i8* getelementptr inbounds ([13 x i8]* @.str17, i32 0, i32 0))
           to label %23 unwind label %39
 
 ; <label>:23                                      ; preds = %18
@@ -1466,7 +1580,7 @@ define void @_ZN4Test14callbackSimpleERKN5boost10shared_ptrIKN8std_msgs8Float64_
 
 ; <label>:34                                      ; preds = %33
   call void @_ZN8std_msgs7String_ISaIvEED2Ev(%"struct.std_msgs::String_"* %msg)
-  br label %52
+  br label %53
 
 ; <label>:35                                      ; preds = %33, %17, %15
   %36 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
@@ -1494,40 +1608,44 @@ define void @_ZN4Test14callbackSimpleERKN5boost10shared_ptrIKN8std_msgs8Float64_
   %46 = extractvalue { i8*, i32 } %44, 1
   store i32 %46, i32* %4
   invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %5)
-          to label %47 unwind label %58
+          to label %47 unwind label %59
 
 ; <label>:47                                      ; preds = %43
   br label %48
 
 ; <label>:48                                      ; preds = %47, %39
   invoke void @_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(%"class.std::basic_stringstream"* %ss)
-          to label %49 unwind label %58
+          to label %49 unwind label %59
 
 ; <label>:49                                      ; preds = %48
   br label %50
 
 ; <label>:50                                      ; preds = %49, %35
   invoke void @_ZN8std_msgs7String_ISaIvEED2Ev(%"struct.std_msgs::String_"* %msg)
-          to label %51 unwind label %58
+          to label %51 unwind label %59
 
 ; <label>:51                                      ; preds = %50
+  br label %54
+
+; <label>:52                                      ; preds = %0
+  call void @_ZN4Test8pub_msg2Ev(%class.Test* %6)
   br label %53
 
-; <label>:52                                      ; preds = %34, %0
+; <label>:53                                      ; preds = %52, %34
   ret void
 
-; <label>:53                                      ; preds = %51
-  %54 = load i8** %3
-  %55 = load i32* %4
-  %56 = insertvalue { i8*, i32 } undef, i8* %54, 0
-  %57 = insertvalue { i8*, i32 } %56, i32 %55, 1
-  resume { i8*, i32 } %57
+; <label>:54                                      ; preds = %51
+  %55 = load i8** %3
+  %56 = load i32* %4
+  %57 = insertvalue { i8*, i32 } undef, i8* %55, 0
+  %58 = insertvalue { i8*, i32 } %57, i32 %56, 1
+  resume { i8*, i32 } %58
 
-; <label>:58                                      ; preds = %50, %48, %43
-  %59 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:59                                      ; preds = %50, %48, %43
+  %60 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           catch i8* null
-  %60 = extractvalue { i8*, i32 } %59, 0
-  call void @__clang_call_terminate(i8* %60) #14
+  %61 = extractvalue { i8*, i32 } %60, 0
+  call void @__clang_call_terminate(i8* %61) #14
   unreachable
 }
 
@@ -1625,6 +1743,120 @@ define linkonce_odr void @_ZN3ros14TransportHintsD2Ev(%"class.ros::TransportHint
   unreachable
 }
 
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN3ros10NodeHandle9advertiseIN8std_msgs6Int16_ISaIvEEEEENS_9PublisherERKSsjb(%"class.ros::Publisher"* noalias sret %agg.result, %"class.ros::NodeHandle"* %this, %"class.std::basic_string"* %topic, i32 %queue_size, i1 zeroext %latch) #3 align 2 {
+  %1 = alloca %"class.ros::NodeHandle"*, align 8
+  %2 = alloca %"class.std::basic_string"*, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  %ops = alloca %"struct.ros::AdvertiseOptions", align 8
+  %5 = alloca %"class.boost::function", align 8
+  %6 = alloca i8*
+  %7 = alloca i32
+  %8 = alloca %"class.boost::function", align 8
+  %9 = alloca i32
+  store %"class.ros::NodeHandle"* %this, %"class.ros::NodeHandle"** %1, align 8
+  store %"class.std::basic_string"* %topic, %"class.std::basic_string"** %2, align 8
+  store i32 %queue_size, i32* %3, align 4
+  %10 = zext i1 %latch to i8
+  store i8 %10, i8* %4, align 1
+  %11 = load %"class.ros::NodeHandle"** %1
+  call void @_ZN3ros16AdvertiseOptionsC2Ev(%"struct.ros::AdvertiseOptions"* %ops)
+  %12 = load %"class.std::basic_string"** %2, align 8
+  %13 = load i32* %3, align 4
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %5)
+          to label %14 unwind label %24
+
+; <label>:14                                      ; preds = %0
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %8)
+          to label %15 unwind label %28
+
+; <label>:15                                      ; preds = %14
+  invoke void @_ZN3ros16AdvertiseOptions4initIN8std_msgs6Int16_ISaIvEEEEEvRKSsjRKN5boost8functionIFvRKNS_25SingleSubscriberPublisherEEEESG_(%"struct.ros::AdvertiseOptions"* %ops, %"class.std::basic_string"* %12, i32 %13, %"class.boost::function"* %5, %"class.boost::function"* %8)
+          to label %16 unwind label %32
+
+; <label>:16                                      ; preds = %15
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %8)
+          to label %17 unwind label %28
+
+; <label>:17                                      ; preds = %16
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %5)
+          to label %18 unwind label %24
+
+; <label>:18                                      ; preds = %17
+  %19 = load i8* %4, align 1
+  %20 = trunc i8 %19 to i1
+  %21 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %ops, i32 0, i32 9
+  %22 = zext i1 %20 to i8
+  store i8 %22, i8* %21, align 1
+  invoke void @_ZN3ros10NodeHandle9advertiseERNS_16AdvertiseOptionsE(%"class.ros::Publisher"* sret %agg.result, %"class.ros::NodeHandle"* %11, %"struct.ros::AdvertiseOptions"* %ops)
+          to label %23 unwind label %24
+
+; <label>:23                                      ; preds = %18
+  store i32 1, i32* %9
+  call void @_ZN3ros16AdvertiseOptionsD2Ev(%"struct.ros::AdvertiseOptions"* %ops)
+  ret void
+
+; <label>:24                                      ; preds = %18, %17, %0
+  %25 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %26 = extractvalue { i8*, i32 } %25, 0
+  store i8* %26, i8** %6
+  %27 = extractvalue { i8*, i32 } %25, 1
+  store i32 %27, i32* %7
+  br label %39
+
+; <label>:28                                      ; preds = %16, %14
+  %29 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %30 = extractvalue { i8*, i32 } %29, 0
+  store i8* %30, i8** %6
+  %31 = extractvalue { i8*, i32 } %29, 1
+  store i32 %31, i32* %7
+  br label %37
+
+; <label>:32                                      ; preds = %15
+  %33 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %34 = extractvalue { i8*, i32 } %33, 0
+  store i8* %34, i8** %6
+  %35 = extractvalue { i8*, i32 } %33, 1
+  store i32 %35, i32* %7
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %8)
+          to label %36 unwind label %46
+
+; <label>:36                                      ; preds = %32
+  br label %37
+
+; <label>:37                                      ; preds = %36, %28
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %5)
+          to label %38 unwind label %46
+
+; <label>:38                                      ; preds = %37
+  br label %39
+
+; <label>:39                                      ; preds = %38, %24
+  invoke void @_ZN3ros16AdvertiseOptionsD2Ev(%"struct.ros::AdvertiseOptions"* %ops)
+          to label %40 unwind label %46
+
+; <label>:40                                      ; preds = %39
+  br label %41
+
+; <label>:41                                      ; preds = %40
+  %42 = load i8** %6
+  %43 = load i32* %7
+  %44 = insertvalue { i8*, i32 } undef, i8* %42, 0
+  %45 = insertvalue { i8*, i32 } %44, i32 %43, 1
+  resume { i8*, i32 } %45
+
+; <label>:46                                      ; preds = %39, %37, %32
+  %47 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %48 = extractvalue { i8*, i32 } %47, 0
+  call void @__clang_call_terminate(i8* %48) #14
+  unreachable
+}
+
 declare void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"*) #0
 
 ; Function Attrs: nounwind uwtable
@@ -1641,7 +1873,7 @@ define linkonce_odr %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIKN8std
   br label %9
 
 ; <label>:7                                       ; preds = %0
-  call void @__assert_fail(i8* getelementptr inbounds ([8 x i8]* @.str31, i32 0, i32 0), i8* getelementptr inbounds ([44 x i8]* @.str32, i32 0, i32 0), i32 653, i8* getelementptr inbounds ([192 x i8]* @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEptEv, i32 0, i32 0)) #14
+  call void @__assert_fail(i8* getelementptr inbounds ([8 x i8]* @.str32, i32 0, i32 0), i8* getelementptr inbounds ([44 x i8]* @.str33, i32 0, i32 0), i32 653, i8* getelementptr inbounds ([192 x i8]* @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEptEv, i32 0, i32 0)) #14
   unreachable
                                                   ; No predecessors!
   br label %9
@@ -1736,8 +1968,8 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
   %__rosconsole_define_location__enabled8 = alloca i8, align 1
   %m = alloca %"class.ros::SerializedMessage", align 8
   %27 = alloca %"class.boost::function.28", align 8
-  %28 = alloca %"class.boost::_bi::bind_t", align 8
-  %29 = alloca %"class.boost::reference_wrapper", align 8
+  %28 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %29 = alloca %"class.boost::reference_wrapper.33", align 8
   store %"class.ros::Publisher"* %this, %"class.ros::Publisher"** %1, align 8
   store %"struct.std_msgs::String_"* %message, %"struct.std_msgs::String_"** %2, align 8
   %30 = load %"class.ros::Publisher"** %1
@@ -1857,7 +2089,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:85                                      ; preds = %77
   %86 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 3), align 8
   %87 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %86, i32 %87, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str19, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([6 x i8]* @.str20, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %86, i32 %87, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str20, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([6 x i8]* @.str21, i32 0, i32 0))
   br label %88
 
 ; <label>:88                                      ; preds = %85, %77
@@ -1972,7 +2204,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:140                                     ; preds = %132
   %141 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 3), align 8
   %142 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %141, i32 %142, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([42 x i8]* @.str21, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %141, i32 %142, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([42 x i8]* @.str22, i32 0, i32 0))
   br label %143
 
 ; <label>:143                                     ; preds = %140, %132
@@ -2087,7 +2319,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:195                                     ; preds = %187
   %196 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 3), align 8
   %197 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %196, i32 %197, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str22, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %196, i32 %197, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str23, i32 0, i32 0))
   br label %198
 
 ; <label>:198                                     ; preds = %195, %187
@@ -2218,7 +2450,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:257                                     ; preds = %249
   %258 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 3), align 8
   %259 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %258, i32 %259, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str19, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([6 x i8]* @.str20, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %258, i32 %259, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str20, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([6 x i8]* @.str21, i32 0, i32 0))
   br label %260
 
 ; <label>:260                                     ; preds = %257, %249
@@ -2337,7 +2569,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
   %316 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %315)
   %317 = getelementptr inbounds %"class.ros::Publisher::Impl"* %316, i32 0, i32 0
   %318 = call i8* @_ZNKSs5c_strEv(%"class.std::basic_string"* %317)
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %313, i32 %314, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([55 x i8]* @.str23, i32 0, i32 0), i8* %318)
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %313, i32 %314, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([55 x i8]* @.str24, i32 0, i32 0), i8* %318)
   br label %319
 
 ; <label>:319                                     ; preds = %312, %304
@@ -2452,7 +2684,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:371                                     ; preds = %363
   %372 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 3), align 8
   %373 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %372, i32 %373, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str22, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %372, i32 %373, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str23, i32 0, i32 0))
   br label %374
 
 ; <label>:374                                     ; preds = %371, %363
@@ -2472,7 +2704,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
   %379 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
   %380 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %379)
   %381 = getelementptr inbounds %"class.ros::Publisher::Impl"* %380, i32 0, i32 1
-  %382 = call zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %381, i8* getelementptr inbounds ([2 x i8]* @.str24, i32 0, i32 0))
+  %382 = call zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %381, i8* getelementptr inbounds ([2 x i8]* @.str25, i32 0, i32 0))
   store i1 false, i1* %19
   store i1 false, i1* %20
   br i1 %382, label %399, label %383
@@ -2487,7 +2719,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 
 ; <label>:386                                     ; preds = %383
   store i1 true, i1* %20
-  %387 = invoke zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %17, i8* getelementptr inbounds ([2 x i8]* @.str24, i32 0, i32 0))
+  %387 = invoke zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %17, i8* getelementptr inbounds ([2 x i8]* @.str25, i32 0, i32 0))
           to label %388 unwind label %423
 
 ; <label>:388                                     ; preds = %386
@@ -2684,7 +2916,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:476                                     ; preds = %468
   %477 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 3), align 8
   %478 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %477, i32 %478, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str19, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([112 x i8]* @.str25, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %477, i32 %478, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str20, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([112 x i8]* @.str26, i32 0, i32 0))
   br label %479
 
 ; <label>:479                                     ; preds = %476, %468
@@ -2811,7 +3043,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
   %543 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %542)
   %544 = getelementptr inbounds %"class.ros::Publisher::Impl"* %543, i32 0, i32 1
   %545 = call i8* @_ZNKSs5c_strEv(%"class.std::basic_string"* %544)
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %532, i32 %533, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([75 x i8]* @.str26, i32 0, i32 0), i8* %535, i8* %537, i8* %541, i8* %545)
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %532, i32 %533, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([75 x i8]* @.str27, i32 0, i32 0), i8* %535, i8* %537, i8* %541, i8* %545)
   br label %546
 
 ; <label>:546                                     ; preds = %531, %523
@@ -2926,7 +3158,7 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
 ; <label>:598                                     ; preds = %590
   %599 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 3), align 8
   %600 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 2), align 4
-  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %599, i32 %600, i8* getelementptr inbounds ([40 x i8]* @.str18, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str22, i32 0, i32 0))
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %599, i32 %600, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([93 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str23, i32 0, i32 0))
   br label %601
 
 ; <label>:601                                     ; preds = %598, %590
@@ -2946,22 +3178,22 @@ define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs7String_ISaIvEEEE
           to label %607 unwind label %627
 
 ; <label>:607                                     ; preds = %604
-  %608 = getelementptr %"class.boost::reference_wrapper"* %29, i32 0, i32 0
+  %608 = getelementptr %"class.boost::reference_wrapper.33"* %29, i32 0, i32 0
   store %"struct.std_msgs::String_"* %606, %"struct.std_msgs::String_"** %608
-  %609 = getelementptr %"class.boost::reference_wrapper"* %29, i32 0, i32 0
+  %609 = getelementptr %"class.boost::reference_wrapper.33"* %29, i32 0, i32 0
   %610 = load %"struct.std_msgs::String_"** %609
   %611 = invoke { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } @_ZN5boost4bindIN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEENS_17reference_wrapperIS7_EEEENS_3_bi6bind_tIT_PFSD_T0_ENSB_9list_av_1IT1_E4typeEEESG_SI_(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* @_ZN3ros13serialization16serializeMessageIN8std_msgs7String_ISaIvEEEEENS_17SerializedMessageERKT_, %"struct.std_msgs::String_"* %610)
           to label %612 unwind label %627
 
 ; <label>:612                                     ; preds = %607
-  %613 = bitcast %"class.boost::_bi::bind_t"* %28 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %613 = bitcast %"class.boost::_bi::bind_t.30"* %28 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
   %614 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %613, i32 0, i32 0
   %615 = extractvalue { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } %611, 0
   store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %615, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %614, align 1
   %616 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %613, i32 0, i32 1
   %617 = extractvalue { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } %611, 1
   store %"struct.std_msgs::String_"* %617, %"struct.std_msgs::String_"** %616, align 1
-  %618 = bitcast %"class.boost::_bi::bind_t"* %28 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %618 = bitcast %"class.boost::_bi::bind_t.30"* %28 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
   %619 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %618, i32 0, i32 0
   %620 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %619, align 1
   %621 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %618, i32 0, i32 1
@@ -3041,6 +3273,1361 @@ define linkonce_odr void @_ZN8std_msgs7String_ISaIvEED2Ev(%"struct.std_msgs::Str
 }
 
 ; Function Attrs: uwtable
+define void @_ZN4Test8pub_msg2Ev(%class.Test* %this) #3 align 2 {
+  %1 = alloca %class.Test*, align 8
+  %msg2 = alloca %"struct.std_msgs::Int16_", align 2
+  store %class.Test* %this, %class.Test** %1, align 8
+  %2 = load %class.Test** %1
+  call void @_ZN8std_msgs6Int16_ISaIvEEC2Ev(%"struct.std_msgs::Int16_"* %msg2)
+  %3 = getelementptr inbounds %"struct.std_msgs::Int16_"* %msg2, i32 0, i32 0
+  store i16 42, i16* %3, align 2
+  %4 = getelementptr inbounds %class.Test* %2, i32 0, i32 5
+  call void @_ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_(%"class.ros::Publisher"* %4, %"struct.std_msgs::Int16_"* %msg2)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr void @_ZN8std_msgs6Int16_ISaIvEEC2Ev(%"struct.std_msgs::Int16_"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %this, %"struct.std_msgs::Int16_"** %1, align 8
+  %2 = load %"struct.std_msgs::Int16_"** %1
+  %3 = getelementptr inbounds %"struct.std_msgs::Int16_"* %2, i32 0, i32 0
+  store i16 0, i16* %3, align 2
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_(%"class.ros::Publisher"* %this, %"struct.std_msgs::Int16_"* %message) #3 align 2 {
+  %1 = alloca %"class.ros::Publisher"*, align 8
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
+  %3 = alloca %"class.std::basic_string", align 8
+  %4 = alloca %"class.std::allocator", align 1
+  %5 = alloca i8*
+  %6 = alloca i32
+  %__rosconsole_define_location__enabled = alloca i8, align 1
+  %7 = alloca %"class.std::basic_string", align 8
+  %8 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled1 = alloca i8, align 1
+  %9 = alloca %"class.std::basic_string", align 8
+  %10 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled2 = alloca i8, align 1
+  %11 = alloca %"class.std::basic_string", align 8
+  %12 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled3 = alloca i8, align 1
+  %13 = alloca %"class.std::basic_string", align 8
+  %14 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled4 = alloca i8, align 1
+  %15 = alloca %"class.std::basic_string", align 8
+  %16 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled5 = alloca i8, align 1
+  %17 = alloca %"class.std::basic_string", align 8
+  %18 = alloca %"class.std::allocator", align 1
+  %19 = alloca i1
+  %20 = alloca i1
+  %21 = alloca %"class.std::basic_string", align 8
+  %22 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled6 = alloca i8, align 1
+  %23 = alloca %"class.std::basic_string", align 8
+  %24 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled7 = alloca i8, align 1
+  %25 = alloca %"class.std::basic_string", align 8
+  %26 = alloca %"class.std::allocator", align 1
+  %__rosconsole_define_location__enabled8 = alloca i8, align 1
+  %m = alloca %"class.ros::SerializedMessage", align 8
+  %27 = alloca %"class.boost::function.28", align 8
+  %28 = alloca %"class.boost::_bi::bind_t", align 8
+  %29 = alloca %"class.boost::reference_wrapper", align 8
+  store %"class.ros::Publisher"* %this, %"class.ros::Publisher"** %1, align 8
+  store %"struct.std_msgs::Int16_"* %message, %"struct.std_msgs::Int16_"** %2, align 8
+  %30 = load %"class.ros::Publisher"** %1
+  %31 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %32 = call zeroext i1 @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEntEv(%"class.boost::shared_ptr.21"* %31)
+  br i1 %32, label %33, label %201
+
+; <label>:33                                      ; preds = %0
+  br label %34
+
+; <label>:34                                      ; preds = %33
+  br label %35
+
+; <label>:35                                      ; preds = %34
+  br label %36
+
+; <label>:36                                      ; preds = %35
+  %37 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i64
+  %41 = call i64 @llvm.expect.i64(i64 %40, i64 0)
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %44
+
+; <label>:43                                      ; preds = %36
+  call void @_ZN3ros7console10initializeEv()
+  br label %44
+
+; <label>:44                                      ; preds = %43, %36
+  br label %45
+
+; <label>:45                                      ; preds = %44
+  %46 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 0), align 1
+  %47 = trunc i8 %46 to i1
+  %48 = xor i1 %47, true
+  %49 = zext i1 %48 to i64
+  %50 = call i64 @llvm.expect.i64(i64 %49, i64 0)
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %66
+
+; <label>:52                                      ; preds = %45
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %4) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %3, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %4)
+          to label %53 unwind label %56
+
+; <label>:53                                      ; preds = %52
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, %"class.std::basic_string"* %3, i32 4)
+          to label %54 unwind label %60
+
+; <label>:54                                      ; preds = %53
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %3)
+          to label %55 unwind label %56
+
+; <label>:55                                      ; preds = %54
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %4) #1
+  br label %66
+
+; <label>:56                                      ; preds = %54, %52
+  %57 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %58 = extractvalue { i8*, i32 } %57, 0
+  store i8* %58, i8** %5
+  %59 = extractvalue { i8*, i32 } %57, 1
+  store i32 %59, i32* %6
+  br label %65
+
+; <label>:60                                      ; preds = %53
+  %61 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %62 = extractvalue { i8*, i32 } %61, 0
+  store i8* %62, i8** %5
+  %63 = extractvalue { i8*, i32 } %61, 1
+  store i32 %63, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %3)
+          to label %64 unwind label %643
+
+; <label>:64                                      ; preds = %60
+  br label %65
+
+; <label>:65                                      ; preds = %64, %56
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %4) #1
+  br label %638
+
+; <label>:66                                      ; preds = %55, %45
+  %67 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 2), align 4
+  %68 = icmp ne i32 %67, 4
+  %69 = zext i1 %68 to i64
+  %70 = call i64 @llvm.expect.i64(i64 %69, i64 0)
+  %71 = icmp ne i64 %70, 0
+  br i1 %71, label %72, label %73
+
+; <label>:72                                      ; preds = %66
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc)
+  br label %73
+
+; <label>:73                                      ; preds = %72, %66
+  %74 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 1), align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %77
+
+; <label>:76                                      ; preds = %73
+  br label %77
+
+; <label>:77                                      ; preds = %76, %73
+  %78 = phi i1 [ false, %73 ], [ true, %76 ]
+  %79 = zext i1 %78 to i8
+  store i8 %79, i8* %__rosconsole_define_location__enabled, align 1
+  %80 = load i8* %__rosconsole_define_location__enabled, align 1
+  %81 = trunc i8 %80 to i1
+  %82 = zext i1 %81 to i64
+  %83 = call i64 @llvm.expect.i64(i64 %82, i64 0)
+  %84 = icmp ne i64 %83, 0
+  br i1 %84, label %85, label %88
+
+; <label>:85                                      ; preds = %77
+  %86 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 3), align 8
+  %87 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %86, i32 %87, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str20, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([6 x i8]* @.str21, i32 0, i32 0))
+  br label %88
+
+; <label>:88                                      ; preds = %85, %77
+  br label %89
+
+; <label>:89                                      ; preds = %88
+  br label %90
+
+; <label>:90                                      ; preds = %89
+  br label %91
+
+; <label>:91                                      ; preds = %90
+  %92 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %93 = trunc i8 %92 to i1
+  %94 = xor i1 %93, true
+  %95 = zext i1 %94 to i64
+  %96 = call i64 @llvm.expect.i64(i64 %95, i64 0)
+  %97 = icmp ne i64 %96, 0
+  br i1 %97, label %98, label %99
+
+; <label>:98                                      ; preds = %91
+  call void @_ZN3ros7console10initializeEv()
+  br label %99
+
+; <label>:99                                      ; preds = %98, %91
+  br label %100
+
+; <label>:100                                     ; preds = %99
+  %101 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 0), align 1
+  %102 = trunc i8 %101 to i1
+  %103 = xor i1 %102, true
+  %104 = zext i1 %103 to i64
+  %105 = call i64 @llvm.expect.i64(i64 %104, i64 0)
+  %106 = icmp ne i64 %105, 0
+  br i1 %106, label %107, label %121
+
+; <label>:107                                     ; preds = %100
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %8) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %7, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %8)
+          to label %108 unwind label %111
+
+; <label>:108                                     ; preds = %107
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, %"class.std::basic_string"* %7, i32 4)
+          to label %109 unwind label %115
+
+; <label>:109                                     ; preds = %108
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %7)
+          to label %110 unwind label %111
+
+; <label>:110                                     ; preds = %109
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %8) #1
+  br label %121
+
+; <label>:111                                     ; preds = %109, %107
+  %112 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %113 = extractvalue { i8*, i32 } %112, 0
+  store i8* %113, i8** %5
+  %114 = extractvalue { i8*, i32 } %112, 1
+  store i32 %114, i32* %6
+  br label %120
+
+; <label>:115                                     ; preds = %108
+  %116 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %117 = extractvalue { i8*, i32 } %116, 0
+  store i8* %117, i8** %5
+  %118 = extractvalue { i8*, i32 } %116, 1
+  store i32 %118, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %7)
+          to label %119 unwind label %643
+
+; <label>:119                                     ; preds = %115
+  br label %120
+
+; <label>:120                                     ; preds = %119, %111
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %8) #1
+  br label %638
+
+; <label>:121                                     ; preds = %110, %100
+  %122 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 2), align 4
+  %123 = icmp ne i32 %122, 4
+  %124 = zext i1 %123 to i64
+  %125 = call i64 @llvm.expect.i64(i64 %124, i64 0)
+  %126 = icmp ne i64 %125, 0
+  br i1 %126, label %127, label %128
+
+; <label>:127                                     ; preds = %121
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0)
+  br label %128
+
+; <label>:128                                     ; preds = %127, %121
+  %129 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 1), align 1
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %131, label %132
+
+; <label>:131                                     ; preds = %128
+  br label %132
+
+; <label>:132                                     ; preds = %131, %128
+  %133 = phi i1 [ false, %128 ], [ true, %131 ]
+  %134 = zext i1 %133 to i8
+  store i8 %134, i8* %__rosconsole_define_location__enabled1, align 1
+  %135 = load i8* %__rosconsole_define_location__enabled1, align 1
+  %136 = trunc i8 %135 to i1
+  %137 = zext i1 %136 to i64
+  %138 = call i64 @llvm.expect.i64(i64 %137, i64 0)
+  %139 = icmp ne i64 %138, 0
+  br i1 %139, label %140, label %143
+
+; <label>:140                                     ; preds = %132
+  %141 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 3), align 8
+  %142 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_0, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %141, i32 %142, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([42 x i8]* @.str22, i32 0, i32 0))
+  br label %143
+
+; <label>:143                                     ; preds = %140, %132
+  br label %144
+
+; <label>:144                                     ; preds = %143
+  br label %145
+
+; <label>:145                                     ; preds = %144
+  br label %146
+
+; <label>:146                                     ; preds = %145
+  %147 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %148 = trunc i8 %147 to i1
+  %149 = xor i1 %148, true
+  %150 = zext i1 %149 to i64
+  %151 = call i64 @llvm.expect.i64(i64 %150, i64 0)
+  %152 = icmp ne i64 %151, 0
+  br i1 %152, label %153, label %154
+
+; <label>:153                                     ; preds = %146
+  call void @_ZN3ros7console10initializeEv()
+  br label %154
+
+; <label>:154                                     ; preds = %153, %146
+  br label %155
+
+; <label>:155                                     ; preds = %154
+  %156 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 0), align 1
+  %157 = trunc i8 %156 to i1
+  %158 = xor i1 %157, true
+  %159 = zext i1 %158 to i64
+  %160 = call i64 @llvm.expect.i64(i64 %159, i64 0)
+  %161 = icmp ne i64 %160, 0
+  br i1 %161, label %162, label %176
+
+; <label>:162                                     ; preds = %155
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %10) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %9, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %10)
+          to label %163 unwind label %166
+
+; <label>:163                                     ; preds = %162
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, %"class.std::basic_string"* %9, i32 4)
+          to label %164 unwind label %170
+
+; <label>:164                                     ; preds = %163
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %9)
+          to label %165 unwind label %166
+
+; <label>:165                                     ; preds = %164
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %10) #1
+  br label %176
+
+; <label>:166                                     ; preds = %164, %162
+  %167 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %168 = extractvalue { i8*, i32 } %167, 0
+  store i8* %168, i8** %5
+  %169 = extractvalue { i8*, i32 } %167, 1
+  store i32 %169, i32* %6
+  br label %175
+
+; <label>:170                                     ; preds = %163
+  %171 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %172 = extractvalue { i8*, i32 } %171, 0
+  store i8* %172, i8** %5
+  %173 = extractvalue { i8*, i32 } %171, 1
+  store i32 %173, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %9)
+          to label %174 unwind label %643
+
+; <label>:174                                     ; preds = %170
+  br label %175
+
+; <label>:175                                     ; preds = %174, %166
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %10) #1
+  br label %638
+
+; <label>:176                                     ; preds = %165, %155
+  %177 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 2), align 4
+  %178 = icmp ne i32 %177, 4
+  %179 = zext i1 %178 to i64
+  %180 = call i64 @llvm.expect.i64(i64 %179, i64 0)
+  %181 = icmp ne i64 %180, 0
+  br i1 %181, label %182, label %183
+
+; <label>:182                                     ; preds = %176
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1)
+  br label %183
+
+; <label>:183                                     ; preds = %182, %176
+  %184 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 1), align 1
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %187
+
+; <label>:186                                     ; preds = %183
+  br label %187
+
+; <label>:187                                     ; preds = %186, %183
+  %188 = phi i1 [ false, %183 ], [ true, %186 ]
+  %189 = zext i1 %188 to i8
+  store i8 %189, i8* %__rosconsole_define_location__enabled2, align 1
+  %190 = load i8* %__rosconsole_define_location__enabled2, align 1
+  %191 = trunc i8 %190 to i1
+  %192 = zext i1 %191 to i64
+  %193 = call i64 @llvm.expect.i64(i64 %192, i64 0)
+  %194 = icmp ne i64 %193, 0
+  br i1 %194, label %195, label %198
+
+; <label>:195                                     ; preds = %187
+  %196 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 3), align 8
+  %197 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_1, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %196, i32 %197, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 102, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str23, i32 0, i32 0))
+  br label %198
+
+; <label>:198                                     ; preds = %195, %187
+  br label %199
+
+; <label>:199                                     ; preds = %198
+  call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #1, !srcloc !1
+  br label %200
+
+; <label>:200                                     ; preds = %199
+  br label %626
+
+; <label>:201                                     ; preds = %0
+  %202 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %203 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %202)
+  %204 = call zeroext i1 @_ZNK3ros9Publisher4Impl7isValidEv(%"class.ros::Publisher::Impl"* %203)
+  br i1 %204, label %377, label %205
+
+; <label>:205                                     ; preds = %201
+  br label %206
+
+; <label>:206                                     ; preds = %205
+  br label %207
+
+; <label>:207                                     ; preds = %206
+  br label %208
+
+; <label>:208                                     ; preds = %207
+  %209 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %210 = trunc i8 %209 to i1
+  %211 = xor i1 %210, true
+  %212 = zext i1 %211 to i64
+  %213 = call i64 @llvm.expect.i64(i64 %212, i64 0)
+  %214 = icmp ne i64 %213, 0
+  br i1 %214, label %215, label %216
+
+; <label>:215                                     ; preds = %208
+  call void @_ZN3ros7console10initializeEv()
+  br label %216
+
+; <label>:216                                     ; preds = %215, %208
+  br label %217
+
+; <label>:217                                     ; preds = %216
+  %218 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 0), align 1
+  %219 = trunc i8 %218 to i1
+  %220 = xor i1 %219, true
+  %221 = zext i1 %220 to i64
+  %222 = call i64 @llvm.expect.i64(i64 %221, i64 0)
+  %223 = icmp ne i64 %222, 0
+  br i1 %223, label %224, label %238
+
+; <label>:224                                     ; preds = %217
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %12) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %11, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %12)
+          to label %225 unwind label %228
+
+; <label>:225                                     ; preds = %224
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, %"class.std::basic_string"* %11, i32 4)
+          to label %226 unwind label %232
+
+; <label>:226                                     ; preds = %225
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %11)
+          to label %227 unwind label %228
+
+; <label>:227                                     ; preds = %226
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %12) #1
+  br label %238
+
+; <label>:228                                     ; preds = %226, %224
+  %229 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %230 = extractvalue { i8*, i32 } %229, 0
+  store i8* %230, i8** %5
+  %231 = extractvalue { i8*, i32 } %229, 1
+  store i32 %231, i32* %6
+  br label %237
+
+; <label>:232                                     ; preds = %225
+  %233 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %234 = extractvalue { i8*, i32 } %233, 0
+  store i8* %234, i8** %5
+  %235 = extractvalue { i8*, i32 } %233, 1
+  store i32 %235, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %11)
+          to label %236 unwind label %643
+
+; <label>:236                                     ; preds = %232
+  br label %237
+
+; <label>:237                                     ; preds = %236, %228
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %12) #1
+  br label %638
+
+; <label>:238                                     ; preds = %227, %217
+  %239 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 2), align 4
+  %240 = icmp ne i32 %239, 4
+  %241 = zext i1 %240 to i64
+  %242 = call i64 @llvm.expect.i64(i64 %241, i64 0)
+  %243 = icmp ne i64 %242, 0
+  br i1 %243, label %244, label %245
+
+; <label>:244                                     ; preds = %238
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2)
+  br label %245
+
+; <label>:245                                     ; preds = %244, %238
+  %246 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 1), align 1
+  %247 = trunc i8 %246 to i1
+  br i1 %247, label %248, label %249
+
+; <label>:248                                     ; preds = %245
+  br label %249
+
+; <label>:249                                     ; preds = %248, %245
+  %250 = phi i1 [ false, %245 ], [ true, %248 ]
+  %251 = zext i1 %250 to i8
+  store i8 %251, i8* %__rosconsole_define_location__enabled3, align 1
+  %252 = load i8* %__rosconsole_define_location__enabled3, align 1
+  %253 = trunc i8 %252 to i1
+  %254 = zext i1 %253 to i64
+  %255 = call i64 @llvm.expect.i64(i64 %254, i64 0)
+  %256 = icmp ne i64 %255, 0
+  br i1 %256, label %257, label %260
+
+; <label>:257                                     ; preds = %249
+  %258 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 3), align 8
+  %259 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_2, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %258, i32 %259, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str20, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([6 x i8]* @.str21, i32 0, i32 0))
+  br label %260
+
+; <label>:260                                     ; preds = %257, %249
+  br label %261
+
+; <label>:261                                     ; preds = %260
+  br label %262
+
+; <label>:262                                     ; preds = %261
+  br label %263
+
+; <label>:263                                     ; preds = %262
+  %264 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %265 = trunc i8 %264 to i1
+  %266 = xor i1 %265, true
+  %267 = zext i1 %266 to i64
+  %268 = call i64 @llvm.expect.i64(i64 %267, i64 0)
+  %269 = icmp ne i64 %268, 0
+  br i1 %269, label %270, label %271
+
+; <label>:270                                     ; preds = %263
+  call void @_ZN3ros7console10initializeEv()
+  br label %271
+
+; <label>:271                                     ; preds = %270, %263
+  br label %272
+
+; <label>:272                                     ; preds = %271
+  %273 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, i32 0, i32 0), align 1
+  %274 = trunc i8 %273 to i1
+  %275 = xor i1 %274, true
+  %276 = zext i1 %275 to i64
+  %277 = call i64 @llvm.expect.i64(i64 %276, i64 0)
+  %278 = icmp ne i64 %277, 0
+  br i1 %278, label %279, label %293
+
+; <label>:279                                     ; preds = %272
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %14) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %13, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %14)
+          to label %280 unwind label %283
+
+; <label>:280                                     ; preds = %279
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, %"class.std::basic_string"* %13, i32 4)
+          to label %281 unwind label %287
+
+; <label>:281                                     ; preds = %280
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %13)
+          to label %282 unwind label %283
+
+; <label>:282                                     ; preds = %281
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %14) #1
+  br label %293
+
+; <label>:283                                     ; preds = %281, %279
+  %284 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %285 = extractvalue { i8*, i32 } %284, 0
+  store i8* %285, i8** %5
+  %286 = extractvalue { i8*, i32 } %284, 1
+  store i32 %286, i32* %6
+  br label %292
+
+; <label>:287                                     ; preds = %280
+  %288 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %289 = extractvalue { i8*, i32 } %288, 0
+  store i8* %289, i8** %5
+  %290 = extractvalue { i8*, i32 } %288, 1
+  store i32 %290, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %13)
+          to label %291 unwind label %643
+
+; <label>:291                                     ; preds = %287
+  br label %292
+
+; <label>:292                                     ; preds = %291, %283
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %14) #1
+  br label %638
+
+; <label>:293                                     ; preds = %282, %272
+  %294 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, i32 0, i32 2), align 4
+  %295 = icmp ne i32 %294, 4
+  %296 = zext i1 %295 to i64
+  %297 = call i64 @llvm.expect.i64(i64 %296, i64 0)
+  %298 = icmp ne i64 %297, 0
+  br i1 %298, label %299, label %300
+
+; <label>:299                                     ; preds = %293
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3)
+  br label %300
+
+; <label>:300                                     ; preds = %299, %293
+  %301 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, i32 0, i32 1), align 1
+  %302 = trunc i8 %301 to i1
+  br i1 %302, label %303, label %304
+
+; <label>:303                                     ; preds = %300
+  br label %304
+
+; <label>:304                                     ; preds = %303, %300
+  %305 = phi i1 [ false, %300 ], [ true, %303 ]
+  %306 = zext i1 %305 to i8
+  store i8 %306, i8* %__rosconsole_define_location__enabled4, align 1
+  %307 = load i8* %__rosconsole_define_location__enabled4, align 1
+  %308 = trunc i8 %307 to i1
+  %309 = zext i1 %308 to i64
+  %310 = call i64 @llvm.expect.i64(i64 %309, i64 0)
+  %311 = icmp ne i64 %310, 0
+  br i1 %311, label %312, label %319
+
+; <label>:312                                     ; preds = %304
+  %313 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, i32 0, i32 3), align 8
+  %314 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_3, i32 0, i32 2), align 4
+  %315 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %316 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %315)
+  %317 = getelementptr inbounds %"class.ros::Publisher::Impl"* %316, i32 0, i32 0
+  %318 = call i8* @_ZNKSs5c_strEv(%"class.std::basic_string"* %317)
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %313, i32 %314, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([55 x i8]* @.str24, i32 0, i32 0), i8* %318)
+  br label %319
+
+; <label>:319                                     ; preds = %312, %304
+  br label %320
+
+; <label>:320                                     ; preds = %319
+  br label %321
+
+; <label>:321                                     ; preds = %320
+  br label %322
+
+; <label>:322                                     ; preds = %321
+  %323 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %324 = trunc i8 %323 to i1
+  %325 = xor i1 %324, true
+  %326 = zext i1 %325 to i64
+  %327 = call i64 @llvm.expect.i64(i64 %326, i64 0)
+  %328 = icmp ne i64 %327, 0
+  br i1 %328, label %329, label %330
+
+; <label>:329                                     ; preds = %322
+  call void @_ZN3ros7console10initializeEv()
+  br label %330
+
+; <label>:330                                     ; preds = %329, %322
+  br label %331
+
+; <label>:331                                     ; preds = %330
+  %332 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 0), align 1
+  %333 = trunc i8 %332 to i1
+  %334 = xor i1 %333, true
+  %335 = zext i1 %334 to i64
+  %336 = call i64 @llvm.expect.i64(i64 %335, i64 0)
+  %337 = icmp ne i64 %336, 0
+  br i1 %337, label %338, label %352
+
+; <label>:338                                     ; preds = %331
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %16) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %15, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %16)
+          to label %339 unwind label %342
+
+; <label>:339                                     ; preds = %338
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, %"class.std::basic_string"* %15, i32 4)
+          to label %340 unwind label %346
+
+; <label>:340                                     ; preds = %339
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
+          to label %341 unwind label %342
+
+; <label>:341                                     ; preds = %340
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %16) #1
+  br label %352
+
+; <label>:342                                     ; preds = %340, %338
+  %343 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %344 = extractvalue { i8*, i32 } %343, 0
+  store i8* %344, i8** %5
+  %345 = extractvalue { i8*, i32 } %343, 1
+  store i32 %345, i32* %6
+  br label %351
+
+; <label>:346                                     ; preds = %339
+  %347 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %348 = extractvalue { i8*, i32 } %347, 0
+  store i8* %348, i8** %5
+  %349 = extractvalue { i8*, i32 } %347, 1
+  store i32 %349, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
+          to label %350 unwind label %643
+
+; <label>:350                                     ; preds = %346
+  br label %351
+
+; <label>:351                                     ; preds = %350, %342
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %16) #1
+  br label %638
+
+; <label>:352                                     ; preds = %341, %331
+  %353 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 2), align 4
+  %354 = icmp ne i32 %353, 4
+  %355 = zext i1 %354 to i64
+  %356 = call i64 @llvm.expect.i64(i64 %355, i64 0)
+  %357 = icmp ne i64 %356, 0
+  br i1 %357, label %358, label %359
+
+; <label>:358                                     ; preds = %352
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4)
+  br label %359
+
+; <label>:359                                     ; preds = %358, %352
+  %360 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 1), align 1
+  %361 = trunc i8 %360 to i1
+  br i1 %361, label %362, label %363
+
+; <label>:362                                     ; preds = %359
+  br label %363
+
+; <label>:363                                     ; preds = %362, %359
+  %364 = phi i1 [ false, %359 ], [ true, %362 ]
+  %365 = zext i1 %364 to i8
+  store i8 %365, i8* %__rosconsole_define_location__enabled5, align 1
+  %366 = load i8* %__rosconsole_define_location__enabled5, align 1
+  %367 = trunc i8 %366 to i1
+  %368 = zext i1 %367 to i64
+  %369 = call i64 @llvm.expect.i64(i64 %368, i64 0)
+  %370 = icmp ne i64 %369, 0
+  br i1 %370, label %371, label %374
+
+; <label>:371                                     ; preds = %363
+  %372 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 3), align 8
+  %373 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_4, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %372, i32 %373, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 108, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str23, i32 0, i32 0))
+  br label %374
+
+; <label>:374                                     ; preds = %371, %363
+  br label %375
+
+; <label>:375                                     ; preds = %374
+  call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #1, !srcloc !2
+  br label %376
+
+; <label>:376                                     ; preds = %375
+  br label %626
+
+; <label>:377                                     ; preds = %201
+  br label %378
+
+; <label>:378                                     ; preds = %377
+  %379 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %380 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %379)
+  %381 = getelementptr inbounds %"class.ros::Publisher::Impl"* %380, i32 0, i32 1
+  %382 = call zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %381, i8* getelementptr inbounds ([2 x i8]* @.str25, i32 0, i32 0))
+  store i1 false, i1* %19
+  store i1 false, i1* %20
+  br i1 %382, label %399, label %383
+
+; <label>:383                                     ; preds = %378
+  %384 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %385 = call i8* @_ZN3ros14message_traits6md5sumIN8std_msgs6Int16_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::Int16_"* %384)
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %18) #1
+  store i1 true, i1* %19
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %17, i8* %385, %"class.std::allocator"* %18)
+          to label %386 unwind label %419
+
+; <label>:386                                     ; preds = %383
+  store i1 true, i1* %20
+  %387 = invoke zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %17, i8* getelementptr inbounds ([2 x i8]* @.str25, i32 0, i32 0))
+          to label %388 unwind label %423
+
+; <label>:388                                     ; preds = %386
+  br i1 %387, label %399, label %389
+
+; <label>:389                                     ; preds = %388
+  %390 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %391 = invoke %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %390)
+          to label %392 unwind label %423
+
+; <label>:392                                     ; preds = %389
+  %393 = getelementptr inbounds %"class.ros::Publisher::Impl"* %391, i32 0, i32 1
+  %394 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %395 = invoke i8* @_ZN3ros14message_traits6md5sumIN8std_msgs6Int16_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::Int16_"* %394)
+          to label %396 unwind label %423
+
+; <label>:396                                     ; preds = %392
+  %397 = invoke zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_(%"class.std::basic_string"* %393, i8* %395)
+          to label %398 unwind label %423
+
+; <label>:398                                     ; preds = %396
+  br label %399
+
+; <label>:399                                     ; preds = %398, %388, %378
+  %400 = phi i1 [ true, %388 ], [ true, %378 ], [ %397, %398 ]
+  %401 = xor i1 %400, true
+  %402 = load i1* %20
+  br i1 %402, label %403, label %405
+
+; <label>:403                                     ; preds = %399
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %17)
+          to label %404 unwind label %419
+
+; <label>:404                                     ; preds = %403
+  br label %405
+
+; <label>:405                                     ; preds = %404, %399
+  %406 = load i1* %19
+  br i1 %406, label %407, label %408
+
+; <label>:407                                     ; preds = %405
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %18) #1
+  br label %408
+
+; <label>:408                                     ; preds = %407, %405
+  br i1 %401, label %409, label %603
+
+; <label>:409                                     ; preds = %408
+  br label %410
+
+; <label>:410                                     ; preds = %409
+  br label %411
+
+; <label>:411                                     ; preds = %410
+  %412 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %413 = trunc i8 %412 to i1
+  %414 = xor i1 %413, true
+  %415 = zext i1 %414 to i64
+  %416 = call i64 @llvm.expect.i64(i64 %415, i64 0)
+  %417 = icmp ne i64 %416, 0
+  br i1 %417, label %418, label %435
+
+; <label>:418                                     ; preds = %411
+  call void @_ZN3ros7console10initializeEv()
+  br label %435
+
+; <label>:419                                     ; preds = %403, %383
+  %420 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %421 = extractvalue { i8*, i32 } %420, 0
+  store i8* %421, i8** %5
+  %422 = extractvalue { i8*, i32 } %420, 1
+  store i32 %422, i32* %6
+  br label %431
+
+; <label>:423                                     ; preds = %396, %392, %389, %386
+  %424 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %425 = extractvalue { i8*, i32 } %424, 0
+  store i8* %425, i8** %5
+  %426 = extractvalue { i8*, i32 } %424, 1
+  store i32 %426, i32* %6
+  %427 = load i1* %20
+  br i1 %427, label %428, label %430
+
+; <label>:428                                     ; preds = %423
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %17)
+          to label %429 unwind label %643
+
+; <label>:429                                     ; preds = %428
+  br label %430
+
+; <label>:430                                     ; preds = %429, %423
+  br label %431
+
+; <label>:431                                     ; preds = %430, %419
+  %432 = load i1* %19
+  br i1 %432, label %433, label %434
+
+; <label>:433                                     ; preds = %431
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %18) #1
+  br label %434
+
+; <label>:434                                     ; preds = %433, %431
+  br label %638
+
+; <label>:435                                     ; preds = %418, %411
+  br label %436
+
+; <label>:436                                     ; preds = %435
+  %437 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 0), align 1
+  %438 = trunc i8 %437 to i1
+  %439 = xor i1 %438, true
+  %440 = zext i1 %439 to i64
+  %441 = call i64 @llvm.expect.i64(i64 %440, i64 0)
+  %442 = icmp ne i64 %441, 0
+  br i1 %442, label %443, label %457
+
+; <label>:443                                     ; preds = %436
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %22) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %21, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %22)
+          to label %444 unwind label %447
+
+; <label>:444                                     ; preds = %443
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, %"class.std::basic_string"* %21, i32 4)
+          to label %445 unwind label %451
+
+; <label>:445                                     ; preds = %444
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %21)
+          to label %446 unwind label %447
+
+; <label>:446                                     ; preds = %445
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %22) #1
+  br label %457
+
+; <label>:447                                     ; preds = %445, %443
+  %448 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %449 = extractvalue { i8*, i32 } %448, 0
+  store i8* %449, i8** %5
+  %450 = extractvalue { i8*, i32 } %448, 1
+  store i32 %450, i32* %6
+  br label %456
+
+; <label>:451                                     ; preds = %444
+  %452 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %453 = extractvalue { i8*, i32 } %452, 0
+  store i8* %453, i8** %5
+  %454 = extractvalue { i8*, i32 } %452, 1
+  store i32 %454, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %21)
+          to label %455 unwind label %643
+
+; <label>:455                                     ; preds = %451
+  br label %456
+
+; <label>:456                                     ; preds = %455, %447
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %22) #1
+  br label %638
+
+; <label>:457                                     ; preds = %446, %436
+  %458 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 2), align 4
+  %459 = icmp ne i32 %458, 4
+  %460 = zext i1 %459 to i64
+  %461 = call i64 @llvm.expect.i64(i64 %460, i64 0)
+  %462 = icmp ne i64 %461, 0
+  br i1 %462, label %463, label %464
+
+; <label>:463                                     ; preds = %457
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5)
+  br label %464
+
+; <label>:464                                     ; preds = %463, %457
+  %465 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 1), align 1
+  %466 = trunc i8 %465 to i1
+  br i1 %466, label %467, label %468
+
+; <label>:467                                     ; preds = %464
+  br label %468
+
+; <label>:468                                     ; preds = %467, %464
+  %469 = phi i1 [ false, %464 ], [ true, %467 ]
+  %470 = zext i1 %469 to i8
+  store i8 %470, i8* %__rosconsole_define_location__enabled6, align 1
+  %471 = load i8* %__rosconsole_define_location__enabled6, align 1
+  %472 = trunc i8 %471 to i1
+  %473 = zext i1 %472 to i64
+  %474 = call i64 @llvm.expect.i64(i64 %473, i64 0)
+  %475 = icmp ne i64 %474, 0
+  br i1 %475, label %476, label %479
+
+; <label>:476                                     ; preds = %468
+  %477 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 3), align 8
+  %478 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_5, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %477, i32 %478, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8]* @.str20, i32 0, i32 0), i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([112 x i8]* @.str26, i32 0, i32 0))
+  br label %479
+
+; <label>:479                                     ; preds = %476, %468
+  br label %480
+
+; <label>:480                                     ; preds = %479
+  br label %481
+
+; <label>:481                                     ; preds = %480
+  br label %482
+
+; <label>:482                                     ; preds = %481
+  %483 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %484 = trunc i8 %483 to i1
+  %485 = xor i1 %484, true
+  %486 = zext i1 %485 to i64
+  %487 = call i64 @llvm.expect.i64(i64 %486, i64 0)
+  %488 = icmp ne i64 %487, 0
+  br i1 %488, label %489, label %490
+
+; <label>:489                                     ; preds = %482
+  call void @_ZN3ros7console10initializeEv()
+  br label %490
+
+; <label>:490                                     ; preds = %489, %482
+  br label %491
+
+; <label>:491                                     ; preds = %490
+  %492 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, i32 0, i32 0), align 1
+  %493 = trunc i8 %492 to i1
+  %494 = xor i1 %493, true
+  %495 = zext i1 %494 to i64
+  %496 = call i64 @llvm.expect.i64(i64 %495, i64 0)
+  %497 = icmp ne i64 %496, 0
+  br i1 %497, label %498, label %512
+
+; <label>:498                                     ; preds = %491
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %24) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %23, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %24)
+          to label %499 unwind label %502
+
+; <label>:499                                     ; preds = %498
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, %"class.std::basic_string"* %23, i32 4)
+          to label %500 unwind label %506
+
+; <label>:500                                     ; preds = %499
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %23)
+          to label %501 unwind label %502
+
+; <label>:501                                     ; preds = %500
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %24) #1
+  br label %512
+
+; <label>:502                                     ; preds = %500, %498
+  %503 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %504 = extractvalue { i8*, i32 } %503, 0
+  store i8* %504, i8** %5
+  %505 = extractvalue { i8*, i32 } %503, 1
+  store i32 %505, i32* %6
+  br label %511
+
+; <label>:506                                     ; preds = %499
+  %507 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %508 = extractvalue { i8*, i32 } %507, 0
+  store i8* %508, i8** %5
+  %509 = extractvalue { i8*, i32 } %507, 1
+  store i32 %509, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %23)
+          to label %510 unwind label %643
+
+; <label>:510                                     ; preds = %506
+  br label %511
+
+; <label>:511                                     ; preds = %510, %502
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %24) #1
+  br label %638
+
+; <label>:512                                     ; preds = %501, %491
+  %513 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, i32 0, i32 2), align 4
+  %514 = icmp ne i32 %513, 4
+  %515 = zext i1 %514 to i64
+  %516 = call i64 @llvm.expect.i64(i64 %515, i64 0)
+  %517 = icmp ne i64 %516, 0
+  br i1 %517, label %518, label %519
+
+; <label>:518                                     ; preds = %512
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6)
+  br label %519
+
+; <label>:519                                     ; preds = %518, %512
+  %520 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, i32 0, i32 1), align 1
+  %521 = trunc i8 %520 to i1
+  br i1 %521, label %522, label %523
+
+; <label>:522                                     ; preds = %519
+  br label %523
+
+; <label>:523                                     ; preds = %522, %519
+  %524 = phi i1 [ false, %519 ], [ true, %522 ]
+  %525 = zext i1 %524 to i8
+  store i8 %525, i8* %__rosconsole_define_location__enabled7, align 1
+  %526 = load i8* %__rosconsole_define_location__enabled7, align 1
+  %527 = trunc i8 %526 to i1
+  %528 = zext i1 %527 to i64
+  %529 = call i64 @llvm.expect.i64(i64 %528, i64 0)
+  %530 = icmp ne i64 %529, 0
+  br i1 %530, label %531, label %546
+
+; <label>:531                                     ; preds = %523
+  %532 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, i32 0, i32 3), align 8
+  %533 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_6, i32 0, i32 2), align 4
+  %534 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %535 = call i8* @_ZN3ros14message_traits8datatypeIN8std_msgs6Int16_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::Int16_"* %534)
+  %536 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %537 = call i8* @_ZN3ros14message_traits6md5sumIN8std_msgs6Int16_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::Int16_"* %536)
+  %538 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %539 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %538)
+  %540 = getelementptr inbounds %"class.ros::Publisher::Impl"* %539, i32 0, i32 2
+  %541 = call i8* @_ZNKSs5c_strEv(%"class.std::basic_string"* %540)
+  %542 = getelementptr inbounds %"class.ros::Publisher"* %30, i32 0, i32 0
+  %543 = call %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv(%"class.boost::shared_ptr.21"* %542)
+  %544 = getelementptr inbounds %"class.ros::Publisher::Impl"* %543, i32 0, i32 1
+  %545 = call i8* @_ZNKSs5c_strEv(%"class.std::basic_string"* %544)
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %532, i32 %533, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([75 x i8]* @.str27, i32 0, i32 0), i8* %535, i8* %537, i8* %541, i8* %545)
+  br label %546
+
+; <label>:546                                     ; preds = %531, %523
+  br label %547
+
+; <label>:547                                     ; preds = %546
+  br label %548
+
+; <label>:548                                     ; preds = %547
+  br label %549
+
+; <label>:549                                     ; preds = %548
+  %550 = load i8* @_ZN3ros7console13g_initializedE, align 1
+  %551 = trunc i8 %550 to i1
+  %552 = xor i1 %551, true
+  %553 = zext i1 %552 to i64
+  %554 = call i64 @llvm.expect.i64(i64 %553, i64 0)
+  %555 = icmp ne i64 %554, 0
+  br i1 %555, label %556, label %557
+
+; <label>:556                                     ; preds = %549
+  call void @_ZN3ros7console10initializeEv()
+  br label %557
+
+; <label>:557                                     ; preds = %556, %549
+  br label %558
+
+; <label>:558                                     ; preds = %557
+  %559 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 0), align 1
+  %560 = trunc i8 %559 to i1
+  %561 = xor i1 %560, true
+  %562 = zext i1 %561 to i64
+  %563 = call i64 @llvm.expect.i64(i64 %562, i64 0)
+  %564 = icmp ne i64 %563, 0
+  br i1 %564, label %565, label %579
+
+; <label>:565                                     ; preds = %558
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %26) #1
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %25, i8* getelementptr inbounds ([20 x i8]* @.str11, i32 0, i32 0), %"class.std::allocator"* %26)
+          to label %566 unwind label %569
+
+; <label>:566                                     ; preds = %565
+  invoke void @_ZN3ros7console21initializeLogLocationEPNS0_11LogLocationERKSsNS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, %"class.std::basic_string"* %25, i32 4)
+          to label %567 unwind label %573
+
+; <label>:567                                     ; preds = %566
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %25)
+          to label %568 unwind label %569
+
+; <label>:568                                     ; preds = %567
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %26) #1
+  br label %579
+
+; <label>:569                                     ; preds = %567, %565
+  %570 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %571 = extractvalue { i8*, i32 } %570, 0
+  store i8* %571, i8** %5
+  %572 = extractvalue { i8*, i32 } %570, 1
+  store i32 %572, i32* %6
+  br label %578
+
+; <label>:573                                     ; preds = %566
+  %574 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %575 = extractvalue { i8*, i32 } %574, 0
+  store i8* %575, i8** %5
+  %576 = extractvalue { i8*, i32 } %574, 1
+  store i32 %576, i32* %6
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %25)
+          to label %577 unwind label %643
+
+; <label>:577                                     ; preds = %573
+  br label %578
+
+; <label>:578                                     ; preds = %577, %569
+  call void @_ZNSaIcED1Ev(%"class.std::allocator"* %26) #1
+  br label %638
+
+; <label>:579                                     ; preds = %568, %558
+  %580 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 2), align 4
+  %581 = icmp ne i32 %580, 4
+  %582 = zext i1 %581 to i64
+  %583 = call i64 @llvm.expect.i64(i64 %582, i64 0)
+  %584 = icmp ne i64 %583, 0
+  br i1 %584, label %585, label %586
+
+; <label>:585                                     ; preds = %579
+  call void @_ZN3ros7console19setLogLocationLevelEPNS0_11LogLocationENS0_6levels5LevelE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 4)
+  call void @_ZN3ros7console23checkLogLocationEnabledEPNS0_11LogLocationE(%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7)
+  br label %586
+
+; <label>:586                                     ; preds = %585, %579
+  %587 = load i8* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 1), align 1
+  %588 = trunc i8 %587 to i1
+  br i1 %588, label %589, label %590
+
+; <label>:589                                     ; preds = %586
+  br label %590
+
+; <label>:590                                     ; preds = %589, %586
+  %591 = phi i1 [ false, %586 ], [ true, %589 ]
+  %592 = zext i1 %591 to i8
+  store i8 %592, i8* %__rosconsole_define_location__enabled8, align 1
+  %593 = load i8* %__rosconsole_define_location__enabled8, align 1
+  %594 = trunc i8 %593 to i1
+  %595 = zext i1 %594 to i64
+  %596 = call i64 @llvm.expect.i64(i64 %595, i64 0)
+  %597 = icmp ne i64 %596, 0
+  br i1 %597, label %598, label %601
+
+; <label>:598                                     ; preds = %590
+  %599 = load i8** getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 3), align 8
+  %600 = load i32* getelementptr inbounds (%"struct.ros::console::LogLocation"* @_ZZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_E33__rosconsole_define_location__loc_7, i32 0, i32 2), align 4
+  call void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %599, i32 %600, i8* getelementptr inbounds ([40 x i8]* @.str19, i32 0, i32 0), i32 115, i8* getelementptr inbounds ([92 x i8]* @__PRETTY_FUNCTION__._ZNK3ros9Publisher7publishIN8std_msgs6Int16_ISaIvEEEEEvRKT_, i32 0, i32 0), i8* getelementptr inbounds ([2 x i8]* @.str23, i32 0, i32 0))
+  br label %601
+
+; <label>:601                                     ; preds = %598, %590
+  br label %602
+
+; <label>:602                                     ; preds = %601
+  call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #1, !srcloc !3
+  br label %603
+
+; <label>:603                                     ; preds = %602, %408
+  br label %604
+
+; <label>:604                                     ; preds = %603
+  call void @_ZN3ros17SerializedMessageC2Ev(%"class.ros::SerializedMessage"* %m)
+  %605 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %606 = invoke %"struct.std_msgs::Int16_"* @_ZN5boost3refIKN8std_msgs6Int16_ISaIvEEEEEKNS_17reference_wrapperIT_EERS7_(%"struct.std_msgs::Int16_"* %605)
+          to label %607 unwind label %627
+
+; <label>:607                                     ; preds = %604
+  %608 = getelementptr %"class.boost::reference_wrapper"* %29, i32 0, i32 0
+  store %"struct.std_msgs::Int16_"* %606, %"struct.std_msgs::Int16_"** %608
+  %609 = getelementptr %"class.boost::reference_wrapper"* %29, i32 0, i32 0
+  %610 = load %"struct.std_msgs::Int16_"** %609
+  %611 = invoke { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* } @_ZN5boost4bindIN3ros17SerializedMessageERKN8std_msgs6Int16_ISaIvEEENS_17reference_wrapperIS7_EEEENS_3_bi6bind_tIT_PFSD_T0_ENSB_9list_av_1IT1_E4typeEEESG_SI_(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* @_ZN3ros13serialization16serializeMessageIN8std_msgs6Int16_ISaIvEEEEENS_17SerializedMessageERKT_, %"struct.std_msgs::Int16_"* %610)
+          to label %612 unwind label %627
+
+; <label>:612                                     ; preds = %607
+  %613 = bitcast %"class.boost::_bi::bind_t"* %28 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %614 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %613, i32 0, i32 0
+  %615 = extractvalue { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* } %611, 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %615, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %614, align 1
+  %616 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %613, i32 0, i32 1
+  %617 = extractvalue { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* } %611, 1
+  store %"struct.std_msgs::Int16_"* %617, %"struct.std_msgs::Int16_"** %616, align 1
+  %618 = bitcast %"class.boost::_bi::bind_t"* %28 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %619 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %618, i32 0, i32 0
+  %620 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %619, align 1
+  %621 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %618, i32 0, i32 1
+  %622 = load %"struct.std_msgs::Int16_"** %621, align 1
+  invoke void @_ZN5boost8functionIFN3ros17SerializedMessageEvEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS6_5list1INS_17reference_wrapperISC_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISL_EE5valueEEE5valueEiE4typeE(%"class.boost::function.28"* %27, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %620, %"struct.std_msgs::Int16_"* %622, i32 0)
+          to label %623 unwind label %627
+
+; <label>:623                                     ; preds = %612
+  invoke void @_ZNK3ros9Publisher7publishERKN5boost8functionIFNS_17SerializedMessageEvEEERS3_(%"class.ros::Publisher"* %30, %"class.boost::function.28"* %27, %"class.ros::SerializedMessage"* %m)
+          to label %624 unwind label %631
+
+; <label>:624                                     ; preds = %623
+  invoke void @_ZN5boost8functionIFN3ros17SerializedMessageEvEED2Ev(%"class.boost::function.28"* %27)
+          to label %625 unwind label %627
+
+; <label>:625                                     ; preds = %624
+  call void @_ZN3ros17SerializedMessageD2Ev(%"class.ros::SerializedMessage"* %m)
+  br label %626
+
+; <label>:626                                     ; preds = %625, %376, %200
+  ret void
+
+; <label>:627                                     ; preds = %624, %612, %607, %604
+  %628 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %629 = extractvalue { i8*, i32 } %628, 0
+  store i8* %629, i8** %5
+  %630 = extractvalue { i8*, i32 } %628, 1
+  store i32 %630, i32* %6
+  br label %636
+
+; <label>:631                                     ; preds = %623
+  %632 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %633 = extractvalue { i8*, i32 } %632, 0
+  store i8* %633, i8** %5
+  %634 = extractvalue { i8*, i32 } %632, 1
+  store i32 %634, i32* %6
+  invoke void @_ZN5boost8functionIFN3ros17SerializedMessageEvEED2Ev(%"class.boost::function.28"* %27)
+          to label %635 unwind label %643
+
+; <label>:635                                     ; preds = %631
+  br label %636
+
+; <label>:636                                     ; preds = %635, %627
+  invoke void @_ZN3ros17SerializedMessageD2Ev(%"class.ros::SerializedMessage"* %m)
+          to label %637 unwind label %643
+
+; <label>:637                                     ; preds = %636
+  br label %638
+
+; <label>:638                                     ; preds = %637, %578, %511, %456, %434, %351, %292, %237, %175, %120, %65
+  %639 = load i8** %5
+  %640 = load i32* %6
+  %641 = insertvalue { i8*, i32 } undef, i8* %639, 0
+  %642 = insertvalue { i8*, i32 } %641, i32 %640, 1
+  resume { i8*, i32 } %642
+
+; <label>:643                                     ; preds = %636, %631, %573, %506, %451, %428, %346, %287, %232, %170, %115, %60
+  %644 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %645 = extractvalue { i8*, i32 } %644, 0
+  call void @__clang_call_terminate(i8* %645) #14
+  unreachable
+}
+
+; Function Attrs: uwtable
 define i32 @main(i32 %argc, i8** %argv) #3 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
@@ -3056,7 +4643,7 @@ define i32 @main(i32 %argc, i8** %argv) #3 {
   store i8** %argv, i8*** %3, align 8
   %9 = load i8*** %3, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %5) #1
-  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %4, i8* getelementptr inbounds ([7 x i8]* @.str17, i32 0, i32 0), %"class.std::allocator"* %5)
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %4, i8* getelementptr inbounds ([7 x i8]* @.str18, i32 0, i32 0), %"class.std::allocator"* %5)
           to label %10 unwind label %15
 
 ; <label>:10                                      ; preds = %0
@@ -3145,85 +4732,107 @@ define linkonce_odr void @_ZN4TestD2Ev(%class.Test* %this) unnamed_addr #5 align
   %3 = alloca i32
   store %class.Test* %this, %class.Test** %1, align 8
   %4 = load %class.Test** %1
-  %5 = getelementptr inbounds %class.Test* %4, i32 0, i32 4
+  %5 = getelementptr inbounds %class.Test* %4, i32 0, i32 5
   invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %5)
-          to label %6 unwind label %12
+          to label %6 unwind label %14
 
 ; <label>:6                                       ; preds = %0
-  %7 = getelementptr inbounds %class.Test* %4, i32 0, i32 3
-  invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %7)
-          to label %8 unwind label %17
+  %7 = getelementptr inbounds %class.Test* %4, i32 0, i32 4
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %7)
+          to label %8 unwind label %19
 
 ; <label>:8                                       ; preds = %6
-  %9 = getelementptr inbounds %class.Test* %4, i32 0, i32 1
-  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %9)
-          to label %10 unwind label %22
+  %9 = getelementptr inbounds %class.Test* %4, i32 0, i32 3
+  invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %9)
+          to label %10 unwind label %24
 
 ; <label>:10                                      ; preds = %8
-  %11 = getelementptr inbounds %class.Test* %4, i32 0, i32 0
-  call void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %11)
+  %11 = getelementptr inbounds %class.Test* %4, i32 0, i32 1
+  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %11)
+          to label %12 unwind label %31
+
+; <label>:12                                      ; preds = %10
+  %13 = getelementptr inbounds %class.Test* %4, i32 0, i32 0
+  call void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %13)
   ret void
 
-; <label>:12                                      ; preds = %0
-  %13 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:14                                      ; preds = %0
+  %15 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %14 = extractvalue { i8*, i32 } %13, 0
-  store i8* %14, i8** %2
-  %15 = extractvalue { i8*, i32 } %13, 1
-  store i32 %15, i32* %3
-  %16 = getelementptr inbounds %class.Test* %4, i32 0, i32 3
-  invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %16)
-          to label %21 unwind label %37
+  %16 = extractvalue { i8*, i32 } %15, 0
+  store i8* %16, i8** %2
+  %17 = extractvalue { i8*, i32 } %15, 1
+  store i32 %17, i32* %3
+  %18 = getelementptr inbounds %class.Test* %4, i32 0, i32 4
+  invoke void @_ZN3ros9PublisherD1Ev(%"class.ros::Publisher"* %18)
+          to label %23 unwind label %46
 
-; <label>:17                                      ; preds = %6
-  %18 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:19                                      ; preds = %6
+  %20 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %19 = extractvalue { i8*, i32 } %18, 0
-  store i8* %19, i8** %2
-  %20 = extractvalue { i8*, i32 } %18, 1
-  store i32 %20, i32* %3
-  br label %26
+  %21 = extractvalue { i8*, i32 } %20, 0
+  store i8* %21, i8** %2
+  %22 = extractvalue { i8*, i32 } %20, 1
+  store i32 %22, i32* %3
+  br label %28
 
-; <label>:21                                      ; preds = %12
-  br label %26
+; <label>:23                                      ; preds = %14
+  br label %28
 
-; <label>:22                                      ; preds = %8
-  %23 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:24                                      ; preds = %8
+  %25 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           cleanup
-  %24 = extractvalue { i8*, i32 } %23, 0
-  store i8* %24, i8** %2
-  %25 = extractvalue { i8*, i32 } %23, 1
-  store i32 %25, i32* %3
-  br label %29
+  %26 = extractvalue { i8*, i32 } %25, 0
+  store i8* %26, i8** %2
+  %27 = extractvalue { i8*, i32 } %25, 1
+  store i32 %27, i32* %3
+  br label %35
 
-; <label>:26                                      ; preds = %21, %17
-  %27 = getelementptr inbounds %class.Test* %4, i32 0, i32 1
-  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %27)
-          to label %28 unwind label %37
+; <label>:28                                      ; preds = %23, %19
+  %29 = getelementptr inbounds %class.Test* %4, i32 0, i32 3
+  invoke void @_ZN3ros10SubscriberD1Ev(%"class.ros::Subscriber"* %29)
+          to label %30 unwind label %46
 
-; <label>:28                                      ; preds = %26
-  br label %29
+; <label>:30                                      ; preds = %28
+  br label %35
 
-; <label>:29                                      ; preds = %28, %22
-  %30 = getelementptr inbounds %class.Test* %4, i32 0, i32 0
-  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %30)
-          to label %31 unwind label %37
+; <label>:31                                      ; preds = %10
+  %32 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %33 = extractvalue { i8*, i32 } %32, 0
+  store i8* %33, i8** %2
+  %34 = extractvalue { i8*, i32 } %32, 1
+  store i32 %34, i32* %3
+  br label %38
 
-; <label>:31                                      ; preds = %29
-  br label %32
+; <label>:35                                      ; preds = %30, %24
+  %36 = getelementptr inbounds %class.Test* %4, i32 0, i32 1
+  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %36)
+          to label %37 unwind label %46
 
-; <label>:32                                      ; preds = %31
-  %33 = load i8** %2
-  %34 = load i32* %3
-  %35 = insertvalue { i8*, i32 } undef, i8* %33, 0
-  %36 = insertvalue { i8*, i32 } %35, i32 %34, 1
-  resume { i8*, i32 } %36
+; <label>:37                                      ; preds = %35
+  br label %38
 
-; <label>:37                                      ; preds = %29, %26, %12
-  %38 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+; <label>:38                                      ; preds = %37, %31
+  %39 = getelementptr inbounds %class.Test* %4, i32 0, i32 0
+  invoke void @_ZN3ros10NodeHandleD1Ev(%"class.ros::NodeHandle"* %39)
+          to label %40 unwind label %46
+
+; <label>:40                                      ; preds = %38
+  br label %41
+
+; <label>:41                                      ; preds = %40
+  %42 = load i8** %2
+  %43 = load i32* %3
+  %44 = insertvalue { i8*, i32 } undef, i8* %42, 0
+  %45 = insertvalue { i8*, i32 } %44, i32 %43, 1
+  resume { i8*, i32 } %45
+
+; <label>:46                                      ; preds = %38, %35, %28, %14
+  %47 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
           catch i8* null
-  %39 = extractvalue { i8*, i32 } %38, 0
-  call void @__clang_call_terminate(i8* %39) #14
+  %48 = extractvalue { i8*, i32 } %47, 0
+  call void @__clang_call_terminate(i8* %48) #14
   unreachable
 }
 
@@ -3252,7 +4861,7 @@ define linkonce_odr %"class.ros::Publisher::Impl"* @_ZNK5boost10shared_ptrIN3ros
   br label %9
 
 ; <label>:7                                       ; preds = %0
-  call void @__assert_fail(i8* getelementptr inbounds ([8 x i8]* @.str31, i32 0, i32 0), i8* getelementptr inbounds ([44 x i8]* @.str32, i32 0, i32 0), i32 653, i8* getelementptr inbounds ([137 x i8]* @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv, i32 0, i32 0)) #14
+  call void @__assert_fail(i8* getelementptr inbounds ([8 x i8]* @.str32, i32 0, i32 0), i8* getelementptr inbounds ([44 x i8]* @.str33, i32 0, i32 0), i32 653, i8* getelementptr inbounds ([137 x i8]* @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN3ros9Publisher4ImplEEptEv, i32 0, i32 0)) #14
   unreachable
                                                   ; No predecessors!
   br label %9
@@ -3281,20 +4890,20 @@ define linkonce_odr zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EP
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr i8* @_ZN3ros14message_traits6md5sumIN8std_msgs7String_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::String_"* %m) #5 {
-  %1 = alloca %"struct.std_msgs::String_"*, align 8
-  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %1, align 8
-  %2 = load %"struct.std_msgs::String_"** %1, align 8
-  %3 = call i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs7String_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::String_"* %2)
+define linkonce_odr i8* @_ZN3ros14message_traits6md5sumIN8std_msgs6Int16_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::Int16_"* %m) #5 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %m, %"struct.std_msgs::Int16_"** %1, align 8
+  %2 = load %"struct.std_msgs::Int16_"** %1, align 8
+  %3 = call i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs6Int16_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::Int16_"* %2)
   ret i8* %3
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr i8* @_ZN3ros14message_traits8datatypeIN8std_msgs7String_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::String_"* %m) #5 {
-  %1 = alloca %"struct.std_msgs::String_"*, align 8
-  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %1, align 8
-  %2 = load %"struct.std_msgs::String_"** %1, align 8
-  %3 = call i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs7String_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::String_"* %2)
+define linkonce_odr i8* @_ZN3ros14message_traits8datatypeIN8std_msgs6Int16_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::Int16_"* %m) #5 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %m, %"struct.std_msgs::Int16_"** %1, align 8
+  %2 = load %"struct.std_msgs::Int16_"** %1, align 8
+  %3 = call i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs6Int16_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::Int16_"* %2)
   ret i8* %3
 }
 
@@ -3351,31 +4960,31 @@ define linkonce_odr void @_ZN3ros17SerializedMessageC2Ev(%"class.ros::Serialized
 declare void @_ZNK3ros9Publisher7publishERKN5boost8functionIFNS_17SerializedMessageEvEEERS3_(%"class.ros::Publisher"*, %"class.boost::function.28"*, %"class.ros::SerializedMessage"*) #0
 
 ; Function Attrs: uwtable
-define linkonce_odr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } @_ZN5boost4bindIN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEENS_17reference_wrapperIS7_EEEENS_3_bi6bind_tIT_PFSD_T0_ENSB_9list_av_1IT1_E4typeEEESG_SI_(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, %"struct.std_msgs::String_"* %a1.coerce) #3 {
+define linkonce_odr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* } @_ZN5boost4bindIN3ros17SerializedMessageERKN8std_msgs6Int16_ISaIvEEENS_17reference_wrapperIS7_EEEENS_3_bi6bind_tIT_PFSD_T0_ENSB_9list_av_1IT1_E4typeEEESG_SI_(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f, %"struct.std_msgs::Int16_"* %a1.coerce) #3 {
   %1 = alloca %"class.boost::_bi::bind_t", align 8
   %a1 = alloca %"class.boost::reference_wrapper", align 8
-  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, align 8
+  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, align 8
   %3 = alloca %"class.boost::_bi::list1", align 8
   %4 = alloca %"class.boost::reference_wrapper", align 8
   %5 = getelementptr %"class.boost::reference_wrapper"* %a1, i32 0, i32 0
-  store %"struct.std_msgs::String_"* %a1.coerce, %"struct.std_msgs::String_"** %5
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
-  %6 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
+  store %"struct.std_msgs::Int16_"* %a1.coerce, %"struct.std_msgs::Int16_"** %5
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %2, align 8
+  %6 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %2, align 8
   %7 = bitcast %"class.boost::reference_wrapper"* %4 to i8*
   %8 = bitcast %"class.boost::reference_wrapper"* %a1 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 8, i32 8, i1 false)
   %9 = getelementptr %"class.boost::reference_wrapper"* %4, i32 0, i32 0
-  %10 = load %"struct.std_msgs::String_"** %9
-  call void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"class.boost::_bi::list1"* %3, %"struct.std_msgs::String_"* %10)
-  call void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEC2ESB_RKSF_(%"class.boost::_bi::bind_t"* %1, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %6, %"class.boost::_bi::list1"* %3)
-  %11 = bitcast %"class.boost::_bi::bind_t"* %1 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %12 = load { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %11, align 1
-  ret { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } %12
+  %10 = load %"struct.std_msgs::Int16_"** %9
+  call void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEEEC2ES8_(%"class.boost::_bi::list1"* %3, %"struct.std_msgs::Int16_"* %10)
+  call void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEC2ESB_RKSF_(%"class.boost::_bi::bind_t"* %1, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %6, %"class.boost::_bi::list1"* %3)
+  %11 = bitcast %"class.boost::_bi::bind_t"* %1 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %12 = load { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %11, align 1
+  ret { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* } %12
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization16serializeMessageIN8std_msgs7String_ISaIvEEEEENS_17SerializedMessageERKT_(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"struct.std_msgs::String_"* %message) #5 {
-  %1 = alloca %"struct.std_msgs::String_"*, align 8
+define linkonce_odr void @_ZN3ros13serialization16serializeMessageIN8std_msgs6Int16_ISaIvEEEEENS_17SerializedMessageERKT_(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"struct.std_msgs::Int16_"* %message) #5 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
   %2 = alloca i1
   %len = alloca i32, align 4
   %3 = alloca i8*
@@ -3383,11 +4992,11 @@ define linkonce_odr void @_ZN3ros13serialization16serializeMessageIN8std_msgs7St
   %s = alloca %"struct.ros::serialization::OStream", align 8
   %5 = alloca i32, align 4
   %6 = alloca i32
-  store %"struct.std_msgs::String_"* %message, %"struct.std_msgs::String_"** %1, align 8
+  store %"struct.std_msgs::Int16_"* %message, %"struct.std_msgs::Int16_"** %1, align 8
   store i1 false, i1* %2
   call void @_ZN3ros17SerializedMessageC2Ev(%"class.ros::SerializedMessage"* %agg.result)
-  %7 = load %"struct.std_msgs::String_"** %1, align 8
-  %8 = invoke i32 @_ZN3ros13serialization19serializationLengthIN8std_msgs7String_ISaIvEEEEEjRKT_(%"struct.std_msgs::String_"* %7)
+  %7 = load %"struct.std_msgs::Int16_"** %1, align 8
+  %8 = invoke i32 @_ZN3ros13serialization19serializationLengthIN8std_msgs6Int16_ISaIvEEEEEjRKT_(%"struct.std_msgs::Int16_"* %7)
           to label %9 unwind label %39
 
 ; <label>:9                                       ; preds = %0
@@ -3436,8 +5045,8 @@ define linkonce_odr void @_ZN3ros13serialization16serializeMessageIN8std_msgs7St
 ; <label>:34                                      ; preds = %31
   %35 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 2
   store i8* %33, i8** %35, align 8
-  %36 = load %"struct.std_msgs::String_"** %1, align 8
-  invoke void @_ZN3ros13serialization9serializeIN8std_msgs7String_ISaIvEEENS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %s, %"struct.std_msgs::String_"* %36)
+  %36 = load %"struct.std_msgs::Int16_"** %1, align 8
+  invoke void @_ZN3ros13serialization9serializeIN8std_msgs6Int16_ISaIvEEENS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %s, %"struct.std_msgs::Int16_"* %36)
           to label %37 unwind label %39
 
 ; <label>:37                                      ; preds = %34
@@ -3482,28 +5091,28 @@ define linkonce_odr void @_ZN3ros13serialization16serializeMessageIN8std_msgs7St
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr %"struct.std_msgs::String_"* @_ZN5boost3refIKN8std_msgs7String_ISaIvEEEEEKNS_17reference_wrapperIT_EERS7_(%"struct.std_msgs::String_"* %t) #5 {
+define linkonce_odr %"struct.std_msgs::Int16_"* @_ZN5boost3refIKN8std_msgs6Int16_ISaIvEEEEEKNS_17reference_wrapperIT_EERS7_(%"struct.std_msgs::Int16_"* %t) #5 {
   %1 = alloca %"class.boost::reference_wrapper", align 8
-  %2 = alloca %"struct.std_msgs::String_"*, align 8
-  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
-  %3 = load %"struct.std_msgs::String_"** %2, align 8
-  call void @_ZN5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEEC2ERS5_(%"class.boost::reference_wrapper"* %1, %"struct.std_msgs::String_"* %3)
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %t, %"struct.std_msgs::Int16_"** %2, align 8
+  %3 = load %"struct.std_msgs::Int16_"** %2, align 8
+  call void @_ZN5boost17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEC2ERS5_(%"class.boost::reference_wrapper"* %1, %"struct.std_msgs::Int16_"* %3)
   %4 = getelementptr %"class.boost::reference_wrapper"* %1, i32 0, i32 0
-  %5 = load %"struct.std_msgs::String_"** %4
-  ret %"struct.std_msgs::String_"* %5
+  %5 = load %"struct.std_msgs::Int16_"** %4
+  ret %"struct.std_msgs::Int16_"* %5
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFN3ros17SerializedMessageEvEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS6_5list1INS_17reference_wrapperISC_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISL_EE5valueEEE5valueEiE4typeE(%"class.boost::function.28"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, i32) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost8functionIFN3ros17SerializedMessageEvEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS6_5list1INS_17reference_wrapperISC_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISL_EE5valueEEE5valueEiE4typeE(%"class.boost::function.28"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, %"struct.std_msgs::Int16_"* %f.coerce1, i32) unnamed_addr #3 align 2 {
   %f = alloca %"class.boost::_bi::bind_t", align 8
   %2 = alloca %"class.boost::function.28"*, align 8
   %3 = alloca i32, align 4
   %4 = alloca %"class.boost::_bi::bind_t", align 8
-  %5 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 0
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %6
-  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 1
-  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %7
+  %5 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %5, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %6
+  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %5, i32 0, i32 1
+  store %"struct.std_msgs::Int16_"* %f.coerce1, %"struct.std_msgs::Int16_"** %7
   store %"class.boost::function.28"* %this, %"class.boost::function.28"** %2, align 8
   store i32 %0, i32* %3, align 4
   %8 = load %"class.boost::function.28"** %2
@@ -3511,12 +5120,12 @@ define linkonce_odr void @_ZN5boost8functionIFN3ros17SerializedMessageEvEEC2INS_
   %10 = bitcast %"class.boost::_bi::bind_t"* %4 to i8*
   %11 = bitcast %"class.boost::_bi::bind_t"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* %11, i64 16, i32 8, i1 false)
-  %12 = bitcast %"class.boost::_bi::bind_t"* %4 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 0
-  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %13, align 1
-  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 1
-  %16 = load %"struct.std_msgs::String_"** %15, align 1
-  call void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISK_EE5valueEEE5valueEiE4typeE(%"class.boost::function0"* %9, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %14, %"struct.std_msgs::String_"* %16, i32 0)
+  %12 = bitcast %"class.boost::_bi::bind_t"* %4 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %12, i32 0, i32 0
+  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %13, align 1
+  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %12, i32 0, i32 1
+  %16 = load %"struct.std_msgs::Int16_"** %15, align 1
+  call void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISK_EE5valueEEE5valueEiE4typeE(%"class.boost::function0"* %9, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %14, %"struct.std_msgs::Int16_"* %16, i32 0)
   ret void
 }
 
@@ -3775,16 +5384,16 @@ define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0IN3ros17Seria
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture, i8* nocapture readonly, i64, i32, i1) #1
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISK_EE5valueEEE5valueEiE4typeE(%"class.boost::function0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, i32) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISK_EE5valueEEE5valueEiE4typeE(%"class.boost::function0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, %"struct.std_msgs::Int16_"* %f.coerce1, i32) unnamed_addr #3 align 2 {
   %f = alloca %"class.boost::_bi::bind_t", align 8
   %2 = alloca %"class.boost::function0"*, align 8
   %3 = alloca i32, align 4
   %4 = alloca %"class.boost::_bi::bind_t", align 8
-  %5 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 0
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %6
-  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 1
-  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %7
+  %5 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %5, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %6
+  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %5, i32 0, i32 1
+  store %"struct.std_msgs::Int16_"* %f.coerce1, %"struct.std_msgs::Int16_"** %7
   store %"class.boost::function0"* %this, %"class.boost::function0"** %2, align 8
   store i32 %0, i32* %3, align 4
   %8 = load %"class.boost::function0"** %2
@@ -3793,12 +5402,12 @@ define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_
   %10 = bitcast %"class.boost::_bi::bind_t"* %4 to i8*
   %11 = bitcast %"class.boost::_bi::bind_t"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* %11, i64 16, i32 8, i1 false)
-  %12 = bitcast %"class.boost::_bi::bind_t"* %4 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 0
-  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %13, align 1
-  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 1
-  %16 = load %"struct.std_msgs::String_"** %15, align 1
-  call void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_(%"class.boost::function0"* %8, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %14, %"struct.std_msgs::String_"* %16)
+  %12 = bitcast %"class.boost::_bi::bind_t"* %4 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %12, i32 0, i32 0
+  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %13, align 1
+  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %12, i32 0, i32 1
+  %16 = load %"struct.std_msgs::Int16_"** %15, align 1
+  call void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_(%"class.boost::function0"* %8, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %14, %"struct.std_msgs::Int16_"* %16)
   ret void
 }
 
@@ -3814,16 +5423,16 @@ define linkonce_odr void @_ZN5boost13function_baseC2Ev(%"class.boost::function_b
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_(%"class.boost::function0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1) #3 align 2 {
+define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_(%"class.boost::function0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, %"struct.std_msgs::Int16_"* %f.coerce1) #3 align 2 {
   %f = alloca %"class.boost::_bi::bind_t", align 8
   %1 = alloca %"class.boost::function0"*, align 8
   %2 = alloca %"class.boost::_bi::bind_t", align 8
   %value = alloca i64, align 8
-  %3 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %4 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %3, i32 0, i32 0
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %4
-  %5 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %3, i32 0, i32 1
-  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %5
+  %3 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %4 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %3, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %4
+  %5 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %3, i32 0, i32 1
+  store %"struct.std_msgs::Int16_"* %f.coerce1, %"struct.std_msgs::Int16_"** %5
   store %"class.boost::function0"* %this, %"class.boost::function0"** %1, align 8
   %6 = load %"class.boost::function0"** %1
   %7 = bitcast %"class.boost::_bi::bind_t"* %2 to i8*
@@ -3831,16 +5440,16 @@ define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 16, i32 8, i1 false)
   %9 = bitcast %"class.boost::function0"* %6 to %"class.boost::function_base"*
   %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 1
-  %11 = bitcast %"class.boost::_bi::bind_t"* %2 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %12 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %11, i32 0, i32 0
-  %13 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %12, align 1
-  %14 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %11, i32 0, i32 1
-  %15 = load %"struct.std_msgs::String_"** %14, align 1
-  %16 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0"* @_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %13, %"struct.std_msgs::String_"* %15, %"union.boost::detail::function::function_buffer"* %10)
+  %11 = bitcast %"class.boost::_bi::bind_t"* %2 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %12 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %11, i32 0, i32 0
+  %13 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %12, align 1
+  %14 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %11, i32 0, i32 1
+  %15 = load %"struct.std_msgs::Int16_"** %14, align 1
+  %16 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs6Int16_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0"* @_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %13, %"struct.std_msgs::Int16_"* %15, %"union.boost::detail::function::function_buffer"* %10)
   br i1 %16, label %17, label %24
 
 ; <label>:17                                      ; preds = %0
-  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable0"* @_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable to i64), i64* %value, align 8
+  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable0"* @_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs6Int16_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable to i64), i64* %value, align 8
   %18 = load i64* %value, align 8
   %19 = or i64 %18, 1
   store i64 %19, i64* %value, align 8
@@ -3862,7 +5471,7 @@ define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE6manageERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE6manageERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca i32, align 4
@@ -3879,7 +5488,7 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bin
   %7 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %8 = bitcast %"union.boost::detail::function::function_buffer"* %7 to %"struct.boost::detail::function::function_buffer::type_t"*
   %9 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %8, i32 0, i32 0
-  store %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*), %"class.std::type_info"** %9, align 8
+  store %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*), %"class.std::type_info"** %9, align 8
   %10 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %11 = bitcast %"union.boost::detail::function::function_buffer"* %10 to %"struct.boost::detail::function::function_buffer::type_t"*
   %12 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %11, i32 0, i32 1
@@ -3894,7 +5503,7 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bin
   %17 = load %"union.boost::detail::function::function_buffer"** %1, align 8
   %18 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %19 = load i32* %3, align 4
-  call void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE(%"union.boost::detail::function::function_buffer"* %17, %"union.boost::detail::function::function_buffer"* %18, i32 %19)
+  call void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE(%"union.boost::detail::function::function_buffer"* %17, %"union.boost::detail::function::function_buffer"* %18, i32 %19)
   br label %20
 
 ; <label>:20                                      ; preds = %16, %6
@@ -3902,7 +5511,7 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bin
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0INS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEES6_E6invokeERNS1_15function_bufferE(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"union.boost::detail::function::function_buffer"* %function_obj_ptr) #3 align 2 {
+define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0INS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEES6_E6invokeERNS1_15function_bufferE(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"union.boost::detail::function::function_buffer"* %function_obj_ptr) #3 align 2 {
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %f = alloca %"class.boost::_bi::bind_t"*, align 8
   store %"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"union.boost::detail::function::function_buffer"** %1, align 8
@@ -3911,22 +5520,22 @@ define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0INS_3_
   %4 = bitcast i8* %3 to %"class.boost::_bi::bind_t"*
   store %"class.boost::_bi::bind_t"* %4, %"class.boost::_bi::bind_t"** %f, align 8
   %5 = load %"class.boost::_bi::bind_t"** %f, align 8
-  call void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEclEv(%"class.ros::SerializedMessage"* sret %agg.result, %"class.boost::_bi::bind_t"* %5)
+  call void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEclEv(%"class.ros::SerializedMessage"* sret %agg.result, %"class.boost::_bi::bind_t"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs6Int16_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, %"struct.std_msgs::Int16_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
   %f = alloca %"class.boost::_bi::bind_t", align 8
   %1 = alloca %"struct.boost::detail::function::basic_vtable0"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca %"class.boost::_bi::bind_t", align 8
   %4 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
-  %5 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 0
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %6
-  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 1
-  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %7
+  %5 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %5, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %6
+  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %5, i32 0, i32 1
+  store %"struct.std_msgs::Int16_"* %f.coerce1, %"struct.std_msgs::Int16_"** %7
   store %"struct.boost::detail::function::basic_vtable0"* %this, %"struct.boost::detail::function::basic_vtable0"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
   %8 = load %"struct.boost::detail::function::basic_vtable0"** %1
@@ -3934,17 +5543,17 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros1
   %10 = bitcast %"class.boost::_bi::bind_t"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* %10, i64 16, i32 8, i1 false)
   %11 = load %"union.boost::detail::function::function_buffer"** %2, align 8
-  %12 = bitcast %"class.boost::_bi::bind_t"* %3 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 0
-  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %13, align 1
-  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 1
-  %16 = load %"struct.std_msgs::String_"** %15, align 1
-  %17 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0"* %8, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %14, %"struct.std_msgs::String_"* %16, %"union.boost::detail::function::function_buffer"* %11)
+  %12 = bitcast %"class.boost::_bi::bind_t"* %3 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %12, i32 0, i32 0
+  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %13, align 1
+  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %12, i32 0, i32 1
+  %16 = load %"struct.std_msgs::Int16_"** %15, align 1
+  %17 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs6Int16_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0"* %8, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %14, %"struct.std_msgs::Int16_"* %16, %"union.boost::detail::function::function_buffer"* %11)
   ret i1 %17
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs6Int16_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, %"struct.std_msgs::Int16_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
   %1 = alloca i1, align 1
   %f = alloca %"class.boost::_bi::bind_t", align 8
   %2 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
@@ -3952,15 +5561,15 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros1
   %4 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %5 = alloca %"class.boost::_bi::bind_t", align 8
   %6 = alloca %"struct.mpl_::bool_", align 1
-  %7 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %8 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %7, i32 0, i32 0
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %8
-  %9 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %7, i32 0, i32 1
-  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %9
+  %7 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %8 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %7, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %8
+  %9 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %7, i32 0, i32 1
+  store %"struct.std_msgs::Int16_"* %f.coerce1, %"struct.std_msgs::Int16_"** %9
   store %"struct.boost::detail::function::basic_vtable0"* %this, %"struct.boost::detail::function::basic_vtable0"** %3, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %4, align 8
   %10 = load %"struct.boost::detail::function::basic_vtable0"** %3
-  %11 = call %"class.boost::_bi::bind_t"* @_ZN5boost9addressofINS_3_bi6bind_tIN3ros17SerializedMessageEPFS4_RKN8std_msgs7String_ISaIvEEEENS1_5list1INS_17reference_wrapperIS9_EEEEEEEEPT_RSI_(%"class.boost::_bi::bind_t"* %f)
+  %11 = call %"class.boost::_bi::bind_t"* @_ZN5boost9addressofINS_3_bi6bind_tIN3ros17SerializedMessageEPFS4_RKN8std_msgs6Int16_ISaIvEEEENS1_5list1INS_17reference_wrapperIS9_EEEEEEEEPT_RSI_(%"class.boost::_bi::bind_t"* %f)
   %12 = call zeroext i1 (...)* @_ZN5boost6detail8function16has_empty_targetEz(%"class.boost::_bi::bind_t"* %11)
   br i1 %12, label %22, label %13
 
@@ -3969,12 +5578,12 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros1
   %15 = bitcast %"class.boost::_bi::bind_t"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %14, i8* %15, i64 16, i32 8, i1 false)
   %16 = load %"union.boost::detail::function::function_buffer"** %4, align 8
-  %17 = bitcast %"class.boost::_bi::bind_t"* %5 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %18 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %17, i32 0, i32 0
-  %19 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %18, align 1
-  %20 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %17, i32 0, i32 1
-  %21 = load %"struct.std_msgs::String_"** %20, align 1
-  call void @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE14assign_functorINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0"* %10, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %19, %"struct.std_msgs::String_"* %21, %"union.boost::detail::function::function_buffer"* %16)
+  %17 = bitcast %"class.boost::_bi::bind_t"* %5 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %18 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %17, i32 0, i32 0
+  %19 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %18, align 1
+  %20 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %17, i32 0, i32 1
+  %21 = load %"struct.std_msgs::Int16_"** %20, align 1
+  call void @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE14assign_functorINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs6Int16_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0"* %10, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %19, %"struct.std_msgs::Int16_"* %21, %"union.boost::detail::function::function_buffer"* %16)
   store i1 true, i1* %1
   br label %23
 
@@ -3993,28 +5602,28 @@ define linkonce_odr zeroext i1 @_ZN5boost6detail8function16has_empty_targetEz(..
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"class.boost::_bi::bind_t"* @_ZN5boost9addressofINS_3_bi6bind_tIN3ros17SerializedMessageEPFS4_RKN8std_msgs7String_ISaIvEEEENS1_5list1INS_17reference_wrapperIS9_EEEEEEEEPT_RSI_(%"class.boost::_bi::bind_t"* %v) #3 {
+define linkonce_odr %"class.boost::_bi::bind_t"* @_ZN5boost9addressofINS_3_bi6bind_tIN3ros17SerializedMessageEPFS4_RKN8std_msgs6Int16_ISaIvEEEENS1_5list1INS_17reference_wrapperIS9_EEEEEEEEPT_RSI_(%"class.boost::_bi::bind_t"* %v) #3 {
   %1 = alloca %"class.boost::_bi::bind_t"*, align 8
   %2 = alloca %"struct.boost::detail::addr_impl_ref", align 8
   store %"class.boost::_bi::bind_t"* %v, %"class.boost::_bi::bind_t"** %1, align 8
   %3 = load %"class.boost::_bi::bind_t"** %1, align 8
-  call void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEC2ERSI_(%"struct.boost::detail::addr_impl_ref"* %2, %"class.boost::_bi::bind_t"* %3)
-  %4 = call %"class.boost::_bi::bind_t"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEcvRSI_Ev(%"struct.boost::detail::addr_impl_ref"* %2)
-  %5 = call %"class.boost::_bi::bind_t"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEE1fERSI_l(%"class.boost::_bi::bind_t"* %4, i64 0)
+  call void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs6Int16_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEC2ERSI_(%"struct.boost::detail::addr_impl_ref"* %2, %"class.boost::_bi::bind_t"* %3)
+  %4 = call %"class.boost::_bi::bind_t"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs6Int16_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEcvRSI_Ev(%"struct.boost::detail::addr_impl_ref"* %2)
+  %5 = call %"class.boost::_bi::bind_t"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs6Int16_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEE1fERSI_l(%"class.boost::_bi::bind_t"* %4, i64 0)
   ret %"class.boost::_bi::bind_t"* %5
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE14assign_functorINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE14assign_functorINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs6Int16_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, %"struct.std_msgs::Int16_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
   %f = alloca %"class.boost::_bi::bind_t", align 8
   %1 = alloca %"struct.mpl_::bool_", align 1
   %2 = alloca %"struct.boost::detail::function::basic_vtable0"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  %4 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
-  %5 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %4, i32 0, i32 0
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %5
-  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %4, i32 0, i32 1
-  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %6
+  %4 = bitcast %"class.boost::_bi::bind_t"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }*
+  %5 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %4, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %5
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, %"struct.std_msgs::Int16_"* }* %4, i32 0, i32 1
+  store %"struct.std_msgs::Int16_"* %f.coerce1, %"struct.std_msgs::Int16_"** %6
   store %"struct.boost::detail::function::basic_vtable0"* %this, %"struct.boost::detail::function::basic_vtable0"** %2, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %3, align 8
   %7 = load %"struct.boost::detail::function::basic_vtable0"** %2
@@ -4036,7 +5645,7 @@ define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0IN3ros17Seria
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"class.boost::_bi::bind_t"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEE1fERSI_l(%"class.boost::_bi::bind_t"* %v, i64) #8 align 2 {
+define linkonce_odr %"class.boost::_bi::bind_t"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs6Int16_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEE1fERSI_l(%"class.boost::_bi::bind_t"* %v, i64) #8 align 2 {
   %2 = alloca %"class.boost::_bi::bind_t"*, align 8
   %3 = alloca i64, align 8
   store %"class.boost::_bi::bind_t"* %v, %"class.boost::_bi::bind_t"** %2, align 8
@@ -4048,7 +5657,7 @@ define linkonce_odr %"class.boost::_bi::bind_t"* @_ZN5boost6detail14addressof_im
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEC2ERSI_(%"struct.boost::detail::addr_impl_ref"* %this, %"class.boost::_bi::bind_t"* %v) unnamed_addr #8 align 2 {
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs6Int16_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEC2ERSI_(%"struct.boost::detail::addr_impl_ref"* %this, %"class.boost::_bi::bind_t"* %v) unnamed_addr #8 align 2 {
   %1 = alloca %"struct.boost::detail::addr_impl_ref"*, align 8
   %2 = alloca %"class.boost::_bi::bind_t"*, align 8
   store %"struct.boost::detail::addr_impl_ref"* %this, %"struct.boost::detail::addr_impl_ref"** %1, align 8
@@ -4061,7 +5670,7 @@ define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"class.boost::_bi::bind_t"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEcvRSI_Ev(%"struct.boost::detail::addr_impl_ref"* %this) #8 align 2 {
+define linkonce_odr %"class.boost::_bi::bind_t"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs6Int16_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEcvRSI_Ev(%"struct.boost::detail::addr_impl_ref"* %this) #8 align 2 {
   %1 = alloca %"struct.boost::detail::addr_impl_ref"*, align 8
   store %"struct.boost::detail::addr_impl_ref"* %this, %"struct.boost::detail::addr_impl_ref"** %1, align 8
   %2 = load %"struct.boost::detail::addr_impl_ref"** %1
@@ -4071,7 +5680,7 @@ define linkonce_odr %"class.boost::_bi::bind_t"* @_ZNK5boost6detail13addr_impl_r
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEclEv(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"class.boost::_bi::bind_t"* %this) #3 align 2 {
+define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEclEv(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"class.boost::_bi::bind_t"* %this) #3 align 2 {
   %1 = alloca %"class.boost::_bi::bind_t"*, align 8
   %a = alloca %"class.boost::_bi::list0", align 1
   %2 = alloca %"class.boost::_bi::type", align 1
@@ -4080,7 +5689,7 @@ define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN
   call void @_ZN5boost3_bi5list0C2Ev(%"class.boost::_bi::list0"* %a)
   %4 = getelementptr inbounds %"class.boost::_bi::bind_t"* %3, i32 0, i32 1
   %5 = getelementptr inbounds %"class.boost::_bi::bind_t"* %3, i32 0, i32 0
-  call void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEclIN3ros17SerializedMessageEPFSC_RS7_ENS0_5list0EEET_NS0_4typeISH_EERT0_RT1_l(%"class.ros::SerializedMessage"* sret %agg.result, %"class.boost::_bi::list1"* %4, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %5, %"class.boost::_bi::list0"* %a, i64 0)
+  call void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEEEclIN3ros17SerializedMessageEPFSC_RS7_ENS0_5list0EEET_NS0_4typeISH_EERT0_RT1_l(%"class.ros::SerializedMessage"* sret %agg.result, %"class.boost::_bi::list1"* %4, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %5, %"class.boost::_bi::list0"* %a, i64 0)
   ret void
 }
 
@@ -4093,62 +5702,62 @@ define linkonce_odr void @_ZN5boost3_bi5list0C2Ev(%"class.boost::_bi::list0"* %t
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEclIN3ros17SerializedMessageEPFSC_RS7_ENS0_5list0EEET_NS0_4typeISH_EERT0_RT1_l(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"class.boost::_bi::list1"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, %"class.boost::_bi::list0"* %a, i64) #3 align 2 {
+define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEEEclIN3ros17SerializedMessageEPFSC_RS7_ENS0_5list0EEET_NS0_4typeISH_EERT0_RT1_l(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"class.boost::_bi::list1"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %f, %"class.boost::_bi::list0"* %a, i64) #3 align 2 {
   %2 = alloca %"class.boost::_bi::type", align 1
   %3 = alloca %"class.boost::_bi::list1"*, align 8
-  %4 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)**, align 8
+  %4 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)**, align 8
   %5 = alloca %"class.boost::_bi::list0"*, align 8
   %6 = alloca i64, align 8
   store %"class.boost::_bi::list1"* %this, %"class.boost::_bi::list1"** %3, align 8
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %4, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*** %4, align 8
   store %"class.boost::_bi::list0"* %a, %"class.boost::_bi::list0"** %5, align 8
   store i64 %0, i64* %6, align 8
   %7 = load %"class.boost::_bi::list1"** %3
-  %8 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %4, align 8
-  %9 = call void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** @_ZN5boost3_bi9unwrapperIPFN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEEEE6unwrapERSB_l(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %8, i64 0)
-  %10 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %9
+  %8 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*** %4, align 8
+  %9 = call void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** @_ZN5boost3_bi9unwrapperIPFN3ros17SerializedMessageERKN8std_msgs6Int16_ISaIvEEEEE6unwrapERSB_l(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %8, i64 0)
+  %10 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %9
   %11 = load %"class.boost::_bi::list0"** %5, align 8
   %12 = bitcast %"class.boost::_bi::list1"* %7 to %"struct.boost::_bi::storage1"*
   %13 = getelementptr inbounds %"struct.boost::_bi::storage1"* %12, i32 0, i32 0
-  %14 = call %"struct.std_msgs::String_"* @_ZNK5boost3_bi5list0ixIKN8std_msgs7String_ISaIvEEEEERT_RKNS_17reference_wrapperIS8_EE(%"class.boost::_bi::list0"* %11, %"class.boost::reference_wrapper"* %13)
-  call void %10(%"class.ros::SerializedMessage"* sret %agg.result, %"struct.std_msgs::String_"* %14)
+  %14 = call %"struct.std_msgs::Int16_"* @_ZNK5boost3_bi5list0ixIKN8std_msgs6Int16_ISaIvEEEEERT_RKNS_17reference_wrapperIS8_EE(%"class.boost::_bi::list0"* %11, %"class.boost::reference_wrapper"* %13)
+  call void %10(%"class.ros::SerializedMessage"* sret %agg.result, %"struct.std_msgs::Int16_"* %14)
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** @_ZN5boost3_bi9unwrapperIPFN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEEEE6unwrapERSB_l(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, i64) #8 align 2 {
-  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)**, align 8
+define linkonce_odr void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** @_ZN5boost3_bi9unwrapperIPFN3ros17SerializedMessageERKN8std_msgs6Int16_ISaIvEEEEE6unwrapERSB_l(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %f, i64) #8 align 2 {
+  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)**, align 8
   %3 = alloca i64, align 8
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %2, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*** %2, align 8
   store i64 %0, i64* %3, align 8
-  %4 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %2, align 8
-  ret void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %4
+  %4 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*** %2, align 8
+  ret void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %4
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"struct.std_msgs::String_"* @_ZNK5boost3_bi5list0ixIKN8std_msgs7String_ISaIvEEEEERT_RKNS_17reference_wrapperIS8_EE(%"class.boost::_bi::list0"* %this, %"class.boost::reference_wrapper"* %v) #3 align 2 {
+define linkonce_odr %"struct.std_msgs::Int16_"* @_ZNK5boost3_bi5list0ixIKN8std_msgs6Int16_ISaIvEEEEERT_RKNS_17reference_wrapperIS8_EE(%"class.boost::_bi::list0"* %this, %"class.boost::reference_wrapper"* %v) #3 align 2 {
   %1 = alloca %"class.boost::_bi::list0"*, align 8
   %2 = alloca %"class.boost::reference_wrapper"*, align 8
   store %"class.boost::_bi::list0"* %this, %"class.boost::_bi::list0"** %1, align 8
   store %"class.boost::reference_wrapper"* %v, %"class.boost::reference_wrapper"** %2, align 8
   %3 = load %"class.boost::_bi::list0"** %1
   %4 = load %"class.boost::reference_wrapper"** %2, align 8
-  %5 = call %"struct.std_msgs::String_"* @_ZNK5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEE3getEv(%"class.boost::reference_wrapper"* %4)
-  ret %"struct.std_msgs::String_"* %5
+  %5 = call %"struct.std_msgs::Int16_"* @_ZNK5boost17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEE3getEv(%"class.boost::reference_wrapper"* %4)
+  ret %"struct.std_msgs::Int16_"* %5
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"struct.std_msgs::String_"* @_ZNK5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEE3getEv(%"class.boost::reference_wrapper"* %this) #2 align 2 {
+define linkonce_odr %"struct.std_msgs::Int16_"* @_ZNK5boost17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEE3getEv(%"class.boost::reference_wrapper"* %this) #2 align 2 {
   %1 = alloca %"class.boost::reference_wrapper"*, align 8
   store %"class.boost::reference_wrapper"* %this, %"class.boost::reference_wrapper"** %1, align 8
   %2 = load %"class.boost::reference_wrapper"** %1
   %3 = getelementptr inbounds %"class.boost::reference_wrapper"* %2, i32 0, i32 0
-  %4 = load %"struct.std_msgs::String_"** %3, align 8
-  ret %"struct.std_msgs::String_"* %4
+  %4 = load %"struct.std_msgs::Int16_"** %3, align 8
+  ret %"struct.std_msgs::Int16_"* %4
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
   %1 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
@@ -4160,12 +5769,12 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bin
   %6 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %7 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %8 = load i32* %4, align 4
-  call void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb1EEE(%"union.boost::detail::function::function_buffer"* %6, %"union.boost::detail::function::function_buffer"* %7, i32 %8)
+  call void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb1EEE(%"union.boost::detail::function::function_buffer"* %6, %"union.boost::detail::function::function_buffer"* %7, i32 %8)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb1EEE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb1EEE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
   %1 = alloca %"struct.mpl_::bool_", align 1
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
@@ -4176,12 +5785,12 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bin
   %5 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %6 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %7 = load i32* %4, align 4
-  call void @_ZN5boost6detail8function22functor_manager_commonINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE12manage_smallERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %5, %"union.boost::detail::function::function_buffer"* %6, i32 %7)
+  call void @_ZN5boost6detail8function22functor_manager_commonINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE12manage_smallERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %5, %"union.boost::detail::function::function_buffer"* %6, i32 %7)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE12manage_smallERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs6Int16_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE12manage_smallERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca i32, align 4
@@ -4262,7 +5871,7 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3
   store %"class.std::type_info"* %46, %"class.std::type_info"** %check_type, align 8
   %47 = load %"class.std::type_info"** %check_type, align 8
   %48 = call i8* @_ZNKSt9type_info4nameEv(%"class.std::type_info"* %47)
-  %49 = call i8* @_ZNKSt9type_info4nameEv(%"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*))
+  %49 = call i8* @_ZNKSt9type_info4nameEv(%"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*))
   %50 = call i32 @strcmp(i8* %48, i8* %49) #17
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %57
@@ -4288,7 +5897,7 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3
   %62 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %63 = bitcast %"union.boost::detail::function::function_buffer"* %62 to %"struct.boost::detail::function::function_buffer::type_t"*
   %64 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %63, i32 0, i32 0
-  store %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*), %"class.std::type_info"** %64, align 8
+  store %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*), %"class.std::type_info"** %64, align 8
   %65 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %66 = bitcast %"union.boost::detail::function::function_buffer"* %65 to %"struct.boost::detail::function::function_buffer::type_t"*
   %67 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %66, i32 0, i32 1
@@ -4342,72 +5951,72 @@ define linkonce_odr i8* @_ZNKSt9type_info4nameEv(%"class.std::type_info"* %this)
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEEC2ERS5_(%"class.boost::reference_wrapper"* %this, %"struct.std_msgs::String_"* %t) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEC2ERS5_(%"class.boost::reference_wrapper"* %this, %"struct.std_msgs::Int16_"* %t) unnamed_addr #3 align 2 {
   %1 = alloca %"class.boost::reference_wrapper"*, align 8
-  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
   store %"class.boost::reference_wrapper"* %this, %"class.boost::reference_wrapper"** %1, align 8
-  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  store %"struct.std_msgs::Int16_"* %t, %"struct.std_msgs::Int16_"** %2, align 8
   %3 = load %"class.boost::reference_wrapper"** %1
   %4 = getelementptr inbounds %"class.boost::reference_wrapper"* %3, i32 0, i32 0
-  %5 = load %"struct.std_msgs::String_"** %2, align 8
-  %6 = call %"struct.std_msgs::String_"* @_ZN5boost9addressofIKN8std_msgs7String_ISaIvEEEEEPT_RS6_(%"struct.std_msgs::String_"* %5)
-  store %"struct.std_msgs::String_"* %6, %"struct.std_msgs::String_"** %4, align 8
+  %5 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %6 = call %"struct.std_msgs::Int16_"* @_ZN5boost9addressofIKN8std_msgs6Int16_ISaIvEEEEEPT_RS6_(%"struct.std_msgs::Int16_"* %5)
+  store %"struct.std_msgs::Int16_"* %6, %"struct.std_msgs::Int16_"** %4, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"struct.std_msgs::String_"* @_ZN5boost9addressofIKN8std_msgs7String_ISaIvEEEEEPT_RS6_(%"struct.std_msgs::String_"* %v) #3 {
-  %1 = alloca %"struct.std_msgs::String_"*, align 8
+define linkonce_odr %"struct.std_msgs::Int16_"* @_ZN5boost9addressofIKN8std_msgs6Int16_ISaIvEEEEEPT_RS6_(%"struct.std_msgs::Int16_"* %v) #3 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
   %2 = alloca %"struct.boost::detail::addr_impl_ref.29", align 8
-  store %"struct.std_msgs::String_"* %v, %"struct.std_msgs::String_"** %1, align 8
-  %3 = load %"struct.std_msgs::String_"** %1, align 8
-  call void @_ZN5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEC2ERS6_(%"struct.boost::detail::addr_impl_ref.29"* %2, %"struct.std_msgs::String_"* %3)
-  %4 = call %"struct.std_msgs::String_"* @_ZNK5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEcvRS6_Ev(%"struct.boost::detail::addr_impl_ref.29"* %2)
-  %5 = call %"struct.std_msgs::String_"* @_ZN5boost6detail14addressof_implIKN8std_msgs7String_ISaIvEEEE1fERS6_l(%"struct.std_msgs::String_"* %4, i64 0)
-  ret %"struct.std_msgs::String_"* %5
+  store %"struct.std_msgs::Int16_"* %v, %"struct.std_msgs::Int16_"** %1, align 8
+  %3 = load %"struct.std_msgs::Int16_"** %1, align 8
+  call void @_ZN5boost6detail13addr_impl_refIKN8std_msgs6Int16_ISaIvEEEEC2ERS6_(%"struct.boost::detail::addr_impl_ref.29"* %2, %"struct.std_msgs::Int16_"* %3)
+  %4 = call %"struct.std_msgs::Int16_"* @_ZNK5boost6detail13addr_impl_refIKN8std_msgs6Int16_ISaIvEEEEcvRS6_Ev(%"struct.boost::detail::addr_impl_ref.29"* %2)
+  %5 = call %"struct.std_msgs::Int16_"* @_ZN5boost6detail14addressof_implIKN8std_msgs6Int16_ISaIvEEEE1fERS6_l(%"struct.std_msgs::Int16_"* %4, i64 0)
+  ret %"struct.std_msgs::Int16_"* %5
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"struct.std_msgs::String_"* @_ZN5boost6detail14addressof_implIKN8std_msgs7String_ISaIvEEEE1fERS6_l(%"struct.std_msgs::String_"* %v, i64) #8 align 2 {
-  %2 = alloca %"struct.std_msgs::String_"*, align 8
+define linkonce_odr %"struct.std_msgs::Int16_"* @_ZN5boost6detail14addressof_implIKN8std_msgs6Int16_ISaIvEEEE1fERS6_l(%"struct.std_msgs::Int16_"* %v, i64) #8 align 2 {
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
   %3 = alloca i64, align 8
-  store %"struct.std_msgs::String_"* %v, %"struct.std_msgs::String_"** %2, align 8
+  store %"struct.std_msgs::Int16_"* %v, %"struct.std_msgs::Int16_"** %2, align 8
   store i64 %0, i64* %3, align 8
-  %4 = load %"struct.std_msgs::String_"** %2, align 8
-  %5 = bitcast %"struct.std_msgs::String_"* %4 to i8*
-  %6 = bitcast i8* %5 to %"struct.std_msgs::String_"*
-  ret %"struct.std_msgs::String_"* %6
+  %4 = load %"struct.std_msgs::Int16_"** %2, align 8
+  %5 = bitcast %"struct.std_msgs::Int16_"* %4 to i8*
+  %6 = bitcast i8* %5 to %"struct.std_msgs::Int16_"*
+  ret %"struct.std_msgs::Int16_"* %6
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEC2ERS6_(%"struct.boost::detail::addr_impl_ref.29"* %this, %"struct.std_msgs::String_"* %v) unnamed_addr #8 align 2 {
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refIKN8std_msgs6Int16_ISaIvEEEEC2ERS6_(%"struct.boost::detail::addr_impl_ref.29"* %this, %"struct.std_msgs::Int16_"* %v) unnamed_addr #8 align 2 {
   %1 = alloca %"struct.boost::detail::addr_impl_ref.29"*, align 8
-  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
   store %"struct.boost::detail::addr_impl_ref.29"* %this, %"struct.boost::detail::addr_impl_ref.29"** %1, align 8
-  store %"struct.std_msgs::String_"* %v, %"struct.std_msgs::String_"** %2, align 8
+  store %"struct.std_msgs::Int16_"* %v, %"struct.std_msgs::Int16_"** %2, align 8
   %3 = load %"struct.boost::detail::addr_impl_ref.29"** %1
   %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.29"* %3, i32 0, i32 0
-  %5 = load %"struct.std_msgs::String_"** %2, align 8
-  store %"struct.std_msgs::String_"* %5, %"struct.std_msgs::String_"** %4, align 8
+  %5 = load %"struct.std_msgs::Int16_"** %2, align 8
+  store %"struct.std_msgs::Int16_"* %5, %"struct.std_msgs::Int16_"** %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"struct.std_msgs::String_"* @_ZNK5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEcvRS6_Ev(%"struct.boost::detail::addr_impl_ref.29"* %this) #8 align 2 {
+define linkonce_odr %"struct.std_msgs::Int16_"* @_ZNK5boost6detail13addr_impl_refIKN8std_msgs6Int16_ISaIvEEEEcvRS6_Ev(%"struct.boost::detail::addr_impl_ref.29"* %this) #8 align 2 {
   %1 = alloca %"struct.boost::detail::addr_impl_ref.29"*, align 8
   store %"struct.boost::detail::addr_impl_ref.29"* %this, %"struct.boost::detail::addr_impl_ref.29"** %1, align 8
   %2 = load %"struct.boost::detail::addr_impl_ref.29"** %1
   %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.29"* %2, i32 0, i32 0
-  %4 = load %"struct.std_msgs::String_"** %3, align 8
-  ret %"struct.std_msgs::String_"* %4
+  %4 = load %"struct.std_msgs::Int16_"** %3, align 8
+  ret %"struct.std_msgs::Int16_"* %4
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr i32 @_ZN3ros13serialization19serializationLengthIN8std_msgs7String_ISaIvEEEEEjRKT_(%"struct.std_msgs::String_"* %t) #5 {
-  %1 = alloca %"struct.std_msgs::String_"*, align 8
-  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %1, align 8
-  %2 = load %"struct.std_msgs::String_"** %1, align 8
-  %3 = call i32 @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE16serializedLengthIS5_EEjRKT_(%"struct.std_msgs::String_"* %2)
+define linkonce_odr i32 @_ZN3ros13serialization19serializationLengthIN8std_msgs6Int16_ISaIvEEEEEjRKT_(%"struct.std_msgs::Int16_"* %t) #5 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %t, %"struct.std_msgs::Int16_"** %1, align 8
+  %2 = load %"struct.std_msgs::Int16_"** %1, align 8
+  %3 = call i32 @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE16serializedLengthIS5_EEjRKT_(%"struct.std_msgs::Int16_"* %2)
   ret i32 %3
 }
 
@@ -4436,7 +6045,7 @@ define linkonce_odr void @_ZN5boost12shared_arrayIhE5resetIhEEvPT_(%"class.boost
   br label %17
 
 ; <label>:15                                      ; preds = %9
-  call void @__assert_fail(i8* getelementptr inbounds ([18 x i8]* @.str27, i32 0, i32 0), i8* getelementptr inbounds ([46 x i8]* @.str28, i32 0, i32 0), i32 173, i8* getelementptr inbounds ([91 x i8]* @__PRETTY_FUNCTION__._ZN5boost12shared_arrayIhE5resetIhEEvPT_, i32 0, i32 0)) #14
+  call void @__assert_fail(i8* getelementptr inbounds ([18 x i8]* @.str28, i32 0, i32 0), i8* getelementptr inbounds ([46 x i8]* @.str29, i32 0, i32 0), i32 173, i8* getelementptr inbounds ([91 x i8]* @__PRETTY_FUNCTION__._ZN5boost12shared_arrayIhE5resetIhEEvPT_, i32 0, i32 0)) #14
   unreachable
                                                   ; No predecessors!
   br label %17
@@ -4532,132 +6141,102 @@ define linkonce_odr i8* @_ZN3ros13serialization6Stream7getDataEv(%"struct.ros::s
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization9serializeIN8std_msgs7String_ISaIvEEENS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::String_"* %t) #5 {
+define linkonce_odr void @_ZN3ros13serialization9serializeIN8std_msgs6Int16_ISaIvEEENS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::Int16_"* %t) #5 {
   %1 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
   store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %1, align 8
-  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  store %"struct.std_msgs::Int16_"* %t, %"struct.std_msgs::Int16_"** %2, align 8
   %3 = load %"struct.ros::serialization::OStream"** %1, align 8
-  %4 = load %"struct.std_msgs::String_"** %2, align 8
-  call void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE5writeINS0_7OStreamES5_EEvRT_RKT0_(%"struct.ros::serialization::OStream"* %3, %"struct.std_msgs::String_"* %4)
+  %4 = load %"struct.std_msgs::Int16_"** %2, align 8
+  call void @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE5writeINS0_7OStreamES5_EEvRT_RKT0_(%"struct.ros::serialization::OStream"* %3, %"struct.std_msgs::Int16_"* %4)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE5writeINS0_7OStreamES5_EEvRT_RKT0_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::String_"* %t) #5 align 2 {
+define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE5writeINS0_7OStreamES5_EEvRT_RKT0_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::Int16_"* %t) #5 align 2 {
   %1 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
   store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %1, align 8
-  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  store %"struct.std_msgs::Int16_"* %t, %"struct.std_msgs::Int16_"** %2, align 8
   %3 = load %"struct.ros::serialization::OStream"** %1, align 8
-  %4 = load %"struct.std_msgs::String_"** %2, align 8
-  call void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7OStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::OStream"* %3, %"struct.std_msgs::String_"* %4)
+  %4 = load %"struct.std_msgs::Int16_"** %2, align 8
+  call void @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE8allInOneINS0_7OStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::OStream"* %3, %"struct.std_msgs::Int16_"* %4)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7OStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::String_"* %m) #5 align 2 {
+define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE8allInOneINS0_7OStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::Int16_"* %m) #5 align 2 {
   %1 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %2 = alloca %"class.std::basic_string"*, align 8
+  %2 = alloca i16*, align 8
   %3 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %4 = alloca %"struct.std_msgs::String_"*, align 8
+  %4 = alloca %"struct.std_msgs::Int16_"*, align 8
   store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %3, align 8
-  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %4, align 8
+  store %"struct.std_msgs::Int16_"* %m, %"struct.std_msgs::Int16_"** %4, align 8
   %5 = load %"struct.ros::serialization::OStream"** %3, align 8
-  %6 = load %"struct.std_msgs::String_"** %4, align 8
-  %7 = getelementptr inbounds %"struct.std_msgs::String_"* %6, i32 0, i32 0
+  %6 = load %"struct.std_msgs::Int16_"** %4, align 8
+  %7 = getelementptr inbounds %"struct.std_msgs::Int16_"* %6, i32 0, i32 0
   store %"struct.ros::serialization::OStream"* %5, %"struct.ros::serialization::OStream"** %1, align 8
-  store %"class.std::basic_string"* %7, %"class.std::basic_string"** %2, align 8
+  store i16* %7, i16** %2, align 8
   %8 = load %"struct.ros::serialization::OStream"** %1
-  %9 = load %"class.std::basic_string"** %2, align 8
-  call void @_ZN3ros13serialization9serializeISsNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %8, %"class.std::basic_string"* %9)
+  %9 = load i16** %2, align 8
+  call void @_ZN3ros13serialization9serializeIsNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %8, i16* %9)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization9serializeISsNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %stream, %"class.std::basic_string"* %t) #5 {
+define linkonce_odr void @_ZN3ros13serialization9serializeIsNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %stream, i16* %t) #5 {
   %1 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %2 = alloca %"class.std::basic_string"*, align 8
+  %2 = alloca i16*, align 8
   store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %1, align 8
-  store %"class.std::basic_string"* %t, %"class.std::basic_string"** %2, align 8
+  store i16* %t, i16** %2, align 8
   %3 = load %"struct.ros::serialization::OStream"** %1, align 8
-  %4 = load %"class.std::basic_string"** %2, align 8
-  call void @_ZN3ros13serialization10SerializerISsE5writeINS0_7OStreamEEEvRT_RKSs(%"struct.ros::serialization::OStream"* %3, %"class.std::basic_string"* %4)
+  %4 = load i16** %2, align 8
+  %5 = load i16* %4, align 2
+  call void @_ZN3ros13serialization10SerializerIsE5writeINS0_7OStreamEEEvRT_s(%"struct.ros::serialization::OStream"* %3, i16 signext %5)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization10SerializerISsE5writeINS0_7OStreamEEEvRT_RKSs(%"struct.ros::serialization::OStream"* %stream, %"class.std::basic_string"* %str) #5 align 2 {
+define linkonce_odr void @_ZN3ros13serialization10SerializerIsE5writeINS0_7OStreamEEEvRT_s(%"struct.ros::serialization::OStream"* %stream, i16 signext %v) #5 align 2 {
   %1 = alloca %"struct.ros::serialization::Stream"*, align 8
   %2 = alloca i32, align 4
   %old_data.i = alloca i8*, align 8
   %3 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %4 = alloca i32*, align 8
-  %5 = alloca %"struct.ros::serialization::OStream"*, align 8
-  %6 = alloca %"class.std::basic_string"*, align 8
-  %len = alloca i64, align 8
-  %7 = alloca i32, align 4
-  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %5, align 8
-  store %"class.std::basic_string"* %str, %"class.std::basic_string"** %6, align 8
-  %8 = load %"class.std::basic_string"** %6, align 8
-  %9 = call i64 @_ZNKSs4sizeEv(%"class.std::basic_string"* %8)
-  store i64 %9, i64* %len, align 8
-  %10 = load %"struct.ros::serialization::OStream"** %5, align 8
-  %11 = load i64* %len, align 8
-  %12 = trunc i64 %11 to i32
-  store i32 %12, i32* %7
-  store %"struct.ros::serialization::OStream"* %10, %"struct.ros::serialization::OStream"** %3, align 8
-  store i32* %7, i32** %4, align 8
-  %13 = load %"struct.ros::serialization::OStream"** %3
-  %14 = load i32** %4, align 8
-  call void @_ZN3ros13serialization9serializeIjNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %13, i32* %14)
-  %15 = load i64* %len, align 8
-  %16 = icmp ugt i64 %15, 0
-  br i1 %16, label %17, label %40
+  %4 = alloca i16, align 2
+  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %3, align 8
+  store i16 %v, i16* %4, align 2
+  %5 = load i16* %4, align 2
+  %6 = load %"struct.ros::serialization::OStream"** %3, align 8
+  %7 = bitcast %"struct.ros::serialization::OStream"* %6 to %"struct.ros::serialization::Stream"*
+  store %"struct.ros::serialization::Stream"* %7, %"struct.ros::serialization::Stream"** %1, align 8
+  store i32 2, i32* %2, align 4
+  %8 = load %"struct.ros::serialization::Stream"** %1
+  %9 = getelementptr inbounds %"struct.ros::serialization::Stream"* %8, i32 0, i32 0
+  %10 = load i8** %9, align 8
+  store i8* %10, i8** %old_data.i, align 8
+  %11 = load i32* %2, align 4
+  %12 = getelementptr inbounds %"struct.ros::serialization::Stream"* %8, i32 0, i32 0
+  %13 = load i8** %12, align 8
+  %14 = zext i32 %11 to i64
+  %15 = getelementptr inbounds i8* %13, i64 %14
+  store i8* %15, i8** %12, align 8
+  %16 = getelementptr inbounds %"struct.ros::serialization::Stream"* %8, i32 0, i32 0
+  %17 = load i8** %16, align 8
+  %18 = getelementptr inbounds %"struct.ros::serialization::Stream"* %8, i32 0, i32 1
+  %19 = load i8** %18, align 8
+  %20 = icmp ugt i8* %17, %19
+  br i1 %20, label %21, label %_ZN3ros13serialization6Stream7advanceEj.exit
 
-; <label>:17                                      ; preds = %0
-  %18 = load %"struct.ros::serialization::OStream"** %5, align 8
-  %19 = bitcast %"struct.ros::serialization::OStream"* %18 to %"struct.ros::serialization::Stream"*
-  %20 = load i64* %len, align 8
-  %21 = trunc i64 %20 to i32
-  store %"struct.ros::serialization::Stream"* %19, %"struct.ros::serialization::Stream"** %1, align 8
-  store i32 %21, i32* %2, align 4
-  %22 = load %"struct.ros::serialization::Stream"** %1
-  %23 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 0
-  %24 = load i8** %23, align 8
-  store i8* %24, i8** %old_data.i, align 8
-  %25 = load i32* %2, align 4
-  %26 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 0
-  %27 = load i8** %26, align 8
-  %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds i8* %27, i64 %28
-  store i8* %29, i8** %26, align 8
-  %30 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 0
-  %31 = load i8** %30, align 8
-  %32 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 1
-  %33 = load i8** %32, align 8
-  %34 = icmp ugt i8* %31, %33
-  br i1 %34, label %35, label %_ZN3ros13serialization6Stream7advanceEj.exit
-
-; <label>:35                                      ; preds = %17
+; <label>:21                                      ; preds = %0
   call void @_ZN3ros13serialization18throwStreamOverrunEv()
   br label %_ZN3ros13serialization6Stream7advanceEj.exit
 
-_ZN3ros13serialization6Stream7advanceEj.exit:     ; preds = %17, %35
-  %36 = load i8** %old_data.i, align 8
-  %37 = load %"class.std::basic_string"** %6, align 8
-  %38 = call i8* @_ZNKSs4dataEv(%"class.std::basic_string"* %37)
-  %39 = load i64* %len, align 8
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %36, i8* %38, i64 %39, i32 1, i1 false)
-  br label %40
-
-; <label>:40                                      ; preds = %_ZN3ros13serialization6Stream7advanceEj.exit, %0
+_ZN3ros13serialization6Stream7advanceEj.exit:     ; preds = %0, %21
+  %22 = load i8** %old_data.i, align 8
+  %23 = bitcast i8* %22 to i16*
+  store i16 %5, i16* %23, align 2
   ret void
 }
-
-declare i64 @_ZNKSs4sizeEv(%"class.std::basic_string"*) #0
-
-declare i8* @_ZNKSs4dataEv(%"class.std::basic_string"*) #0
 
 declare void @_ZN3ros13serialization18throwStreamOverrunEv() #0
 
@@ -5208,13 +6787,13 @@ define linkonce_odr void @_ZN5boost6detail15sp_counted_baseD0Ev(%"class.boost::d
 declare void @__cxa_pure_virtual()
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr i32 @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE16serializedLengthIS5_EEjRKT_(%"struct.std_msgs::String_"* %t) #5 align 2 {
-  %1 = alloca %"struct.std_msgs::String_"*, align 8
+define linkonce_odr i32 @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE16serializedLengthIS5_EEjRKT_(%"struct.std_msgs::Int16_"* %t) #5 align 2 {
+  %1 = alloca %"struct.std_msgs::Int16_"*, align 8
   %stream = alloca %"struct.ros::serialization::LStream", align 4
-  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %1, align 8
+  store %"struct.std_msgs::Int16_"* %t, %"struct.std_msgs::Int16_"** %1, align 8
   call void @_ZN3ros13serialization7LStreamC2Ev(%"struct.ros::serialization::LStream"* %stream)
-  %2 = load %"struct.std_msgs::String_"** %1, align 8
-  call void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7LStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::LStream"* %stream, %"struct.std_msgs::String_"* %2)
+  %2 = load %"struct.std_msgs::Int16_"** %1, align 8
+  call void @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE8allInOneINS0_7LStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::LStream"* %stream, %"struct.std_msgs::Int16_"* %2)
   %3 = call i32 @_ZN3ros13serialization7LStream9getLengthEv(%"struct.ros::serialization::LStream"* %stream)
   ret i32 %3
 }
@@ -5230,21 +6809,21 @@ define linkonce_odr void @_ZN3ros13serialization7LStreamC2Ev(%"struct.ros::seria
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7LStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::LStream"* %stream, %"struct.std_msgs::String_"* %m) #5 align 2 {
+define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs6Int16_ISaIvEEEE8allInOneINS0_7LStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::LStream"* %stream, %"struct.std_msgs::Int16_"* %m) #5 align 2 {
   %1 = alloca %"struct.ros::serialization::LStream"*, align 8
-  %2 = alloca %"class.std::basic_string"*, align 8
+  %2 = alloca i16*, align 8
   %3 = alloca %"struct.ros::serialization::LStream"*, align 8
-  %4 = alloca %"struct.std_msgs::String_"*, align 8
+  %4 = alloca %"struct.std_msgs::Int16_"*, align 8
   store %"struct.ros::serialization::LStream"* %stream, %"struct.ros::serialization::LStream"** %3, align 8
-  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %4, align 8
+  store %"struct.std_msgs::Int16_"* %m, %"struct.std_msgs::Int16_"** %4, align 8
   %5 = load %"struct.ros::serialization::LStream"** %3, align 8
-  %6 = load %"struct.std_msgs::String_"** %4, align 8
-  %7 = getelementptr inbounds %"struct.std_msgs::String_"* %6, i32 0, i32 0
+  %6 = load %"struct.std_msgs::Int16_"** %4, align 8
+  %7 = getelementptr inbounds %"struct.std_msgs::Int16_"* %6, i32 0, i32 0
   store %"struct.ros::serialization::LStream"* %5, %"struct.ros::serialization::LStream"** %1, align 8
-  store %"class.std::basic_string"* %7, %"class.std::basic_string"** %2, align 8
+  store i16* %7, i16** %2, align 8
   %8 = load %"struct.ros::serialization::LStream"** %1
-  %9 = load %"class.std::basic_string"** %2, align 8
-  %10 = call i32 @_ZN3ros13serialization19serializationLengthISsEEjRKT_(%"class.std::basic_string"* %9)
+  %9 = load i16** %2, align 8
+  %10 = call i32 @_ZN3ros13serialization19serializationLengthIsEEjRKT_(i16* %9)
   %11 = getelementptr inbounds %"struct.ros::serialization::LStream"* %8, i32 0, i32 0
   %12 = load i32* %11, align 4
   %13 = add i32 %12, %10
@@ -5263,32 +6842,28 @@ define linkonce_odr i32 @_ZN3ros13serialization7LStream9getLengthEv(%"struct.ros
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr i32 @_ZN3ros13serialization19serializationLengthISsEEjRKT_(%"class.std::basic_string"* %t) #5 {
-  %1 = alloca %"class.std::basic_string"*, align 8
-  store %"class.std::basic_string"* %t, %"class.std::basic_string"** %1, align 8
-  %2 = load %"class.std::basic_string"** %1, align 8
-  %3 = call i32 @_ZN3ros13serialization10SerializerISsE16serializedLengthERKSs(%"class.std::basic_string"* %2)
+define linkonce_odr i32 @_ZN3ros13serialization19serializationLengthIsEEjRKT_(i16* %t) #5 {
+  %1 = alloca i16*, align 8
+  store i16* %t, i16** %1, align 8
+  %2 = load i16** %1, align 8
+  %3 = call i32 @_ZN3ros13serialization10SerializerIsE16serializedLengthERKs(i16* %2)
   ret i32 %3
 }
 
-; Function Attrs: inlinehint uwtable
-define linkonce_odr i32 @_ZN3ros13serialization10SerializerISsE16serializedLengthERKSs(%"class.std::basic_string"* %str) #5 align 2 {
-  %1 = alloca %"class.std::basic_string"*, align 8
-  store %"class.std::basic_string"* %str, %"class.std::basic_string"** %1, align 8
-  %2 = load %"class.std::basic_string"** %1, align 8
-  %3 = call i64 @_ZNKSs4sizeEv(%"class.std::basic_string"* %2)
-  %4 = trunc i64 %3 to i32
-  %5 = add i32 4, %4
-  ret i32 %5
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr i32 @_ZN3ros13serialization10SerializerIsE16serializedLengthERKs(i16*) #8 align 2 {
+  %2 = alloca i16*, align 8
+  store i16* %0, i16** %2, align 8
+  ret i32 2
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"class.boost::_bi::list1"* %this, %"struct.std_msgs::String_"* %a1.coerce) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEEEC2ES8_(%"class.boost::_bi::list1"* %this, %"struct.std_msgs::Int16_"* %a1.coerce) unnamed_addr #3 align 2 {
   %a1 = alloca %"class.boost::reference_wrapper", align 8
   %1 = alloca %"class.boost::_bi::list1"*, align 8
   %2 = alloca %"class.boost::reference_wrapper", align 8
   %3 = getelementptr %"class.boost::reference_wrapper"* %a1, i32 0, i32 0
-  store %"struct.std_msgs::String_"* %a1.coerce, %"struct.std_msgs::String_"** %3
+  store %"struct.std_msgs::Int16_"* %a1.coerce, %"struct.std_msgs::Int16_"** %3
   store %"class.boost::_bi::list1"* %this, %"class.boost::_bi::list1"** %1, align 8
   %4 = load %"class.boost::_bi::list1"** %1
   %5 = bitcast %"class.boost::_bi::list1"* %4 to %"struct.boost::_bi::storage1"*
@@ -5296,23 +6871,23 @@ define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs
   %7 = bitcast %"class.boost::reference_wrapper"* %a1 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %7, i64 8, i32 8, i1 false)
   %8 = getelementptr %"class.boost::reference_wrapper"* %2, i32 0, i32 0
-  %9 = load %"struct.std_msgs::String_"** %8
-  call void @_ZN5boost3_bi8storage1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"struct.boost::_bi::storage1"* %5, %"struct.std_msgs::String_"* %9)
+  %9 = load %"struct.std_msgs::Int16_"** %8
+  call void @_ZN5boost3_bi8storage1INS_17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEEEC2ES8_(%"struct.boost::_bi::storage1"* %5, %"struct.std_msgs::Int16_"* %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEC2ESB_RKSF_(%"class.boost::_bi::bind_t"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, %"class.boost::_bi::list1"* %l) unnamed_addr #2 align 2 {
+define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs6Int16_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEC2ESB_RKSF_(%"class.boost::_bi::bind_t"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f, %"class.boost::_bi::list1"* %l) unnamed_addr #2 align 2 {
   %1 = alloca %"class.boost::_bi::bind_t"*, align 8
-  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, align 8
+  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)*, align 8
   %3 = alloca %"class.boost::_bi::list1"*, align 8
   store %"class.boost::_bi::bind_t"* %this, %"class.boost::_bi::bind_t"** %1, align 8
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %2, align 8
   store %"class.boost::_bi::list1"* %l, %"class.boost::_bi::list1"** %3, align 8
   %4 = load %"class.boost::_bi::bind_t"** %1
   %5 = getelementptr inbounds %"class.boost::_bi::bind_t"* %4, i32 0, i32 0
-  %6 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
-  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %6, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %5, align 8
+  %6 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %2, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)* %6, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::Int16_"*)** %5, align 8
   %7 = getelementptr inbounds %"class.boost::_bi::bind_t"* %4, i32 0, i32 1
   %8 = load %"class.boost::_bi::list1"** %3, align 8
   %9 = bitcast %"class.boost::_bi::list1"* %7 to i8*
@@ -5322,11 +6897,11 @@ define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost3_bi8storage1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"struct.boost::_bi::storage1"* %this, %"struct.std_msgs::String_"* %a1.coerce) unnamed_addr #2 align 2 {
+define linkonce_odr void @_ZN5boost3_bi8storage1INS_17reference_wrapperIKN8std_msgs6Int16_ISaIvEEEEEEC2ES8_(%"struct.boost::_bi::storage1"* %this, %"struct.std_msgs::Int16_"* %a1.coerce) unnamed_addr #2 align 2 {
   %a1 = alloca %"class.boost::reference_wrapper", align 8
   %1 = alloca %"struct.boost::_bi::storage1"*, align 8
   %2 = getelementptr %"class.boost::reference_wrapper"* %a1, i32 0, i32 0
-  store %"struct.std_msgs::String_"* %a1.coerce, %"struct.std_msgs::String_"** %2
+  store %"struct.std_msgs::Int16_"* %a1.coerce, %"struct.std_msgs::Int16_"** %2
   store %"struct.boost::_bi::storage1"* %this, %"struct.boost::_bi::storage1"** %1, align 8
   %3 = load %"struct.boost::_bi::storage1"** %1
   %4 = getelementptr inbounds %"struct.boost::_bi::storage1"* %3, i32 0, i32 0
@@ -5371,6 +6946,1040 @@ define linkonce_odr void @_ZN5boost6detail12shared_countC2Ev(%"class.boost::deta
 }
 
 ; Function Attrs: uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs6Int16_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::Int16_"*) #3 align 2 {
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %0, %"struct.std_msgs::Int16_"** %2, align 8
+  %3 = call i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs6Int16_ISaIvEEEE5valueEv()
+  ret i8* %3
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs6Int16_ISaIvEEEE5valueEv() #2 align 2 {
+  ret i8* getelementptr inbounds ([15 x i8]* @.str30, i32 0, i32 0)
+}
+
+; Function Attrs: uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs6Int16_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::Int16_"*) #3 align 2 {
+  %2 = alloca %"struct.std_msgs::Int16_"*, align 8
+  store %"struct.std_msgs::Int16_"* %0, %"struct.std_msgs::Int16_"** %2, align 8
+  %3 = call i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs6Int16_ISaIvEEEE5valueEv()
+  ret i8* %3
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs6Int16_ISaIvEEEE5valueEv() #2 align 2 {
+  ret i8* getelementptr inbounds ([33 x i8]* @.str31, i32 0, i32 0)
+}
+
+declare i32 @_ZNKSs7compareEPKc(%"class.std::basic_string"*, i8*) #0
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits6md5sumIN8std_msgs7String_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::String_"* %m) #5 {
+  %1 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %1, align 8
+  %2 = load %"struct.std_msgs::String_"** %1, align 8
+  %3 = call i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs7String_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::String_"* %2)
+  ret i8* %3
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits8datatypeIN8std_msgs7String_ISaIvEEEEEPKcRKT_(%"struct.std_msgs::String_"* %m) #5 {
+  %1 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %1, align 8
+  %2 = load %"struct.std_msgs::String_"** %1, align 8
+  %3 = call i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs7String_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::String_"* %2)
+  ret i8* %3
+}
+
+; Function Attrs: uwtable
+define linkonce_odr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } @_ZN5boost4bindIN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEENS_17reference_wrapperIS7_EEEENS_3_bi6bind_tIT_PFSD_T0_ENSB_9list_av_1IT1_E4typeEEESG_SI_(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, %"struct.std_msgs::String_"* %a1.coerce) #3 {
+  %1 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %a1 = alloca %"class.boost::reference_wrapper.33", align 8
+  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, align 8
+  %3 = alloca %"class.boost::_bi::list1.31", align 8
+  %4 = alloca %"class.boost::reference_wrapper.33", align 8
+  %5 = getelementptr %"class.boost::reference_wrapper.33"* %a1, i32 0, i32 0
+  store %"struct.std_msgs::String_"* %a1.coerce, %"struct.std_msgs::String_"** %5
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
+  %6 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
+  %7 = bitcast %"class.boost::reference_wrapper.33"* %4 to i8*
+  %8 = bitcast %"class.boost::reference_wrapper.33"* %a1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 8, i32 8, i1 false)
+  %9 = getelementptr %"class.boost::reference_wrapper.33"* %4, i32 0, i32 0
+  %10 = load %"struct.std_msgs::String_"** %9
+  call void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"class.boost::_bi::list1.31"* %3, %"struct.std_msgs::String_"* %10)
+  call void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEC2ESB_RKSF_(%"class.boost::_bi::bind_t.30"* %1, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %6, %"class.boost::_bi::list1.31"* %3)
+  %11 = bitcast %"class.boost::_bi::bind_t.30"* %1 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %12 = load { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %11, align 1
+  ret { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* } %12
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization16serializeMessageIN8std_msgs7String_ISaIvEEEEENS_17SerializedMessageERKT_(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"struct.std_msgs::String_"* %message) #5 {
+  %1 = alloca %"struct.std_msgs::String_"*, align 8
+  %2 = alloca i1
+  %len = alloca i32, align 4
+  %3 = alloca i8*
+  %4 = alloca i32
+  %s = alloca %"struct.ros::serialization::OStream", align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32
+  store %"struct.std_msgs::String_"* %message, %"struct.std_msgs::String_"** %1, align 8
+  store i1 false, i1* %2
+  call void @_ZN3ros17SerializedMessageC2Ev(%"class.ros::SerializedMessage"* %agg.result)
+  %7 = load %"struct.std_msgs::String_"** %1, align 8
+  %8 = invoke i32 @_ZN3ros13serialization19serializationLengthIN8std_msgs7String_ISaIvEEEEEjRKT_(%"struct.std_msgs::String_"* %7)
+          to label %9 unwind label %39
+
+; <label>:9                                       ; preds = %0
+  store i32 %8, i32* %len, align 4
+  %10 = load i32* %len, align 4
+  %11 = add i32 %10, 4
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 1
+  store i64 %12, i64* %13, align 8
+  %14 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 0
+  %15 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 1
+  %16 = load i64* %15, align 8
+  %17 = invoke noalias i8* @_Znam(i64 %16) #16
+          to label %18 unwind label %39
+
+; <label>:18                                      ; preds = %9
+  invoke void @_ZN5boost12shared_arrayIhE5resetIhEEvPT_(%"class.boost::shared_array"* %14, i8* %17)
+          to label %19 unwind label %39
+
+; <label>:19                                      ; preds = %18
+  %20 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 0
+  %21 = invoke i8* @_ZNK5boost12shared_arrayIhE3getEv(%"class.boost::shared_array"* %20)
+          to label %22 unwind label %39
+
+; <label>:22                                      ; preds = %19
+  %23 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 1
+  %24 = load i64* %23, align 8
+  %25 = trunc i64 %24 to i32
+  invoke void @_ZN3ros13serialization7OStreamC2EPhj(%"struct.ros::serialization::OStream"* %s, i8* %21, i32 %25)
+          to label %26 unwind label %39
+
+; <label>:26                                      ; preds = %22
+  %27 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 1
+  %28 = load i64* %27, align 8
+  %29 = trunc i64 %28 to i32
+  %30 = sub i32 %29, 4
+  store i32 %30, i32* %5
+  invoke void @_ZN3ros13serialization9serializeIjNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %s, i32* %5)
+          to label %31 unwind label %39
+
+; <label>:31                                      ; preds = %26
+  %32 = bitcast %"struct.ros::serialization::OStream"* %s to %"struct.ros::serialization::Stream"*
+  %33 = invoke i8* @_ZN3ros13serialization6Stream7getDataEv(%"struct.ros::serialization::Stream"* %32)
+          to label %34 unwind label %39
+
+; <label>:34                                      ; preds = %31
+  %35 = getelementptr inbounds %"class.ros::SerializedMessage"* %agg.result, i32 0, i32 2
+  store i8* %33, i8** %35, align 8
+  %36 = load %"struct.std_msgs::String_"** %1, align 8
+  invoke void @_ZN3ros13serialization9serializeIN8std_msgs7String_ISaIvEEENS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %s, %"struct.std_msgs::String_"* %36)
+          to label %37 unwind label %39
+
+; <label>:37                                      ; preds = %34
+  store i1 true, i1* %2
+  store i32 1, i32* %6
+  %38 = load i1* %2
+  br i1 %38, label %44, label %43
+
+; <label>:39                                      ; preds = %34, %31, %26, %22, %19, %18, %9, %0
+  %40 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %41 = extractvalue { i8*, i32 } %40, 0
+  store i8* %41, i8** %3
+  %42 = extractvalue { i8*, i32 } %40, 1
+  store i32 %42, i32* %4
+  invoke void @_ZN3ros17SerializedMessageD2Ev(%"class.ros::SerializedMessage"* %agg.result)
+          to label %45 unwind label %51
+
+; <label>:43                                      ; preds = %37
+  call void @_ZN3ros17SerializedMessageD2Ev(%"class.ros::SerializedMessage"* %agg.result)
+  br label %44
+
+; <label>:44                                      ; preds = %43, %37
+  ret void
+
+; <label>:45                                      ; preds = %39
+  br label %46
+
+; <label>:46                                      ; preds = %45
+  %47 = load i8** %3
+  %48 = load i32* %4
+  %49 = insertvalue { i8*, i32 } undef, i8* %47, 0
+  %50 = insertvalue { i8*, i32 } %49, i32 %48, 1
+  resume { i8*, i32 } %50
+
+; <label>:51                                      ; preds = %39
+  %52 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %53 = extractvalue { i8*, i32 } %52, 0
+  call void @__clang_call_terminate(i8* %53) #14
+  unreachable
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr %"struct.std_msgs::String_"* @_ZN5boost3refIKN8std_msgs7String_ISaIvEEEEEKNS_17reference_wrapperIT_EERS7_(%"struct.std_msgs::String_"* %t) #5 {
+  %1 = alloca %"class.boost::reference_wrapper.33", align 8
+  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  %3 = load %"struct.std_msgs::String_"** %2, align 8
+  call void @_ZN5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEEC2ERS5_(%"class.boost::reference_wrapper.33"* %1, %"struct.std_msgs::String_"* %3)
+  %4 = getelementptr %"class.boost::reference_wrapper.33"* %1, i32 0, i32 0
+  %5 = load %"struct.std_msgs::String_"** %4
+  ret %"struct.std_msgs::String_"* %5
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost8functionIFN3ros17SerializedMessageEvEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS6_5list1INS_17reference_wrapperISC_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISL_EE5valueEEE5valueEiE4typeE(%"class.boost::function.28"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, i32) unnamed_addr #3 align 2 {
+  %f = alloca %"class.boost::_bi::bind_t.30", align 8
+  %2 = alloca %"class.boost::function.28"*, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %5 = bitcast %"class.boost::_bi::bind_t.30"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %6
+  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 1
+  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %7
+  store %"class.boost::function.28"* %this, %"class.boost::function.28"** %2, align 8
+  store i32 %0, i32* %3, align 4
+  %8 = load %"class.boost::function.28"** %2
+  %9 = bitcast %"class.boost::function.28"* %8 to %"class.boost::function0"*
+  %10 = bitcast %"class.boost::_bi::bind_t.30"* %4 to i8*
+  %11 = bitcast %"class.boost::_bi::bind_t.30"* %f to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* %11, i64 16, i32 8, i1 false)
+  %12 = bitcast %"class.boost::_bi::bind_t.30"* %4 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 0
+  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %13, align 1
+  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 1
+  %16 = load %"struct.std_msgs::String_"** %15, align 1
+  call void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISK_EE5valueEEE5valueEiE4typeE(%"class.boost::function0"* %9, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %14, %"struct.std_msgs::String_"* %16, i32 0)
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEEC2INS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISK_EE5valueEEE5valueEiE4typeE(%"class.boost::function0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, i32) unnamed_addr #3 align 2 {
+  %f = alloca %"class.boost::_bi::bind_t.30", align 8
+  %2 = alloca %"class.boost::function0"*, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %5 = bitcast %"class.boost::_bi::bind_t.30"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %6
+  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 1
+  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %7
+  store %"class.boost::function0"* %this, %"class.boost::function0"** %2, align 8
+  store i32 %0, i32* %3, align 4
+  %8 = load %"class.boost::function0"** %2
+  %9 = bitcast %"class.boost::function0"* %8 to %"class.boost::function_base"*
+  call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %9)
+  %10 = bitcast %"class.boost::_bi::bind_t.30"* %4 to i8*
+  %11 = bitcast %"class.boost::_bi::bind_t.30"* %f to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* %11, i64 16, i32 8, i1 false)
+  %12 = bitcast %"class.boost::_bi::bind_t.30"* %4 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 0
+  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %13, align 1
+  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 1
+  %16 = load %"struct.std_msgs::String_"** %15, align 1
+  call void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_(%"class.boost::function0"* %8, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %14, %"struct.std_msgs::String_"* %16)
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_(%"class.boost::function0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1) #3 align 2 {
+  %f = alloca %"class.boost::_bi::bind_t.30", align 8
+  %1 = alloca %"class.boost::function0"*, align 8
+  %2 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %value = alloca i64, align 8
+  %3 = bitcast %"class.boost::_bi::bind_t.30"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %4 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %3, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %4
+  %5 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %3, i32 0, i32 1
+  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %5
+  store %"class.boost::function0"* %this, %"class.boost::function0"** %1, align 8
+  %6 = load %"class.boost::function0"** %1
+  %7 = bitcast %"class.boost::_bi::bind_t.30"* %2 to i8*
+  %8 = bitcast %"class.boost::_bi::bind_t.30"* %f to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 16, i32 8, i1 false)
+  %9 = bitcast %"class.boost::function0"* %6 to %"class.boost::function_base"*
+  %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 1
+  %11 = bitcast %"class.boost::_bi::bind_t.30"* %2 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %12 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %11, i32 0, i32 0
+  %13 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %12, align 1
+  %14 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %11, i32 0, i32 1
+  %15 = load %"struct.std_msgs::String_"** %14, align 1
+  %16 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0"* @_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %13, %"struct.std_msgs::String_"* %15, %"union.boost::detail::function::function_buffer"* %10)
+  br i1 %16, label %17, label %24
+
+; <label>:17                                      ; preds = %0
+  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable0"* @_ZZN5boost9function0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS2_PFS2_RKN8std_msgs7String_ISaIvEEEENS5_5list1INS_17reference_wrapperISB_EEEEEEEEvT_E13stored_vtable to i64), i64* %value, align 8
+  %18 = load i64* %value, align 8
+  %19 = or i64 %18, 1
+  store i64 %19, i64* %value, align 8
+  %20 = load i64* %value, align 8
+  %21 = inttoptr i64 %20 to %"struct.boost::detail::function::vtable_base"*
+  %22 = bitcast %"class.boost::function0"* %6 to %"class.boost::function_base"*
+  %23 = getelementptr inbounds %"class.boost::function_base"* %22, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* %21, %"struct.boost::detail::function::vtable_base"** %23, align 8
+  br label %27
+
+; <label>:24                                      ; preds = %0
+  %25 = bitcast %"class.boost::function0"* %6 to %"class.boost::function_base"*
+  %26 = getelementptr inbounds %"class.boost::function_base"* %25, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %26, align 8
+  br label %27
+
+; <label>:27                                      ; preds = %24, %17
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE6manageERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+  %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
+  store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %1, align 8
+  store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
+  store i32 %op, i32* %3, align 4
+  %5 = load i32* %3, align 4
+  switch i32 %5, label %16 [
+    i32 4, label %6
+  ]
+
+; <label>:6                                       ; preds = %0
+  %7 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %8 = bitcast %"union.boost::detail::function::function_buffer"* %7 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %9 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %8, i32 0, i32 0
+  store %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*), %"class.std::type_info"** %9, align 8
+  %10 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %11 = bitcast %"union.boost::detail::function::function_buffer"* %10 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %12 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %11, i32 0, i32 1
+  store i8 0, i8* %12, align 1
+  %13 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %14 = bitcast %"union.boost::detail::function::function_buffer"* %13 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %15 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %14, i32 0, i32 2
+  store i8 0, i8* %15, align 1
+  br label %20
+
+; <label>:16                                      ; preds = %0
+  %17 = load %"union.boost::detail::function::function_buffer"** %1, align 8
+  %18 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %19 = load i32* %3, align 4
+  call void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE(%"union.boost::detail::function::function_buffer"* %17, %"union.boost::detail::function::function_buffer"* %18, i32 %19)
+  br label %20
+
+; <label>:20                                      ; preds = %16, %6
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0INS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEES6_E6invokeERNS1_15function_bufferE(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"union.boost::detail::function::function_buffer"* %function_obj_ptr) #3 align 2 {
+  %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %f = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  store %"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"union.boost::detail::function::function_buffer"** %1, align 8
+  %2 = load %"union.boost::detail::function::function_buffer"** %1, align 8
+  %3 = bitcast %"union.boost::detail::function::function_buffer"* %2 to i8*
+  %4 = bitcast i8* %3 to %"class.boost::_bi::bind_t.30"*
+  store %"class.boost::_bi::bind_t.30"* %4, %"class.boost::_bi::bind_t.30"** %f, align 8
+  %5 = load %"class.boost::_bi::bind_t.30"** %f, align 8
+  call void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEclEv(%"class.ros::SerializedMessage"* sret %agg.result, %"class.boost::_bi::bind_t.30"* %5)
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %f = alloca %"class.boost::_bi::bind_t.30", align 8
+  %1 = alloca %"struct.boost::detail::function::basic_vtable0"*, align 8
+  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %3 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %4 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
+  %5 = bitcast %"class.boost::_bi::bind_t.30"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %6
+  %7 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %5, i32 0, i32 1
+  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %7
+  store %"struct.boost::detail::function::basic_vtable0"* %this, %"struct.boost::detail::function::basic_vtable0"** %1, align 8
+  store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
+  %8 = load %"struct.boost::detail::function::basic_vtable0"** %1
+  %9 = bitcast %"class.boost::_bi::bind_t.30"* %3 to i8*
+  %10 = bitcast %"class.boost::_bi::bind_t.30"* %f to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* %10, i64 16, i32 8, i1 false)
+  %11 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %12 = bitcast %"class.boost::_bi::bind_t.30"* %3 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %13 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 0
+  %14 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %13, align 1
+  %15 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %12, i32 0, i32 1
+  %16 = load %"struct.std_msgs::String_"** %15, align 1
+  %17 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0"* %8, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %14, %"struct.std_msgs::String_"* %16, %"union.boost::detail::function::function_buffer"* %11)
+  ret i1 %17
+}
+
+; Function Attrs: uwtable
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE9assign_toINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca i1, align 1
+  %f = alloca %"class.boost::_bi::bind_t.30", align 8
+  %2 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
+  %3 = alloca %"struct.boost::detail::function::basic_vtable0"*, align 8
+  %4 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %5 = alloca %"class.boost::_bi::bind_t.30", align 8
+  %6 = alloca %"struct.mpl_::bool_", align 1
+  %7 = bitcast %"class.boost::_bi::bind_t.30"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %8 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %7, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %8
+  %9 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %7, i32 0, i32 1
+  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %9
+  store %"struct.boost::detail::function::basic_vtable0"* %this, %"struct.boost::detail::function::basic_vtable0"** %3, align 8
+  store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %4, align 8
+  %10 = load %"struct.boost::detail::function::basic_vtable0"** %3
+  %11 = call %"class.boost::_bi::bind_t.30"* @_ZN5boost9addressofINS_3_bi6bind_tIN3ros17SerializedMessageEPFS4_RKN8std_msgs7String_ISaIvEEEENS1_5list1INS_17reference_wrapperIS9_EEEEEEEEPT_RSI_(%"class.boost::_bi::bind_t.30"* %f)
+  %12 = call zeroext i1 (...)* @_ZN5boost6detail8function16has_empty_targetEz(%"class.boost::_bi::bind_t.30"* %11)
+  br i1 %12, label %22, label %13
+
+; <label>:13                                      ; preds = %0
+  %14 = bitcast %"class.boost::_bi::bind_t.30"* %5 to i8*
+  %15 = bitcast %"class.boost::_bi::bind_t.30"* %f to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %14, i8* %15, i64 16, i32 8, i1 false)
+  %16 = load %"union.boost::detail::function::function_buffer"** %4, align 8
+  %17 = bitcast %"class.boost::_bi::bind_t.30"* %5 to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %18 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %17, i32 0, i32 0
+  %19 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %18, align 1
+  %20 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %17, i32 0, i32 1
+  %21 = load %"struct.std_msgs::String_"** %20, align 1
+  call void @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE14assign_functorINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0"* %10, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %19, %"struct.std_msgs::String_"* %21, %"union.boost::detail::function::function_buffer"* %16)
+  store i1 true, i1* %1
+  br label %23
+
+; <label>:22                                      ; preds = %0
+  store i1 false, i1* %1
+  br label %23
+
+; <label>:23                                      ; preds = %22, %13
+  %24 = load i1* %1
+  ret i1 %24
+}
+
+; Function Attrs: uwtable
+define linkonce_odr %"class.boost::_bi::bind_t.30"* @_ZN5boost9addressofINS_3_bi6bind_tIN3ros17SerializedMessageEPFS4_RKN8std_msgs7String_ISaIvEEEENS1_5list1INS_17reference_wrapperIS9_EEEEEEEEPT_RSI_(%"class.boost::_bi::bind_t.30"* %v) #3 {
+  %1 = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %2 = alloca %"struct.boost::detail::addr_impl_ref.34", align 8
+  store %"class.boost::_bi::bind_t.30"* %v, %"class.boost::_bi::bind_t.30"** %1, align 8
+  %3 = load %"class.boost::_bi::bind_t.30"** %1, align 8
+  call void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEC2ERSI_(%"struct.boost::detail::addr_impl_ref.34"* %2, %"class.boost::_bi::bind_t.30"* %3)
+  %4 = call %"class.boost::_bi::bind_t.30"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEcvRSI_Ev(%"struct.boost::detail::addr_impl_ref.34"* %2)
+  %5 = call %"class.boost::_bi::bind_t.30"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEE1fERSI_l(%"class.boost::_bi::bind_t.30"* %4, i64 0)
+  ret %"class.boost::_bi::bind_t.30"* %5
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0IN3ros17SerializedMessageEE14assign_functorINS_3_bi6bind_tIS4_PFS4_RKN8std_msgs7String_ISaIvEEEENS7_5list1INS_17reference_wrapperISD_EEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, %"struct.std_msgs::String_"* %f.coerce1, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
+  %f = alloca %"class.boost::_bi::bind_t.30", align 8
+  %1 = alloca %"struct.mpl_::bool_", align 1
+  %2 = alloca %"struct.boost::detail::function::basic_vtable0"*, align 8
+  %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %4 = bitcast %"class.boost::_bi::bind_t.30"* %f to { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }*
+  %5 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %4, i32 0, i32 0
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f.coerce0, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %5
+  %6 = getelementptr { void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, %"struct.std_msgs::String_"* }* %4, i32 0, i32 1
+  store %"struct.std_msgs::String_"* %f.coerce1, %"struct.std_msgs::String_"** %6
+  store %"struct.boost::detail::function::basic_vtable0"* %this, %"struct.boost::detail::function::basic_vtable0"** %2, align 8
+  store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %3, align 8
+  %7 = load %"struct.boost::detail::function::basic_vtable0"** %2
+  %8 = load %"union.boost::detail::function::function_buffer"** %3, align 8
+  %9 = bitcast %"union.boost::detail::function::function_buffer"* %8 to i8*
+  %10 = icmp eq i8* %9, null
+  br i1 %10, label %15, label %11
+
+; <label>:11                                      ; preds = %0
+  %12 = bitcast i8* %9 to %"class.boost::_bi::bind_t.30"*
+  %13 = bitcast %"class.boost::_bi::bind_t.30"* %12 to i8*
+  %14 = bitcast %"class.boost::_bi::bind_t.30"* %f to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %13, i8* %14, i64 16, i32 8, i1 false)
+  br label %15
+
+; <label>:15                                      ; preds = %11, %0
+  %16 = phi %"class.boost::_bi::bind_t.30"* [ %12, %11 ], [ null, %0 ]
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr %"class.boost::_bi::bind_t.30"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEE1fERSI_l(%"class.boost::_bi::bind_t.30"* %v, i64) #8 align 2 {
+  %2 = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %3 = alloca i64, align 8
+  store %"class.boost::_bi::bind_t.30"* %v, %"class.boost::_bi::bind_t.30"** %2, align 8
+  store i64 %0, i64* %3, align 8
+  %4 = load %"class.boost::_bi::bind_t.30"** %2, align 8
+  %5 = bitcast %"class.boost::_bi::bind_t.30"* %4 to i8*
+  %6 = bitcast i8* %5 to %"class.boost::_bi::bind_t.30"*
+  ret %"class.boost::_bi::bind_t.30"* %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEC2ERSI_(%"struct.boost::detail::addr_impl_ref.34"* %this, %"class.boost::_bi::bind_t.30"* %v) unnamed_addr #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.34"*, align 8
+  %2 = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.34"* %this, %"struct.boost::detail::addr_impl_ref.34"** %1, align 8
+  store %"class.boost::_bi::bind_t.30"* %v, %"class.boost::_bi::bind_t.30"** %2, align 8
+  %3 = load %"struct.boost::detail::addr_impl_ref.34"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.34"* %3, i32 0, i32 0
+  %5 = load %"class.boost::_bi::bind_t.30"** %2, align 8
+  store %"class.boost::_bi::bind_t.30"* %5, %"class.boost::_bi::bind_t.30"** %4, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr %"class.boost::_bi::bind_t.30"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIN3ros17SerializedMessageEPFS5_RKN8std_msgs7String_ISaIvEEEENS2_5list1INS_17reference_wrapperISA_EEEEEEEcvRSI_Ev(%"struct.boost::detail::addr_impl_ref.34"* %this) #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.34"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.34"* %this, %"struct.boost::detail::addr_impl_ref.34"** %1, align 8
+  %2 = load %"struct.boost::detail::addr_impl_ref.34"** %1
+  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.34"* %2, i32 0, i32 0
+  %4 = load %"class.boost::_bi::bind_t.30"** %3, align 8
+  ret %"class.boost::_bi::bind_t.30"* %4
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEclEv(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"class.boost::_bi::bind_t.30"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %a = alloca %"class.boost::_bi::list0", align 1
+  %2 = alloca %"class.boost::_bi::type", align 1
+  store %"class.boost::_bi::bind_t.30"* %this, %"class.boost::_bi::bind_t.30"** %1, align 8
+  %3 = load %"class.boost::_bi::bind_t.30"** %1
+  call void @_ZN5boost3_bi5list0C2Ev(%"class.boost::_bi::list0"* %a)
+  %4 = getelementptr inbounds %"class.boost::_bi::bind_t.30"* %3, i32 0, i32 1
+  %5 = getelementptr inbounds %"class.boost::_bi::bind_t.30"* %3, i32 0, i32 0
+  call void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEclIN3ros17SerializedMessageEPFSC_RS7_ENS0_5list0EEET_NS0_4typeISH_EERT0_RT1_l(%"class.ros::SerializedMessage"* sret %agg.result, %"class.boost::_bi::list1.31"* %4, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %5, %"class.boost::_bi::list0"* %a, i64 0)
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEclIN3ros17SerializedMessageEPFSC_RS7_ENS0_5list0EEET_NS0_4typeISH_EERT0_RT1_l(%"class.ros::SerializedMessage"* noalias sret %agg.result, %"class.boost::_bi::list1.31"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, %"class.boost::_bi::list0"* %a, i64) #3 align 2 {
+  %2 = alloca %"class.boost::_bi::type", align 1
+  %3 = alloca %"class.boost::_bi::list1.31"*, align 8
+  %4 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)**, align 8
+  %5 = alloca %"class.boost::_bi::list0"*, align 8
+  %6 = alloca i64, align 8
+  store %"class.boost::_bi::list1.31"* %this, %"class.boost::_bi::list1.31"** %3, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %4, align 8
+  store %"class.boost::_bi::list0"* %a, %"class.boost::_bi::list0"** %5, align 8
+  store i64 %0, i64* %6, align 8
+  %7 = load %"class.boost::_bi::list1.31"** %3
+  %8 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %4, align 8
+  %9 = call void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** @_ZN5boost3_bi9unwrapperIPFN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEEEE6unwrapERSB_l(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %8, i64 0)
+  %10 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %9
+  %11 = load %"class.boost::_bi::list0"** %5, align 8
+  %12 = bitcast %"class.boost::_bi::list1.31"* %7 to %"struct.boost::_bi::storage1.32"*
+  %13 = getelementptr inbounds %"struct.boost::_bi::storage1.32"* %12, i32 0, i32 0
+  %14 = call %"struct.std_msgs::String_"* @_ZNK5boost3_bi5list0ixIKN8std_msgs7String_ISaIvEEEEERT_RKNS_17reference_wrapperIS8_EE(%"class.boost::_bi::list0"* %11, %"class.boost::reference_wrapper.33"* %13)
+  call void %10(%"class.ros::SerializedMessage"* sret %agg.result, %"struct.std_msgs::String_"* %14)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** @_ZN5boost3_bi9unwrapperIPFN3ros17SerializedMessageERKN8std_msgs7String_ISaIvEEEEE6unwrapERSB_l(void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, i64) #8 align 2 {
+  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)**, align 8
+  %3 = alloca i64, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %2, align 8
+  store i64 %0, i64* %3, align 8
+  %4 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*** %2, align 8
+  ret void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %4
+}
+
+; Function Attrs: uwtable
+define linkonce_odr %"struct.std_msgs::String_"* @_ZNK5boost3_bi5list0ixIKN8std_msgs7String_ISaIvEEEEERT_RKNS_17reference_wrapperIS8_EE(%"class.boost::_bi::list0"* %this, %"class.boost::reference_wrapper.33"* %v) #3 align 2 {
+  %1 = alloca %"class.boost::_bi::list0"*, align 8
+  %2 = alloca %"class.boost::reference_wrapper.33"*, align 8
+  store %"class.boost::_bi::list0"* %this, %"class.boost::_bi::list0"** %1, align 8
+  store %"class.boost::reference_wrapper.33"* %v, %"class.boost::reference_wrapper.33"** %2, align 8
+  %3 = load %"class.boost::_bi::list0"** %1
+  %4 = load %"class.boost::reference_wrapper.33"** %2, align 8
+  %5 = call %"struct.std_msgs::String_"* @_ZNK5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEE3getEv(%"class.boost::reference_wrapper.33"* %4)
+  ret %"struct.std_msgs::String_"* %5
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr %"struct.std_msgs::String_"* @_ZNK5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEE3getEv(%"class.boost::reference_wrapper.33"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::reference_wrapper.33"*, align 8
+  store %"class.boost::reference_wrapper.33"* %this, %"class.boost::reference_wrapper.33"** %1, align 8
+  %2 = load %"class.boost::reference_wrapper.33"** %1
+  %3 = getelementptr inbounds %"class.boost::reference_wrapper.33"* %2, i32 0, i32 0
+  %4 = load %"struct.std_msgs::String_"** %3, align 8
+  ret %"struct.std_msgs::String_"* %4
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+  %1 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
+  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"struct.mpl_::bool_", align 1
+  store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
+  store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %3, align 8
+  store i32 %op, i32* %4, align 4
+  %6 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %7 = load %"union.boost::detail::function::function_buffer"** %3, align 8
+  %8 = load i32* %4, align 4
+  call void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb1EEE(%"union.boost::detail::function::function_buffer"* %6, %"union.boost::detail::function::function_buffer"* %7, i32 %8)
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE7managerERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb1EEE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
+  %1 = alloca %"struct.mpl_::bool_", align 1
+  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %4 = alloca i32, align 4
+  store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
+  store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %3, align 8
+  store i32 %op, i32* %4, align 4
+  %5 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %6 = load %"union.boost::detail::function::function_buffer"** %3, align 8
+  %7 = load i32* %4, align 4
+  call void @_ZN5boost6detail8function22functor_manager_commonINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE12manage_smallERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %5, %"union.boost::detail::function::function_buffer"* %6, i32 %7)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3_bi6bind_tIN3ros17SerializedMessageEPFS6_RKN8std_msgs7String_ISaIvEEEENS3_5list1INS_17reference_wrapperISB_EEEEEEE12manage_smallERKNS1_15function_bufferERSL_NS1_30functor_manager_operation_typeE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #8 align 2 {
+  %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  %3 = alloca i32, align 4
+  %in_functor = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %f = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %f1 = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %check_type = alloca %"class.std::type_info"*, align 8
+  store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %1, align 8
+  store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
+  store i32 %op, i32* %3, align 4
+  %4 = load i32* %3, align 4
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %9, label %6
+
+; <label>:6                                       ; preds = %0
+  %7 = load i32* %3, align 4
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %9, label %31
+
+; <label>:9                                       ; preds = %6, %0
+  %10 = load %"union.boost::detail::function::function_buffer"** %1, align 8
+  %11 = bitcast %"union.boost::detail::function::function_buffer"* %10 to i8*
+  %12 = bitcast i8* %11 to %"class.boost::_bi::bind_t.30"*
+  store %"class.boost::_bi::bind_t.30"* %12, %"class.boost::_bi::bind_t.30"** %in_functor, align 8
+  %13 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %14 = bitcast %"union.boost::detail::function::function_buffer"* %13 to i8*
+  %15 = icmp eq i8* %14, null
+  br i1 %15, label %21, label %16
+
+; <label>:16                                      ; preds = %9
+  %17 = bitcast i8* %14 to %"class.boost::_bi::bind_t.30"*
+  %18 = load %"class.boost::_bi::bind_t.30"** %in_functor, align 8
+  %19 = bitcast %"class.boost::_bi::bind_t.30"* %17 to i8*
+  %20 = bitcast %"class.boost::_bi::bind_t.30"* %18 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %19, i8* %20, i64 16, i32 8, i1 false)
+  br label %21
+
+; <label>:21                                      ; preds = %16, %9
+  %22 = phi %"class.boost::_bi::bind_t.30"* [ %17, %16 ], [ null, %9 ]
+  %23 = load i32* %3, align 4
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %30
+
+; <label>:25                                      ; preds = %21
+  %26 = load %"union.boost::detail::function::function_buffer"** %1, align 8
+  %27 = bitcast %"union.boost::detail::function::function_buffer"* %26 to i8*
+  %28 = bitcast i8* %27 to %"class.boost::_bi::bind_t.30"*
+  store %"class.boost::_bi::bind_t.30"* %28, %"class.boost::_bi::bind_t.30"** %f, align 8
+  %29 = load %"class.boost::_bi::bind_t.30"** %f, align 8
+  br label %30
+
+; <label>:30                                      ; preds = %25, %21
+  br label %73
+
+; <label>:31                                      ; preds = %6
+  %32 = load i32* %3, align 4
+  %33 = icmp eq i32 %32, 2
+  br i1 %33, label %34, label %39
+
+; <label>:34                                      ; preds = %31
+  %35 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %36 = bitcast %"union.boost::detail::function::function_buffer"* %35 to i8*
+  %37 = bitcast i8* %36 to %"class.boost::_bi::bind_t.30"*
+  store %"class.boost::_bi::bind_t.30"* %37, %"class.boost::_bi::bind_t.30"** %f1, align 8
+  %38 = load %"class.boost::_bi::bind_t.30"** %f1, align 8
+  br label %72
+
+; <label>:39                                      ; preds = %31
+  %40 = load i32* %3, align 4
+  %41 = icmp eq i32 %40, 3
+  br i1 %41, label %42, label %61
+
+; <label>:42                                      ; preds = %39
+  %43 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %44 = bitcast %"union.boost::detail::function::function_buffer"* %43 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %45 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %44, i32 0, i32 0
+  %46 = load %"class.std::type_info"** %45, align 8
+  store %"class.std::type_info"* %46, %"class.std::type_info"** %check_type, align 8
+  %47 = load %"class.std::type_info"** %check_type, align 8
+  %48 = call i8* @_ZNKSt9type_info4nameEv(%"class.std::type_info"* %47)
+  %49 = call i8* @_ZNKSt9type_info4nameEv(%"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*))
+  %50 = call i32 @strcmp(i8* %48, i8* %49) #17
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %57
+
+; <label>:52                                      ; preds = %42
+  %53 = load %"union.boost::detail::function::function_buffer"** %1, align 8
+  %54 = bitcast %"union.boost::detail::function::function_buffer"* %53 to i8*
+  %55 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %56 = bitcast %"union.boost::detail::function::function_buffer"* %55 to i8**
+  store i8* %54, i8** %56, align 8
+  br label %60
+
+; <label>:57                                      ; preds = %42
+  %58 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %59 = bitcast %"union.boost::detail::function::function_buffer"* %58 to i8**
+  store i8* null, i8** %59, align 8
+  br label %60
+
+; <label>:60                                      ; preds = %57, %52
+  br label %71
+
+; <label>:61                                      ; preds = %39
+  %62 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %63 = bitcast %"union.boost::detail::function::function_buffer"* %62 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %64 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %63, i32 0, i32 0
+  store %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEE to %"class.std::type_info"*), %"class.std::type_info"** %64, align 8
+  %65 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %66 = bitcast %"union.boost::detail::function::function_buffer"* %65 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %67 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %66, i32 0, i32 1
+  store i8 0, i8* %67, align 1
+  %68 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %69 = bitcast %"union.boost::detail::function::function_buffer"* %68 to %"struct.boost::detail::function::function_buffer::type_t"*
+  %70 = getelementptr inbounds %"struct.boost::detail::function::function_buffer::type_t"* %69, i32 0, i32 2
+  store i8 0, i8* %70, align 1
+  br label %71
+
+; <label>:71                                      ; preds = %61, %60
+  br label %72
+
+; <label>:72                                      ; preds = %71, %34
+  br label %73
+
+; <label>:73                                      ; preds = %72, %30
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost17reference_wrapperIKN8std_msgs7String_ISaIvEEEEC2ERS5_(%"class.boost::reference_wrapper.33"* %this, %"struct.std_msgs::String_"* %t) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::reference_wrapper.33"*, align 8
+  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"class.boost::reference_wrapper.33"* %this, %"class.boost::reference_wrapper.33"** %1, align 8
+  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  %3 = load %"class.boost::reference_wrapper.33"** %1
+  %4 = getelementptr inbounds %"class.boost::reference_wrapper.33"* %3, i32 0, i32 0
+  %5 = load %"struct.std_msgs::String_"** %2, align 8
+  %6 = call %"struct.std_msgs::String_"* @_ZN5boost9addressofIKN8std_msgs7String_ISaIvEEEEEPT_RS6_(%"struct.std_msgs::String_"* %5)
+  store %"struct.std_msgs::String_"* %6, %"struct.std_msgs::String_"** %4, align 8
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr %"struct.std_msgs::String_"* @_ZN5boost9addressofIKN8std_msgs7String_ISaIvEEEEEPT_RS6_(%"struct.std_msgs::String_"* %v) #3 {
+  %1 = alloca %"struct.std_msgs::String_"*, align 8
+  %2 = alloca %"struct.boost::detail::addr_impl_ref.35", align 8
+  store %"struct.std_msgs::String_"* %v, %"struct.std_msgs::String_"** %1, align 8
+  %3 = load %"struct.std_msgs::String_"** %1, align 8
+  call void @_ZN5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEC2ERS6_(%"struct.boost::detail::addr_impl_ref.35"* %2, %"struct.std_msgs::String_"* %3)
+  %4 = call %"struct.std_msgs::String_"* @_ZNK5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEcvRS6_Ev(%"struct.boost::detail::addr_impl_ref.35"* %2)
+  %5 = call %"struct.std_msgs::String_"* @_ZN5boost6detail14addressof_implIKN8std_msgs7String_ISaIvEEEE1fERS6_l(%"struct.std_msgs::String_"* %4, i64 0)
+  ret %"struct.std_msgs::String_"* %5
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr %"struct.std_msgs::String_"* @_ZN5boost6detail14addressof_implIKN8std_msgs7String_ISaIvEEEE1fERS6_l(%"struct.std_msgs::String_"* %v, i64) #8 align 2 {
+  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  %3 = alloca i64, align 8
+  store %"struct.std_msgs::String_"* %v, %"struct.std_msgs::String_"** %2, align 8
+  store i64 %0, i64* %3, align 8
+  %4 = load %"struct.std_msgs::String_"** %2, align 8
+  %5 = bitcast %"struct.std_msgs::String_"* %4 to i8*
+  %6 = bitcast i8* %5 to %"struct.std_msgs::String_"*
+  ret %"struct.std_msgs::String_"* %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEC2ERS6_(%"struct.boost::detail::addr_impl_ref.35"* %this, %"struct.std_msgs::String_"* %v) unnamed_addr #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.35"*, align 8
+  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.35"* %this, %"struct.boost::detail::addr_impl_ref.35"** %1, align 8
+  store %"struct.std_msgs::String_"* %v, %"struct.std_msgs::String_"** %2, align 8
+  %3 = load %"struct.boost::detail::addr_impl_ref.35"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.35"* %3, i32 0, i32 0
+  %5 = load %"struct.std_msgs::String_"** %2, align 8
+  store %"struct.std_msgs::String_"* %5, %"struct.std_msgs::String_"** %4, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr %"struct.std_msgs::String_"* @_ZNK5boost6detail13addr_impl_refIKN8std_msgs7String_ISaIvEEEEcvRS6_Ev(%"struct.boost::detail::addr_impl_ref.35"* %this) #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.35"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.35"* %this, %"struct.boost::detail::addr_impl_ref.35"** %1, align 8
+  %2 = load %"struct.boost::detail::addr_impl_ref.35"** %1
+  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.35"* %2, i32 0, i32 0
+  %4 = load %"struct.std_msgs::String_"** %3, align 8
+  ret %"struct.std_msgs::String_"* %4
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i32 @_ZN3ros13serialization19serializationLengthIN8std_msgs7String_ISaIvEEEEEjRKT_(%"struct.std_msgs::String_"* %t) #5 {
+  %1 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %1, align 8
+  %2 = load %"struct.std_msgs::String_"** %1, align 8
+  %3 = call i32 @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE16serializedLengthIS5_EEjRKT_(%"struct.std_msgs::String_"* %2)
+  ret i32 %3
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization9serializeIN8std_msgs7String_ISaIvEEENS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::String_"* %t) #5 {
+  %1 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %1, align 8
+  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  %3 = load %"struct.ros::serialization::OStream"** %1, align 8
+  %4 = load %"struct.std_msgs::String_"** %2, align 8
+  call void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE5writeINS0_7OStreamES5_EEvRT_RKT0_(%"struct.ros::serialization::OStream"* %3, %"struct.std_msgs::String_"* %4)
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE5writeINS0_7OStreamES5_EEvRT_RKT0_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::String_"* %t) #5 align 2 {
+  %1 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %2 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %1, align 8
+  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %2, align 8
+  %3 = load %"struct.ros::serialization::OStream"** %1, align 8
+  %4 = load %"struct.std_msgs::String_"** %2, align 8
+  call void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7OStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::OStream"* %3, %"struct.std_msgs::String_"* %4)
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7OStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::OStream"* %stream, %"struct.std_msgs::String_"* %m) #5 align 2 {
+  %1 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %2 = alloca %"class.std::basic_string"*, align 8
+  %3 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %4 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %3, align 8
+  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %4, align 8
+  %5 = load %"struct.ros::serialization::OStream"** %3, align 8
+  %6 = load %"struct.std_msgs::String_"** %4, align 8
+  %7 = getelementptr inbounds %"struct.std_msgs::String_"* %6, i32 0, i32 0
+  store %"struct.ros::serialization::OStream"* %5, %"struct.ros::serialization::OStream"** %1, align 8
+  store %"class.std::basic_string"* %7, %"class.std::basic_string"** %2, align 8
+  %8 = load %"struct.ros::serialization::OStream"** %1
+  %9 = load %"class.std::basic_string"** %2, align 8
+  call void @_ZN3ros13serialization9serializeISsNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %8, %"class.std::basic_string"* %9)
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization9serializeISsNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %stream, %"class.std::basic_string"* %t) #5 {
+  %1 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %2 = alloca %"class.std::basic_string"*, align 8
+  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %1, align 8
+  store %"class.std::basic_string"* %t, %"class.std::basic_string"** %2, align 8
+  %3 = load %"struct.ros::serialization::OStream"** %1, align 8
+  %4 = load %"class.std::basic_string"** %2, align 8
+  call void @_ZN3ros13serialization10SerializerISsE5writeINS0_7OStreamEEEvRT_RKSs(%"struct.ros::serialization::OStream"* %3, %"class.std::basic_string"* %4)
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization10SerializerISsE5writeINS0_7OStreamEEEvRT_RKSs(%"struct.ros::serialization::OStream"* %stream, %"class.std::basic_string"* %str) #5 align 2 {
+  %1 = alloca %"struct.ros::serialization::Stream"*, align 8
+  %2 = alloca i32, align 4
+  %old_data.i = alloca i8*, align 8
+  %3 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %4 = alloca i32*, align 8
+  %5 = alloca %"struct.ros::serialization::OStream"*, align 8
+  %6 = alloca %"class.std::basic_string"*, align 8
+  %len = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store %"struct.ros::serialization::OStream"* %stream, %"struct.ros::serialization::OStream"** %5, align 8
+  store %"class.std::basic_string"* %str, %"class.std::basic_string"** %6, align 8
+  %8 = load %"class.std::basic_string"** %6, align 8
+  %9 = call i64 @_ZNKSs4sizeEv(%"class.std::basic_string"* %8)
+  store i64 %9, i64* %len, align 8
+  %10 = load %"struct.ros::serialization::OStream"** %5, align 8
+  %11 = load i64* %len, align 8
+  %12 = trunc i64 %11 to i32
+  store i32 %12, i32* %7
+  store %"struct.ros::serialization::OStream"* %10, %"struct.ros::serialization::OStream"** %3, align 8
+  store i32* %7, i32** %4, align 8
+  %13 = load %"struct.ros::serialization::OStream"** %3
+  %14 = load i32** %4, align 8
+  call void @_ZN3ros13serialization9serializeIjNS0_7OStreamEEEvRT0_RKT_(%"struct.ros::serialization::OStream"* %13, i32* %14)
+  %15 = load i64* %len, align 8
+  %16 = icmp ugt i64 %15, 0
+  br i1 %16, label %17, label %40
+
+; <label>:17                                      ; preds = %0
+  %18 = load %"struct.ros::serialization::OStream"** %5, align 8
+  %19 = bitcast %"struct.ros::serialization::OStream"* %18 to %"struct.ros::serialization::Stream"*
+  %20 = load i64* %len, align 8
+  %21 = trunc i64 %20 to i32
+  store %"struct.ros::serialization::Stream"* %19, %"struct.ros::serialization::Stream"** %1, align 8
+  store i32 %21, i32* %2, align 4
+  %22 = load %"struct.ros::serialization::Stream"** %1
+  %23 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 0
+  %24 = load i8** %23, align 8
+  store i8* %24, i8** %old_data.i, align 8
+  %25 = load i32* %2, align 4
+  %26 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 0
+  %27 = load i8** %26, align 8
+  %28 = zext i32 %25 to i64
+  %29 = getelementptr inbounds i8* %27, i64 %28
+  store i8* %29, i8** %26, align 8
+  %30 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 0
+  %31 = load i8** %30, align 8
+  %32 = getelementptr inbounds %"struct.ros::serialization::Stream"* %22, i32 0, i32 1
+  %33 = load i8** %32, align 8
+  %34 = icmp ugt i8* %31, %33
+  br i1 %34, label %35, label %_ZN3ros13serialization6Stream7advanceEj.exit
+
+; <label>:35                                      ; preds = %17
+  call void @_ZN3ros13serialization18throwStreamOverrunEv()
+  br label %_ZN3ros13serialization6Stream7advanceEj.exit
+
+_ZN3ros13serialization6Stream7advanceEj.exit:     ; preds = %17, %35
+  %36 = load i8** %old_data.i, align 8
+  %37 = load %"class.std::basic_string"** %6, align 8
+  %38 = call i8* @_ZNKSs4dataEv(%"class.std::basic_string"* %37)
+  %39 = load i64* %len, align 8
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %36, i8* %38, i64 %39, i32 1, i1 false)
+  br label %40
+
+; <label>:40                                      ; preds = %_ZN3ros13serialization6Stream7advanceEj.exit, %0
+  ret void
+}
+
+declare i64 @_ZNKSs4sizeEv(%"class.std::basic_string"*) #0
+
+declare i8* @_ZNKSs4dataEv(%"class.std::basic_string"*) #0
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i32 @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE16serializedLengthIS5_EEjRKT_(%"struct.std_msgs::String_"* %t) #5 align 2 {
+  %1 = alloca %"struct.std_msgs::String_"*, align 8
+  %stream = alloca %"struct.ros::serialization::LStream", align 4
+  store %"struct.std_msgs::String_"* %t, %"struct.std_msgs::String_"** %1, align 8
+  call void @_ZN3ros13serialization7LStreamC2Ev(%"struct.ros::serialization::LStream"* %stream)
+  %2 = load %"struct.std_msgs::String_"** %1, align 8
+  call void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7LStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::LStream"* %stream, %"struct.std_msgs::String_"* %2)
+  %3 = call i32 @_ZN3ros13serialization7LStream9getLengthEv(%"struct.ros::serialization::LStream"* %stream)
+  ret i32 %3
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros13serialization10SerializerIN8std_msgs7String_ISaIvEEEE8allInOneINS0_7LStreamERKS5_EEvRT_T0_(%"struct.ros::serialization::LStream"* %stream, %"struct.std_msgs::String_"* %m) #5 align 2 {
+  %1 = alloca %"struct.ros::serialization::LStream"*, align 8
+  %2 = alloca %"class.std::basic_string"*, align 8
+  %3 = alloca %"struct.ros::serialization::LStream"*, align 8
+  %4 = alloca %"struct.std_msgs::String_"*, align 8
+  store %"struct.ros::serialization::LStream"* %stream, %"struct.ros::serialization::LStream"** %3, align 8
+  store %"struct.std_msgs::String_"* %m, %"struct.std_msgs::String_"** %4, align 8
+  %5 = load %"struct.ros::serialization::LStream"** %3, align 8
+  %6 = load %"struct.std_msgs::String_"** %4, align 8
+  %7 = getelementptr inbounds %"struct.std_msgs::String_"* %6, i32 0, i32 0
+  store %"struct.ros::serialization::LStream"* %5, %"struct.ros::serialization::LStream"** %1, align 8
+  store %"class.std::basic_string"* %7, %"class.std::basic_string"** %2, align 8
+  %8 = load %"struct.ros::serialization::LStream"** %1
+  %9 = load %"class.std::basic_string"** %2, align 8
+  %10 = call i32 @_ZN3ros13serialization19serializationLengthISsEEjRKT_(%"class.std::basic_string"* %9)
+  %11 = getelementptr inbounds %"struct.ros::serialization::LStream"* %8, i32 0, i32 0
+  %12 = load i32* %11, align 4
+  %13 = add i32 %12, %10
+  store i32 %13, i32* %11, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i32 @_ZN3ros13serialization19serializationLengthISsEEjRKT_(%"class.std::basic_string"* %t) #5 {
+  %1 = alloca %"class.std::basic_string"*, align 8
+  store %"class.std::basic_string"* %t, %"class.std::basic_string"** %1, align 8
+  %2 = load %"class.std::basic_string"** %1, align 8
+  %3 = call i32 @_ZN3ros13serialization10SerializerISsE16serializedLengthERKSs(%"class.std::basic_string"* %2)
+  ret i32 %3
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i32 @_ZN3ros13serialization10SerializerISsE16serializedLengthERKSs(%"class.std::basic_string"* %str) #5 align 2 {
+  %1 = alloca %"class.std::basic_string"*, align 8
+  store %"class.std::basic_string"* %str, %"class.std::basic_string"** %1, align 8
+  %2 = load %"class.std::basic_string"** %1, align 8
+  %3 = call i64 @_ZNKSs4sizeEv(%"class.std::basic_string"* %2)
+  %4 = trunc i64 %3 to i32
+  %5 = add i32 4, %4
+  ret i32 %5
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost3_bi5list1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"class.boost::_bi::list1.31"* %this, %"struct.std_msgs::String_"* %a1.coerce) unnamed_addr #3 align 2 {
+  %a1 = alloca %"class.boost::reference_wrapper.33", align 8
+  %1 = alloca %"class.boost::_bi::list1.31"*, align 8
+  %2 = alloca %"class.boost::reference_wrapper.33", align 8
+  %3 = getelementptr %"class.boost::reference_wrapper.33"* %a1, i32 0, i32 0
+  store %"struct.std_msgs::String_"* %a1.coerce, %"struct.std_msgs::String_"** %3
+  store %"class.boost::_bi::list1.31"* %this, %"class.boost::_bi::list1.31"** %1, align 8
+  %4 = load %"class.boost::_bi::list1.31"** %1
+  %5 = bitcast %"class.boost::_bi::list1.31"* %4 to %"struct.boost::_bi::storage1.32"*
+  %6 = bitcast %"class.boost::reference_wrapper.33"* %2 to i8*
+  %7 = bitcast %"class.boost::reference_wrapper.33"* %a1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %7, i64 8, i32 8, i1 false)
+  %8 = getelementptr %"class.boost::reference_wrapper.33"* %2, i32 0, i32 0
+  %9 = load %"struct.std_msgs::String_"** %8
+  call void @_ZN5boost3_bi8storage1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"struct.boost::_bi::storage1.32"* %5, %"struct.std_msgs::String_"* %9)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr void @_ZN5boost3_bi6bind_tIN3ros17SerializedMessageEPFS3_RKN8std_msgs7String_ISaIvEEEENS0_5list1INS_17reference_wrapperIS8_EEEEEC2ESB_RKSF_(%"class.boost::_bi::bind_t.30"* %this, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, %"class.boost::_bi::list1.31"* %l) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.boost::_bi::bind_t.30"*, align 8
+  %2 = alloca void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)*, align 8
+  %3 = alloca %"class.boost::_bi::list1.31"*, align 8
+  store %"class.boost::_bi::bind_t.30"* %this, %"class.boost::_bi::bind_t.30"** %1, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %f, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
+  store %"class.boost::_bi::list1.31"* %l, %"class.boost::_bi::list1.31"** %3, align 8
+  %4 = load %"class.boost::_bi::bind_t.30"** %1
+  %5 = getelementptr inbounds %"class.boost::_bi::bind_t.30"* %4, i32 0, i32 0
+  %6 = load void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %2, align 8
+  store void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)* %6, void (%"class.ros::SerializedMessage"*, %"struct.std_msgs::String_"*)** %5, align 8
+  %7 = getelementptr inbounds %"class.boost::_bi::bind_t.30"* %4, i32 0, i32 1
+  %8 = load %"class.boost::_bi::list1.31"** %3, align 8
+  %9 = bitcast %"class.boost::_bi::list1.31"* %7 to i8*
+  %10 = bitcast %"class.boost::_bi::list1.31"* %8 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* %10, i64 8, i32 8, i1 false)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr void @_ZN5boost3_bi8storage1INS_17reference_wrapperIKN8std_msgs7String_ISaIvEEEEEEC2ES8_(%"struct.boost::_bi::storage1.32"* %this, %"struct.std_msgs::String_"* %a1.coerce) unnamed_addr #2 align 2 {
+  %a1 = alloca %"class.boost::reference_wrapper.33", align 8
+  %1 = alloca %"struct.boost::_bi::storage1.32"*, align 8
+  %2 = getelementptr %"class.boost::reference_wrapper.33"* %a1, i32 0, i32 0
+  store %"struct.std_msgs::String_"* %a1.coerce, %"struct.std_msgs::String_"** %2
+  store %"struct.boost::_bi::storage1.32"* %this, %"struct.boost::_bi::storage1.32"** %1, align 8
+  %3 = load %"struct.boost::_bi::storage1.32"** %1
+  %4 = getelementptr inbounds %"struct.boost::_bi::storage1.32"* %3, i32 0, i32 0
+  %5 = bitcast %"class.boost::reference_wrapper.33"* %4 to i8*
+  %6 = bitcast %"class.boost::reference_wrapper.33"* %a1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %5, i8* %6, i64 8, i32 8, i1 false)
+  ret void
+}
+
+; Function Attrs: uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs7String_ISaIvEEEE5valueERKS5_(%"struct.std_msgs::String_"*) #3 align 2 {
   %2 = alloca %"struct.std_msgs::String_"*, align 8
   store %"struct.std_msgs::String_"* %0, %"struct.std_msgs::String_"** %2, align 8
@@ -5380,7 +7989,7 @@ define linkonce_odr i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs7String_ISaI
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs7String_ISaIvEEEE5valueEv() #2 align 2 {
-  ret i8* getelementptr inbounds ([16 x i8]* @.str29, i32 0, i32 0)
+  ret i8* getelementptr inbounds ([16 x i8]* @.str34, i32 0, i32 0)
 }
 
 ; Function Attrs: uwtable
@@ -5393,10 +8002,8 @@ define linkonce_odr i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs7String_ISaIvE
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs7String_ISaIvEEEE5valueEv() #2 align 2 {
-  ret i8* getelementptr inbounds ([33 x i8]* @.str30, i32 0, i32 0)
+  ret i8* getelementptr inbounds ([33 x i8]* @.str35, i32 0, i32 0)
 }
-
-declare i32 @_ZNKSs7compareEPKc(%"class.std::basic_string"*, i8*) #0
 
 declare %"class.std::basic_ostream"* @_ZNSolsEPKv(%"class.std::basic_ostream"*, i8*) #0
 
@@ -5408,6 +8015,851 @@ define linkonce_odr %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIKN8std
   %3 = getelementptr inbounds %"class.boost::shared_ptr.26"* %2, i32 0, i32 0
   %4 = load %"struct.std_msgs::Float64_"** %3, align 8
   ret %"struct.std_msgs::Float64_"* %4
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN3ros16AdvertiseOptionsC2Ev(%"struct.ros::AdvertiseOptions"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"struct.ros::AdvertiseOptions"*, align 8
+  %2 = alloca i8*
+  %3 = alloca i32
+  store %"struct.ros::AdvertiseOptions"* %this, %"struct.ros::AdvertiseOptions"** %1, align 8
+  %4 = load %"struct.ros::AdvertiseOptions"** %1
+  %5 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 0
+  call void @_ZNSsC1Ev(%"class.std::basic_string"* %5)
+  %6 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 2
+  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %6)
+          to label %7 unwind label %20
+
+; <label>:7                                       ; preds = %0
+  %8 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 3
+  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %8)
+          to label %9 unwind label %24
+
+; <label>:9                                       ; preds = %7
+  %10 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 4
+  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %10)
+          to label %11 unwind label %28
+
+; <label>:11                                      ; preds = %9
+  %12 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 5
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %12)
+          to label %13 unwind label %32
+
+; <label>:13                                      ; preds = %11
+  %14 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 6
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %14)
+          to label %15 unwind label %36
+
+; <label>:15                                      ; preds = %13
+  %16 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 7
+  store %"class.ros::CallbackQueueInterface"* null, %"class.ros::CallbackQueueInterface"** %16, align 8
+  %17 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 8
+  invoke void @_ZN5boost10shared_ptrIKvEC2Ev(%"class.boost::shared_ptr.27"* %17)
+          to label %18 unwind label %40
+
+; <label>:18                                      ; preds = %15
+  %19 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 9
+  store i8 0, i8* %19, align 1
+  ret void
+
+; <label>:20                                      ; preds = %0
+  %21 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %22 = extractvalue { i8*, i32 } %21, 0
+  store i8* %22, i8** %2
+  %23 = extractvalue { i8*, i32 } %21, 1
+  store i32 %23, i32* %3
+  br label %53
+
+; <label>:24                                      ; preds = %7
+  %25 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %26 = extractvalue { i8*, i32 } %25, 0
+  store i8* %26, i8** %2
+  %27 = extractvalue { i8*, i32 } %25, 1
+  store i32 %27, i32* %3
+  br label %51
+
+; <label>:28                                      ; preds = %9
+  %29 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %30 = extractvalue { i8*, i32 } %29, 0
+  store i8* %30, i8** %2
+  %31 = extractvalue { i8*, i32 } %29, 1
+  store i32 %31, i32* %3
+  br label %49
+
+; <label>:32                                      ; preds = %11
+  %33 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %34 = extractvalue { i8*, i32 } %33, 0
+  store i8* %34, i8** %2
+  %35 = extractvalue { i8*, i32 } %33, 1
+  store i32 %35, i32* %3
+  br label %47
+
+; <label>:36                                      ; preds = %13
+  %37 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %38 = extractvalue { i8*, i32 } %37, 0
+  store i8* %38, i8** %2
+  %39 = extractvalue { i8*, i32 } %37, 1
+  store i32 %39, i32* %3
+  br label %45
+
+; <label>:40                                      ; preds = %15
+  %41 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %42 = extractvalue { i8*, i32 } %41, 0
+  store i8* %42, i8** %2
+  %43 = extractvalue { i8*, i32 } %41, 1
+  store i32 %43, i32* %3
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %14)
+          to label %44 unwind label %60
+
+; <label>:44                                      ; preds = %40
+  br label %45
+
+; <label>:45                                      ; preds = %44, %36
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %12)
+          to label %46 unwind label %60
+
+; <label>:46                                      ; preds = %45
+  br label %47
+
+; <label>:47                                      ; preds = %46, %32
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %10)
+          to label %48 unwind label %60
+
+; <label>:48                                      ; preds = %47
+  br label %49
+
+; <label>:49                                      ; preds = %48, %28
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %8)
+          to label %50 unwind label %60
+
+; <label>:50                                      ; preds = %49
+  br label %51
+
+; <label>:51                                      ; preds = %50, %24
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %6)
+          to label %52 unwind label %60
+
+; <label>:52                                      ; preds = %51
+  br label %53
+
+; <label>:53                                      ; preds = %52, %20
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %5)
+          to label %54 unwind label %60
+
+; <label>:54                                      ; preds = %53
+  br label %55
+
+; <label>:55                                      ; preds = %54
+  %56 = load i8** %2
+  %57 = load i32* %3
+  %58 = insertvalue { i8*, i32 } undef, i8* %56, 0
+  %59 = insertvalue { i8*, i32 } %58, i32 %57, 1
+  resume { i8*, i32 } %59
+
+; <label>:60                                      ; preds = %53, %51, %49, %47, %45, %40
+  %61 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %62 = extractvalue { i8*, i32 } %61, 0
+  call void @__clang_call_terminate(i8* %62) #14
+  unreachable
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN3ros16AdvertiseOptions4initIN8std_msgs6Int16_ISaIvEEEEEvRKSsjRKN5boost8functionIFvRKNS_25SingleSubscriberPublisherEEEESG_(%"struct.ros::AdvertiseOptions"* %this, %"class.std::basic_string"* %_topic, i32 %_queue_size, %"class.boost::function"* %_connect_cb, %"class.boost::function"* %_disconnect_cb) #3 align 2 {
+  %1 = alloca %"struct.ros::AdvertiseOptions"*, align 8
+  %2 = alloca %"class.std::basic_string"*, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.boost::function"*, align 8
+  %5 = alloca %"class.boost::function"*, align 8
+  store %"struct.ros::AdvertiseOptions"* %this, %"struct.ros::AdvertiseOptions"** %1, align 8
+  store %"class.std::basic_string"* %_topic, %"class.std::basic_string"** %2, align 8
+  store i32 %_queue_size, i32* %3, align 4
+  store %"class.boost::function"* %_connect_cb, %"class.boost::function"** %4, align 8
+  store %"class.boost::function"* %_disconnect_cb, %"class.boost::function"** %5, align 8
+  %6 = load %"struct.ros::AdvertiseOptions"** %1
+  %7 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 0
+  %8 = load %"class.std::basic_string"** %2, align 8
+  %9 = call %"class.std::basic_string"* @_ZNSsaSERKSs(%"class.std::basic_string"* %7, %"class.std::basic_string"* %8)
+  %10 = load i32* %3, align 4
+  %11 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 1
+  store i32 %10, i32* %11, align 4
+  %12 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 5
+  %13 = load %"class.boost::function"** %4, align 8
+  %14 = call %"class.boost::function"* @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEaSERKS6_(%"class.boost::function"* %12, %"class.boost::function"* %13)
+  %15 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 6
+  %16 = load %"class.boost::function"** %5, align 8
+  %17 = call %"class.boost::function"* @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEaSERKS6_(%"class.boost::function"* %15, %"class.boost::function"* %16)
+  %18 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 2
+  %19 = call i8* @_ZN3ros14message_traits6md5sumIN8std_msgs6Int16_ISaIvEEEEEPKcv()
+  %20 = call %"class.std::basic_string"* @_ZNSsaSEPKc(%"class.std::basic_string"* %18, i8* %19)
+  %21 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 3
+  %22 = call i8* @_ZN3ros14message_traits8datatypeIN8std_msgs6Int16_ISaIvEEEEEPKcv()
+  %23 = call %"class.std::basic_string"* @_ZNSsaSEPKc(%"class.std::basic_string"* %21, i8* %22)
+  %24 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 4
+  %25 = call i8* @_ZN3ros14message_traits10definitionIN8std_msgs6Int16_ISaIvEEEEEPKcv()
+  %26 = call %"class.std::basic_string"* @_ZNSsaSEPKc(%"class.std::basic_string"* %24, i8* %25)
+  %27 = call zeroext i1 @_ZN3ros14message_traits9hasHeaderIN8std_msgs6Int16_ISaIvEEEEEbv()
+  %28 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %6, i32 0, i32 10
+  %29 = zext i1 %27 to i8
+  store i8 %29, i8* %28, align 1
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function"*, align 8
+  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
+  %2 = load %"class.boost::function"** %1
+  %3 = bitcast %"class.boost::function"* %2 to %"class.boost::function1"*
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2Ev(%"class.boost::function1"* %3)
+  ret void
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::function"*, align 8
+  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
+  %2 = load %"class.boost::function"** %1
+  %3 = bitcast %"class.boost::function"* %2 to %"class.boost::function1"*
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %3)
+  ret void
+}
+
+declare void @_ZN3ros10NodeHandle9advertiseERNS_16AdvertiseOptionsE(%"class.ros::Publisher"* sret, %"class.ros::NodeHandle"*, %"struct.ros::AdvertiseOptions"*) #0
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr void @_ZN3ros16AdvertiseOptionsD2Ev(%"struct.ros::AdvertiseOptions"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"struct.ros::AdvertiseOptions"*, align 8
+  %2 = alloca i8*
+  %3 = alloca i32
+  store %"struct.ros::AdvertiseOptions"* %this, %"struct.ros::AdvertiseOptions"** %1, align 8
+  %4 = load %"struct.ros::AdvertiseOptions"** %1
+  %5 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 8
+  invoke void @_ZN5boost10shared_ptrIKvED2Ev(%"class.boost::shared_ptr.27"* %5)
+          to label %6 unwind label %18
+
+; <label>:6                                       ; preds = %0
+  %7 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 6
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %7)
+          to label %8 unwind label %23
+
+; <label>:8                                       ; preds = %6
+  %9 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 5
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %9)
+          to label %10 unwind label %28
+
+; <label>:10                                      ; preds = %8
+  %11 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 4
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %11)
+          to label %12 unwind label %35
+
+; <label>:12                                      ; preds = %10
+  %13 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 3
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %13)
+          to label %14 unwind label %42
+
+; <label>:14                                      ; preds = %12
+  %15 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 2
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
+          to label %16 unwind label %49
+
+; <label>:16                                      ; preds = %14
+  %17 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 0
+  call void @_ZNSsD1Ev(%"class.std::basic_string"* %17)
+  ret void
+
+; <label>:18                                      ; preds = %0
+  %19 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %20 = extractvalue { i8*, i32 } %19, 0
+  store i8* %20, i8** %2
+  %21 = extractvalue { i8*, i32 } %19, 1
+  store i32 %21, i32* %3
+  %22 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 6
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %22)
+          to label %27 unwind label %64
+
+; <label>:23                                      ; preds = %6
+  %24 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %25 = extractvalue { i8*, i32 } %24, 0
+  store i8* %25, i8** %2
+  %26 = extractvalue { i8*, i32 } %24, 1
+  store i32 %26, i32* %3
+  br label %32
+
+; <label>:27                                      ; preds = %18
+  br label %32
+
+; <label>:28                                      ; preds = %8
+  %29 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %30 = extractvalue { i8*, i32 } %29, 0
+  store i8* %30, i8** %2
+  %31 = extractvalue { i8*, i32 } %29, 1
+  store i32 %31, i32* %3
+  br label %39
+
+; <label>:32                                      ; preds = %27, %23
+  %33 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 5
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %33)
+          to label %34 unwind label %64
+
+; <label>:34                                      ; preds = %32
+  br label %39
+
+; <label>:35                                      ; preds = %10
+  %36 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %37 = extractvalue { i8*, i32 } %36, 0
+  store i8* %37, i8** %2
+  %38 = extractvalue { i8*, i32 } %36, 1
+  store i32 %38, i32* %3
+  br label %46
+
+; <label>:39                                      ; preds = %34, %28
+  %40 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 4
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %40)
+          to label %41 unwind label %64
+
+; <label>:41                                      ; preds = %39
+  br label %46
+
+; <label>:42                                      ; preds = %12
+  %43 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %44 = extractvalue { i8*, i32 } %43, 0
+  store i8* %44, i8** %2
+  %45 = extractvalue { i8*, i32 } %43, 1
+  store i32 %45, i32* %3
+  br label %53
+
+; <label>:46                                      ; preds = %41, %35
+  %47 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 3
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %47)
+          to label %48 unwind label %64
+
+; <label>:48                                      ; preds = %46
+  br label %53
+
+; <label>:49                                      ; preds = %14
+  %50 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %51 = extractvalue { i8*, i32 } %50, 0
+  store i8* %51, i8** %2
+  %52 = extractvalue { i8*, i32 } %50, 1
+  store i32 %52, i32* %3
+  br label %56
+
+; <label>:53                                      ; preds = %48, %42
+  %54 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 2
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %54)
+          to label %55 unwind label %64
+
+; <label>:55                                      ; preds = %53
+  br label %56
+
+; <label>:56                                      ; preds = %55, %49
+  %57 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 0
+  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %57)
+          to label %58 unwind label %64
+
+; <label>:58                                      ; preds = %56
+  br label %59
+
+; <label>:59                                      ; preds = %58
+  %60 = load i8** %2
+  %61 = load i32* %3
+  %62 = insertvalue { i8*, i32 } undef, i8* %60, 0
+  %63 = insertvalue { i8*, i32 } %62, i32 %61, 1
+  resume { i8*, i32 } %63
+
+; <label>:64                                      ; preds = %56, %53, %46, %39, %32, %18
+  %65 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %66 = extractvalue { i8*, i32 } %65, 0
+  call void @__clang_call_terminate(i8* %66) #14
+  unreachable
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE5clearEv(%"class.boost::function1"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  %2 = load %"class.boost::function1"** %1
+  %3 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
+  %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
+  %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
+  %6 = icmp ne %"struct.boost::detail::function::vtable_base"* %5, null
+  br i1 %6, label %7, label %17
+
+; <label>:7                                       ; preds = %0
+  %8 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
+  %9 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %8)
+  br i1 %9, label %14, label %10
+
+; <label>:10                                      ; preds = %7
+  %11 = call %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %2)
+  %12 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
+  %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 1
+  call void @_ZNK5boost6detail8function13basic_vtable1IvRKN3ros25SingleSubscriberPublisherEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1"* %11, %"union.boost::detail::function::function_buffer"* %13)
+  br label %14
+
+; <label>:14                                      ; preds = %10, %7
+  %15 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
+  %16 = getelementptr inbounds %"class.boost::function_base"* %15, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %16, align 8
+  br label %17
+
+; <label>:17                                      ; preds = %14, %0
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  %2 = load %"class.boost::function1"** %1
+  %3 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
+  %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
+  %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
+  %6 = ptrtoint %"struct.boost::detail::function::vtable_base"* %5 to i64
+  %7 = and i64 %6, -2
+  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable1"*
+  ret %"struct.boost::detail::function::basic_vtable1"* %8
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKN3ros25SingleSubscriberPublisherEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.boost::detail::function::basic_vtable1"*, align 8
+  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
+  store %"struct.boost::detail::function::basic_vtable1"* %this, %"struct.boost::detail::function::basic_vtable1"** %1, align 8
+  store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
+  %3 = load %"struct.boost::detail::function::basic_vtable1"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %4, i32 0, i32 0
+  %6 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %5, align 8
+  %7 = icmp ne void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* %6, null
+  br i1 %7, label %8, label %14
+
+; <label>:8                                       ; preds = %0
+  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %3, i32 0, i32 0
+  %10 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %9, i32 0, i32 0
+  %11 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %10, align 8
+  %12 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  %13 = load %"union.boost::detail::function::function_buffer"** %2, align 8
+  call void %11(%"union.boost::detail::function::function_buffer"* %12, %"union.boost::detail::function::function_buffer"* %13, i32 2)
+  br label %14
+
+; <label>:14                                      ; preds = %8, %0
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr %"class.boost::function"* @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEaSERKS6_(%"class.boost::function"* %this, %"class.boost::function"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function"*, align 8
+  %2 = alloca %"class.boost::function"*, align 8
+  %3 = alloca %"class.boost::function", align 8
+  %4 = alloca i8*
+  %5 = alloca i32
+  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
+  store %"class.boost::function"* %f, %"class.boost::function"** %2, align 8
+  %6 = load %"class.boost::function"** %1
+  %7 = load %"class.boost::function"** %2, align 8
+  call void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2ERKS6_(%"class.boost::function"* %3, %"class.boost::function"* %7)
+  %8 = bitcast %"class.boost::function"* %3 to %"class.boost::function1"*
+  %9 = bitcast %"class.boost::function"* %6 to %"class.boost::function1"*
+  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE4swapERS5_(%"class.boost::function1"* %8, %"class.boost::function1"* %9)
+          to label %10 unwind label %11
+
+; <label>:10                                      ; preds = %0
+  call void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %3)
+  ret %"class.boost::function"* %6
+
+; <label>:11                                      ; preds = %0
+  %12 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %13 = extractvalue { i8*, i32 } %12, 0
+  store i8* %13, i8** %4
+  %14 = extractvalue { i8*, i32 } %12, 1
+  store i32 %14, i32* %5
+  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %3)
+          to label %15 unwind label %21
+
+; <label>:15                                      ; preds = %11
+  br label %16
+
+; <label>:16                                      ; preds = %15
+  %17 = load i8** %4
+  %18 = load i32* %5
+  %19 = insertvalue { i8*, i32 } undef, i8* %17, 0
+  %20 = insertvalue { i8*, i32 } %19, i32 %18, 1
+  resume { i8*, i32 } %20
+
+; <label>:21                                      ; preds = %11
+  %22 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %23 = extractvalue { i8*, i32 } %22, 0
+  call void @__clang_call_terminate(i8* %23) #14
+  unreachable
+}
+
+declare %"class.std::basic_string"* @_ZNSsaSEPKc(%"class.std::basic_string"*, i8*) #0
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits6md5sumIN8std_msgs6Int16_ISaIvEEEEEPKcv() #8 {
+  %1 = call i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs6Int16_ISaIvEEEE5valueEv()
+  ret i8* %1
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits8datatypeIN8std_msgs6Int16_ISaIvEEEEEPKcv() #8 {
+  %1 = call i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs6Int16_ISaIvEEEE5valueEv()
+  ret i8* %1
+}
+
+; Function Attrs: inlinehint uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits10definitionIN8std_msgs6Int16_ISaIvEEEEEPKcv() #5 {
+  %1 = call i8* @_ZN3ros14message_traits10DefinitionIN8std_msgs6Int16_ISaIvEEEE5valueEv()
+  ret i8* %1
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr zeroext i1 @_ZN3ros14message_traits9hasHeaderIN8std_msgs6Int16_ISaIvEEEEEbv() #8 {
+  ret i1 false
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr i8* @_ZN3ros14message_traits10DefinitionIN8std_msgs6Int16_ISaIvEEEE5valueEv() #2 align 2 {
+  ret i8* getelementptr inbounds ([12 x i8]* @.str36, i32 0, i32 0)
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2ERKS6_(%"class.boost::function"* %this, %"class.boost::function"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function"*, align 8
+  %2 = alloca %"class.boost::function"*, align 8
+  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
+  store %"class.boost::function"* %f, %"class.boost::function"** %2, align 8
+  %3 = load %"class.boost::function"** %1
+  %4 = bitcast %"class.boost::function"* %3 to %"class.boost::function1"*
+  %5 = load %"class.boost::function"** %2, align 8
+  %6 = bitcast %"class.boost::function"* %5 to %"class.boost::function1"*
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2ERKS5_(%"class.boost::function1"* %4, %"class.boost::function1"* %6)
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE4swapERS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %other) #3 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  %2 = alloca %"class.boost::function1"*, align 8
+  %tmp = alloca %"class.boost::function1", align 8
+  %3 = alloca i8*
+  %4 = alloca i32
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  store %"class.boost::function1"* %other, %"class.boost::function1"** %2, align 8
+  %5 = load %"class.boost::function1"** %1
+  %6 = load %"class.boost::function1"** %2, align 8
+  %7 = icmp eq %"class.boost::function1"* %6, %5
+  br i1 %7, label %8, label %9
+
+; <label>:8                                       ; preds = %0
+  br label %15
+
+; <label>:9                                       ; preds = %0
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2Ev(%"class.boost::function1"* %tmp)
+  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %tmp, %"class.boost::function1"* %5)
+          to label %10 unwind label %16
+
+; <label>:10                                      ; preds = %9
+  %11 = load %"class.boost::function1"** %2, align 8
+  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %5, %"class.boost::function1"* %11)
+          to label %12 unwind label %16
+
+; <label>:12                                      ; preds = %10
+  %13 = load %"class.boost::function1"** %2, align 8
+  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %13, %"class.boost::function1"* %tmp)
+          to label %14 unwind label %16
+
+; <label>:14                                      ; preds = %12
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %tmp)
+  br label %15
+
+; <label>:15                                      ; preds = %14, %8
+  ret void
+
+; <label>:16                                      ; preds = %12, %10, %9
+  %17 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %18 = extractvalue { i8*, i32 } %17, 0
+  store i8* %18, i8** %3
+  %19 = extractvalue { i8*, i32 } %17, 1
+  store i32 %19, i32* %4
+  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %tmp)
+          to label %20 unwind label %26
+
+; <label>:20                                      ; preds = %16
+  br label %21
+
+; <label>:21                                      ; preds = %20
+  %22 = load i8** %3
+  %23 = load i32* %4
+  %24 = insertvalue { i8*, i32 } undef, i8* %22, 0
+  %25 = insertvalue { i8*, i32 } %24, i32 %23, 1
+  resume { i8*, i32 } %25
+
+; <label>:26                                      ; preds = %16
+  %27 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %28 = extractvalue { i8*, i32 } %27, 0
+  call void @__clang_call_terminate(i8* %28) #14
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2Ev(%"class.boost::function1"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  %2 = load %"class.boost::function1"** %1
+  %3 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
+  call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %3)
+  %4 = bitcast %"class.boost::function1"* %2 to %"struct.std::unary_function"*
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  %2 = alloca %"class.boost::function1"*, align 8
+  %3 = alloca i8*
+  %4 = alloca i32
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  store %"class.boost::function1"* %f, %"class.boost::function1"** %2, align 8
+  %5 = load %"class.boost::function1"** %1
+  %6 = load %"class.boost::function1"** %2, align 8
+  %7 = icmp eq %"class.boost::function1"* %6, %5
+  br i1 %7, label %8, label %9
+
+; <label>:8                                       ; preds = %0
+  br label %65
+
+; <label>:9                                       ; preds = %0
+  %10 = load %"class.boost::function1"** %2, align 8
+  %11 = bitcast %"class.boost::function1"* %10 to %"class.boost::function_base"*
+  %12 = invoke zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %11)
+          to label %13 unwind label %32
+
+; <label>:13                                      ; preds = %9
+  br i1 %12, label %57, label %14
+
+; <label>:14                                      ; preds = %13
+  %15 = load %"class.boost::function1"** %2, align 8
+  %16 = bitcast %"class.boost::function1"* %15 to %"class.boost::function_base"*
+  %17 = getelementptr inbounds %"class.boost::function_base"* %16, i32 0, i32 0
+  %18 = load %"struct.boost::detail::function::vtable_base"** %17, align 8
+  %19 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
+  %20 = getelementptr inbounds %"class.boost::function_base"* %19, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* %18, %"struct.boost::detail::function::vtable_base"** %20, align 8
+  %21 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
+  %22 = invoke zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %21)
+          to label %23 unwind label %32
+
+; <label>:23                                      ; preds = %14
+  br i1 %22, label %24, label %41
+
+; <label>:24                                      ; preds = %23
+  %25 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
+  %26 = getelementptr inbounds %"class.boost::function_base"* %25, i32 0, i32 1
+  %27 = load %"class.boost::function1"** %2, align 8
+  %28 = bitcast %"class.boost::function1"* %27 to %"class.boost::function_base"*
+  %29 = getelementptr inbounds %"class.boost::function_base"* %28, i32 0, i32 1
+  %30 = bitcast %"union.boost::detail::function::function_buffer"* %26 to i8*
+  %31 = bitcast %"union.boost::detail::function::function_buffer"* %29 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %30, i8* %31, i64 24, i32 8, i1 false)
+  br label %53
+
+; <label>:32                                      ; preds = %57, %43, %41, %14, %9
+  %33 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %34 = extractvalue { i8*, i32 } %33, 0
+  store i8* %34, i8** %3
+  %35 = extractvalue { i8*, i32 } %33, 1
+  store i32 %35, i32* %4
+  br label %36
+
+; <label>:36                                      ; preds = %32
+  %37 = load i8** %3
+  %38 = call i8* @__cxa_begin_catch(i8* %37) #1
+  %39 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
+  %40 = getelementptr inbounds %"class.boost::function_base"* %39, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %40, align 8
+  invoke void @__cxa_rethrow() #19
+          to label %74 unwind label %60
+
+; <label>:41                                      ; preds = %23
+  %42 = invoke %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %5)
+          to label %43 unwind label %32
+
+; <label>:43                                      ; preds = %41
+  %44 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %42, i32 0, i32 0
+  %45 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %44, i32 0, i32 0
+  %46 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %45, align 8
+  %47 = load %"class.boost::function1"** %2, align 8
+  %48 = bitcast %"class.boost::function1"* %47 to %"class.boost::function_base"*
+  %49 = getelementptr inbounds %"class.boost::function_base"* %48, i32 0, i32 1
+  %50 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
+  %51 = getelementptr inbounds %"class.boost::function_base"* %50, i32 0, i32 1
+  invoke void %46(%"union.boost::detail::function::function_buffer"* %49, %"union.boost::detail::function::function_buffer"* %51, i32 1)
+          to label %52 unwind label %32
+
+; <label>:52                                      ; preds = %43
+  br label %53
+
+; <label>:53                                      ; preds = %52, %24
+  %54 = load %"class.boost::function1"** %2, align 8
+  %55 = bitcast %"class.boost::function1"* %54 to %"class.boost::function_base"*
+  %56 = getelementptr inbounds %"class.boost::function_base"* %55, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %56, align 8
+  br label %59
+
+; <label>:57                                      ; preds = %13
+  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE5clearEv(%"class.boost::function1"* %5)
+          to label %58 unwind label %32
+
+; <label>:58                                      ; preds = %57
+  br label %59
+
+; <label>:59                                      ; preds = %58, %53
+  br label %65
+
+; <label>:60                                      ; preds = %36
+  %61 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          cleanup
+  %62 = extractvalue { i8*, i32 } %61, 0
+  store i8* %62, i8** %3
+  %63 = extractvalue { i8*, i32 } %61, 1
+  store i32 %63, i32* %4
+  invoke void @__cxa_end_catch()
+          to label %64 unwind label %71
+
+; <label>:64                                      ; preds = %60
+  br label %66
+
+; <label>:65                                      ; preds = %8, %59
+  ret void
+
+; <label>:66                                      ; preds = %64
+  %67 = load i8** %3
+  %68 = load i32* %4
+  %69 = insertvalue { i8*, i32 } undef, i8* %67, 0
+  %70 = insertvalue { i8*, i32 } %69, i32 %68, 1
+  resume { i8*, i32 } %70
+
+; <label>:71                                      ; preds = %60
+  %72 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          catch i8* null
+  %73 = extractvalue { i8*, i32 } %72, 0
+  call void @__clang_call_terminate(i8* %73) #14
+  unreachable
+
+; <label>:74                                      ; preds = %36
+  unreachable
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  %2 = load %"class.boost::function1"** %1
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE5clearEv(%"class.boost::function1"* %2)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::function_base"*, align 8
+  store %"class.boost::function_base"* %this, %"class.boost::function_base"** %1, align 8
+  %2 = load %"class.boost::function_base"** %1
+  %3 = getelementptr inbounds %"class.boost::function_base"* %2, i32 0, i32 0
+  %4 = load %"struct.boost::detail::function::vtable_base"** %3, align 8
+  %5 = icmp ne %"struct.boost::detail::function::vtable_base"* %4, null
+  %6 = xor i1 %5, true
+  ret i1 %6
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2ERKS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  %2 = alloca %"class.boost::function1"*, align 8
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  store %"class.boost::function1"* %f, %"class.boost::function1"** %2, align 8
+  %3 = load %"class.boost::function1"** %1
+  %4 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
+  call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %4)
+  %5 = bitcast %"class.boost::function1"* %3 to %"struct.std::unary_function"*
+  %6 = load %"class.boost::function1"** %2, align 8
+  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE13assign_to_ownERKS5_(%"class.boost::function1"* %3, %"class.boost::function1"* %6)
+  ret void
+}
+
+; Function Attrs: uwtable
+define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE13assign_to_ownERKS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function1"*, align 8
+  %2 = alloca %"class.boost::function1"*, align 8
+  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
+  store %"class.boost::function1"* %f, %"class.boost::function1"** %2, align 8
+  %3 = load %"class.boost::function1"** %1
+  %4 = load %"class.boost::function1"** %2, align 8
+  %5 = bitcast %"class.boost::function1"* %4 to %"class.boost::function_base"*
+  %6 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %5)
+  br i1 %6, label %35, label %7
+
+; <label>:7                                       ; preds = %0
+  %8 = load %"class.boost::function1"** %2, align 8
+  %9 = bitcast %"class.boost::function1"* %8 to %"class.boost::function_base"*
+  %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 0
+  %11 = load %"struct.boost::detail::function::vtable_base"** %10, align 8
+  %12 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
+  %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 0
+  store %"struct.boost::detail::function::vtable_base"* %11, %"struct.boost::detail::function::vtable_base"** %13, align 8
+  %14 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
+  %15 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %14)
+  br i1 %15, label %16, label %24
+
+; <label>:16                                      ; preds = %7
+  %17 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
+  %18 = getelementptr inbounds %"class.boost::function_base"* %17, i32 0, i32 1
+  %19 = load %"class.boost::function1"** %2, align 8
+  %20 = bitcast %"class.boost::function1"* %19 to %"class.boost::function_base"*
+  %21 = getelementptr inbounds %"class.boost::function_base"* %20, i32 0, i32 1
+  %22 = bitcast %"union.boost::detail::function::function_buffer"* %18 to i8*
+  %23 = bitcast %"union.boost::detail::function::function_buffer"* %21 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %22, i8* %23, i64 24, i32 8, i1 false)
+  br label %34
+
+; <label>:24                                      ; preds = %7
+  %25 = call %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %3)
+  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %25, i32 0, i32 0
+  %27 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %26, i32 0, i32 0
+  %28 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %27, align 8
+  %29 = load %"class.boost::function1"** %2, align 8
+  %30 = bitcast %"class.boost::function1"* %29 to %"class.boost::function_base"*
+  %31 = getelementptr inbounds %"class.boost::function_base"* %30, i32 0, i32 1
+  %32 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
+  %33 = getelementptr inbounds %"class.boost::function_base"* %32, i32 0, i32 1
+  call void %28(%"union.boost::detail::function::function_buffer"* %31, %"union.boost::detail::function::function_buffer"* %33, i32 0)
+  br label %34
+
+; <label>:34                                      ; preds = %24, %16
+  br label %35
+
+; <label>:35                                      ; preds = %34, %0
+  ret void
 }
 
 ; Function Attrs: uwtable
@@ -5545,23 +8997,23 @@ define linkonce_odr void @_ZN3ros16SubscribeOptionsC2Ev(%"struct.ros::SubscribeO
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaIvEEEEEvRKSsjRKN5boost8functionIFvRKNS8_10shared_ptrIKT_EEEEERKNS9_IFNSA_ISB_EEvEEE(%"struct.ros::SubscribeOptions"* %this, %"class.std::basic_string"* %_topic, i32 %_queue_size, %"class.boost::function.30"* %_callback, %"class.boost::function.33"* %factory_fn) #3 align 2 {
+define linkonce_odr void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaIvEEEEEvRKSsjRKN5boost8functionIFvRKNS8_10shared_ptrIKT_EEEEERKNS9_IFNSA_ISB_EEvEEE(%"struct.ros::SubscribeOptions"* %this, %"class.std::basic_string"* %_topic, i32 %_queue_size, %"class.boost::function.37"* %_callback, %"class.boost::function.40"* %factory_fn) #3 align 2 {
   %1 = alloca %"struct.ros::SubscribeOptions"*, align 8
   %2 = alloca %"class.std::basic_string"*, align 8
   %3 = alloca i32, align 4
-  %4 = alloca %"class.boost::function.30"*, align 8
-  %5 = alloca %"class.boost::function.33"*, align 8
+  %4 = alloca %"class.boost::function.37"*, align 8
+  %5 = alloca %"class.boost::function.40"*, align 8
   %6 = alloca %"class.boost::shared_ptr.20", align 8
-  %7 = alloca %"class.boost::function.49", align 8
-  %8 = alloca %"class.boost::function.30", align 8
+  %7 = alloca %"class.boost::function.57", align 8
+  %8 = alloca %"class.boost::function.37", align 8
   %9 = alloca i8*
   %10 = alloca i32
   %11 = alloca i1
   store %"struct.ros::SubscribeOptions"* %this, %"struct.ros::SubscribeOptions"** %1, align 8
   store %"class.std::basic_string"* %_topic, %"class.std::basic_string"** %2, align 8
   store i32 %_queue_size, i32* %3, align 4
-  store %"class.boost::function.30"* %_callback, %"class.boost::function.30"** %4, align 8
-  store %"class.boost::function.33"* %factory_fn, %"class.boost::function.33"** %5, align 8
+  store %"class.boost::function.37"* %_callback, %"class.boost::function.37"** %4, align 8
+  store %"class.boost::function.40"* %factory_fn, %"class.boost::function.40"** %5, align 8
   %12 = load %"struct.ros::SubscribeOptions"** %1
   %13 = getelementptr inbounds %"struct.ros::SubscribeOptions"* %12, i32 0, i32 0
   %14 = load %"class.std::basic_string"** %2, align 8
@@ -5579,17 +9031,17 @@ define linkonce_odr void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaI
   %25 = call noalias i8* @_Znwm(i64 72) #16
   store i1 true, i1* %11
   %26 = bitcast i8* %25 to %"class.ros::SubscriptionCallbackHelperT"*
-  %27 = load %"class.boost::function.30"** %4, align 8
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %8, %"class.boost::function.30"* %27)
+  %27 = load %"class.boost::function.37"** %4, align 8
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %8, %"class.boost::function.37"* %27)
           to label %28 unwind label %38
 
 ; <label>:28                                      ; preds = %0
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS0_IFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function.49"* %7, %"class.boost::function.30"* %8, i32 0)
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS0_IFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function.57"* %7, %"class.boost::function.37"* %8, i32 0)
           to label %29 unwind label %42
 
 ; <label>:29                                      ; preds = %28
-  %30 = load %"class.boost::function.33"** %5, align 8
-  invoke void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEC2ERKNS1_8functionIFvS8_EEERKNSC_IFNS2_IS6_EEvEEE(%"class.ros::SubscriptionCallbackHelperT"* %26, %"class.boost::function.49"* %7, %"class.boost::function.33"* %30)
+  %30 = load %"class.boost::function.40"** %5, align 8
+  invoke void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEC2ERKNS1_8functionIFvS8_EEERKNSC_IFNS2_IS6_EEvEEE(%"class.ros::SubscriptionCallbackHelperT"* %26, %"class.boost::function.57"* %7, %"class.boost::function.40"* %30)
           to label %31 unwind label %46
 
 ; <label>:31                                      ; preds = %29
@@ -5606,11 +9058,11 @@ define linkonce_odr void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaI
           to label %35 unwind label %46
 
 ; <label>:35                                      ; preds = %34
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.49"* %7)
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.57"* %7)
           to label %36 unwind label %42
 
 ; <label>:36                                      ; preds = %35
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %8)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %8)
           to label %37 unwind label %38
 
 ; <label>:37                                      ; preds = %36
@@ -5657,14 +9109,14 @@ define linkonce_odr void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaI
   br label %55
 
 ; <label>:55                                      ; preds = %54, %46
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.49"* %7)
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.57"* %7)
           to label %56 unwind label %68
 
 ; <label>:56                                      ; preds = %55
   br label %57
 
 ; <label>:57                                      ; preds = %56, %42
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %8)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %8)
           to label %58 unwind label %68
 
 ; <label>:58                                      ; preds = %57
@@ -5697,7 +9149,7 @@ define linkonce_odr void @_ZN3ros16SubscribeOptions4initIN8std_msgs8Float64_ISaI
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost4bindIv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEPS1_NS_3argILi1EEEEENS_3_bi6bind_tIT_NS_4_mfi3mf1ISG_T0_T1_EENSE_9list_av_2IT2_T3_E4typeEEEMSJ_FSG_SK_ESN_SO_(%"class.boost::_bi::bind_t.35"* noalias sret %agg.result, i64 %f.coerce0, i64 %f.coerce1, %class.Test* %a1) #3 {
+define linkonce_odr void @_ZN5boost4bindIv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEPS1_NS_3argILi1EEEEENS_3_bi6bind_tIT_NS_4_mfi3mf1ISG_T0_T1_EENSE_9list_av_2IT2_T3_E4typeEEEMSJ_FSG_SK_ESN_SO_(%"class.boost::_bi::bind_t.42"* noalias sret %agg.result, i64 %f.coerce0, i64 %f.coerce1, %class.Test* %a1) #3 {
   %1 = alloca { i64, i64 }, align 8
   %a2 = alloca %"struct.boost::arg", align 1
   %2 = alloca { i64, i64 }, align 8
@@ -5730,57 +9182,57 @@ define linkonce_odr void @_ZN5boost4bindIv4TestRKNS_10shared_ptrIKN8std_msgs8Flo
   %20 = load i64* %19, align 1
   %21 = getelementptr { i64, i64 }* %18, i32 0, i32 1
   %22 = load i64* %21, align 1
-  call void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEC2ESE_RKSL_(%"class.boost::_bi::bind_t.35"* %agg.result, i64 %20, i64 %22, %"class.boost::_bi::list2"* %6)
+  call void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEC2ESE_RKSL_(%"class.boost::_bi::bind_t.42"* %agg.result, i64 %20, i64 %22, %"class.boost::_bi::list2"* %6)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSD_5list2INSD_5valueIPSH_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISR_EE5valueEEE5valueEiE4typeE(%"class.boost::function.30"* %this, %"class.boost::_bi::bind_t.35"* byval align 8 %f, i32) unnamed_addr #3 align 2 {
-  %2 = alloca %"class.boost::function.30"*, align 8
+define linkonce_odr void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSD_5list2INSD_5valueIPSH_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISR_EE5valueEEE5valueEiE4typeE(%"class.boost::function.37"* %this, %"class.boost::_bi::bind_t.42"* byval align 8 %f, i32) unnamed_addr #3 align 2 {
+  %2 = alloca %"class.boost::function.37"*, align 8
   %3 = alloca i32, align 4
-  %4 = alloca %"class.boost::_bi::bind_t.35", align 8
-  store %"class.boost::function.30"* %this, %"class.boost::function.30"** %2, align 8
+  %4 = alloca %"class.boost::_bi::bind_t.42", align 8
+  store %"class.boost::function.37"* %this, %"class.boost::function.37"** %2, align 8
   store i32 %0, i32* %3, align 4
-  %5 = load %"class.boost::function.30"** %2
-  %6 = bitcast %"class.boost::function.30"* %5 to %"class.boost::function1.31"*
-  %7 = bitcast %"class.boost::_bi::bind_t.35"* %4 to i8*
-  %8 = bitcast %"class.boost::_bi::bind_t.35"* %f to i8*
+  %5 = load %"class.boost::function.37"** %2
+  %6 = bitcast %"class.boost::function.37"* %5 to %"class.boost::function1.38"*
+  %7 = bitcast %"class.boost::_bi::bind_t.42"* %4 to i8*
+  %8 = bitcast %"class.boost::_bi::bind_t.42"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false)
-  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISQ_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.31"* %6, %"class.boost::_bi::bind_t.35"* byval align 8 %4, i32 0)
+  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISQ_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.38"* %6, %"class.boost::_bi::bind_t.42"* byval align 8 %4, i32 0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISD_EE5valueEEE5valueEiE4typeE(%"class.boost::function.33"* %this, i32) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISD_EE5valueEEE5valueEiE4typeE(%"class.boost::function.40"* %this, i32) unnamed_addr #3 align 2 {
   %f = alloca %"struct.ros::DefaultMessageCreator", align 1
-  %2 = alloca %"class.boost::function.33"*, align 8
+  %2 = alloca %"class.boost::function.40"*, align 8
   %3 = alloca i32, align 4
   %4 = alloca %"struct.ros::DefaultMessageCreator", align 1
-  store %"class.boost::function.33"* %this, %"class.boost::function.33"** %2, align 8
+  store %"class.boost::function.40"* %this, %"class.boost::function.40"** %2, align 8
   store i32 %0, i32* %3, align 4
-  %5 = load %"class.boost::function.33"** %2
-  %6 = bitcast %"class.boost::function.33"* %5 to %"class.boost::function0.34"*
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISC_EE5valueEEE5valueEiE4typeE(%"class.boost::function0.34"* %6, i32 0)
+  %5 = load %"class.boost::function.40"** %2
+  %6 = bitcast %"class.boost::function.40"* %5 to %"class.boost::function0.41"*
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISC_EE5valueEEE5valueEiE4typeE(%"class.boost::function0.41"* %6, i32 0)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::function.33"*, align 8
-  store %"class.boost::function.33"* %this, %"class.boost::function.33"** %1, align 8
-  %2 = load %"class.boost::function.33"** %1
-  %3 = bitcast %"class.boost::function.33"* %2 to %"class.boost::function0.34"*
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.34"* %3)
+define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::function.40"*, align 8
+  store %"class.boost::function.40"* %this, %"class.boost::function.40"** %1, align 8
+  %2 = load %"class.boost::function.40"** %1
+  %3 = bitcast %"class.boost::function.40"* %2 to %"class.boost::function0.41"*
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.41"* %3)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::function.30"*, align 8
-  store %"class.boost::function.30"* %this, %"class.boost::function.30"** %1, align 8
-  %2 = load %"class.boost::function.30"** %1
-  %3 = bitcast %"class.boost::function.30"* %2 to %"class.boost::function1.31"*
-  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.31"* %3)
+define linkonce_odr void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::function.37"*, align 8
+  store %"class.boost::function.37"* %this, %"class.boost::function.37"** %1, align 8
+  %2 = load %"class.boost::function.37"** %1
+  %3 = bitcast %"class.boost::function.37"* %2 to %"class.boost::function1.38"*
+  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.38"* %3)
   ret void
 }
 
@@ -5955,11 +9407,11 @@ define linkonce_odr %"class.std::vector"* @_ZNSt6vectorISsSaISsEEaSERKS1_(%"clas
   %__tmp = alloca %"class.std::basic_string"*, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   store %"class.std::vector"* %this, %"class.std::vector"** %1, align 8
   store %"class.std::vector"* %__x, %"class.std::vector"** %2, align 8
   %10 = load %"class.std::vector"** %1
@@ -6054,25 +9506,25 @@ define linkonce_odr %"class.std::vector"* @_ZNSt6vectorISsSaISsEEaSERKS1_(%"clas
   %82 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
   store %"class.std::basic_string"* %81, %"class.std::basic_string"** %82
   %83 = call %"class.std::basic_string"* @_ZNSt6vectorISsSaISsEE5beginEv(%"class.std::vector"* %10)
-  %84 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %8, i32 0, i32 0
+  %84 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %8, i32 0, i32 0
   store %"class.std::basic_string"* %83, %"class.std::basic_string"** %84
   %85 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
   %86 = load %"class.std::basic_string"** %85
   %87 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
   %88 = load %"class.std::basic_string"** %87
-  %89 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %8, i32 0, i32 0
+  %89 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %8, i32 0, i32 0
   %90 = load %"class.std::basic_string"** %89
   %91 = call %"class.std::basic_string"* @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSsSt6vectorISsSaISsEEEENS1_IPSsS6_EEET0_T_SB_SA_(%"class.std::basic_string"* %86, %"class.std::basic_string"* %88, %"class.std::basic_string"* %90)
-  %92 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %5, i32 0, i32 0
+  %92 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %5, i32 0, i32 0
   store %"class.std::basic_string"* %91, %"class.std::basic_string"** %92
   %93 = call %"class.std::basic_string"* @_ZNSt6vectorISsSaISsEE3endEv(%"class.std::vector"* %10)
-  %94 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %9, i32 0, i32 0
+  %94 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %9, i32 0, i32 0
   store %"class.std::basic_string"* %93, %"class.std::basic_string"** %94
   %95 = bitcast %"class.std::vector"* %10 to %"struct.std::_Vector_base"*
   %96 = call %"class.std::allocator.23"* @_ZNSt12_Vector_baseISsSaISsEE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base"* %95)
-  %97 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %5, i32 0, i32 0
+  %97 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %5, i32 0, i32 0
   %98 = load %"class.std::basic_string"** %97
-  %99 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %9, i32 0, i32 0
+  %99 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %9, i32 0, i32 0
   %100 = load %"class.std::basic_string"** %99
   call void @_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEESsEvT_S7_RSaIT0_E(%"class.std::basic_string"* %98, %"class.std::basic_string"* %100, %"class.std::allocator.23"* %96)
   br label %138
@@ -6661,25 +10113,25 @@ define linkonce_odr %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsS
 define linkonce_odr void @_ZNSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS2_E(%"class.std::_Rb_tree"* %this, %"struct.std::_Rb_tree_node"* %__p) #3 align 2 {
   %1 = alloca %"class.std::_Rb_tree"*, align 8
   %2 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %3 = alloca %"class.std::allocator.37", align 1
+  %3 = alloca %"class.std::allocator.44", align 1
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.std::_Rb_tree"* %this, %"class.std::_Rb_tree"** %1, align 8
   store %"struct.std::_Rb_tree_node"* %__p, %"struct.std::_Rb_tree_node"** %2, align 8
   %6 = load %"class.std::_Rb_tree"** %1
-  call void @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE13get_allocatorEv(%"class.std::allocator.37"* sret %3, %"class.std::_Rb_tree"* %6)
-  %7 = bitcast %"class.std::allocator.37"* %3 to %"class.__gnu_cxx::new_allocator.38"*
+  call void @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE13get_allocatorEv(%"class.std::allocator.44"* sret %3, %"class.std::_Rb_tree"* %6)
+  %7 = bitcast %"class.std::allocator.44"* %3 to %"class.__gnu_cxx::new_allocator.45"*
   %8 = load %"struct.std::_Rb_tree_node"** %2, align 8
   %9 = getelementptr inbounds %"struct.std::_Rb_tree_node"* %8, i32 0, i32 1
   %10 = invoke %"struct.std::pair"* @_ZSt11__addressofISt4pairIKSsSsEEPT_RS3_(%"struct.std::pair"* %9)
           to label %11 unwind label %14
 
 ; <label>:11                                      ; preds = %0
-  invoke void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE7destroyEPS3_(%"class.__gnu_cxx::new_allocator.38"* %7, %"struct.std::pair"* %10)
+  invoke void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE7destroyEPS3_(%"class.__gnu_cxx::new_allocator.45"* %7, %"struct.std::pair"* %10)
           to label %12 unwind label %14
 
 ; <label>:12                                      ; preds = %11
-  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.37"* %3) #1
+  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.44"* %3) #1
   %13 = load %"struct.std::_Rb_tree_node"** %2, align 8
   call void @_ZNSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS2_E(%"class.std::_Rb_tree"* %6, %"struct.std::_Rb_tree_node"* %13)
   ret void
@@ -6691,7 +10143,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4l
   store i8* %16, i8** %4
   %17 = extractvalue { i8*, i32 } %15, 1
   store i32 %17, i32* %5
-  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.37"* %3) #1
+  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.44"* %3) #1
   br label %18
 
 ; <label>:18                                      ; preds = %14
@@ -6703,22 +10155,22 @@ define linkonce_odr void @_ZNSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4l
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE13get_allocatorEv(%"class.std::allocator.37"* noalias sret %agg.result, %"class.std::_Rb_tree"* %this) #3 align 2 {
+define linkonce_odr void @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE13get_allocatorEv(%"class.std::allocator.44"* noalias sret %agg.result, %"class.std::_Rb_tree"* %this) #3 align 2 {
   %1 = alloca %"class.std::_Rb_tree"*, align 8
   store %"class.std::_Rb_tree"* %this, %"class.std::_Rb_tree"** %1, align 8
   %2 = load %"class.std::_Rb_tree"** %1
   %3 = call %"class.std::allocator.16"* @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE21_M_get_Node_allocatorEv(%"class.std::_Rb_tree"* %2)
-  call void @_ZNSaISt4pairIKSsSsEEC2ISt13_Rb_tree_nodeIS1_EEERKSaIT_E(%"class.std::allocator.37"* %agg.result, %"class.std::allocator.16"* %3) #1
+  call void @_ZNSaISt4pairIKSsSsEEC2ISt13_Rb_tree_nodeIS1_EEERKSaIT_E(%"class.std::allocator.44"* %agg.result, %"class.std::allocator.16"* %3) #1
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE7destroyEPS3_(%"class.__gnu_cxx::new_allocator.38"* %this, %"struct.std::pair"* %__p) #3 align 2 {
-  %1 = alloca %"class.__gnu_cxx::new_allocator.38"*, align 8
+define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE7destroyEPS3_(%"class.__gnu_cxx::new_allocator.45"* %this, %"struct.std::pair"* %__p) #3 align 2 {
+  %1 = alloca %"class.__gnu_cxx::new_allocator.45"*, align 8
   %2 = alloca %"struct.std::pair"*, align 8
-  store %"class.__gnu_cxx::new_allocator.38"* %this, %"class.__gnu_cxx::new_allocator.38"** %1, align 8
+  store %"class.__gnu_cxx::new_allocator.45"* %this, %"class.__gnu_cxx::new_allocator.45"** %1, align 8
   store %"struct.std::pair"* %__p, %"struct.std::pair"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.38"** %1
+  %3 = load %"class.__gnu_cxx::new_allocator.45"** %1
   %4 = load %"struct.std::pair"** %2, align 8
   call void @_ZNSt4pairIKSsSsED2Ev(%"struct.std::pair"* %4)
   ret void
@@ -6735,12 +10187,12 @@ define linkonce_odr %"struct.std::pair"* @_ZSt11__addressofISt4pairIKSsSsEEPT_RS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.37"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.std::allocator.37"*, align 8
-  store %"class.std::allocator.37"* %this, %"class.std::allocator.37"** %1, align 8
-  %2 = load %"class.std::allocator.37"** %1
-  %3 = bitcast %"class.std::allocator.37"* %2 to %"class.__gnu_cxx::new_allocator.38"*
-  call void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEED2Ev(%"class.__gnu_cxx::new_allocator.38"* %3) #1
+define linkonce_odr void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.44"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.std::allocator.44"*, align 8
+  store %"class.std::allocator.44"* %this, %"class.std::allocator.44"** %1, align 8
+  %2 = load %"class.std::allocator.44"** %1
+  %3 = bitcast %"class.std::allocator.44"* %2 to %"class.__gnu_cxx::new_allocator.45"*
+  call void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEED2Ev(%"class.__gnu_cxx::new_allocator.45"* %3) #1
   ret void
 }
 
@@ -6775,10 +10227,10 @@ define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeISt4pair
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEED2Ev(%"class.__gnu_cxx::new_allocator.38"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.__gnu_cxx::new_allocator.38"*, align 8
-  store %"class.__gnu_cxx::new_allocator.38"* %this, %"class.__gnu_cxx::new_allocator.38"** %1, align 8
-  %2 = load %"class.__gnu_cxx::new_allocator.38"** %1
+define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEED2Ev(%"class.__gnu_cxx::new_allocator.45"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.__gnu_cxx::new_allocator.45"*, align 8
+  store %"class.__gnu_cxx::new_allocator.45"* %this, %"class.__gnu_cxx::new_allocator.45"** %1, align 8
+  %2 = load %"class.__gnu_cxx::new_allocator.45"** %1
   ret void
 }
 
@@ -6838,22 +10290,22 @@ define linkonce_odr %"class.std::allocator.16"* @_ZNKSt8_Rb_treeISsSt4pairIKSsSs
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZNSaISt4pairIKSsSsEEC2ISt13_Rb_tree_nodeIS1_EEERKSaIT_E(%"class.std::allocator.37"* %this, %"class.std::allocator.16"*) unnamed_addr #2 align 2 {
-  %2 = alloca %"class.std::allocator.37"*, align 8
+define linkonce_odr void @_ZNSaISt4pairIKSsSsEEC2ISt13_Rb_tree_nodeIS1_EEERKSaIT_E(%"class.std::allocator.44"* %this, %"class.std::allocator.16"*) unnamed_addr #2 align 2 {
+  %2 = alloca %"class.std::allocator.44"*, align 8
   %3 = alloca %"class.std::allocator.16"*, align 8
-  store %"class.std::allocator.37"* %this, %"class.std::allocator.37"** %2, align 8
+  store %"class.std::allocator.44"* %this, %"class.std::allocator.44"** %2, align 8
   store %"class.std::allocator.16"* %0, %"class.std::allocator.16"** %3, align 8
-  %4 = load %"class.std::allocator.37"** %2
-  %5 = bitcast %"class.std::allocator.37"* %4 to %"class.__gnu_cxx::new_allocator.38"*
-  call void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEEC2Ev(%"class.__gnu_cxx::new_allocator.38"* %5) #1
+  %4 = load %"class.std::allocator.44"** %2
+  %5 = bitcast %"class.std::allocator.44"* %4 to %"class.__gnu_cxx::new_allocator.45"*
+  call void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEEC2Ev(%"class.__gnu_cxx::new_allocator.45"* %5) #1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEEC2Ev(%"class.__gnu_cxx::new_allocator.38"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.__gnu_cxx::new_allocator.38"*, align 8
-  store %"class.__gnu_cxx::new_allocator.38"* %this, %"class.__gnu_cxx::new_allocator.38"** %1, align 8
-  %2 = load %"class.__gnu_cxx::new_allocator.38"** %1
+define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEEC2Ev(%"class.__gnu_cxx::new_allocator.45"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.__gnu_cxx::new_allocator.45"*, align 8
+  store %"class.__gnu_cxx::new_allocator.45"* %this, %"class.__gnu_cxx::new_allocator.45"** %1, align 8
+  %2 = load %"class.__gnu_cxx::new_allocator.45"** %1
   ret void
 }
 
@@ -6862,7 +10314,7 @@ define linkonce_odr %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsS
   %1 = alloca %"class.std::_Rb_tree"*, align 8
   %2 = alloca %"struct.std::pair"*, align 8
   %__tmp = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %3 = alloca %"class.std::allocator.37", align 1
+  %3 = alloca %"class.std::allocator.44", align 1
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.std::_Rb_tree"* %this, %"class.std::_Rb_tree"** %1, align 8
@@ -6870,11 +10322,11 @@ define linkonce_odr %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsS
   %6 = load %"class.std::_Rb_tree"** %1
   %7 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE11_M_get_nodeEv(%"class.std::_Rb_tree"* %6)
   store %"struct.std::_Rb_tree_node"* %7, %"struct.std::_Rb_tree_node"** %__tmp, align 8
-  invoke void @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE13get_allocatorEv(%"class.std::allocator.37"* sret %3, %"class.std::_Rb_tree"* %6)
+  invoke void @_ZNKSt8_Rb_treeISsSt4pairIKSsSsESt10_Select1stIS2_ESt4lessISsESaIS2_EE13get_allocatorEv(%"class.std::allocator.44"* sret %3, %"class.std::_Rb_tree"* %6)
           to label %8 unwind label %16
 
 ; <label>:8                                       ; preds = %0
-  %9 = bitcast %"class.std::allocator.37"* %3 to %"class.__gnu_cxx::new_allocator.38"*
+  %9 = bitcast %"class.std::allocator.44"* %3 to %"class.__gnu_cxx::new_allocator.45"*
   %10 = load %"struct.std::_Rb_tree_node"** %__tmp, align 8
   %11 = getelementptr inbounds %"struct.std::_Rb_tree_node"* %10, i32 0, i32 1
   %12 = invoke %"struct.std::pair"* @_ZSt11__addressofISt4pairIKSsSsEEPT_RS3_(%"struct.std::pair"* %11)
@@ -6882,11 +10334,11 @@ define linkonce_odr %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsS
 
 ; <label>:13                                      ; preds = %8
   %14 = load %"struct.std::pair"** %2, align 8
-  invoke void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE9constructEPS3_RKS3_(%"class.__gnu_cxx::new_allocator.38"* %9, %"struct.std::pair"* %12, %"struct.std::pair"* %14)
+  invoke void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE9constructEPS3_RKS3_(%"class.__gnu_cxx::new_allocator.45"* %9, %"struct.std::pair"* %12, %"struct.std::pair"* %14)
           to label %15 unwind label %20
 
 ; <label>:15                                      ; preds = %13
-  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.37"* %3) #1
+  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.44"* %3) #1
   br label %34
 
 ; <label>:16                                      ; preds = %0
@@ -6905,7 +10357,7 @@ define linkonce_odr %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsS
   store i8* %22, i8** %4
   %23 = extractvalue { i8*, i32 } %21, 1
   store i32 %23, i32* %5
-  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.37"* %3) #1
+  call void @_ZNSaISt4pairIKSsSsEED2Ev(%"class.std::allocator.44"* %3) #1
   br label %24
 
 ; <label>:24                                      ; preds = %20, %16
@@ -6967,14 +10419,14 @@ define linkonce_odr %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeISsSt4pairIKSsS
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE9constructEPS3_RKS3_(%"class.__gnu_cxx::new_allocator.38"* %this, %"struct.std::pair"* %__p, %"struct.std::pair"* %__val) #3 align 2 {
-  %1 = alloca %"class.__gnu_cxx::new_allocator.38"*, align 8
+define linkonce_odr void @_ZN9__gnu_cxx13new_allocatorISt4pairIKSsSsEE9constructEPS3_RKS3_(%"class.__gnu_cxx::new_allocator.45"* %this, %"struct.std::pair"* %__p, %"struct.std::pair"* %__val) #3 align 2 {
+  %1 = alloca %"class.__gnu_cxx::new_allocator.45"*, align 8
   %2 = alloca %"struct.std::pair"*, align 8
   %3 = alloca %"struct.std::pair"*, align 8
-  store %"class.__gnu_cxx::new_allocator.38"* %this, %"class.__gnu_cxx::new_allocator.38"** %1, align 8
+  store %"class.__gnu_cxx::new_allocator.45"* %this, %"class.__gnu_cxx::new_allocator.45"** %1, align 8
   store %"struct.std::pair"* %__p, %"struct.std::pair"** %2, align 8
   store %"struct.std::pair"* %__val, %"struct.std::pair"** %3, align 8
-  %4 = load %"class.__gnu_cxx::new_allocator.38"** %1
+  %4 = load %"class.__gnu_cxx::new_allocator.45"** %1
   %5 = load %"struct.std::pair"** %2, align 8
   %6 = bitcast %"struct.std::pair"* %5 to i8*
   %7 = icmp eq i8* %6, null
@@ -7321,25 +10773,25 @@ define linkonce_odr void @_ZNSt12_Vector_baseISsSaISsEE13_M_deallocateEPSsm(%"st
 
 ; Function Attrs: inlinehint uwtable
 define linkonce_odr void @_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEESsEvT_S7_RSaIT0_E(%"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"* %__last.coerce, %"class.std::allocator.23"*) #5 {
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %__first = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %__last = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %2 = alloca %"class.std::allocator.23"*, align 8
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %5 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__first, i32 0, i32 0
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %5 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__first, i32 0, i32 0
   store %"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"** %5
-  %6 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__last, i32 0, i32 0
+  %6 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__last, i32 0, i32 0
   store %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"** %6
   store %"class.std::allocator.23"* %0, %"class.std::allocator.23"** %2, align 8
-  %7 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %3 to i8*
-  %8 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__first to i8*
+  %7 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %3 to i8*
+  %8 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__first to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 8, i32 8, i1 false)
-  %9 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %4 to i8*
-  %10 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__last to i8*
+  %9 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %4 to i8*
+  %10 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__last to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* %10, i64 8, i32 8, i1 false)
-  %11 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %3, i32 0, i32 0
+  %11 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %3, i32 0, i32 0
   %12 = load %"class.std::basic_string"** %11
-  %13 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %4, i32 0, i32 0
+  %13 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %4, i32 0, i32 0
   %14 = load %"class.std::basic_string"** %13
   call void @_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEEEvT_S7_(%"class.std::basic_string"* %12, %"class.std::basic_string"* %14)
   ret void
@@ -7347,20 +10799,20 @@ define linkonce_odr void @_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vec
 
 ; Function Attrs: uwtable
 define linkonce_odr %"class.std::basic_string"* @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSsSt6vectorISsSaISsEEEENS1_IPSsS6_EEET0_T_SB_SA_(%"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"* %__result.coerce) #3 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %__first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %__last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__result = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %__result = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %7 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %__first, i32 0, i32 0
   store %"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"** %7
   %8 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %__last, i32 0, i32 0
   store %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"** %8
-  %9 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__result, i32 0, i32 0
+  %9 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__result, i32 0, i32 0
   store %"class.std::basic_string"* %__result.coerce, %"class.std::basic_string"** %9
   %10 = bitcast %"class.__gnu_cxx::__normal_iterator"* %3 to i8*
   %11 = bitcast %"class.__gnu_cxx::__normal_iterator"* %__first to i8*
@@ -7378,49 +10830,49 @@ define linkonce_odr %"class.std::basic_string"* @_ZSt4copyIN9__gnu_cxx17__normal
   %20 = call %"class.std::basic_string"* @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPKSsSt6vectorISsSaISsEEEEENSt11_Miter_baseIT_E13iterator_typeES9_(%"class.std::basic_string"* %19)
   %21 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
   store %"class.std::basic_string"* %20, %"class.std::basic_string"** %21
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %6 to i8*
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__result to i8*
+  %22 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %6 to i8*
+  %23 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__result to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %22, i8* %23, i64 8, i32 8, i1 false)
   %24 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
   %25 = load %"class.std::basic_string"** %24
   %26 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
   %27 = load %"class.std::basic_string"** %26
-  %28 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %6, i32 0, i32 0
+  %28 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %6, i32 0, i32 0
   %29 = load %"class.std::basic_string"** %28
   %30 = call %"class.std::basic_string"* @_ZSt14__copy_move_a2ILb0EN9__gnu_cxx17__normal_iteratorIPKSsSt6vectorISsSaISsEEEENS1_IPSsS6_EEET1_T0_SB_SA_(%"class.std::basic_string"* %25, %"class.std::basic_string"* %27, %"class.std::basic_string"* %29)
-  %31 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  %31 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   store %"class.std::basic_string"* %30, %"class.std::basic_string"** %31
-  %32 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  %32 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   %33 = load %"class.std::basic_string"** %32
   ret %"class.std::basic_string"* %33
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr %"class.std::basic_string"* @_ZNSt6vectorISsSaISsEE5beginEv(%"class.std::vector"* %this) #3 align 2 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %2 = alloca %"class.std::vector"*, align 8
   store %"class.std::vector"* %this, %"class.std::vector"** %2, align 8
   %3 = load %"class.std::vector"** %2
   %4 = bitcast %"class.std::vector"* %3 to %"struct.std::_Vector_base"*
   %5 = getelementptr inbounds %"struct.std::_Vector_base"* %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string<char>, std::allocator<std::basic_string<char> > >::_Vector_impl"* %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.40"* %1, %"class.std::basic_string"** %6)
-  %7 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.47"* %1, %"class.std::basic_string"** %6)
+  %7 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   %8 = load %"class.std::basic_string"** %7
   ret %"class.std::basic_string"* %8
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr %"class.std::basic_string"* @_ZNSt6vectorISsSaISsEE3endEv(%"class.std::vector"* %this) #3 align 2 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %2 = alloca %"class.std::vector"*, align 8
   store %"class.std::vector"* %this, %"class.std::vector"** %2, align 8
   %3 = load %"class.std::vector"** %2
   %4 = bitcast %"class.std::vector"* %3 to %"struct.std::_Vector_base"*
   %5 = getelementptr inbounds %"struct.std::_Vector_base"* %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string<char>, std::allocator<std::basic_string<char> > >::_Vector_impl"* %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.40"* %1, %"class.std::basic_string"** %6)
-  %7 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.47"* %1, %"class.std::basic_string"** %6)
+  %7 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   %8 = load %"class.std::basic_string"** %7
   ret %"class.std::basic_string"* %8
 }
@@ -7770,13 +11222,13 @@ define linkonce_odr %"class.std::basic_string"* @_ZNSt11__copy_moveILb0ELb0ESt26
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.40"* %this, %"class.std::basic_string"** %__i) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40"*, align 8
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.47"* %this, %"class.std::basic_string"** %__i) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47"*, align 8
   %2 = alloca %"class.std::basic_string"**, align 8
-  store %"class.__gnu_cxx::__normal_iterator.40"* %this, %"class.__gnu_cxx::__normal_iterator.40"** %1, align 8
+  store %"class.__gnu_cxx::__normal_iterator.47"* %this, %"class.__gnu_cxx::__normal_iterator.47"** %1, align 8
   store %"class.std::basic_string"** %__i, %"class.std::basic_string"*** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator.40"** %1
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40"* %3, i32 0, i32 0
+  %3 = load %"class.__gnu_cxx::__normal_iterator.47"** %1
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.47"* %3, i32 0, i32 0
   %5 = load %"class.std::basic_string"*** %2, align 8
   %6 = load %"class.std::basic_string"** %5, align 8
   store %"class.std::basic_string"* %6, %"class.std::basic_string"** %4, align 8
@@ -7785,19 +11237,19 @@ define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsE
 
 ; Function Attrs: inlinehint uwtable
 define linkonce_odr %"class.std::basic_string"* @_ZSt14__copy_move_a2ILb0EN9__gnu_cxx17__normal_iteratorIPKSsSt6vectorISsSaISsEEEENS1_IPSsS6_EEET1_T0_SB_SA_(%"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"* %__result.coerce) #5 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %__first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %__last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__result = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %__result = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %2 = alloca %"class.std::basic_string"*, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
   %6 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %__first, i32 0, i32 0
   store %"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"** %6
   %7 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %__last, i32 0, i32 0
   store %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"** %7
-  %8 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__result, i32 0, i32 0
+  %8 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__result, i32 0, i32 0
   store %"class.std::basic_string"* %__result.coerce, %"class.std::basic_string"** %8
   %9 = bitcast %"class.__gnu_cxx::__normal_iterator"* %3 to i8*
   %10 = bitcast %"class.__gnu_cxx::__normal_iterator"* %__first to i8*
@@ -7811,16 +11263,16 @@ define linkonce_odr %"class.std::basic_string"* @_ZSt14__copy_move_a2ILb0EN9__gn
   %16 = getelementptr %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
   %17 = load %"class.std::basic_string"** %16
   %18 = call %"class.std::basic_string"* @_ZSt12__niter_baseIN9__gnu_cxx17__normal_iteratorIPKSsSt6vectorISsSaISsEEEEENSt11_Niter_baseIT_E13iterator_typeES9_(%"class.std::basic_string"* %17)
-  %19 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %5 to i8*
-  %20 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__result to i8*
+  %19 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %5 to i8*
+  %20 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__result to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %19, i8* %20, i64 8, i32 8, i1 false)
-  %21 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %5, i32 0, i32 0
+  %21 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %5, i32 0, i32 0
   %22 = load %"class.std::basic_string"** %21
   %23 = call %"class.std::basic_string"* @_ZSt12__niter_baseIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEEENSt11_Niter_baseIT_E13iterator_typeES8_(%"class.std::basic_string"* %22)
   %24 = call %"class.std::basic_string"* @_ZSt13__copy_move_aILb0EPKSsPSsET1_T0_S4_S3_(%"class.std::basic_string"* %13, %"class.std::basic_string"* %18, %"class.std::basic_string"* %23)
   store %"class.std::basic_string"* %24, %"class.std::basic_string"** %2
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.40"* %1, %"class.std::basic_string"** %2)
-  %25 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEC2ERKS1_(%"class.__gnu_cxx::__normal_iterator.47"* %1, %"class.std::basic_string"** %2)
+  %25 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   %26 = load %"class.std::basic_string"** %25
   ret %"class.std::basic_string"* %26
 }
@@ -7893,14 +11345,14 @@ define linkonce_odr %"class.std::basic_string"* @_ZSt12__niter_baseIN9__gnu_cxx1
 
 ; Function Attrs: inlinehint uwtable
 define linkonce_odr %"class.std::basic_string"* @_ZSt12__niter_baseIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEEENSt11_Niter_baseIT_E13iterator_typeES8_(%"class.std::basic_string"* %__it.coerce) #5 {
-  %__it = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %2 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__it, i32 0, i32 0
+  %__it = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %2 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__it, i32 0, i32 0
   store %"class.std::basic_string"* %__it.coerce, %"class.std::basic_string"** %2
-  %3 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %1 to i8*
-  %4 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__it to i8*
+  %3 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %1 to i8*
+  %4 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__it to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false)
-  %5 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  %5 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   %6 = load %"class.std::basic_string"** %5
   %7 = call %"class.std::basic_string"* @_ZNSt10_Iter_baseIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEELb1EE7_S_baseES6_(%"class.std::basic_string"* %6)
   ret %"class.std::basic_string"* %7
@@ -7908,20 +11360,20 @@ define linkonce_odr %"class.std::basic_string"* @_ZSt12__niter_baseIN9__gnu_cxx1
 
 ; Function Attrs: uwtable
 define linkonce_odr %"class.std::basic_string"* @_ZNSt10_Iter_baseIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEELb1EE7_S_baseES6_(%"class.std::basic_string"* %__it.coerce) #3 align 2 {
-  %__it = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %1 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__it, i32 0, i32 0
+  %__it = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %1 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__it, i32 0, i32 0
   store %"class.std::basic_string"* %__it.coerce, %"class.std::basic_string"** %1
-  %2 = call %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.40"* %__it)
+  %2 = call %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.47"* %__it)
   %3 = load %"class.std::basic_string"** %2
   ret %"class.std::basic_string"* %3
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.40"* %this) #2 align 2 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator.40"* %this, %"class.__gnu_cxx::__normal_iterator.40"** %1, align 8
-  %2 = load %"class.__gnu_cxx::__normal_iterator.40"** %1
-  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40"* %2, i32 0, i32 0
+define linkonce_odr %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.47"* %this) #2 align 2 {
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47"*, align 8
+  store %"class.__gnu_cxx::__normal_iterator.47"* %this, %"class.__gnu_cxx::__normal_iterator.47"** %1, align 8
+  %2 = load %"class.__gnu_cxx::__normal_iterator.47"** %1
+  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.47"* %2, i32 0, i32 0
   ret %"class.std::basic_string"** %3
 }
 
@@ -7992,23 +11444,23 @@ define linkonce_odr %"class.std::basic_string"* @_ZNSt11__copy_moveILb0ELb0ESt26
 
 ; Function Attrs: inlinehint uwtable
 define linkonce_odr void @_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEEEvT_S7_(%"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"* %__last.coerce) #5 {
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %3 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__first, i32 0, i32 0
+  %__first = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %__last = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %3 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__first, i32 0, i32 0
   store %"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"** %3
-  %4 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__last, i32 0, i32 0
+  %4 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__last, i32 0, i32 0
   store %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"** %4
-  %5 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %1 to i8*
-  %6 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__first to i8*
+  %5 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %1 to i8*
+  %6 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__first to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %5, i8* %6, i64 8, i32 8, i1 false)
-  %7 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %2 to i8*
-  %8 = bitcast %"class.__gnu_cxx::__normal_iterator.40"* %__last to i8*
+  %7 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %2 to i8*
+  %8 = bitcast %"class.__gnu_cxx::__normal_iterator.47"* %__last to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 8, i32 8, i1 false)
-  %9 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %1, i32 0, i32 0
+  %9 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %1, i32 0, i32 0
   %10 = load %"class.std::basic_string"** %9
-  %11 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %2, i32 0, i32 0
+  %11 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %2, i32 0, i32 0
   %12 = load %"class.std::basic_string"** %11
   call void @_ZNSt12_Destroy_auxILb0EE9__destroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEEEEvT_S9_(%"class.std::basic_string"* %10, %"class.std::basic_string"* %12)
   ret void
@@ -8016,26 +11468,26 @@ define linkonce_odr void @_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vec
 
 ; Function Attrs: uwtable
 define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEEEEvT_S9_(%"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"* %__last.coerce) #3 align 2 {
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator.40", align 8
-  %1 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__first, i32 0, i32 0
+  %__first = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %__last = alloca %"class.__gnu_cxx::__normal_iterator.47", align 8
+  %1 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__first, i32 0, i32 0
   store %"class.std::basic_string"* %__first.coerce, %"class.std::basic_string"** %1
-  %2 = getelementptr %"class.__gnu_cxx::__normal_iterator.40"* %__last, i32 0, i32 0
+  %2 = getelementptr %"class.__gnu_cxx::__normal_iterator.47"* %__last, i32 0, i32 0
   store %"class.std::basic_string"* %__last.coerce, %"class.std::basic_string"** %2
   br label %3
 
 ; <label>:3                                       ; preds = %8, %0
-  %4 = call zeroext i1 @_ZN9__gnu_cxxneIPSsSt6vectorISsSaISsEEEEbRKNS_17__normal_iteratorIT_T0_EESA_(%"class.__gnu_cxx::__normal_iterator.40"* %__first, %"class.__gnu_cxx::__normal_iterator.40"* %__last)
+  %4 = call zeroext i1 @_ZN9__gnu_cxxneIPSsSt6vectorISsSaISsEEEEbRKNS_17__normal_iteratorIT_T0_EESA_(%"class.__gnu_cxx::__normal_iterator.47"* %__first, %"class.__gnu_cxx::__normal_iterator.47"* %__last)
   br i1 %4, label %5, label %10
 
 ; <label>:5                                       ; preds = %3
-  %6 = call %"class.std::basic_string"* @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEdeEv(%"class.__gnu_cxx::__normal_iterator.40"* %__first)
+  %6 = call %"class.std::basic_string"* @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEdeEv(%"class.__gnu_cxx::__normal_iterator.47"* %__first)
   %7 = call %"class.std::basic_string"* @_ZSt11__addressofISsEPT_RS0_(%"class.std::basic_string"* %6)
   call void @_ZSt8_DestroyISsEvPT_(%"class.std::basic_string"* %7)
   br label %8
 
 ; <label>:8                                       ; preds = %5
-  %9 = call %"class.__gnu_cxx::__normal_iterator.40"* @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEppEv(%"class.__gnu_cxx::__normal_iterator.40"* %__first)
+  %9 = call %"class.__gnu_cxx::__normal_iterator.47"* @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEppEv(%"class.__gnu_cxx::__normal_iterator.47"* %__first)
   br label %3
 
 ; <label>:10                                      ; preds = %3
@@ -8043,41 +11495,41 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIN9__gnu_cxx17__nor
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr zeroext i1 @_ZN9__gnu_cxxneIPSsSt6vectorISsSaISsEEEEbRKNS_17__normal_iteratorIT_T0_EESA_(%"class.__gnu_cxx::__normal_iterator.40"* %__lhs, %"class.__gnu_cxx::__normal_iterator.40"* %__rhs) #8 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40"*, align 8
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator.40"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator.40"* %__lhs, %"class.__gnu_cxx::__normal_iterator.40"** %1, align 8
-  store %"class.__gnu_cxx::__normal_iterator.40"* %__rhs, %"class.__gnu_cxx::__normal_iterator.40"** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator.40"** %1, align 8
-  %4 = call %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.40"* %3)
+define linkonce_odr zeroext i1 @_ZN9__gnu_cxxneIPSsSt6vectorISsSaISsEEEEbRKNS_17__normal_iteratorIT_T0_EESA_(%"class.__gnu_cxx::__normal_iterator.47"* %__lhs, %"class.__gnu_cxx::__normal_iterator.47"* %__rhs) #8 {
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47"*, align 8
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.47"*, align 8
+  store %"class.__gnu_cxx::__normal_iterator.47"* %__lhs, %"class.__gnu_cxx::__normal_iterator.47"** %1, align 8
+  store %"class.__gnu_cxx::__normal_iterator.47"* %__rhs, %"class.__gnu_cxx::__normal_iterator.47"** %2, align 8
+  %3 = load %"class.__gnu_cxx::__normal_iterator.47"** %1, align 8
+  %4 = call %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.47"* %3)
   %5 = load %"class.std::basic_string"** %4
-  %6 = load %"class.__gnu_cxx::__normal_iterator.40"** %2, align 8
-  %7 = call %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.40"* %6)
+  %6 = load %"class.__gnu_cxx::__normal_iterator.47"** %2, align 8
+  %7 = call %"class.std::basic_string"** @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEE4baseEv(%"class.__gnu_cxx::__normal_iterator.47"* %6)
   %8 = load %"class.std::basic_string"** %7
   %9 = icmp ne %"class.std::basic_string"* %5, %8
   ret i1 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"class.std::basic_string"* @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEdeEv(%"class.__gnu_cxx::__normal_iterator.40"* %this) #2 align 2 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator.40"* %this, %"class.__gnu_cxx::__normal_iterator.40"** %1, align 8
-  %2 = load %"class.__gnu_cxx::__normal_iterator.40"** %1
-  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40"* %2, i32 0, i32 0
+define linkonce_odr %"class.std::basic_string"* @_ZNK9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEdeEv(%"class.__gnu_cxx::__normal_iterator.47"* %this) #2 align 2 {
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47"*, align 8
+  store %"class.__gnu_cxx::__normal_iterator.47"* %this, %"class.__gnu_cxx::__normal_iterator.47"** %1, align 8
+  %2 = load %"class.__gnu_cxx::__normal_iterator.47"** %1
+  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.47"* %2, i32 0, i32 0
   %4 = load %"class.std::basic_string"** %3, align 8
   ret %"class.std::basic_string"* %4
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"class.__gnu_cxx::__normal_iterator.40"* @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEppEv(%"class.__gnu_cxx::__normal_iterator.40"* %this) #2 align 2 {
-  %1 = alloca %"class.__gnu_cxx::__normal_iterator.40"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator.40"* %this, %"class.__gnu_cxx::__normal_iterator.40"** %1, align 8
-  %2 = load %"class.__gnu_cxx::__normal_iterator.40"** %1
-  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40"* %2, i32 0, i32 0
+define linkonce_odr %"class.__gnu_cxx::__normal_iterator.47"* @_ZN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEppEv(%"class.__gnu_cxx::__normal_iterator.47"* %this) #2 align 2 {
+  %1 = alloca %"class.__gnu_cxx::__normal_iterator.47"*, align 8
+  store %"class.__gnu_cxx::__normal_iterator.47"* %this, %"class.__gnu_cxx::__normal_iterator.47"** %1, align 8
+  %2 = load %"class.__gnu_cxx::__normal_iterator.47"** %1
+  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.47"* %2, i32 0, i32 0
   %4 = load %"class.std::basic_string"** %3, align 8
   %5 = getelementptr inbounds %"class.std::basic_string"* %4, i32 1
   store %"class.std::basic_string"* %5, %"class.std::basic_string"** %3, align 8
-  ret %"class.__gnu_cxx::__normal_iterator.40"* %2
+  ret %"class.__gnu_cxx::__normal_iterator.47"* %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8373,39 +11825,39 @@ define linkonce_odr i64 @_ZNK9__gnu_cxx13new_allocatorISsE8max_sizeEv(%"class.__
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.31"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
-  %2 = load %"class.boost::function1.31"** %1
-  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.31"* %2)
+define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.38"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
+  %2 = load %"class.boost::function1.38"** %1
+  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.38"* %2)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.31"* %this) #3 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
-  %2 = load %"class.boost::function1.31"** %1
-  %3 = bitcast %"class.boost::function1.31"* %2 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.38"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
+  %2 = load %"class.boost::function1.38"** %1
+  %3 = bitcast %"class.boost::function1.38"* %2 to %"class.boost::function_base"*
   %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
   %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
   %6 = icmp ne %"struct.boost::detail::function::vtable_base"* %5, null
   br i1 %6, label %7, label %17
 
 ; <label>:7                                       ; preds = %0
-  %8 = bitcast %"class.boost::function1.31"* %2 to %"class.boost::function_base"*
+  %8 = bitcast %"class.boost::function1.38"* %2 to %"class.boost::function_base"*
   %9 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %8)
   br i1 %9, label %14, label %10
 
 ; <label>:10                                      ; preds = %7
-  %11 = call %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.31"* %2)
-  %12 = bitcast %"class.boost::function1.31"* %2 to %"class.boost::function_base"*
+  %11 = call %"struct.boost::detail::function::basic_vtable1.48"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.38"* %2)
+  %12 = bitcast %"class.boost::function1.38"* %2 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 1
-  call void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1"* %11, %"union.boost::detail::function::function_buffer"* %13)
+  call void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.48"* %11, %"union.boost::detail::function::function_buffer"* %13)
   br label %14
 
 ; <label>:14                                      ; preds = %10, %7
-  %15 = bitcast %"class.boost::function1.31"* %2 to %"class.boost::function_base"*
+  %15 = bitcast %"class.boost::function1.38"* %2 to %"class.boost::function_base"*
   %16 = getelementptr inbounds %"class.boost::function_base"* %15, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %16, align 8
   br label %17
@@ -8415,34 +11867,34 @@ define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Flo
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.31"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
-  %2 = load %"class.boost::function1.31"** %1
-  %3 = bitcast %"class.boost::function1.31"* %2 to %"class.boost::function_base"*
+define linkonce_odr %"struct.boost::detail::function::basic_vtable1.48"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.38"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
+  %2 = load %"class.boost::function1.38"** %1
+  %3 = bitcast %"class.boost::function1.38"* %2 to %"class.boost::function_base"*
   %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
   %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
   %6 = ptrtoint %"struct.boost::detail::function::vtable_base"* %5 to i64
   %7 = and i64 %6, -2
-  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable1"*
-  ret %"struct.boost::detail::function::basic_vtable1"* %8
+  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable1.48"*
+  ret %"struct.boost::detail::function::basic_vtable1.48"* %8
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.boost::detail::function::basic_vtable1"*, align 8
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.48"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.boost::detail::function::basic_vtable1.48"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  store %"struct.boost::detail::function::basic_vtable1"* %this, %"struct.boost::detail::function::basic_vtable1"** %1, align 8
+  store %"struct.boost::detail::function::basic_vtable1.48"* %this, %"struct.boost::detail::function::basic_vtable1.48"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %3 = load %"struct.boost::detail::function::basic_vtable1"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %3, i32 0, i32 0
+  %3 = load %"struct.boost::detail::function::basic_vtable1.48"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.48"* %3, i32 0, i32 0
   %5 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %4, i32 0, i32 0
   %6 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %5, align 8
   %7 = icmp ne void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* %6, null
   br i1 %7, label %8, label %14
 
 ; <label>:8                                       ; preds = %0
-  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %3, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.48"* %3, i32 0, i32 0
   %10 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %9, i32 0, i32 0
   %11 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %10, align 8
   %12 = load %"union.boost::detail::function::function_buffer"** %2, align 8
@@ -8455,30 +11907,30 @@ define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shar
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function0.34"* %this) #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  %2 = load %"class.boost::function0.34"** %1
-  %3 = bitcast %"class.boost::function0.34"* %2 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function0.41"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  %2 = load %"class.boost::function0.41"** %1
+  %3 = bitcast %"class.boost::function0.41"* %2 to %"class.boost::function_base"*
   %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
   %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
   %6 = icmp ne %"struct.boost::detail::function::vtable_base"* %5, null
   br i1 %6, label %7, label %17
 
 ; <label>:7                                       ; preds = %0
-  %8 = bitcast %"class.boost::function0.34"* %2 to %"class.boost::function_base"*
+  %8 = bitcast %"class.boost::function0.41"* %2 to %"class.boost::function_base"*
   %9 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %8)
   br i1 %9, label %14, label %10
 
 ; <label>:10                                      ; preds = %7
-  %11 = call %"struct.boost::detail::function::basic_vtable0.41"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.34"* %2)
-  %12 = bitcast %"class.boost::function0.34"* %2 to %"class.boost::function_base"*
+  %11 = call %"struct.boost::detail::function::basic_vtable0.49"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.41"* %2)
+  %12 = bitcast %"class.boost::function0.41"* %2 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 1
-  call void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.41"* %11, %"union.boost::detail::function::function_buffer"* %13)
+  call void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.49"* %11, %"union.boost::detail::function::function_buffer"* %13)
   br label %14
 
 ; <label>:14                                      ; preds = %10, %7
-  %15 = bitcast %"class.boost::function0.34"* %2 to %"class.boost::function_base"*
+  %15 = bitcast %"class.boost::function0.41"* %2 to %"class.boost::function_base"*
   %16 = getelementptr inbounds %"class.boost::function_base"* %15, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %16, align 8
   br label %17
@@ -8488,34 +11940,34 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"struct.boost::detail::function::basic_vtable0.41"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.34"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  %2 = load %"class.boost::function0.34"** %1
-  %3 = bitcast %"class.boost::function0.34"* %2 to %"class.boost::function_base"*
+define linkonce_odr %"struct.boost::detail::function::basic_vtable0.49"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.41"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  %2 = load %"class.boost::function0.41"** %1
+  %3 = bitcast %"class.boost::function0.41"* %2 to %"class.boost::function_base"*
   %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
   %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
   %6 = ptrtoint %"struct.boost::detail::function::vtable_base"* %5 to i64
   %7 = and i64 %6, -2
-  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable0.41"*
-  ret %"struct.boost::detail::function::basic_vtable0.41"* %8
+  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable0.49"*
+  ret %"struct.boost::detail::function::basic_vtable0.49"* %8
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.41"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.boost::detail::function::basic_vtable0.41"*, align 8
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.49"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.boost::detail::function::basic_vtable0.49"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  store %"struct.boost::detail::function::basic_vtable0.41"* %this, %"struct.boost::detail::function::basic_vtable0.41"** %1, align 8
+  store %"struct.boost::detail::function::basic_vtable0.49"* %this, %"struct.boost::detail::function::basic_vtable0.49"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %3 = load %"struct.boost::detail::function::basic_vtable0.41"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.41"* %3, i32 0, i32 0
+  %3 = load %"struct.boost::detail::function::basic_vtable0.49"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.49"* %3, i32 0, i32 0
   %5 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %4, i32 0, i32 0
   %6 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %5, align 8
   %7 = icmp ne void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* %6, null
   br i1 %7, label %8, label %14
 
 ; <label>:8                                       ; preds = %0
-  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.41"* %3, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.49"* %3, i32 0, i32 0
   %10 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %9, i32 0, i32 0
   %11 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %10, align 8
   %12 = load %"union.boost::detail::function::function_buffer"** %2, align 8
@@ -8528,47 +11980,47 @@ define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISC_EE5valueEEE5valueEiE4typeE(%"class.boost::function0.34"* %this, i32) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2IN3ros21DefaultMessageCreatorIS5_EEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISC_EE5valueEEE5valueEiE4typeE(%"class.boost::function0.41"* %this, i32) unnamed_addr #3 align 2 {
   %f = alloca %"struct.ros::DefaultMessageCreator", align 1
-  %2 = alloca %"class.boost::function0.34"*, align 8
+  %2 = alloca %"class.boost::function0.41"*, align 8
   %3 = alloca i32, align 4
   %4 = alloca %"struct.ros::DefaultMessageCreator", align 1
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %2, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %2, align 8
   store i32 %0, i32* %3, align 4
-  %5 = load %"class.boost::function0.34"** %2
-  %6 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %5 = load %"class.boost::function0.41"** %2
+  %6 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %6)
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_(%"class.boost::function0.34"* %5)
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_(%"class.boost::function0.41"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_(%"class.boost::function0.34"* %this) #3 align 2 {
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_(%"class.boost::function0.41"* %this) #3 align 2 {
   %f = alloca %"struct.ros::DefaultMessageCreator", align 1
-  %1 = alloca %"class.boost::function0.34"*, align 8
+  %1 = alloca %"class.boost::function0.41"*, align 8
   %2 = alloca %"struct.ros::DefaultMessageCreator", align 1
   %value = alloca i64, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  %3 = load %"class.boost::function0.34"** %1
-  %4 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  %3 = load %"class.boost::function0.41"** %1
+  %4 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %5 = getelementptr inbounds %"class.boost::function_base"* %4, i32 0, i32 1
-  %6 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.41"* @_ZZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_E13stored_vtable, %"union.boost::detail::function::function_buffer"* %5)
+  %6 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.49"* @_ZZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_E13stored_vtable, %"union.boost::detail::function::function_buffer"* %5)
   br i1 %6, label %7, label %14
 
 ; <label>:7                                       ; preds = %0
-  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable0.41"* @_ZZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_E13stored_vtable to i64), i64* %value, align 8
+  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable0.49"* @_ZZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS5_EEEEvT_E13stored_vtable to i64), i64* %value, align 8
   %8 = load i64* %value, align 8
   %9 = or i64 %8, 1
   store i64 %9, i64* %value, align 8
   %10 = load i64* %value, align 8
   %11 = inttoptr i64 %10 to %"struct.boost::detail::function::vtable_base"*
-  %12 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  %12 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %11, %"struct.boost::detail::function::vtable_base"** %13, align 8
   br label %17
 
 ; <label>:14                                      ; preds = %0
-  %15 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  %15 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %16 = getelementptr inbounds %"class.boost::function_base"* %15, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %16, align 8
   br label %17
@@ -8618,7 +12070,7 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerIN3ros21Defa
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0IN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEENS_10shared_ptrIS8_EEE6invokeERNS1_15function_bufferE(%"class.boost::shared_ptr.42"* noalias sret %agg.result, %"union.boost::detail::function::function_buffer"* %function_obj_ptr) #3 align 2 {
+define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0IN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEENS_10shared_ptrIS8_EEE6invokeERNS1_15function_bufferE(%"class.boost::shared_ptr.50"* noalias sret %agg.result, %"union.boost::detail::function::function_buffer"* %function_obj_ptr) #3 align 2 {
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %f = alloca %"struct.ros::DefaultMessageCreator"*, align 8
   store %"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"union.boost::detail::function::function_buffer"** %1, align 8
@@ -8627,44 +12079,44 @@ define linkonce_odr void @_ZN5boost6detail8function21function_obj_invoker0IN3ros
   %4 = bitcast i8* %3 to %"struct.ros::DefaultMessageCreator"*
   store %"struct.ros::DefaultMessageCreator"* %4, %"struct.ros::DefaultMessageCreator"** %f, align 8
   %5 = load %"struct.ros::DefaultMessageCreator"** %f, align 8
-  call void @_ZN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEclEv(%"class.boost::shared_ptr.42"* sret %agg.result, %"struct.ros::DefaultMessageCreator"* %5)
+  call void @_ZN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEclEv(%"class.boost::shared_ptr.50"* sret %agg.result, %"struct.ros::DefaultMessageCreator"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.41"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable0.49"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
   %f = alloca %"struct.ros::DefaultMessageCreator", align 1
-  %1 = alloca %"struct.boost::detail::function::basic_vtable0.41"*, align 8
+  %1 = alloca %"struct.boost::detail::function::basic_vtable0.49"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca %"struct.ros::DefaultMessageCreator", align 1
   %4 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
-  store %"struct.boost::detail::function::basic_vtable0.41"* %this, %"struct.boost::detail::function::basic_vtable0.41"** %1, align 8
+  store %"struct.boost::detail::function::basic_vtable0.49"* %this, %"struct.boost::detail::function::basic_vtable0.49"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %5 = load %"struct.boost::detail::function::basic_vtable0.41"** %1
+  %5 = load %"struct.boost::detail::function::basic_vtable0.49"** %1
   %6 = load %"union.boost::detail::function::function_buffer"** %2, align 8
-  %7 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0.41"* %5, %"union.boost::detail::function::function_buffer"* %6)
+  %7 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0.49"* %5, %"union.boost::detail::function::function_buffer"* %6)
   ret i1 %7
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0.41"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE9assign_toIN3ros21DefaultMessageCreatorIS7_EEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable0.49"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
   %1 = alloca i1, align 1
   %f = alloca %"struct.ros::DefaultMessageCreator", align 1
   %2 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
-  %3 = alloca %"struct.boost::detail::function::basic_vtable0.41"*, align 8
+  %3 = alloca %"struct.boost::detail::function::basic_vtable0.49"*, align 8
   %4 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %5 = alloca %"struct.ros::DefaultMessageCreator", align 1
   %6 = alloca %"struct.mpl_::bool_", align 1
-  store %"struct.boost::detail::function::basic_vtable0.41"* %this, %"struct.boost::detail::function::basic_vtable0.41"** %3, align 8
+  store %"struct.boost::detail::function::basic_vtable0.49"* %this, %"struct.boost::detail::function::basic_vtable0.49"** %3, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %4, align 8
-  %7 = load %"struct.boost::detail::function::basic_vtable0.41"** %3
+  %7 = load %"struct.boost::detail::function::basic_vtable0.49"** %3
   %8 = call %"struct.ros::DefaultMessageCreator"* @_ZN5boost9addressofIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEEPT_RS8_(%"struct.ros::DefaultMessageCreator"* %f)
   %9 = call zeroext i1 (...)* @_ZN5boost6detail8function16has_empty_targetEz(%"struct.ros::DefaultMessageCreator"* %8)
   br i1 %9, label %12, label %10
 
 ; <label>:10                                      ; preds = %0
   %11 = load %"union.boost::detail::function::function_buffer"** %4, align 8
-  call void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE14assign_functorIN3ros21DefaultMessageCreatorIS7_EEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0.41"* %7, %"union.boost::detail::function::function_buffer"* %11)
+  call void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE14assign_functorIN3ros21DefaultMessageCreatorIS7_EEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0.49"* %7, %"union.boost::detail::function::function_buffer"* %11)
   store i1 true, i1* %1
   br label %13
 
@@ -8680,24 +12132,24 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable0INS_10s
 ; Function Attrs: uwtable
 define linkonce_odr %"struct.ros::DefaultMessageCreator"* @_ZN5boost9addressofIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEEPT_RS8_(%"struct.ros::DefaultMessageCreator"* %v) #3 {
   %1 = alloca %"struct.ros::DefaultMessageCreator"*, align 8
-  %2 = alloca %"struct.boost::detail::addr_impl_ref.43", align 8
+  %2 = alloca %"struct.boost::detail::addr_impl_ref.51", align 8
   store %"struct.ros::DefaultMessageCreator"* %v, %"struct.ros::DefaultMessageCreator"** %1, align 8
   %3 = load %"struct.ros::DefaultMessageCreator"** %1, align 8
-  call void @_ZN5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEC2ERS8_(%"struct.boost::detail::addr_impl_ref.43"* %2, %"struct.ros::DefaultMessageCreator"* %3)
-  %4 = call %"struct.ros::DefaultMessageCreator"* @_ZNK5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEcvRS8_Ev(%"struct.boost::detail::addr_impl_ref.43"* %2)
+  call void @_ZN5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEC2ERS8_(%"struct.boost::detail::addr_impl_ref.51"* %2, %"struct.ros::DefaultMessageCreator"* %3)
+  %4 = call %"struct.ros::DefaultMessageCreator"* @_ZNK5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEcvRS8_Ev(%"struct.boost::detail::addr_impl_ref.51"* %2)
   %5 = call %"struct.ros::DefaultMessageCreator"* @_ZN5boost6detail14addressof_implIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEE1fERS8_l(%"struct.ros::DefaultMessageCreator"* %4, i64 0)
   ret %"struct.ros::DefaultMessageCreator"* %5
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE14assign_functorIN3ros21DefaultMessageCreatorIS7_EEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0.41"* %this, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE14assign_functorIN3ros21DefaultMessageCreatorIS7_EEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable0.49"* %this, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
   %f = alloca %"struct.ros::DefaultMessageCreator", align 1
   %1 = alloca %"struct.mpl_::bool_", align 1
-  %2 = alloca %"struct.boost::detail::function::basic_vtable0.41"*, align 8
+  %2 = alloca %"struct.boost::detail::function::basic_vtable0.49"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  store %"struct.boost::detail::function::basic_vtable0.41"* %this, %"struct.boost::detail::function::basic_vtable0.41"** %2, align 8
+  store %"struct.boost::detail::function::basic_vtable0.49"* %this, %"struct.boost::detail::function::basic_vtable0.49"** %2, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %3, align 8
-  %4 = load %"struct.boost::detail::function::basic_vtable0.41"** %2
+  %4 = load %"struct.boost::detail::function::basic_vtable0.49"** %2
   %5 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %6 = bitcast %"union.boost::detail::function::function_buffer"* %5 to i8*
   %7 = icmp eq i8* %6, null
@@ -8725,40 +12177,40 @@ define linkonce_odr %"struct.ros::DefaultMessageCreator"* @_ZN5boost6detail14add
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEC2ERS8_(%"struct.boost::detail::addr_impl_ref.43"* %this, %"struct.ros::DefaultMessageCreator"* %v) unnamed_addr #8 align 2 {
-  %1 = alloca %"struct.boost::detail::addr_impl_ref.43"*, align 8
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEC2ERS8_(%"struct.boost::detail::addr_impl_ref.51"* %this, %"struct.ros::DefaultMessageCreator"* %v) unnamed_addr #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.51"*, align 8
   %2 = alloca %"struct.ros::DefaultMessageCreator"*, align 8
-  store %"struct.boost::detail::addr_impl_ref.43"* %this, %"struct.boost::detail::addr_impl_ref.43"** %1, align 8
+  store %"struct.boost::detail::addr_impl_ref.51"* %this, %"struct.boost::detail::addr_impl_ref.51"** %1, align 8
   store %"struct.ros::DefaultMessageCreator"* %v, %"struct.ros::DefaultMessageCreator"** %2, align 8
-  %3 = load %"struct.boost::detail::addr_impl_ref.43"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.43"* %3, i32 0, i32 0
+  %3 = load %"struct.boost::detail::addr_impl_ref.51"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.51"* %3, i32 0, i32 0
   %5 = load %"struct.ros::DefaultMessageCreator"** %2, align 8
   store %"struct.ros::DefaultMessageCreator"* %5, %"struct.ros::DefaultMessageCreator"** %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"struct.ros::DefaultMessageCreator"* @_ZNK5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEcvRS8_Ev(%"struct.boost::detail::addr_impl_ref.43"* %this) #8 align 2 {
-  %1 = alloca %"struct.boost::detail::addr_impl_ref.43"*, align 8
-  store %"struct.boost::detail::addr_impl_ref.43"* %this, %"struct.boost::detail::addr_impl_ref.43"** %1, align 8
-  %2 = load %"struct.boost::detail::addr_impl_ref.43"** %1
-  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.43"* %2, i32 0, i32 0
+define linkonce_odr %"struct.ros::DefaultMessageCreator"* @_ZNK5boost6detail13addr_impl_refIN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEEEcvRS8_Ev(%"struct.boost::detail::addr_impl_ref.51"* %this) #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.51"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.51"* %this, %"struct.boost::detail::addr_impl_ref.51"** %1, align 8
+  %2 = load %"struct.boost::detail::addr_impl_ref.51"** %1
+  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.51"* %2, i32 0, i32 0
   %4 = load %"struct.ros::DefaultMessageCreator"** %3, align 8
   ret %"struct.ros::DefaultMessageCreator"* %4
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEclEv(%"class.boost::shared_ptr.42"* noalias sret %agg.result, %"struct.ros::DefaultMessageCreator"* %this) #3 align 2 {
+define linkonce_odr void @_ZN3ros21DefaultMessageCreatorIN8std_msgs8Float64_ISaIvEEEEclEv(%"class.boost::shared_ptr.50"* noalias sret %agg.result, %"struct.ros::DefaultMessageCreator"* %this) #3 align 2 {
   %1 = alloca %"struct.ros::DefaultMessageCreator"*, align 8
   store %"struct.ros::DefaultMessageCreator"* %this, %"struct.ros::DefaultMessageCreator"** %1, align 8
   %2 = load %"struct.ros::DefaultMessageCreator"** %1
-  call void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS_6detail15sp_if_not_arrayIT_E4typeEv(%"class.boost::shared_ptr.42"* sret %agg.result)
+  call void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS_6detail15sp_if_not_arrayIT_E4typeEv(%"class.boost::shared_ptr.50"* sret %agg.result)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS_6detail15sp_if_not_arrayIT_E4typeEv(%"class.boost::shared_ptr.42"* noalias sret %agg.result) #3 {
-  %pt = alloca %"class.boost::shared_ptr.42", align 8
+define linkonce_odr void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS_6detail15sp_if_not_arrayIT_E4typeEv(%"class.boost::shared_ptr.50"* noalias sret %agg.result) #3 {
+  %pt = alloca %"class.boost::shared_ptr.50", align 8
   %1 = alloca %"struct.boost::detail::sp_inplace_tag", align 1
   %pd = alloca %"class.boost::detail::sp_ms_deleter"*, align 8
   %2 = alloca i8*
@@ -8766,8 +12218,8 @@ define linkonce_odr void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS
   %pv = alloca i8*, align 8
   %pt2 = alloca %"struct.std_msgs::Float64_"*, align 8
   %4 = alloca i32
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_NS_6detail14sp_inplace_tagINS7_13sp_ms_deleterIS4_EEEEEEPT_T0_(%"class.boost::shared_ptr.42"* %pt, %"struct.std_msgs::Float64_"* null)
-  %5 = invoke i8* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE29_internal_get_untyped_deleterEv(%"class.boost::shared_ptr.42"* %pt)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_NS_6detail14sp_inplace_tagINS7_13sp_ms_deleterIS4_EEEEEEPT_T0_(%"class.boost::shared_ptr.50"* %pt, %"struct.std_msgs::Float64_"* null)
+  %5 = invoke i8* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE29_internal_get_untyped_deleterEv(%"class.boost::shared_ptr.50"* %pt)
           to label %6 unwind label %27
 
 ; <label>:6                                       ; preds = %0
@@ -8803,17 +12255,17 @@ define linkonce_odr void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS
   store %"struct.std_msgs::Float64_"* %21, %"struct.std_msgs::Float64_"** %pt2, align 8
   %22 = load %"struct.std_msgs::Float64_"** %pt2, align 8
   %23 = load %"struct.std_msgs::Float64_"** %pt2, align 8
-  invoke void (...)* @_ZN5boost6detail26sp_enable_shared_from_thisEz(%"class.boost::shared_ptr.42"* %pt, %"struct.std_msgs::Float64_"* %22, %"struct.std_msgs::Float64_"* %23)
+  invoke void (...)* @_ZN5boost6detail26sp_enable_shared_from_thisEz(%"class.boost::shared_ptr.50"* %pt, %"struct.std_msgs::Float64_"* %22, %"struct.std_msgs::Float64_"* %23)
           to label %24 unwind label %27
 
 ; <label>:24                                      ; preds = %19
   %25 = load %"struct.std_msgs::Float64_"** %pt2, align 8
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.42"* %agg.result, %"class.boost::shared_ptr.42"* %pt, %"struct.std_msgs::Float64_"* %25)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.50"* %agg.result, %"class.boost::shared_ptr.50"* %pt, %"struct.std_msgs::Float64_"* %25)
           to label %26 unwind label %27
 
 ; <label>:26                                      ; preds = %24
   store i32 1, i32* %4
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %pt)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %pt)
   ret void
 
 ; <label>:27                                      ; preds = %24, %19, %16, %13, %6, %0
@@ -8823,7 +12275,7 @@ define linkonce_odr void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS
   store i8* %29, i8** %2
   %30 = extractvalue { i8*, i32 } %28, 1
   store i32 %30, i32* %3
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %pt)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %pt)
           to label %31 unwind label %37
 
 ; <label>:31                                      ; preds = %27
@@ -8845,24 +12297,24 @@ define linkonce_odr void @_ZN5boost11make_sharedIN8std_msgs8Float64_ISaIvEEEEENS
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_NS_6detail14sp_inplace_tagINS7_13sp_ms_deleterIS4_EEEEEEPT_T0_(%"class.boost::shared_ptr.42"* %this, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_NS_6detail14sp_inplace_tagINS7_13sp_ms_deleterIS4_EEEEEEPT_T0_(%"class.boost::shared_ptr.50"* %this, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
   %d = alloca %"struct.boost::detail::sp_inplace_tag", align 1
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
   %2 = alloca %"struct.std_msgs::Float64_"*, align 8
   %3 = alloca %"struct.boost::detail::sp_inplace_tag", align 1
   %4 = alloca i8*
   %5 = alloca i32
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
   store %"struct.std_msgs::Float64_"* %p, %"struct.std_msgs::Float64_"** %2, align 8
-  %6 = load %"class.boost::shared_ptr.42"** %1
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.42"* %6, i32 0, i32 0
+  %6 = load %"class.boost::shared_ptr.50"** %1
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.50"* %6, i32 0, i32 0
   %8 = load %"struct.std_msgs::Float64_"** %2, align 8
   store %"struct.std_msgs::Float64_"* %8, %"struct.std_msgs::Float64_"** %7, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.42"* %6, i32 0, i32 1
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.50"* %6, i32 0, i32 1
   %10 = load %"struct.std_msgs::Float64_"** %2, align 8
   call void @_ZN5boost6detail12shared_countC2IPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS6_EEEET_NS0_14sp_inplace_tagIT0_EE(%"class.boost::detail::shared_count"* %9, %"struct.std_msgs::Float64_"* %10)
   %11 = load %"struct.std_msgs::Float64_"** %2, align 8
-  invoke void @_ZN5boost6detail20sp_deleter_constructIN8std_msgs8Float64_ISaIvEEES5_EEvPNS_10shared_ptrIT_EEPT0_(%"class.boost::shared_ptr.42"* %6, %"struct.std_msgs::Float64_"* %11)
+  invoke void @_ZN5boost6detail20sp_deleter_constructIN8std_msgs8Float64_ISaIvEEES5_EEvPNS_10shared_ptrIT_EEPT0_(%"class.boost::shared_ptr.50"* %6, %"struct.std_msgs::Float64_"* %11)
           to label %12 unwind label %13
 
 ; <label>:12                                      ; preds = %0
@@ -8897,11 +12349,11 @@ define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr i8* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE29_internal_get_untyped_deleterEv(%"class.boost::shared_ptr.42"* %this) #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.42"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 1
+define linkonce_odr i8* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE29_internal_get_untyped_deleterEv(%"class.boost::shared_ptr.50"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.50"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 1
   %4 = call i8* @_ZNK5boost6detail12shared_count19get_untyped_deleterEv(%"class.boost::detail::shared_count"* %3)
   ret i8* %4
 }
@@ -8943,30 +12395,30 @@ define linkonce_odr void @_ZN5boost6detail26sp_enable_shared_from_thisEz(...) #8
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"* %r, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.42"*, align 8
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"* %r, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  %2 = alloca %"class.boost::shared_ptr.50"*, align 8
   %3 = alloca %"struct.std_msgs::Float64_"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  store %"class.boost::shared_ptr.42"* %r, %"class.boost::shared_ptr.42"** %2, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  store %"class.boost::shared_ptr.50"* %r, %"class.boost::shared_ptr.50"** %2, align 8
   store %"struct.std_msgs::Float64_"* %p, %"struct.std_msgs::Float64_"** %3, align 8
-  %4 = load %"class.boost::shared_ptr.42"** %1
-  %5 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 0
+  %4 = load %"class.boost::shared_ptr.50"** %1
+  %5 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 0
   %6 = load %"struct.std_msgs::Float64_"** %3, align 8
   store %"struct.std_msgs::Float64_"* %6, %"struct.std_msgs::Float64_"** %5, align 8
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 1
-  %8 = load %"class.boost::shared_ptr.42"** %2, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.42"* %8, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 1
+  %8 = load %"class.boost::shared_ptr.50"** %2, align 8
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.50"* %8, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %7, %"class.boost::detail::shared_count"* %9)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.42"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 1
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.50"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countD2Ev(%"class.boost::detail::shared_count"* %3)
   ret void
 }
@@ -9062,13 +12514,13 @@ define linkonce_odr void @_ZN5boost6detail12shared_countC2IPN8std_msgs8Float64_I
           to label %9 unwind label %15
 
 ; <label>:9                                       ; preds = %0
-  %10 = bitcast i8* %8 to %"class.boost::detail::sp_counted_impl_pd.44"*
+  %10 = bitcast i8* %8 to %"class.boost::detail::sp_counted_impl_pd.52"*
   %11 = load %"struct.std_msgs::Float64_"** %3, align 8
-  invoke void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEC2ES6_(%"class.boost::detail::sp_counted_impl_pd.44"* %10, %"struct.std_msgs::Float64_"* %11)
+  invoke void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEC2ES6_(%"class.boost::detail::sp_counted_impl_pd.52"* %10, %"struct.std_msgs::Float64_"* %11)
           to label %12 unwind label %19
 
 ; <label>:12                                      ; preds = %9
-  %13 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %10 to %"class.boost::detail::sp_counted_base"*
+  %13 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %10 to %"class.boost::detail::sp_counted_base"*
   %14 = getelementptr inbounds %"class.boost::detail::shared_count"* %6, i32 0, i32 0
   store %"class.boost::detail::sp_counted_base"* %13, %"class.boost::detail::sp_counted_base"** %14, align 8
   br label %33
@@ -9138,35 +12590,35 @@ define linkonce_odr void @_ZN5boost6detail12shared_countC2IPN8std_msgs8Float64_I
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail20sp_deleter_constructIN8std_msgs8Float64_ISaIvEEES5_EEvPNS_10shared_ptrIT_EEPT0_(%"class.boost::shared_ptr.42"* %ppx, %"struct.std_msgs::Float64_"* %p) #8 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
+define linkonce_odr void @_ZN5boost6detail20sp_deleter_constructIN8std_msgs8Float64_ISaIvEEES5_EEvPNS_10shared_ptrIT_EEPT0_(%"class.boost::shared_ptr.50"* %ppx, %"struct.std_msgs::Float64_"* %p) #8 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
   %2 = alloca %"struct.std_msgs::Float64_"*, align 8
-  store %"class.boost::shared_ptr.42"* %ppx, %"class.boost::shared_ptr.42"** %1, align 8
+  store %"class.boost::shared_ptr.50"* %ppx, %"class.boost::shared_ptr.50"** %1, align 8
   store %"struct.std_msgs::Float64_"* %p, %"struct.std_msgs::Float64_"** %2, align 8
-  %3 = load %"class.boost::shared_ptr.42"** %1, align 8
+  %3 = load %"class.boost::shared_ptr.50"** %1, align 8
   %4 = load %"struct.std_msgs::Float64_"** %2, align 8
   %5 = load %"struct.std_msgs::Float64_"** %2, align 8
-  call void (...)* @_ZN5boost6detail26sp_enable_shared_from_thisEz(%"class.boost::shared_ptr.42"* %3, %"struct.std_msgs::Float64_"* %4, %"struct.std_msgs::Float64_"* %5)
+  call void (...)* @_ZN5boost6detail26sp_enable_shared_from_thisEz(%"class.boost::shared_ptr.50"* %3, %"struct.std_msgs::Float64_"* %4, %"struct.std_msgs::Float64_"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEC2ES6_(%"class.boost::detail::sp_counted_impl_pd.44"* %this, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.44"*, align 8
+define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEC2ES6_(%"class.boost::detail::sp_counted_impl_pd.52"* %this, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.52"*, align 8
   %2 = alloca %"struct.std_msgs::Float64_"*, align 8
   %3 = alloca i8*
   %4 = alloca i32
-  store %"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.boost::detail::sp_counted_impl_pd.44"** %1, align 8
+  store %"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.boost::detail::sp_counted_impl_pd.52"** %1, align 8
   store %"struct.std_msgs::Float64_"* %p, %"struct.std_msgs::Float64_"** %2, align 8
-  %5 = load %"class.boost::detail::sp_counted_impl_pd.44"** %1
-  %6 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %5 to %"class.boost::detail::sp_counted_base"*
+  %5 = load %"class.boost::detail::sp_counted_impl_pd.52"** %1
+  %6 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %5 to %"class.boost::detail::sp_counted_base"*
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(%"class.boost::detail::sp_counted_base"* %6)
-  %7 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %5 to i8***
+  %7 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %5 to i8***
   store i8** getelementptr inbounds ([8 x i8*]* @_ZTVN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE, i64 0, i64 2), i8*** %7
-  %8 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %5, i32 0, i32 1
+  %8 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %5, i32 0, i32 1
   %9 = load %"struct.std_msgs::Float64_"** %2, align 8
   store %"struct.std_msgs::Float64_"* %9, %"struct.std_msgs::Float64_"** %8, align 8
-  %10 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %5, i32 0, i32 2
+  %10 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %5, i32 0, i32 2
   invoke void @_ZN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::detail::sp_ms_deleter"* %10)
           to label %11 unwind label %12
 
@@ -9180,7 +12632,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float
   store i8* %14, i8** %3
   %15 = extractvalue { i8*, i32 } %13, 1
   store i32 %15, i32* %4
-  %16 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %5 to %"class.boost::detail::sp_counted_base"*
+  %16 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %5 to %"class.boost::detail::sp_counted_base"*
   invoke void @_ZN5boost6detail15sp_counted_baseD2Ev(%"class.boost::detail::sp_counted_base"* %16)
           to label %17 unwind label %23
 
@@ -9221,20 +12673,20 @@ define linkonce_odr void @_ZN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISa
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED2Ev(%"class.boost::detail::sp_counted_impl_pd.44"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.44"*, align 8
+define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED2Ev(%"class.boost::detail::sp_counted_impl_pd.52"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.52"*, align 8
   %2 = alloca i8*
   %3 = alloca i32
-  store %"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.boost::detail::sp_counted_impl_pd.44"** %1, align 8
-  %4 = load %"class.boost::detail::sp_counted_impl_pd.44"** %1
-  %5 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %4 to i8***
+  store %"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.boost::detail::sp_counted_impl_pd.52"** %1, align 8
+  %4 = load %"class.boost::detail::sp_counted_impl_pd.52"** %1
+  %5 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %4 to i8***
   store i8** getelementptr inbounds ([8 x i8*]* @_ZTVN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEEE, i64 0, i64 2), i8*** %5
-  %6 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %4, i32 0, i32 2
+  %6 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %4, i32 0, i32 2
   invoke void @_ZN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::detail::sp_ms_deleter"* %6)
           to label %7 unwind label %9
 
 ; <label>:7                                       ; preds = %0
-  %8 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %4 to %"class.boost::detail::sp_counted_base"*
+  %8 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %4 to %"class.boost::detail::sp_counted_base"*
   call void @_ZN5boost6detail15sp_counted_baseD2Ev(%"class.boost::detail::sp_counted_base"* %8)
   ret void
 
@@ -9245,7 +12697,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float
   store i8* %11, i8** %2
   %12 = extractvalue { i8*, i32 } %10, 1
   store i32 %12, i32* %3
-  %13 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %4 to %"class.boost::detail::sp_counted_base"*
+  %13 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %4 to %"class.boost::detail::sp_counted_base"*
   invoke void @_ZN5boost6detail15sp_counted_baseD2Ev(%"class.boost::detail::sp_counted_base"* %13)
           to label %14 unwind label %20
 
@@ -9268,17 +12720,17 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED0Ev(%"class.boost::detail::sp_counted_impl_pd.44"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.44"*, align 8
+define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED0Ev(%"class.boost::detail::sp_counted_impl_pd.52"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.52"*, align 8
   %2 = alloca i8*
   %3 = alloca i32
-  store %"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.boost::detail::sp_counted_impl_pd.44"** %1, align 8
-  %4 = load %"class.boost::detail::sp_counted_impl_pd.44"** %1
-  invoke void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED2Ev(%"class.boost::detail::sp_counted_impl_pd.44"* %4)
+  store %"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.boost::detail::sp_counted_impl_pd.52"** %1, align 8
+  %4 = load %"class.boost::detail::sp_counted_impl_pd.52"** %1
+  invoke void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEED2Ev(%"class.boost::detail::sp_counted_impl_pd.52"* %4)
           to label %5 unwind label %7
 
 ; <label>:5                                       ; preds = %0
-  %6 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %4 to i8*
+  %6 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %4 to i8*
   call void @_ZdlPv(i8* %6) #18
   ret void
 
@@ -9289,7 +12741,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float
   store i8* %9, i8** %2
   %10 = extractvalue { i8*, i32 } %8, 1
   store i32 %10, i32* %3
-  %11 = bitcast %"class.boost::detail::sp_counted_impl_pd.44"* %4 to i8*
+  %11 = bitcast %"class.boost::detail::sp_counted_impl_pd.52"* %4 to i8*
   call void @_ZdlPv(i8* %11) #18
   br label %12
 
@@ -9302,30 +12754,30 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE7disposeEv(%"class.boost::detail::sp_counted_impl_pd.44"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.44"*, align 8
-  store %"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.boost::detail::sp_counted_impl_pd.44"** %1, align 8
-  %2 = load %"class.boost::detail::sp_counted_impl_pd.44"** %1
-  %3 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %2, i32 0, i32 2
-  %4 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %2, i32 0, i32 1
+define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE7disposeEv(%"class.boost::detail::sp_counted_impl_pd.52"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.52"*, align 8
+  store %"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.boost::detail::sp_counted_impl_pd.52"** %1, align 8
+  %2 = load %"class.boost::detail::sp_counted_impl_pd.52"** %1
+  %3 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %2, i32 0, i32 2
+  %4 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %2, i32 0, i32 1
   %5 = load %"struct.std_msgs::Float64_"** %4, align 8
   call void @_ZN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEclEPS5_(%"class.boost::detail::sp_ms_deleter"* %3, %"struct.std_msgs::Float64_"* %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr i8* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE11get_deleterERKSt9type_info(%"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.std::type_info"* %ti) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.44"*, align 8
+define linkonce_odr i8* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE11get_deleterERKSt9type_info(%"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.std::type_info"* %ti) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.52"*, align 8
   %2 = alloca %"class.std::type_info"*, align 8
-  store %"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.boost::detail::sp_counted_impl_pd.44"** %1, align 8
+  store %"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.boost::detail::sp_counted_impl_pd.52"** %1, align 8
   store %"class.std::type_info"* %ti, %"class.std::type_info"** %2, align 8
-  %3 = load %"class.boost::detail::sp_counted_impl_pd.44"** %1
+  %3 = load %"class.boost::detail::sp_counted_impl_pd.52"** %1
   %4 = load %"class.std::type_info"** %2, align 8
   %5 = call zeroext i1 @_ZNKSt9type_infoeqERKS_(%"class.std::type_info"* %4, %"class.std::type_info"* bitcast ({ i8*, i8* }* @_ZTIN5boost6detail13sp_ms_deleterIN8std_msgs8Float64_ISaIvEEEEE to %"class.std::type_info"*))
   br i1 %5, label %6, label %9
 
 ; <label>:6                                       ; preds = %0
-  %7 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %3, i32 0, i32 2
+  %7 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %3, i32 0, i32 2
   %8 = bitcast %"class.boost::detail::sp_ms_deleter"* %7 to i8*
   br label %10
 
@@ -9338,11 +12790,11 @@ define linkonce_odr i8* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float6
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr i8* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE19get_untyped_deleterEv(%"class.boost::detail::sp_counted_impl_pd.44"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.44"*, align 8
-  store %"class.boost::detail::sp_counted_impl_pd.44"* %this, %"class.boost::detail::sp_counted_impl_pd.44"** %1, align 8
-  %2 = load %"class.boost::detail::sp_counted_impl_pd.44"** %1
-  %3 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.44"* %2, i32 0, i32 2
+define linkonce_odr i8* @_ZN5boost6detail18sp_counted_impl_pdIPN8std_msgs8Float64_ISaIvEEENS0_13sp_ms_deleterIS5_EEE19get_untyped_deleterEv(%"class.boost::detail::sp_counted_impl_pd.52"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.boost::detail::sp_counted_impl_pd.52"*, align 8
+  store %"class.boost::detail::sp_counted_impl_pd.52"* %this, %"class.boost::detail::sp_counted_impl_pd.52"** %1, align 8
+  %2 = load %"class.boost::detail::sp_counted_impl_pd.52"** %1
+  %3 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd.52"* %2, i32 0, i32 2
   %4 = bitcast %"class.boost::detail::sp_ms_deleter"* %3 to i8*
   ret i8* %4
 }
@@ -9553,52 +13005,52 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonIN3ro
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISQ_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.31"* %this, %"class.boost::_bi::bind_t.35"* byval align 8 %f, i32) unnamed_addr #3 align 2 {
-  %2 = alloca %"class.boost::function1.31"*, align 8
+define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISQ_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.38"* %this, %"class.boost::_bi::bind_t.42"* byval align 8 %f, i32) unnamed_addr #3 align 2 {
+  %2 = alloca %"class.boost::function1.38"*, align 8
   %3 = alloca i32, align 4
-  %4 = alloca %"class.boost::_bi::bind_t.35", align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %2, align 8
+  %4 = alloca %"class.boost::_bi::bind_t.42", align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %2, align 8
   store i32 %0, i32* %3, align 4
-  %5 = load %"class.boost::function1.31"** %2
-  %6 = bitcast %"class.boost::function1.31"* %5 to %"class.boost::function_base"*
+  %5 = load %"class.boost::function1.38"** %2
+  %6 = bitcast %"class.boost::function1.38"* %5 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %6)
-  %7 = bitcast %"class.boost::function1.31"* %5 to %"struct.std::unary_function.32"*
-  %8 = bitcast %"class.boost::_bi::bind_t.35"* %4 to i8*
-  %9 = bitcast %"class.boost::_bi::bind_t.35"* %f to i8*
+  %7 = bitcast %"class.boost::function1.38"* %5 to %"struct.std::unary_function.39"*
+  %8 = bitcast %"class.boost::_bi::bind_t.42"* %4 to i8*
+  %9 = bitcast %"class.boost::_bi::bind_t.42"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %8, i8* %9, i64 24, i32 8, i1 false)
-  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_(%"class.boost::function1.31"* %5, %"class.boost::_bi::bind_t.35"* byval align 8 %4)
+  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_(%"class.boost::function1.38"* %5, %"class.boost::_bi::bind_t.42"* byval align 8 %4)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_(%"class.boost::function1.31"* %this, %"class.boost::_bi::bind_t.35"* byval align 8 %f) #3 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
-  %2 = alloca %"class.boost::_bi::bind_t.35", align 8
+define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_(%"class.boost::function1.38"* %this, %"class.boost::_bi::bind_t.42"* byval align 8 %f) #3 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
+  %2 = alloca %"class.boost::_bi::bind_t.42", align 8
   %value = alloca i64, align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
-  %3 = load %"class.boost::function1.31"** %1
-  %4 = bitcast %"class.boost::_bi::bind_t.35"* %2 to i8*
-  %5 = bitcast %"class.boost::_bi::bind_t.35"* %f to i8*
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
+  %3 = load %"class.boost::function1.38"** %1
+  %4 = bitcast %"class.boost::_bi::bind_t.42"* %2 to i8*
+  %5 = bitcast %"class.boost::_bi::bind_t.42"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %4, i8* %5, i64 24, i32 8, i1 false)
-  %6 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %6 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %7 = getelementptr inbounds %"class.boost::function_base"* %6, i32 0, i32 1
-  %8 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1"* @_ZZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_E13stored_vtable, %"class.boost::_bi::bind_t.35"* byval align 8 %2, %"union.boost::detail::function::function_buffer"* %7)
+  %8 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.48"* @_ZZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_E13stored_vtable, %"class.boost::_bi::bind_t.42"* byval align 8 %2, %"union.boost::detail::function::function_buffer"* %7)
   br i1 %8, label %9, label %16
 
 ; <label>:9                                       ; preds = %0
-  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable1"* @_ZZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_E13stored_vtable to i64), i64* %value, align 8
+  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable1.48"* @_ZZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestS9_EENSC_5list2INSC_5valueIPSG_EENS_3argILi1EEEEEEEEEvT_E13stored_vtable to i64), i64* %value, align 8
   %10 = load i64* %value, align 8
   %11 = or i64 %10, 1
   store i64 %11, i64* %value, align 8
   %12 = load i64* %value, align 8
   %13 = inttoptr i64 %12 to %"struct.boost::detail::function::vtable_base"*
-  %14 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %14 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %15 = getelementptr inbounds %"class.boost::function_base"* %14, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %13, %"struct.boost::detail::function::vtable_base"** %15, align 8
   br label %19
 
 ; <label>:16                                      ; preds = %0
-  %17 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %17 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %18 = getelementptr inbounds %"class.boost::function_base"* %17, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %18, align 8
   br label %19
@@ -9651,57 +13103,57 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_3_bi6bin
 define linkonce_odr void @_ZN5boost6detail8function26void_function_obj_invoker1INS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS3_5list2INS3_5valueIPS7_EENS_3argILi1EEEEEEEvSG_E6invokeERNS1_15function_bufferESG_(%"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"class.boost::shared_ptr.26"* %a0) #3 align 2 {
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
-  %f = alloca %"class.boost::_bi::bind_t.35"*, align 8
+  %f = alloca %"class.boost::_bi::bind_t.42"*, align 8
   store %"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"union.boost::detail::function::function_buffer"** %1, align 8
   store %"class.boost::shared_ptr.26"* %a0, %"class.boost::shared_ptr.26"** %2, align 8
   %3 = load %"union.boost::detail::function::function_buffer"** %1, align 8
   %4 = bitcast %"union.boost::detail::function::function_buffer"* %3 to i8*
-  %5 = bitcast i8* %4 to %"class.boost::_bi::bind_t.35"*
-  store %"class.boost::_bi::bind_t.35"* %5, %"class.boost::_bi::bind_t.35"** %f, align 8
-  %6 = load %"class.boost::_bi::bind_t.35"** %f, align 8
+  %5 = bitcast i8* %4 to %"class.boost::_bi::bind_t.42"*
+  store %"class.boost::_bi::bind_t.42"* %5, %"class.boost::_bi::bind_t.42"** %f, align 8
+  %6 = load %"class.boost::_bi::bind_t.42"** %f, align 8
   %7 = load %"class.boost::shared_ptr.26"** %2, align 8
-  call void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEclISB_EEvRKT_(%"class.boost::_bi::bind_t.35"* %6, %"class.boost::shared_ptr.26"* %7)
+  call void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEclISB_EEvRKT_(%"class.boost::_bi::bind_t.42"* %6, %"class.boost::shared_ptr.26"* %7)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1"* %this, %"class.boost::_bi::bind_t.35"* byval align 8 %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.boost::detail::function::basic_vtable1"*, align 8
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.48"* %this, %"class.boost::_bi::bind_t.42"* byval align 8 %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.boost::detail::function::basic_vtable1.48"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  %3 = alloca %"class.boost::_bi::bind_t.35", align 8
+  %3 = alloca %"class.boost::_bi::bind_t.42", align 8
   %4 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
-  store %"struct.boost::detail::function::basic_vtable1"* %this, %"struct.boost::detail::function::basic_vtable1"** %1, align 8
+  store %"struct.boost::detail::function::basic_vtable1.48"* %this, %"struct.boost::detail::function::basic_vtable1.48"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %5 = load %"struct.boost::detail::function::basic_vtable1"** %1
-  %6 = bitcast %"class.boost::_bi::bind_t.35"* %3 to i8*
-  %7 = bitcast %"class.boost::_bi::bind_t.35"* %f to i8*
+  %5 = load %"struct.boost::detail::function::basic_vtable1.48"** %1
+  %6 = bitcast %"class.boost::_bi::bind_t.42"* %3 to i8*
+  %7 = bitcast %"class.boost::_bi::bind_t.42"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %7, i64 24, i32 8, i1 false)
   %8 = load %"union.boost::detail::function::function_buffer"** %2, align 8
-  %9 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1"* %5, %"class.boost::_bi::bind_t.35"* byval align 8 %3, %"union.boost::detail::function::function_buffer"* %8)
+  %9 = call zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1.48"* %5, %"class.boost::_bi::bind_t.42"* byval align 8 %3, %"union.boost::detail::function::function_buffer"* %8)
   ret i1 %9
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1"* %this, %"class.boost::_bi::bind_t.35"* byval align 8 %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1.48"* %this, %"class.boost::_bi::bind_t.42"* byval align 8 %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
   %1 = alloca i1, align 1
   %2 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
-  %3 = alloca %"struct.boost::detail::function::basic_vtable1"*, align 8
+  %3 = alloca %"struct.boost::detail::function::basic_vtable1.48"*, align 8
   %4 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  %5 = alloca %"class.boost::_bi::bind_t.35", align 8
+  %5 = alloca %"class.boost::_bi::bind_t.42", align 8
   %6 = alloca %"struct.mpl_::bool_", align 1
-  store %"struct.boost::detail::function::basic_vtable1"* %this, %"struct.boost::detail::function::basic_vtable1"** %3, align 8
+  store %"struct.boost::detail::function::basic_vtable1.48"* %this, %"struct.boost::detail::function::basic_vtable1.48"** %3, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %4, align 8
-  %7 = load %"struct.boost::detail::function::basic_vtable1"** %3
-  %8 = call %"class.boost::_bi::bind_t.35"* @_ZN5boost9addressofINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS1_5list2INS1_5valueIPS5_EENS_3argILi1EEEEEEEEEPT_RSO_(%"class.boost::_bi::bind_t.35"* %f)
-  %9 = call zeroext i1 (...)* @_ZN5boost6detail8function16has_empty_targetEz(%"class.boost::_bi::bind_t.35"* %8)
+  %7 = load %"struct.boost::detail::function::basic_vtable1.48"** %3
+  %8 = call %"class.boost::_bi::bind_t.42"* @_ZN5boost9addressofINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS1_5list2INS1_5valueIPS5_EENS_3argILi1EEEEEEEEEPT_RSO_(%"class.boost::_bi::bind_t.42"* %f)
+  %9 = call zeroext i1 (...)* @_ZN5boost6detail8function16has_empty_targetEz(%"class.boost::_bi::bind_t.42"* %8)
   br i1 %9, label %14, label %10
 
 ; <label>:10                                      ; preds = %0
-  %11 = bitcast %"class.boost::_bi::bind_t.35"* %5 to i8*
-  %12 = bitcast %"class.boost::_bi::bind_t.35"* %f to i8*
+  %11 = bitcast %"class.boost::_bi::bind_t.42"* %5 to i8*
+  %12 = bitcast %"class.boost::_bi::bind_t.42"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %11, i8* %12, i64 24, i32 8, i1 false)
   %13 = load %"union.boost::detail::function::function_buffer"** %4, align 8
-  call void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable1"* %7, %"class.boost::_bi::bind_t.35"* byval align 8 %5, %"union.boost::detail::function::function_buffer"* %13)
+  call void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable1.48"* %7, %"class.boost::_bi::bind_t.42"* byval align 8 %5, %"union.boost::detail::function::function_buffer"* %13)
   store i1 true, i1* %1
   br label %15
 
@@ -9715,129 +13167,129 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvRKNS_
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"class.boost::_bi::bind_t.35"* @_ZN5boost9addressofINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS1_5list2INS1_5valueIPS5_EENS_3argILi1EEEEEEEEEPT_RSO_(%"class.boost::_bi::bind_t.35"* %v) #3 {
-  %1 = alloca %"class.boost::_bi::bind_t.35"*, align 8
-  %2 = alloca %"struct.boost::detail::addr_impl_ref.45", align 8
-  store %"class.boost::_bi::bind_t.35"* %v, %"class.boost::_bi::bind_t.35"** %1, align 8
-  %3 = load %"class.boost::_bi::bind_t.35"** %1, align 8
-  call void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEC2ERSO_(%"struct.boost::detail::addr_impl_ref.45"* %2, %"class.boost::_bi::bind_t.35"* %3)
-  %4 = call %"class.boost::_bi::bind_t.35"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEcvRSO_Ev(%"struct.boost::detail::addr_impl_ref.45"* %2)
-  %5 = call %"class.boost::_bi::bind_t.35"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEE1fERSO_l(%"class.boost::_bi::bind_t.35"* %4, i64 0)
-  ret %"class.boost::_bi::bind_t.35"* %5
+define linkonce_odr %"class.boost::_bi::bind_t.42"* @_ZN5boost9addressofINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS1_5list2INS1_5valueIPS5_EENS_3argILi1EEEEEEEEEPT_RSO_(%"class.boost::_bi::bind_t.42"* %v) #3 {
+  %1 = alloca %"class.boost::_bi::bind_t.42"*, align 8
+  %2 = alloca %"struct.boost::detail::addr_impl_ref.53", align 8
+  store %"class.boost::_bi::bind_t.42"* %v, %"class.boost::_bi::bind_t.42"** %1, align 8
+  %3 = load %"class.boost::_bi::bind_t.42"** %1, align 8
+  call void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEC2ERSO_(%"struct.boost::detail::addr_impl_ref.53"* %2, %"class.boost::_bi::bind_t.42"* %3)
+  %4 = call %"class.boost::_bi::bind_t.42"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEcvRSO_Ev(%"struct.boost::detail::addr_impl_ref.53"* %2)
+  %5 = call %"class.boost::_bi::bind_t.42"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEE1fERSO_l(%"class.boost::_bi::bind_t.42"* %4, i64 0)
+  ret %"class.boost::_bi::bind_t.42"* %5
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable1"* %this, %"class.boost::_bi::bind_t.35"* byval align 8 %f, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestSB_EENSE_5list2INSE_5valueIPSI_EENS_3argILi1EEEEEEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb1EEE(%"struct.boost::detail::function::basic_vtable1.48"* %this, %"class.boost::_bi::bind_t.42"* byval align 8 %f, %"union.boost::detail::function::function_buffer"* %functor) #2 align 2 {
   %1 = alloca %"struct.mpl_::bool_", align 1
-  %2 = alloca %"struct.boost::detail::function::basic_vtable1"*, align 8
+  %2 = alloca %"struct.boost::detail::function::basic_vtable1.48"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  store %"struct.boost::detail::function::basic_vtable1"* %this, %"struct.boost::detail::function::basic_vtable1"** %2, align 8
+  store %"struct.boost::detail::function::basic_vtable1.48"* %this, %"struct.boost::detail::function::basic_vtable1.48"** %2, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %3, align 8
-  %4 = load %"struct.boost::detail::function::basic_vtable1"** %2
+  %4 = load %"struct.boost::detail::function::basic_vtable1.48"** %2
   %5 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %6 = bitcast %"union.boost::detail::function::function_buffer"* %5 to i8*
   %7 = icmp eq i8* %6, null
   br i1 %7, label %12, label %8
 
 ; <label>:8                                       ; preds = %0
-  %9 = bitcast i8* %6 to %"class.boost::_bi::bind_t.35"*
-  %10 = bitcast %"class.boost::_bi::bind_t.35"* %9 to i8*
-  %11 = bitcast %"class.boost::_bi::bind_t.35"* %f to i8*
+  %9 = bitcast i8* %6 to %"class.boost::_bi::bind_t.42"*
+  %10 = bitcast %"class.boost::_bi::bind_t.42"* %9 to i8*
+  %11 = bitcast %"class.boost::_bi::bind_t.42"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* %11, i64 24, i32 8, i1 false)
   br label %12
 
 ; <label>:12                                      ; preds = %8, %0
-  %13 = phi %"class.boost::_bi::bind_t.35"* [ %9, %8 ], [ null, %0 ]
+  %13 = phi %"class.boost::_bi::bind_t.42"* [ %9, %8 ], [ null, %0 ]
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"class.boost::_bi::bind_t.35"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEE1fERSO_l(%"class.boost::_bi::bind_t.35"* %v, i64) #8 align 2 {
-  %2 = alloca %"class.boost::_bi::bind_t.35"*, align 8
+define linkonce_odr %"class.boost::_bi::bind_t.42"* @_ZN5boost6detail14addressof_implINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEE1fERSO_l(%"class.boost::_bi::bind_t.42"* %v, i64) #8 align 2 {
+  %2 = alloca %"class.boost::_bi::bind_t.42"*, align 8
   %3 = alloca i64, align 8
-  store %"class.boost::_bi::bind_t.35"* %v, %"class.boost::_bi::bind_t.35"** %2, align 8
+  store %"class.boost::_bi::bind_t.42"* %v, %"class.boost::_bi::bind_t.42"** %2, align 8
   store i64 %0, i64* %3, align 8
-  %4 = load %"class.boost::_bi::bind_t.35"** %2, align 8
-  %5 = bitcast %"class.boost::_bi::bind_t.35"* %4 to i8*
-  %6 = bitcast i8* %5 to %"class.boost::_bi::bind_t.35"*
-  ret %"class.boost::_bi::bind_t.35"* %6
+  %4 = load %"class.boost::_bi::bind_t.42"** %2, align 8
+  %5 = bitcast %"class.boost::_bi::bind_t.42"* %4 to i8*
+  %6 = bitcast i8* %5 to %"class.boost::_bi::bind_t.42"*
+  ret %"class.boost::_bi::bind_t.42"* %6
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEC2ERSO_(%"struct.boost::detail::addr_impl_ref.45"* %this, %"class.boost::_bi::bind_t.35"* %v) unnamed_addr #8 align 2 {
-  %1 = alloca %"struct.boost::detail::addr_impl_ref.45"*, align 8
-  %2 = alloca %"class.boost::_bi::bind_t.35"*, align 8
-  store %"struct.boost::detail::addr_impl_ref.45"* %this, %"struct.boost::detail::addr_impl_ref.45"** %1, align 8
-  store %"class.boost::_bi::bind_t.35"* %v, %"class.boost::_bi::bind_t.35"** %2, align 8
-  %3 = load %"struct.boost::detail::addr_impl_ref.45"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.45"* %3, i32 0, i32 0
-  %5 = load %"class.boost::_bi::bind_t.35"** %2, align 8
-  store %"class.boost::_bi::bind_t.35"* %5, %"class.boost::_bi::bind_t.35"** %4, align 8
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEC2ERSO_(%"struct.boost::detail::addr_impl_ref.53"* %this, %"class.boost::_bi::bind_t.42"* %v) unnamed_addr #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.53"*, align 8
+  %2 = alloca %"class.boost::_bi::bind_t.42"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.53"* %this, %"struct.boost::detail::addr_impl_ref.53"** %1, align 8
+  store %"class.boost::_bi::bind_t.42"* %v, %"class.boost::_bi::bind_t.42"** %2, align 8
+  %3 = load %"struct.boost::detail::addr_impl_ref.53"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.53"* %3, i32 0, i32 0
+  %5 = load %"class.boost::_bi::bind_t.42"** %2, align 8
+  store %"class.boost::_bi::bind_t.42"* %5, %"class.boost::_bi::bind_t.42"** %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"class.boost::_bi::bind_t.35"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEcvRSO_Ev(%"struct.boost::detail::addr_impl_ref.45"* %this) #8 align 2 {
-  %1 = alloca %"struct.boost::detail::addr_impl_ref.45"*, align 8
-  store %"struct.boost::detail::addr_impl_ref.45"* %this, %"struct.boost::detail::addr_impl_ref.45"** %1, align 8
-  %2 = load %"struct.boost::detail::addr_impl_ref.45"** %1
-  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.45"* %2, i32 0, i32 0
-  %4 = load %"class.boost::_bi::bind_t.35"** %3, align 8
-  ret %"class.boost::_bi::bind_t.35"* %4
+define linkonce_odr %"class.boost::_bi::bind_t.42"* @_ZNK5boost6detail13addr_impl_refINS_3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS2_5list2INS2_5valueIPS6_EENS_3argILi1EEEEEEEEcvRSO_Ev(%"struct.boost::detail::addr_impl_ref.53"* %this) #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.53"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.53"* %this, %"struct.boost::detail::addr_impl_ref.53"** %1, align 8
+  %2 = load %"struct.boost::detail::addr_impl_ref.53"** %1
+  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.53"* %2, i32 0, i32 0
+  %4 = load %"class.boost::_bi::bind_t.42"** %3, align 8
+  ret %"class.boost::_bi::bind_t.42"* %4
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEclISB_EEvRKT_(%"class.boost::_bi::bind_t.35"* %this, %"class.boost::shared_ptr.26"* %a1) #3 align 2 {
-  %1 = alloca %"class.boost::_bi::bind_t.35"*, align 8
+define linkonce_odr void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEclISB_EEvRKT_(%"class.boost::_bi::bind_t.42"* %this, %"class.boost::shared_ptr.26"* %a1) #3 align 2 {
+  %1 = alloca %"class.boost::_bi::bind_t.42"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
-  %a = alloca %"class.boost::_bi::list1.46", align 8
-  %3 = alloca %"class.boost::_bi::type.48", align 1
-  store %"class.boost::_bi::bind_t.35"* %this, %"class.boost::_bi::bind_t.35"** %1, align 8
+  %a = alloca %"class.boost::_bi::list1.54", align 8
+  %3 = alloca %"class.boost::_bi::type.56", align 1
+  store %"class.boost::_bi::bind_t.42"* %this, %"class.boost::_bi::bind_t.42"** %1, align 8
   store %"class.boost::shared_ptr.26"* %a1, %"class.boost::shared_ptr.26"** %2, align 8
-  %4 = load %"class.boost::_bi::bind_t.35"** %1
+  %4 = load %"class.boost::_bi::bind_t.42"** %1
   %5 = load %"class.boost::shared_ptr.26"** %2, align 8
-  call void @_ZN5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"class.boost::_bi::list1.46"* %a, %"class.boost::shared_ptr.26"* %5)
-  %6 = getelementptr inbounds %"class.boost::_bi::bind_t.35"* %4, i32 0, i32 1
-  %7 = getelementptr inbounds %"class.boost::_bi::bind_t.35"* %4, i32 0, i32 0
-  call void @_ZN5boost3_bi5list2INS0_5valueIP4TestEENS_3argILi1EEEEclINS_4_mfi3mf1IvS3_RKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list1ISK_EEEEvNS0_4typeIvEERT_RT0_i(%"class.boost::_bi::list2"* %6, %"class.boost::_mfi::mf1"* %7, %"class.boost::_bi::list1.46"* %a, i32 0)
+  call void @_ZN5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"class.boost::_bi::list1.54"* %a, %"class.boost::shared_ptr.26"* %5)
+  %6 = getelementptr inbounds %"class.boost::_bi::bind_t.42"* %4, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.boost::_bi::bind_t.42"* %4, i32 0, i32 0
+  call void @_ZN5boost3_bi5list2INS0_5valueIP4TestEENS_3argILi1EEEEclINS_4_mfi3mf1IvS3_RKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list1ISK_EEEEvNS0_4typeIvEERT_RT0_i(%"class.boost::_bi::list2"* %6, %"class.boost::_mfi::mf1"* %7, %"class.boost::_bi::list1.54"* %a, i32 0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"class.boost::_bi::list1.46"* %this, %"class.boost::shared_ptr.26"* %a1) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::_bi::list1.46"*, align 8
+define linkonce_odr void @_ZN5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"class.boost::_bi::list1.54"* %this, %"class.boost::shared_ptr.26"* %a1) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::_bi::list1.54"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
-  store %"class.boost::_bi::list1.46"* %this, %"class.boost::_bi::list1.46"** %1, align 8
+  store %"class.boost::_bi::list1.54"* %this, %"class.boost::_bi::list1.54"** %1, align 8
   store %"class.boost::shared_ptr.26"* %a1, %"class.boost::shared_ptr.26"** %2, align 8
-  %3 = load %"class.boost::_bi::list1.46"** %1
-  %4 = bitcast %"class.boost::_bi::list1.46"* %3 to %"struct.boost::_bi::storage1.47"*
+  %3 = load %"class.boost::_bi::list1.54"** %1
+  %4 = bitcast %"class.boost::_bi::list1.54"* %3 to %"struct.boost::_bi::storage1.55"*
   %5 = load %"class.boost::shared_ptr.26"** %2, align 8
-  call void @_ZN5boost3_bi8storage1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"struct.boost::_bi::storage1.47"* %4, %"class.boost::shared_ptr.26"* %5)
+  call void @_ZN5boost3_bi8storage1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"struct.boost::_bi::storage1.55"* %4, %"class.boost::shared_ptr.26"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost3_bi5list2INS0_5valueIP4TestEENS_3argILi1EEEEclINS_4_mfi3mf1IvS3_RKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list1ISK_EEEEvNS0_4typeIvEERT_RT0_i(%"class.boost::_bi::list2"* %this, %"class.boost::_mfi::mf1"* %f, %"class.boost::_bi::list1.46"* %a, i32) #3 align 2 {
-  %2 = alloca %"class.boost::_bi::type.48", align 1
+define linkonce_odr void @_ZN5boost3_bi5list2INS0_5valueIP4TestEENS_3argILi1EEEEclINS_4_mfi3mf1IvS3_RKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list1ISK_EEEEvNS0_4typeIvEERT_RT0_i(%"class.boost::_bi::list2"* %this, %"class.boost::_mfi::mf1"* %f, %"class.boost::_bi::list1.54"* %a, i32) #3 align 2 {
+  %2 = alloca %"class.boost::_bi::type.56", align 1
   %3 = alloca %"class.boost::_bi::list2"*, align 8
   %4 = alloca %"class.boost::_mfi::mf1"*, align 8
-  %5 = alloca %"class.boost::_bi::list1.46"*, align 8
+  %5 = alloca %"class.boost::_bi::list1.54"*, align 8
   %6 = alloca i32, align 4
   store %"class.boost::_bi::list2"* %this, %"class.boost::_bi::list2"** %3, align 8
   store %"class.boost::_mfi::mf1"* %f, %"class.boost::_mfi::mf1"** %4, align 8
-  store %"class.boost::_bi::list1.46"* %a, %"class.boost::_bi::list1.46"** %5, align 8
+  store %"class.boost::_bi::list1.54"* %a, %"class.boost::_bi::list1.54"** %5, align 8
   store i32 %0, i32* %6, align 4
   %7 = load %"class.boost::_bi::list2"** %3
   %8 = load %"class.boost::_mfi::mf1"** %4, align 8
   %9 = call %"class.boost::_mfi::mf1"* @_ZN5boost3_bi9unwrapperINS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEE6unwrapERSE_l(%"class.boost::_mfi::mf1"* %8, i64 0)
-  %10 = load %"class.boost::_bi::list1.46"** %5, align 8
+  %10 = load %"class.boost::_bi::list1.54"** %5, align 8
   %11 = bitcast %"class.boost::_bi::list2"* %7 to %"struct.boost::_bi::storage2"*
-  %12 = bitcast %"struct.boost::_bi::storage2"* %11 to %"struct.boost::_bi::storage1.36"*
-  %13 = getelementptr inbounds %"struct.boost::_bi::storage1.36"* %12, i32 0, i32 0
-  %14 = call %class.Test** @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixIP4TestEERT_RNS0_5valueISF_EE(%"class.boost::_bi::list1.46"* %10, %"class.boost::_bi::value"* %13)
+  %12 = bitcast %"struct.boost::_bi::storage2"* %11 to %"struct.boost::_bi::storage1.43"*
+  %13 = getelementptr inbounds %"struct.boost::_bi::storage1.43"* %12, i32 0, i32 0
+  %14 = call %class.Test** @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixIP4TestEERT_RNS0_5valueISF_EE(%"class.boost::_bi::list1.54"* %10, %"class.boost::_bi::value"* %13)
   %15 = load %class.Test** %14
-  %16 = load %"class.boost::_bi::list1.46"** %5, align 8
-  %17 = call %"class.boost::shared_ptr.26"* @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixEPFNS_3argILi1EEEvE(%"class.boost::_bi::list1.46"* %16, void ()* @_ZN5boost3_bi8storage2INS0_5valueIP4TestEENS_3argILi1EEEE3a2_Ev)
+  %16 = load %"class.boost::_bi::list1.54"** %5, align 8
+  %17 = call %"class.boost::shared_ptr.26"* @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixEPFNS_3argILi1EEEvE(%"class.boost::_bi::list1.54"* %16, void ()* @_ZN5boost3_bi8storage2INS0_5valueIP4TestEENS_3argILi1EEEE3a2_Ev)
   call void @_ZNK5boost4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclEPS2_SB_(%"class.boost::_mfi::mf1"* %9, %class.Test* %15, %"class.boost::shared_ptr.26"* %17)
   ret void
 }
@@ -9894,26 +13346,26 @@ define linkonce_odr void @_ZNK5boost4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msg
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %class.Test** @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixIP4TestEERT_RNS0_5valueISF_EE(%"class.boost::_bi::list1.46"* %this, %"class.boost::_bi::value"* %v) #3 align 2 {
-  %1 = alloca %"class.boost::_bi::list1.46"*, align 8
+define linkonce_odr %class.Test** @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixIP4TestEERT_RNS0_5valueISF_EE(%"class.boost::_bi::list1.54"* %this, %"class.boost::_bi::value"* %v) #3 align 2 {
+  %1 = alloca %"class.boost::_bi::list1.54"*, align 8
   %2 = alloca %"class.boost::_bi::value"*, align 8
-  store %"class.boost::_bi::list1.46"* %this, %"class.boost::_bi::list1.46"** %1, align 8
+  store %"class.boost::_bi::list1.54"* %this, %"class.boost::_bi::list1.54"** %1, align 8
   store %"class.boost::_bi::value"* %v, %"class.boost::_bi::value"** %2, align 8
-  %3 = load %"class.boost::_bi::list1.46"** %1
+  %3 = load %"class.boost::_bi::list1.54"** %1
   %4 = load %"class.boost::_bi::value"** %2, align 8
   %5 = call %class.Test** @_ZN5boost3_bi5valueIP4TestE3getEv(%"class.boost::_bi::value"* %4)
   ret %class.Test** %5
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"class.boost::shared_ptr.26"* @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixEPFNS_3argILi1EEEvE(%"class.boost::_bi::list1.46"* %this, void ()*) #2 align 2 {
-  %2 = alloca %"class.boost::_bi::list1.46"*, align 8
+define linkonce_odr %"class.boost::shared_ptr.26"* @_ZNK5boost3_bi5list1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEixEPFNS_3argILi1EEEvE(%"class.boost::_bi::list1.54"* %this, void ()*) #2 align 2 {
+  %2 = alloca %"class.boost::_bi::list1.54"*, align 8
   %3 = alloca void ()*, align 8
-  store %"class.boost::_bi::list1.46"* %this, %"class.boost::_bi::list1.46"** %2, align 8
+  store %"class.boost::_bi::list1.54"* %this, %"class.boost::_bi::list1.54"** %2, align 8
   store void ()* %0, void ()** %3, align 8
-  %4 = load %"class.boost::_bi::list1.46"** %2
-  %5 = bitcast %"class.boost::_bi::list1.46"* %4 to %"struct.boost::_bi::storage1.47"*
-  %6 = getelementptr inbounds %"struct.boost::_bi::storage1.47"* %5, i32 0, i32 0
+  %4 = load %"class.boost::_bi::list1.54"** %2
+  %5 = bitcast %"class.boost::_bi::list1.54"* %4 to %"struct.boost::_bi::storage1.55"*
+  %6 = getelementptr inbounds %"struct.boost::_bi::storage1.55"* %5, i32 0, i32 0
   %7 = load %"class.boost::shared_ptr.26"** %6, align 8
   ret %"class.boost::shared_ptr.26"* %7
 }
@@ -9935,13 +13387,13 @@ define linkonce_odr %class.Test** @_ZN5boost3_bi5valueIP4TestE3getEv(%"class.boo
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost3_bi8storage1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"struct.boost::_bi::storage1.47"* %this, %"class.boost::shared_ptr.26"* %a1) unnamed_addr #2 align 2 {
-  %1 = alloca %"struct.boost::_bi::storage1.47"*, align 8
+define linkonce_odr void @_ZN5boost3_bi8storage1IRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ESA_(%"struct.boost::_bi::storage1.55"* %this, %"class.boost::shared_ptr.26"* %a1) unnamed_addr #2 align 2 {
+  %1 = alloca %"struct.boost::_bi::storage1.55"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
-  store %"struct.boost::_bi::storage1.47"* %this, %"struct.boost::_bi::storage1.47"** %1, align 8
+  store %"struct.boost::_bi::storage1.55"* %this, %"struct.boost::_bi::storage1.55"** %1, align 8
   store %"class.boost::shared_ptr.26"* %a1, %"class.boost::shared_ptr.26"** %2, align 8
-  %3 = load %"struct.boost::_bi::storage1.47"** %1
-  %4 = getelementptr inbounds %"struct.boost::_bi::storage1.47"* %3, i32 0, i32 0
+  %3 = load %"struct.boost::_bi::storage1.55"** %1
+  %4 = getelementptr inbounds %"struct.boost::_bi::storage1.55"* %3, i32 0, i32 0
   %5 = load %"class.boost::shared_ptr.26"** %2, align 8
   store %"class.boost::shared_ptr.26"* %5, %"class.boost::shared_ptr.26"** %4, align 8
   ret void
@@ -9985,9 +13437,9 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca i32, align 4
-  %in_functor = alloca %"class.boost::_bi::bind_t.35"*, align 8
-  %f = alloca %"class.boost::_bi::bind_t.35"*, align 8
-  %f1 = alloca %"class.boost::_bi::bind_t.35"*, align 8
+  %in_functor = alloca %"class.boost::_bi::bind_t.42"*, align 8
+  %f = alloca %"class.boost::_bi::bind_t.42"*, align 8
+  %f1 = alloca %"class.boost::_bi::bind_t.42"*, align 8
   %check_type = alloca %"class.std::type_info"*, align 8
   store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
@@ -10004,23 +13456,23 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3
 ; <label>:9                                       ; preds = %6, %0
   %10 = load %"union.boost::detail::function::function_buffer"** %1, align 8
   %11 = bitcast %"union.boost::detail::function::function_buffer"* %10 to i8*
-  %12 = bitcast i8* %11 to %"class.boost::_bi::bind_t.35"*
-  store %"class.boost::_bi::bind_t.35"* %12, %"class.boost::_bi::bind_t.35"** %in_functor, align 8
+  %12 = bitcast i8* %11 to %"class.boost::_bi::bind_t.42"*
+  store %"class.boost::_bi::bind_t.42"* %12, %"class.boost::_bi::bind_t.42"** %in_functor, align 8
   %13 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %14 = bitcast %"union.boost::detail::function::function_buffer"* %13 to i8*
   %15 = icmp eq i8* %14, null
   br i1 %15, label %21, label %16
 
 ; <label>:16                                      ; preds = %9
-  %17 = bitcast i8* %14 to %"class.boost::_bi::bind_t.35"*
-  %18 = load %"class.boost::_bi::bind_t.35"** %in_functor, align 8
-  %19 = bitcast %"class.boost::_bi::bind_t.35"* %17 to i8*
-  %20 = bitcast %"class.boost::_bi::bind_t.35"* %18 to i8*
+  %17 = bitcast i8* %14 to %"class.boost::_bi::bind_t.42"*
+  %18 = load %"class.boost::_bi::bind_t.42"** %in_functor, align 8
+  %19 = bitcast %"class.boost::_bi::bind_t.42"* %17 to i8*
+  %20 = bitcast %"class.boost::_bi::bind_t.42"* %18 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %19, i8* %20, i64 24, i32 8, i1 false)
   br label %21
 
 ; <label>:21                                      ; preds = %16, %9
-  %22 = phi %"class.boost::_bi::bind_t.35"* [ %17, %16 ], [ null, %9 ]
+  %22 = phi %"class.boost::_bi::bind_t.42"* [ %17, %16 ], [ null, %9 ]
   %23 = load i32* %3, align 4
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %30
@@ -10028,9 +13480,9 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3
 ; <label>:25                                      ; preds = %21
   %26 = load %"union.boost::detail::function::function_buffer"** %1, align 8
   %27 = bitcast %"union.boost::detail::function::function_buffer"* %26 to i8*
-  %28 = bitcast i8* %27 to %"class.boost::_bi::bind_t.35"*
-  store %"class.boost::_bi::bind_t.35"* %28, %"class.boost::_bi::bind_t.35"** %f, align 8
-  %29 = load %"class.boost::_bi::bind_t.35"** %f, align 8
+  %28 = bitcast i8* %27 to %"class.boost::_bi::bind_t.42"*
+  store %"class.boost::_bi::bind_t.42"* %28, %"class.boost::_bi::bind_t.42"** %f, align 8
+  %29 = load %"class.boost::_bi::bind_t.42"** %f, align 8
   br label %30
 
 ; <label>:30                                      ; preds = %25, %21
@@ -10044,9 +13496,9 @@ define linkonce_odr void @_ZN5boost6detail8function22functor_manager_commonINS_3
 ; <label>:34                                      ; preds = %31
   %35 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %36 = bitcast %"union.boost::detail::function::function_buffer"* %35 to i8*
-  %37 = bitcast i8* %36 to %"class.boost::_bi::bind_t.35"*
-  store %"class.boost::_bi::bind_t.35"* %37, %"class.boost::_bi::bind_t.35"** %f1, align 8
-  %38 = load %"class.boost::_bi::bind_t.35"** %f1, align 8
+  %37 = bitcast i8* %36 to %"class.boost::_bi::bind_t.42"*
+  store %"class.boost::_bi::bind_t.42"* %37, %"class.boost::_bi::bind_t.42"** %f1, align 8
+  %38 = load %"class.boost::_bi::bind_t.42"** %f1, align 8
   br label %72
 
 ; <label>:39                                      ; preds = %31
@@ -10164,23 +13616,23 @@ define linkonce_odr void @_ZN5boost3_bi5list2INS0_5valueIP4TestEENS_3argILi1EEEE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEC2ESE_RKSL_(%"class.boost::_bi::bind_t.35"* %this, i64 %f.coerce0, i64 %f.coerce1, %"class.boost::_bi::list2"* %l) unnamed_addr #2 align 2 {
+define linkonce_odr void @_ZN5boost3_bi6bind_tIvNS_4_mfi3mf1Iv4TestRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEENS0_5list2INS0_5valueIPS4_EENS_3argILi1EEEEEEC2ESE_RKSL_(%"class.boost::_bi::bind_t.42"* %this, i64 %f.coerce0, i64 %f.coerce1, %"class.boost::_bi::list2"* %l) unnamed_addr #2 align 2 {
   %f = alloca %"class.boost::_mfi::mf1", align 8
-  %1 = alloca %"class.boost::_bi::bind_t.35"*, align 8
+  %1 = alloca %"class.boost::_bi::bind_t.42"*, align 8
   %2 = alloca %"class.boost::_bi::list2"*, align 8
   %3 = bitcast %"class.boost::_mfi::mf1"* %f to { i64, i64 }*
   %4 = getelementptr { i64, i64 }* %3, i32 0, i32 0
   store i64 %f.coerce0, i64* %4
   %5 = getelementptr { i64, i64 }* %3, i32 0, i32 1
   store i64 %f.coerce1, i64* %5
-  store %"class.boost::_bi::bind_t.35"* %this, %"class.boost::_bi::bind_t.35"** %1, align 8
+  store %"class.boost::_bi::bind_t.42"* %this, %"class.boost::_bi::bind_t.42"** %1, align 8
   store %"class.boost::_bi::list2"* %l, %"class.boost::_bi::list2"** %2, align 8
-  %6 = load %"class.boost::_bi::bind_t.35"** %1
-  %7 = getelementptr inbounds %"class.boost::_bi::bind_t.35"* %6, i32 0, i32 0
+  %6 = load %"class.boost::_bi::bind_t.42"** %1
+  %7 = getelementptr inbounds %"class.boost::_bi::bind_t.42"* %6, i32 0, i32 0
   %8 = bitcast %"class.boost::_mfi::mf1"* %7 to i8*
   %9 = bitcast %"class.boost::_mfi::mf1"* %f to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %8, i8* %9, i64 16, i32 8, i1 false)
-  %10 = getelementptr inbounds %"class.boost::_bi::bind_t.35"* %6, i32 0, i32 1
+  %10 = getelementptr inbounds %"class.boost::_bi::bind_t.42"* %6, i32 0, i32 1
   %11 = load %"class.boost::_bi::list2"** %2, align 8
   %12 = bitcast %"class.boost::_bi::list2"* %10 to i8*
   %13 = bitcast %"class.boost::_bi::list2"* %11 to i8*
@@ -10198,32 +13650,30 @@ define linkonce_odr void @_ZN5boost3_bi8storage2INS0_5valueIP4TestEENS_3argILi1E
   store %class.Test* %a1.coerce, %class.Test** %4
   store %"struct.boost::_bi::storage2"* %this, %"struct.boost::_bi::storage2"** %2, align 8
   %5 = load %"struct.boost::_bi::storage2"** %2
-  %6 = bitcast %"struct.boost::_bi::storage2"* %5 to %"struct.boost::_bi::storage1.36"*
+  %6 = bitcast %"struct.boost::_bi::storage2"* %5 to %"struct.boost::_bi::storage1.43"*
   %7 = bitcast %"class.boost::_bi::value"* %3 to i8*
   %8 = bitcast %"class.boost::_bi::value"* %a1 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 8, i32 8, i1 false)
   %9 = getelementptr %"class.boost::_bi::value"* %3, i32 0, i32 0
   %10 = load %class.Test** %9
-  call void @_ZN5boost3_bi8storage1INS0_5valueIP4TestEEEC2ES5_(%"struct.boost::_bi::storage1.36"* %6, %class.Test* %10)
+  call void @_ZN5boost3_bi8storage1INS0_5valueIP4TestEEEC2ES5_(%"struct.boost::_bi::storage1.43"* %6, %class.Test* %10)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost3_bi8storage1INS0_5valueIP4TestEEEC2ES5_(%"struct.boost::_bi::storage1.36"* %this, %class.Test* %a1.coerce) unnamed_addr #2 align 2 {
+define linkonce_odr void @_ZN5boost3_bi8storage1INS0_5valueIP4TestEEEC2ES5_(%"struct.boost::_bi::storage1.43"* %this, %class.Test* %a1.coerce) unnamed_addr #2 align 2 {
   %a1 = alloca %"class.boost::_bi::value", align 8
-  %1 = alloca %"struct.boost::_bi::storage1.36"*, align 8
+  %1 = alloca %"struct.boost::_bi::storage1.43"*, align 8
   %2 = getelementptr %"class.boost::_bi::value"* %a1, i32 0, i32 0
   store %class.Test* %a1.coerce, %class.Test** %2
-  store %"struct.boost::_bi::storage1.36"* %this, %"struct.boost::_bi::storage1.36"** %1, align 8
-  %3 = load %"struct.boost::_bi::storage1.36"** %1
-  %4 = getelementptr inbounds %"struct.boost::_bi::storage1.36"* %3, i32 0, i32 0
+  store %"struct.boost::_bi::storage1.43"* %this, %"struct.boost::_bi::storage1.43"** %1, align 8
+  %3 = load %"struct.boost::_bi::storage1.43"** %1
+  %4 = getelementptr inbounds %"struct.boost::_bi::storage1.43"* %3, i32 0, i32 0
   %5 = bitcast %"class.boost::_bi::value"* %4 to i8*
   %6 = bitcast %"class.boost::_bi::value"* %a1 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %5, i8* %6, i64 8, i32 8, i1 false)
   ret void
 }
-
-declare %"class.std::basic_string"* @_ZNSsaSEPKc(%"class.std::basic_string"*, i8*) #0
 
 ; Function Attrs: inlinehint uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits6md5sumIN8std_msgs8Float64_ISaIvEEEEEPKcv() #5 {
@@ -10285,36 +13735,36 @@ define linkonce_odr %"class.boost::shared_ptr.20"* @_ZN5boost10shared_ptrIN3ros2
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %this, %"class.boost::function.30"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function.30"*, align 8
-  %2 = alloca %"class.boost::function.30"*, align 8
-  store %"class.boost::function.30"* %this, %"class.boost::function.30"** %1, align 8
-  store %"class.boost::function.30"* %f, %"class.boost::function.30"** %2, align 8
-  %3 = load %"class.boost::function.30"** %1
-  %4 = bitcast %"class.boost::function.30"* %3 to %"class.boost::function1.31"*
-  %5 = load %"class.boost::function.30"** %2, align 8
-  %6 = bitcast %"class.boost::function.30"* %5 to %"class.boost::function1.31"*
-  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKSA_(%"class.boost::function1.31"* %4, %"class.boost::function1.31"* %6)
+define linkonce_odr void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %this, %"class.boost::function.37"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function.37"*, align 8
+  %2 = alloca %"class.boost::function.37"*, align 8
+  store %"class.boost::function.37"* %this, %"class.boost::function.37"** %1, align 8
+  store %"class.boost::function.37"* %f, %"class.boost::function.37"** %2, align 8
+  %3 = load %"class.boost::function.37"** %1
+  %4 = bitcast %"class.boost::function.37"* %3 to %"class.boost::function1.38"*
+  %5 = load %"class.boost::function.37"** %2, align 8
+  %6 = bitcast %"class.boost::function.37"* %5 to %"class.boost::function1.38"*
+  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKSA_(%"class.boost::function1.38"* %4, %"class.boost::function1.38"* %6)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS0_IFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function.49"* %this, %"class.boost::function.30"* %f, i32) unnamed_addr #3 align 2 {
-  %2 = alloca %"class.boost::function.49"*, align 8
+define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2INS0_IFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function.57"* %this, %"class.boost::function.37"* %f, i32) unnamed_addr #3 align 2 {
+  %2 = alloca %"class.boost::function.57"*, align 8
   %3 = alloca i32, align 4
-  %4 = alloca %"class.boost::function.30", align 8
+  %4 = alloca %"class.boost::function.37", align 8
   %5 = alloca i8*
   %6 = alloca i32
-  store %"class.boost::function.49"* %this, %"class.boost::function.49"** %2, align 8
+  store %"class.boost::function.57"* %this, %"class.boost::function.57"** %2, align 8
   store i32 %0, i32* %3, align 4
-  %7 = load %"class.boost::function.49"** %2
-  %8 = bitcast %"class.boost::function.49"* %7 to %"class.boost::function1.50"*
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %4, %"class.boost::function.30"* %f)
-  invoke void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_8functionIFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.50"* %8, %"class.boost::function.30"* %4, i32 0)
+  %7 = load %"class.boost::function.57"** %2
+  %8 = bitcast %"class.boost::function.57"* %7 to %"class.boost::function1.58"*
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %4, %"class.boost::function.37"* %f)
+  invoke void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_8functionIFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.58"* %8, %"class.boost::function.37"* %4, i32 0)
           to label %9 unwind label %10
 
 ; <label>:9                                       ; preds = %1
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %4)
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %4)
   ret void
 
 ; <label>:10                                      ; preds = %1
@@ -10324,7 +13774,7 @@ define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float
   store i8* %12, i8** %5
   %13 = extractvalue { i8*, i32 } %11, 1
   store i32 %13, i32* %6
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %4)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %4)
           to label %14 unwind label %20
 
 ; <label>:14                                      ; preds = %10
@@ -10346,29 +13796,29 @@ define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEC2ERKNS1_8functionIFvS8_EEERKNSC_IFNS2_IS6_EEvEEE(%"class.ros::SubscriptionCallbackHelperT"* %this, %"class.boost::function.49"* %callback, %"class.boost::function.33"* %create) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEC2ERKNS1_8functionIFvS8_EEERKNSC_IFNS2_IS6_EEvEEE(%"class.ros::SubscriptionCallbackHelperT"* %this, %"class.boost::function.57"* %callback, %"class.boost::function.40"* %create) unnamed_addr #3 align 2 {
   %1 = alloca %"class.ros::SubscriptionCallbackHelperT"*, align 8
-  %2 = alloca %"class.boost::function.49"*, align 8
-  %3 = alloca %"class.boost::function.33"*, align 8
+  %2 = alloca %"class.boost::function.57"*, align 8
+  %3 = alloca %"class.boost::function.40"*, align 8
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.ros::SubscriptionCallbackHelperT"* %this, %"class.ros::SubscriptionCallbackHelperT"** %1, align 8
-  store %"class.boost::function.49"* %callback, %"class.boost::function.49"** %2, align 8
-  store %"class.boost::function.33"* %create, %"class.boost::function.33"** %3, align 8
+  store %"class.boost::function.57"* %callback, %"class.boost::function.57"** %2, align 8
+  store %"class.boost::function.40"* %create, %"class.boost::function.40"** %3, align 8
   %6 = load %"class.ros::SubscriptionCallbackHelperT"** %1
   %7 = bitcast %"class.ros::SubscriptionCallbackHelperT"* %6 to %"class.ros::SubscriptionCallbackHelper"*
   call void @_ZN3ros26SubscriptionCallbackHelperC2Ev(%"class.ros::SubscriptionCallbackHelper"* %7) #1
   %8 = bitcast %"class.ros::SubscriptionCallbackHelperT"* %6 to i8***
   store i8** getelementptr inbounds ([9 x i8*]* @_ZTVN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEE, i64 0, i64 2), i8*** %8
   %9 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %6, i32 0, i32 1
-  %10 = load %"class.boost::function.49"** %2, align 8
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKS9_(%"class.boost::function.49"* %9, %"class.boost::function.49"* %10)
+  %10 = load %"class.boost::function.57"** %2, align 8
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKS9_(%"class.boost::function.57"* %9, %"class.boost::function.57"* %10)
           to label %11 unwind label %15
 
 ; <label>:11                                      ; preds = %0
   %12 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %6, i32 0, i32 2
-  %13 = load %"class.boost::function.33"** %3, align 8
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2ERKS8_(%"class.boost::function.33"* %12, %"class.boost::function.33"* %13)
+  %13 = load %"class.boost::function.40"** %3, align 8
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2ERKS8_(%"class.boost::function.40"* %12, %"class.boost::function.40"* %13)
           to label %14 unwind label %19
 
 ; <label>:14                                      ; preds = %11
@@ -10390,7 +13840,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   store i8* %21, i8** %4
   %22 = extractvalue { i8*, i32 } %20, 1
   store i32 %22, i32* %5
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.49"* %9)
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.57"* %9)
           to label %23 unwind label %32
 
 ; <label>:23                                      ; preds = %19
@@ -10471,49 +13921,49 @@ define linkonce_odr void @_ZN5boost10shared_ptrIN3ros26SubscriptionCallbackHelpe
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.49"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::function.49"*, align 8
-  store %"class.boost::function.49"* %this, %"class.boost::function.49"** %1, align 8
-  %2 = load %"class.boost::function.49"** %1
-  %3 = bitcast %"class.boost::function.49"* %2 to %"class.boost::function1.50"*
-  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.50"* %3)
+define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.57"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::function.57"*, align 8
+  store %"class.boost::function.57"* %this, %"class.boost::function.57"** %1, align 8
+  %2 = load %"class.boost::function.57"** %1
+  %3 = bitcast %"class.boost::function.57"* %2 to %"class.boost::function1.58"*
+  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.58"* %3)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.50"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  %2 = load %"class.boost::function1.50"** %1
-  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.50"* %2)
+define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function1.58"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  %2 = load %"class.boost::function1.58"** %1
+  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.58"* %2)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.50"* %this) #3 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  %2 = load %"class.boost::function1.50"** %1
-  %3 = bitcast %"class.boost::function1.50"* %2 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function1.58"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  %2 = load %"class.boost::function1.58"** %1
+  %3 = bitcast %"class.boost::function1.58"* %2 to %"class.boost::function_base"*
   %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
   %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
   %6 = icmp ne %"struct.boost::detail::function::vtable_base"* %5, null
   br i1 %6, label %7, label %17
 
 ; <label>:7                                       ; preds = %0
-  %8 = bitcast %"class.boost::function1.50"* %2 to %"class.boost::function_base"*
+  %8 = bitcast %"class.boost::function1.58"* %2 to %"class.boost::function_base"*
   %9 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %8)
   br i1 %9, label %14, label %10
 
 ; <label>:10                                      ; preds = %7
-  %11 = call %"struct.boost::detail::function::basic_vtable1.52"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.50"* %2)
-  %12 = bitcast %"class.boost::function1.50"* %2 to %"class.boost::function_base"*
+  %11 = call %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.58"* %2)
+  %12 = bitcast %"class.boost::function1.58"* %2 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 1
-  call void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.52"* %11, %"union.boost::detail::function::function_buffer"* %13)
+  call void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.60"* %11, %"union.boost::detail::function::function_buffer"* %13)
   br label %14
 
 ; <label>:14                                      ; preds = %10, %7
-  %15 = bitcast %"class.boost::function1.50"* %2 to %"class.boost::function_base"*
+  %15 = bitcast %"class.boost::function1.58"* %2 to %"class.boost::function_base"*
   %16 = getelementptr inbounds %"class.boost::function_base"* %15, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %16, align 8
   br label %17
@@ -10523,34 +13973,34 @@ define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"struct.boost::detail::function::basic_vtable1.52"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.50"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  %2 = load %"class.boost::function1.50"** %1
-  %3 = bitcast %"class.boost::function1.50"* %2 to %"class.boost::function_base"*
+define linkonce_odr %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.58"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  %2 = load %"class.boost::function1.58"** %1
+  %3 = bitcast %"class.boost::function1.58"* %2 to %"class.boost::function_base"*
   %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
   %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
   %6 = ptrtoint %"struct.boost::detail::function::vtable_base"* %5 to i64
   %7 = and i64 %6, -2
-  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable1.52"*
-  ret %"struct.boost::detail::function::basic_vtable1.52"* %8
+  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable1.60"*
+  ret %"struct.boost::detail::function::basic_vtable1.60"* %8
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.52"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.boost::detail::function::basic_vtable1.52"*, align 8
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.60"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.boost::detail::function::basic_vtable1.60"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  store %"struct.boost::detail::function::basic_vtable1.52"* %this, %"struct.boost::detail::function::basic_vtable1.52"** %1, align 8
+  store %"struct.boost::detail::function::basic_vtable1.60"* %this, %"struct.boost::detail::function::basic_vtable1.60"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %3 = load %"struct.boost::detail::function::basic_vtable1.52"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.52"* %3, i32 0, i32 0
+  %3 = load %"struct.boost::detail::function::basic_vtable1.60"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %3, i32 0, i32 0
   %5 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %4, i32 0, i32 0
   %6 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %5, align 8
   %7 = icmp ne void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* %6, null
   br i1 %7, label %8, label %14
 
 ; <label>:8                                       ; preds = %0
-  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.52"* %3, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %3, i32 0, i32 0
   %10 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %9, i32 0, i32 0
   %11 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %10, align 8
   %12 = load %"union.boost::detail::function::function_buffer"** %2, align 8
@@ -10826,30 +14276,30 @@ define linkonce_odr void @_ZN3ros26SubscriptionCallbackHelperC2Ev(%"class.ros::S
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKS9_(%"class.boost::function.49"* %this, %"class.boost::function.49"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function.49"*, align 8
-  %2 = alloca %"class.boost::function.49"*, align 8
-  store %"class.boost::function.49"* %this, %"class.boost::function.49"** %1, align 8
-  store %"class.boost::function.49"* %f, %"class.boost::function.49"** %2, align 8
-  %3 = load %"class.boost::function.49"** %1
-  %4 = bitcast %"class.boost::function.49"* %3 to %"class.boost::function1.50"*
-  %5 = load %"class.boost::function.49"** %2, align 8
-  %6 = bitcast %"class.boost::function.49"* %5 to %"class.boost::function1.50"*
-  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKS8_(%"class.boost::function1.50"* %4, %"class.boost::function1.50"* %6)
+define linkonce_odr void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKS9_(%"class.boost::function.57"* %this, %"class.boost::function.57"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function.57"*, align 8
+  %2 = alloca %"class.boost::function.57"*, align 8
+  store %"class.boost::function.57"* %this, %"class.boost::function.57"** %1, align 8
+  store %"class.boost::function.57"* %f, %"class.boost::function.57"** %2, align 8
+  %3 = load %"class.boost::function.57"** %1
+  %4 = bitcast %"class.boost::function.57"* %3 to %"class.boost::function1.58"*
+  %5 = load %"class.boost::function.57"** %2, align 8
+  %6 = bitcast %"class.boost::function.57"* %5 to %"class.boost::function1.58"*
+  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKS8_(%"class.boost::function1.58"* %4, %"class.boost::function1.58"* %6)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2ERKS8_(%"class.boost::function.33"* %this, %"class.boost::function.33"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function.33"*, align 8
-  %2 = alloca %"class.boost::function.33"*, align 8
-  store %"class.boost::function.33"* %this, %"class.boost::function.33"** %1, align 8
-  store %"class.boost::function.33"* %f, %"class.boost::function.33"** %2, align 8
-  %3 = load %"class.boost::function.33"** %1
-  %4 = bitcast %"class.boost::function.33"* %3 to %"class.boost::function0.34"*
-  %5 = load %"class.boost::function.33"** %2, align 8
-  %6 = bitcast %"class.boost::function.33"* %5 to %"class.boost::function0.34"*
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2ERKS7_(%"class.boost::function0.34"* %4, %"class.boost::function0.34"* %6)
+define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2ERKS8_(%"class.boost::function.40"* %this, %"class.boost::function.40"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function.40"*, align 8
+  %2 = alloca %"class.boost::function.40"*, align 8
+  store %"class.boost::function.40"* %this, %"class.boost::function.40"** %1, align 8
+  store %"class.boost::function.40"* %f, %"class.boost::function.40"** %2, align 8
+  %3 = load %"class.boost::function.40"** %1
+  %4 = bitcast %"class.boost::function.40"* %3 to %"class.boost::function0.41"*
+  %5 = load %"class.boost::function.40"** %2, align 8
+  %6 = bitcast %"class.boost::function.40"* %5 to %"class.boost::function0.41"*
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2ERKS7_(%"class.boost::function0.41"* %4, %"class.boost::function0.41"* %6)
   ret void
 }
 
@@ -10863,12 +14313,12 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   %5 = bitcast %"class.ros::SubscriptionCallbackHelperT"* %4 to i8***
   store i8** getelementptr inbounds ([9 x i8*]* @_ZTVN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvEE, i64 0, i64 2), i8*** %5
   %6 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %4, i32 0, i32 2
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %6)
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %6)
           to label %7 unwind label %11
 
 ; <label>:7                                       ; preds = %0
   %8 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %4, i32 0, i32 1
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.49"* %8)
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.57"* %8)
           to label %9 unwind label %16
 
 ; <label>:9                                       ; preds = %7
@@ -10884,7 +14334,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   %14 = extractvalue { i8*, i32 } %12, 1
   store i32 %14, i32* %3
   %15 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %4, i32 0, i32 1
-  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.49"* %15)
+  invoke void @_ZN5boost8functionIFvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.57"* %15)
           to label %20 unwind label %29
 
 ; <label>:16                                      ; preds = %7
@@ -10960,7 +14410,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
 define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE11deserializeERKNS_43SubscriptionCallbackHelperDeserializeParamsE(%"class.boost::shared_ptr.27"* noalias sret %agg.result, %"class.ros::SubscriptionCallbackHelperT"* %this, %"struct.ros::SubscriptionCallbackHelperDeserializeParams"* %params) unnamed_addr #3 align 2 {
   %1 = alloca %"class.ros::SubscriptionCallbackHelperT"*, align 8
   %2 = alloca %"struct.ros::SubscriptionCallbackHelperDeserializeParams"*, align 8
-  %msg = alloca %"class.boost::shared_ptr.42", align 8
+  %msg = alloca %"class.boost::shared_ptr.50", align 8
   %3 = alloca i8*
   %4 = alloca i32
   %5 = alloca %"class.std::basic_string", align 8
@@ -10974,9 +14424,9 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   store %"struct.ros::SubscriptionCallbackHelperDeserializeParams"* %params, %"struct.ros::SubscriptionCallbackHelperDeserializeParams"** %2, align 8
   %9 = load %"class.ros::SubscriptionCallbackHelperT"** %1
   %10 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %9, i32 0, i32 2
-  %11 = bitcast %"class.boost::function.33"* %10 to %"class.boost::function0.34"*
-  call void @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEclEv(%"class.boost::shared_ptr.42"* sret %msg, %"class.boost::function0.34"* %11)
-  %12 = invoke zeroext i1 @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEntEv(%"class.boost::shared_ptr.42"* %msg)
+  %11 = bitcast %"class.boost::function.40"* %10 to %"class.boost::function0.41"*
+  call void @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEclEv(%"class.boost::shared_ptr.50"* sret %msg, %"class.boost::function0.41"* %11)
+  %12 = invoke zeroext i1 @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEntEv(%"class.boost::shared_ptr.50"* %msg)
           to label %13 unwind label %25
 
 ; <label>:13                                      ; preds = %0
@@ -11124,7 +14574,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
           to label %83 unwind label %25
 
 ; <label>:83                                      ; preds = %81
-  invoke void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %74, i32 %75, i8* getelementptr inbounds ([59 x i8]* @.str34, i32 0, i32 0), i32 126, i8* getelementptr inbounds ([306 x i8]* @__PRETTY_FUNCTION__._ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE11deserializeERKNS_43SubscriptionCallbackHelperDeserializeParamsE, i32 0, i32 0), i8* getelementptr inbounds ([43 x i8]* @.str35, i32 0, i32 0), i8* %82)
+  invoke void (%"class.ros::console::FilterBase"*, i8*, i32, i8*, i32, i8*, i8*, ...)* @_ZN3ros7console5printEPNS0_10FilterBaseEPvNS0_6levels5LevelEPKciS7_S7_z(%"class.ros::console::FilterBase"* null, i8* %74, i32 %75, i8* getelementptr inbounds ([59 x i8]* @.str38, i32 0, i32 0), i32 126, i8* getelementptr inbounds ([306 x i8]* @__PRETTY_FUNCTION__._ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE11deserializeERKNS_43SubscriptionCallbackHelperDeserializeParamsE, i32 0, i32 0), i8* getelementptr inbounds ([43 x i8]* @.str39, i32 0, i32 0), i8* %82)
           to label %84 unwind label %25
 
 ; <label>:84                                      ; preds = %83
@@ -11150,14 +14600,14 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
 
 ; <label>:90                                      ; preds = %89
   %91 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %predes_params, i32 0, i32 0
-  %92 = invoke %"class.boost::shared_ptr.42"* @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEaSERKS5_(%"class.boost::shared_ptr.42"* %91, %"class.boost::shared_ptr.42"* %msg)
+  %92 = invoke %"class.boost::shared_ptr.50"* @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEaSERKS5_(%"class.boost::shared_ptr.50"* %91, %"class.boost::shared_ptr.50"* %msg)
           to label %93 unwind label %111
 
 ; <label>:93                                      ; preds = %90
   %94 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %predes_params, i32 0, i32 1
   %95 = load %"struct.ros::SubscriptionCallbackHelperDeserializeParams"** %2, align 8
   %96 = getelementptr inbounds %"struct.ros::SubscriptionCallbackHelperDeserializeParams"* %95, i32 0, i32 2
-  %97 = invoke %"class.boost::shared_ptr.53"* @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEaSERKS9_(%"class.boost::shared_ptr.53"* %94, %"class.boost::shared_ptr.53"* %96)
+  %97 = invoke %"class.boost::shared_ptr.61"* @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEaSERKS9_(%"class.boost::shared_ptr.61"* %94, %"class.boost::shared_ptr.61"* %96)
           to label %98 unwind label %111
 
 ; <label>:98                                      ; preds = %93
@@ -11175,7 +14625,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
           to label %106 unwind label %111
 
 ; <label>:106                                     ; preds = %99
-  %107 = invoke %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv(%"class.boost::shared_ptr.42"* %msg)
+  %107 = invoke %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv(%"class.boost::shared_ptr.50"* %msg)
           to label %108 unwind label %111
 
 ; <label>:108                                     ; preds = %106
@@ -11183,7 +14633,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
           to label %109 unwind label %111
 
 ; <label>:109                                     ; preds = %108
-  invoke void @_ZN5boost10shared_ptrIKvEC2IN8std_msgs8Float64_ISaIvEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S1_E4typeE(%"class.boost::shared_ptr.27"* %agg.result, %"class.boost::shared_ptr.42"* %msg)
+  invoke void @_ZN5boost10shared_ptrIKvEC2IN8std_msgs8Float64_ISaIvEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S1_E4typeE(%"class.boost::shared_ptr.27"* %agg.result, %"class.boost::shared_ptr.50"* %msg)
           to label %110 unwind label %111
 
 ; <label>:110                                     ; preds = %109
@@ -11208,11 +14658,11 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   br label %118
 
 ; <label>:117                                     ; preds = %115, %88
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %msg)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %msg)
   ret void
 
 ; <label>:118                                     ; preds = %116, %51, %25
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %msg)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %msg)
           to label %119 unwind label %125
 
 ; <label>:119                                     ; preds = %118
@@ -11237,7 +14687,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
 define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEvE4callERNS_36SubscriptionCallbackHelperCallParamsE(%"class.ros::SubscriptionCallbackHelperT"* %this, %"struct.ros::SubscriptionCallbackHelperCallParams"* %params) unnamed_addr #3 align 2 {
   %1 = alloca %"class.ros::SubscriptionCallbackHelperT"*, align 8
   %2 = alloca %"struct.ros::SubscriptionCallbackHelperCallParams"*, align 8
-  %event = alloca %"class.ros::MessageEvent.57", align 8
+  %event = alloca %"class.ros::MessageEvent.65", align 8
   %3 = alloca %"class.boost::shared_ptr.26", align 8
   %4 = alloca i8*
   %5 = alloca i32
@@ -11247,14 +14697,14 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   %7 = load %"struct.ros::SubscriptionCallbackHelperCallParams"** %2, align 8
   %8 = getelementptr inbounds %"struct.ros::SubscriptionCallbackHelperCallParams"* %7, i32 0, i32 0
   %9 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %6, i32 0, i32 2
-  call void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2ERKNS0_IKvEERKN5boost8functionIFNSB_10shared_ptrIS4_EEvEEE(%"class.ros::MessageEvent.57"* %event, %"class.ros::MessageEvent"* %8, %"class.boost::function.33"* %9)
+  call void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2ERKNS0_IKvEERKN5boost8functionIFNSB_10shared_ptrIS4_EEvEEE(%"class.ros::MessageEvent.65"* %event, %"class.ros::MessageEvent"* %8, %"class.boost::function.40"* %9)
   %10 = getelementptr inbounds %"class.ros::SubscriptionCallbackHelperT"* %6, i32 0, i32 1
-  %11 = bitcast %"class.boost::function.49"* %10 to %"class.boost::function1.50"*
-  invoke void @_ZN3ros16ParameterAdapterIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE12getParameterERKNS_12MessageEventIS7_EE(%"class.boost::shared_ptr.26"* sret %3, %"class.ros::MessageEvent.57"* %event)
+  %11 = bitcast %"class.boost::function.57"* %10 to %"class.boost::function1.58"*
+  invoke void @_ZN3ros16ParameterAdapterIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE12getParameterERKNS_12MessageEventIS7_EE(%"class.boost::shared_ptr.26"* sret %3, %"class.ros::MessageEvent.65"* %event)
           to label %12 unwind label %15
 
 ; <label>:12                                      ; preds = %0
-  invoke void @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES7_(%"class.boost::function1.50"* %11, %"class.boost::shared_ptr.26"* %3)
+  invoke void @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES7_(%"class.boost::function1.58"* %11, %"class.boost::shared_ptr.26"* %3)
           to label %13 unwind label %19
 
 ; <label>:13                                      ; preds = %12
@@ -11262,7 +14712,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
           to label %14 unwind label %15
 
 ; <label>:14                                      ; preds = %13
-  call void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.ros::MessageEvent.57"* %event)
+  call void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.ros::MessageEvent.65"* %event)
   ret void
 
 ; <label>:15                                      ; preds = %13, %0
@@ -11288,7 +14738,7 @@ define linkonce_odr void @_ZN3ros27SubscriptionCallbackHelperTIRKN5boost10shared
   br label %24
 
 ; <label>:24                                      ; preds = %23, %15
-  invoke void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.ros::MessageEvent.57"* %event)
+  invoke void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.ros::MessageEvent.65"* %event)
           to label %25 unwind label %31
 
 ; <label>:25                                      ; preds = %24
@@ -11340,41 +14790,41 @@ define linkonce_odr zeroext i1 @_ZN3ros14message_traits9hasHeaderIN8std_msgs8Flo
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2ERKNS0_IKvEERKN5boost8functionIFNSB_10shared_ptrIS4_EEvEEE(%"class.ros::MessageEvent.57"* %this, %"class.ros::MessageEvent"* %rhs, %"class.boost::function.33"* %create) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.ros::MessageEvent.57"*, align 8
+define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2ERKNS0_IKvEERKN5boost8functionIFNSB_10shared_ptrIS4_EEvEEE(%"class.ros::MessageEvent.65"* %this, %"class.ros::MessageEvent"* %rhs, %"class.boost::function.40"* %create) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.ros::MessageEvent.65"*, align 8
   %2 = alloca %"class.ros::MessageEvent"*, align 8
-  %3 = alloca %"class.boost::function.33"*, align 8
+  %3 = alloca %"class.boost::function.40"*, align 8
   %4 = alloca i8*
   %5 = alloca i32
   %6 = alloca %"class.boost::shared_ptr.26", align 8
-  %7 = alloca %"class.boost::shared_ptr.42", align 8
+  %7 = alloca %"class.boost::shared_ptr.50", align 8
   %8 = alloca %"class.boost::shared_ptr.26", align 8
   %9 = alloca %"class.boost::shared_ptr.27", align 8
   %10 = alloca %"struct.boost::detail::sp_empty", align 1
   %11 = alloca %"class.ros::Time", align 4
-  store %"class.ros::MessageEvent.57"* %this, %"class.ros::MessageEvent.57"** %1, align 8
+  store %"class.ros::MessageEvent.65"* %this, %"class.ros::MessageEvent.65"** %1, align 8
   store %"class.ros::MessageEvent"* %rhs, %"class.ros::MessageEvent"** %2, align 8
-  store %"class.boost::function.33"* %create, %"class.boost::function.33"** %3, align 8
-  %12 = load %"class.ros::MessageEvent.57"** %1
-  %13 = getelementptr inbounds %"class.ros::MessageEvent.57"* %12, i32 0, i32 0
+  store %"class.boost::function.40"* %create, %"class.boost::function.40"** %3, align 8
+  %12 = load %"class.ros::MessageEvent.65"** %1
+  %13 = getelementptr inbounds %"class.ros::MessageEvent.65"* %12, i32 0, i32 0
   call void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.26"* %13)
-  %14 = getelementptr inbounds %"class.ros::MessageEvent.57"* %12, i32 0, i32 1
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.42"* %14)
+  %14 = getelementptr inbounds %"class.ros::MessageEvent.65"* %12, i32 0, i32 1
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.50"* %14)
           to label %15 unwind label %42
 
 ; <label>:15                                      ; preds = %0
-  %16 = getelementptr inbounds %"class.ros::MessageEvent.57"* %12, i32 0, i32 2
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2Ev(%"class.boost::shared_ptr.53"* %16)
+  %16 = getelementptr inbounds %"class.ros::MessageEvent.65"* %12, i32 0, i32 2
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2Ev(%"class.boost::shared_ptr.61"* %16)
           to label %17 unwind label %46
 
 ; <label>:17                                      ; preds = %15
-  %18 = getelementptr inbounds %"class.ros::MessageEvent.57"* %12, i32 0, i32 3
+  %18 = getelementptr inbounds %"class.ros::MessageEvent.65"* %12, i32 0, i32 3
   invoke void @_ZN3ros4TimeC2Ev(%"class.ros::Time"* %18)
           to label %19 unwind label %50
 
 ; <label>:19                                      ; preds = %17
-  %20 = getelementptr inbounds %"class.ros::MessageEvent.57"* %12, i32 0, i32 5
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2Ev(%"class.boost::function.33"* %20)
+  %20 = getelementptr inbounds %"class.ros::MessageEvent.65"* %12, i32 0, i32 5
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2Ev(%"class.boost::function.40"* %20)
           to label %21 unwind label %54
 
 ; <label>:21                                      ; preds = %19
@@ -11387,16 +14837,16 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
           to label %24 unwind label %62
 
 ; <label>:24                                      ; preds = %23
-  invoke void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIvEEEKS4_EENS_10shared_ptrIT_EERKNS6_IT0_EE(%"class.boost::shared_ptr.42"* sret %7, %"class.boost::shared_ptr.26"* %8)
+  invoke void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIvEEEKS4_EENS_10shared_ptrIT_EERKNS6_IT0_EE(%"class.boost::shared_ptr.50"* sret %7, %"class.boost::shared_ptr.26"* %8)
           to label %25 unwind label %66
 
 ; <label>:25                                      ; preds = %24
-  invoke void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S5_E4typeE(%"class.boost::shared_ptr.26"* %6, %"class.boost::shared_ptr.42"* %7)
+  invoke void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S5_E4typeE(%"class.boost::shared_ptr.26"* %6, %"class.boost::shared_ptr.50"* %7)
           to label %26 unwind label %70
 
 ; <label>:26                                      ; preds = %25
   %27 = load %"class.ros::MessageEvent"** %2, align 8
-  %28 = invoke %"class.boost::shared_ptr.53"* @_ZNK3ros12MessageEventIKvE22getConnectionHeaderPtrEv(%"class.ros::MessageEvent"* %27)
+  %28 = invoke %"class.boost::shared_ptr.61"* @_ZNK3ros12MessageEventIKvE22getConnectionHeaderPtrEv(%"class.ros::MessageEvent"* %27)
           to label %29 unwind label %74
 
 ; <label>:29                                      ; preds = %26
@@ -11410,8 +14860,8 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
           to label %34 unwind label %78
 
 ; <label>:34                                      ; preds = %31
-  %35 = load %"class.boost::function.33"** %3, align 8
-  invoke void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE4initERKN5boost10shared_ptrIS5_EERKNS8_ISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEENS_4TimeEbRKNS7_8functionIFNS8_IS4_EEvEEE(%"class.ros::MessageEvent.57"* %12, %"class.boost::shared_ptr.26"* %6, %"class.boost::shared_ptr.53"* %28, %"class.ros::Time"* %11, i1 zeroext %33, %"class.boost::function.33"* %35)
+  %35 = load %"class.boost::function.40"** %3, align 8
+  invoke void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE4initERKN5boost10shared_ptrIS5_EERKNS8_ISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEENS_4TimeEbRKNS7_8functionIFNS8_IS4_EEvEEE(%"class.ros::MessageEvent.65"* %12, %"class.boost::shared_ptr.26"* %6, %"class.boost::shared_ptr.61"* %28, %"class.ros::Time"* %11, i1 zeroext %33, %"class.boost::function.40"* %35)
           to label %36 unwind label %78
 
 ; <label>:36                                      ; preds = %34
@@ -11423,7 +14873,7 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
           to label %38 unwind label %70
 
 ; <label>:38                                      ; preds = %37
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %7)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %7)
           to label %39 unwind label %66
 
 ; <label>:39                                      ; preds = %38
@@ -11539,7 +14989,7 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
   br label %85
 
 ; <label>:85                                      ; preds = %84, %70
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %7)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %7)
           to label %86 unwind label %106
 
 ; <label>:86                                      ; preds = %85
@@ -11560,7 +15010,7 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
   br label %91
 
 ; <label>:91                                      ; preds = %90, %58
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %20)
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %20)
           to label %92 unwind label %106
 
 ; <label>:92                                      ; preds = %91
@@ -11574,14 +15024,14 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
   br label %95
 
 ; <label>:95                                      ; preds = %94, %50
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %16)
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %16)
           to label %96 unwind label %106
 
 ; <label>:96                                      ; preds = %95
   br label %97
 
 ; <label>:97                                      ; preds = %96, %46
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %14)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %14)
           to label %98 unwind label %106
 
 ; <label>:98                                      ; preds = %97
@@ -11610,15 +15060,15 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEEC2E
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES7_(%"class.boost::function1.50"* %this, %"class.boost::shared_ptr.26"* %a0) #3 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
+define linkonce_odr void @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES7_(%"class.boost::function1.58"* %this, %"class.boost::shared_ptr.26"* %a0) #3 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
   %2 = alloca %"class.boost::bad_function_call", align 8
   %3 = alloca i8*
   %4 = alloca i32
   %5 = alloca %"class.boost::shared_ptr.26", align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  %6 = load %"class.boost::function1.50"** %1
-  %7 = bitcast %"class.boost::function1.50"* %6 to %"class.boost::function_base"*
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  %6 = load %"class.boost::function1.58"** %1
+  %7 = bitcast %"class.boost::function1.58"* %6 to %"class.boost::function_base"*
   %8 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %7)
   br i1 %8, label %9, label %15
 
@@ -11641,10 +15091,10 @@ define linkonce_odr void @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Floa
   br label %27
 
 ; <label>:15                                      ; preds = %0
-  %16 = call %"struct.boost::detail::function::basic_vtable1.52"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.50"* %6)
-  %17 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.52"* %16, i32 0, i32 1
+  %16 = call %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.58"* %6)
+  %17 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %16, i32 0, i32 1
   %18 = load void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)** %17, align 8
-  %19 = bitcast %"class.boost::function1.50"* %6 to %"class.boost::function_base"*
+  %19 = bitcast %"class.boost::function1.58"* %6 to %"class.boost::function_base"*
   %20 = getelementptr inbounds %"class.boost::function_base"* %19, i32 0, i32 1
   call void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2ERKS6_(%"class.boost::shared_ptr.26"* %5, %"class.boost::shared_ptr.26"* %a0)
   invoke void %18(%"union.boost::detail::function::function_buffer"* %20, %"class.boost::shared_ptr.26"* %5)
@@ -11683,11 +15133,11 @@ define linkonce_odr void @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Floa
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros16ParameterAdapterIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE12getParameterERKNS_12MessageEventIS7_EE(%"class.boost::shared_ptr.26"* noalias sret %agg.result, %"class.ros::MessageEvent.57"* %event) #3 align 2 {
-  %1 = alloca %"class.ros::MessageEvent.57"*, align 8
-  store %"class.ros::MessageEvent.57"* %event, %"class.ros::MessageEvent.57"** %1, align 8
-  %2 = load %"class.ros::MessageEvent.57"** %1, align 8
-  call void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE10getMessageEv(%"class.boost::shared_ptr.26"* sret %agg.result, %"class.ros::MessageEvent.57"* %2)
+define linkonce_odr void @_ZN3ros16ParameterAdapterIRKN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE12getParameterERKNS_12MessageEventIS7_EE(%"class.boost::shared_ptr.26"* noalias sret %agg.result, %"class.ros::MessageEvent.65"* %event) #3 align 2 {
+  %1 = alloca %"class.ros::MessageEvent.65"*, align 8
+  store %"class.ros::MessageEvent.65"* %event, %"class.ros::MessageEvent.65"** %1, align 8
+  %2 = load %"class.ros::MessageEvent.65"** %1, align 8
+  call void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE10getMessageEv(%"class.boost::shared_ptr.26"* sret %agg.result, %"class.ros::MessageEvent.65"* %2)
   ret void
 }
 
@@ -11702,33 +15152,33 @@ define linkonce_odr void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEED2E
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.ros::MessageEvent.57"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.ros::MessageEvent.57"*, align 8
+define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.ros::MessageEvent.65"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.ros::MessageEvent.65"*, align 8
   %2 = alloca i8*
   %3 = alloca i32
-  store %"class.ros::MessageEvent.57"* %this, %"class.ros::MessageEvent.57"** %1, align 8
-  %4 = load %"class.ros::MessageEvent.57"** %1
-  %5 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 5
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %5)
+  store %"class.ros::MessageEvent.65"* %this, %"class.ros::MessageEvent.65"** %1, align 8
+  %4 = load %"class.ros::MessageEvent.65"** %1
+  %5 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 5
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %5)
           to label %6 unwind label %14
 
 ; <label>:6                                       ; preds = %0
-  %7 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 3
+  %7 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 3
   invoke void @_ZN3ros4TimeD2Ev(%"class.ros::Time"* %7)
           to label %8 unwind label %19
 
 ; <label>:8                                       ; preds = %6
-  %9 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 2
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %9)
+  %9 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 2
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %9)
           to label %10 unwind label %24
 
 ; <label>:10                                      ; preds = %8
-  %11 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 1
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %11)
+  %11 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 1
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %11)
           to label %12 unwind label %31
 
 ; <label>:12                                      ; preds = %10
-  %13 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 0
+  %13 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 0
   call void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.26"* %13)
   ret void
 
@@ -11739,7 +15189,7 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2E
   store i8* %16, i8** %2
   %17 = extractvalue { i8*, i32 } %15, 1
   store i32 %17, i32* %3
-  %18 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 3
+  %18 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 3
   invoke void @_ZN3ros4TimeD2Ev(%"class.ros::Time"* %18)
           to label %23 unwind label %46
 
@@ -11765,8 +15215,8 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2E
   br label %35
 
 ; <label>:28                                      ; preds = %23, %19
-  %29 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 2
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %29)
+  %29 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 2
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %29)
           to label %30 unwind label %46
 
 ; <label>:30                                      ; preds = %28
@@ -11782,15 +15232,15 @@ define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEED2E
   br label %38
 
 ; <label>:35                                      ; preds = %30, %24
-  %36 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 1
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %36)
+  %36 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 1
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %36)
           to label %37 unwind label %46
 
 ; <label>:37                                      ; preds = %35
   br label %38
 
 ; <label>:38                                      ; preds = %37, %31
-  %39 = getelementptr inbounds %"class.ros::MessageEvent.57"* %4, i32 0, i32 0
+  %39 = getelementptr inbounds %"class.ros::MessageEvent.65"* %4, i32 0, i32 0
   invoke void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.26"* %39)
           to label %40 unwind label %46
 
@@ -11823,11 +15273,11 @@ define linkonce_odr void @_ZN3ros4TimeD2Ev(%"class.ros::Time"* %this) unnamed_ad
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.53"*, align 8
-  store %"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.53"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.53"* %2, i32 0, i32 1
+define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.61"*, align 8
+  store %"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.61"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.61"* %2, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countD2Ev(%"class.boost::detail::shared_count"* %3)
   ret void
 }
@@ -11841,30 +15291,30 @@ define linkonce_odr void @_ZN3ros8TimeBaseINS_4TimeENS_8DurationEED2Ev(%"class.r
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE10getMessageEv(%"class.boost::shared_ptr.26"* noalias sret %agg.result, %"class.ros::MessageEvent.57"* %this) #3 align 2 {
-  %1 = alloca %"class.ros::MessageEvent.57"*, align 8
-  store %"class.ros::MessageEvent.57"* %this, %"class.ros::MessageEvent.57"** %1, align 8
-  %2 = load %"class.ros::MessageEvent.57"** %1
-  call void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE22copyMessageIfNecessaryIS5_EEN5boost10disable_ifINS8_7is_voidIT_EENS8_10shared_ptrIS5_EEE4typeEv(%"class.boost::shared_ptr.26"* sret %agg.result, %"class.ros::MessageEvent.57"* %2)
+define linkonce_odr void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE10getMessageEv(%"class.boost::shared_ptr.26"* noalias sret %agg.result, %"class.ros::MessageEvent.65"* %this) #3 align 2 {
+  %1 = alloca %"class.ros::MessageEvent.65"*, align 8
+  store %"class.ros::MessageEvent.65"* %this, %"class.ros::MessageEvent.65"** %1, align 8
+  %2 = load %"class.ros::MessageEvent.65"** %1
+  call void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE22copyMessageIfNecessaryIS5_EEN5boost10disable_ifINS8_7is_voidIT_EENS8_10shared_ptrIS5_EEE4typeEv(%"class.boost::shared_ptr.26"* sret %agg.result, %"class.ros::MessageEvent.65"* %2)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE22copyMessageIfNecessaryIS5_EEN5boost10disable_ifINS8_7is_voidIT_EENS8_10shared_ptrIS5_EEE4typeEv(%"class.boost::shared_ptr.26"* noalias sret %agg.result, %"class.ros::MessageEvent.57"* %this) #3 align 2 {
-  %1 = alloca %"class.ros::MessageEvent.57"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.42", align 8
+define linkonce_odr void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE22copyMessageIfNecessaryIS5_EEN5boost10disable_ifINS8_7is_voidIT_EENS8_10shared_ptrIS5_EEE4typeEv(%"class.boost::shared_ptr.26"* noalias sret %agg.result, %"class.ros::MessageEvent.65"* %this) #3 align 2 {
+  %1 = alloca %"class.ros::MessageEvent.65"*, align 8
+  %2 = alloca %"class.boost::shared_ptr.50", align 8
   %3 = alloca %"struct.boost::detail::sp_empty", align 1
   %4 = alloca i8*
   %5 = alloca i32
-  store %"class.ros::MessageEvent.57"* %this, %"class.ros::MessageEvent.57"** %1, align 8
-  %6 = load %"class.ros::MessageEvent.57"** %1
-  %7 = getelementptr inbounds %"class.ros::MessageEvent.57"* %6, i32 0, i32 0
-  call void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIvEEEKS4_EENS_10shared_ptrIT_EERKNS6_IT0_EE(%"class.boost::shared_ptr.42"* sret %2, %"class.boost::shared_ptr.26"* %7)
-  invoke void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S5_E4typeE(%"class.boost::shared_ptr.26"* %agg.result, %"class.boost::shared_ptr.42"* %2)
+  store %"class.ros::MessageEvent.65"* %this, %"class.ros::MessageEvent.65"** %1, align 8
+  %6 = load %"class.ros::MessageEvent.65"** %1
+  %7 = getelementptr inbounds %"class.ros::MessageEvent.65"* %6, i32 0, i32 0
+  call void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIvEEEKS4_EENS_10shared_ptrIT_EERKNS6_IT0_EE(%"class.boost::shared_ptr.50"* sret %2, %"class.boost::shared_ptr.26"* %7)
+  invoke void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S5_E4typeE(%"class.boost::shared_ptr.26"* %agg.result, %"class.boost::shared_ptr.50"* %2)
           to label %8 unwind label %9
 
 ; <label>:8                                       ; preds = %0
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %2)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %2)
   ret void
 
 ; <label>:9                                       ; preds = %0
@@ -11874,7 +15324,7 @@ define linkonce_odr void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE22
   store i8* %11, i8** %4
   %12 = extractvalue { i8*, i32 } %10, 1
   store i32 %12, i32* %5
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %2)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %2)
           to label %13 unwind label %19
 
 ; <label>:13                                      ; preds = %9
@@ -11896,7 +15346,7 @@ define linkonce_odr void @_ZNK3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE22
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIvEEEKS4_EENS_10shared_ptrIT_EERKNS6_IT0_EE(%"class.boost::shared_ptr.42"* noalias sret %agg.result, %"class.boost::shared_ptr.26"* %r) #3 {
+define linkonce_odr void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIvEEEKS4_EENS_10shared_ptrIT_EERKNS6_IT0_EE(%"class.boost::shared_ptr.50"* noalias sret %agg.result, %"class.boost::shared_ptr.26"* %r) #3 {
   %1 = alloca %"class.boost::shared_ptr.26"*, align 8
   %p = alloca %"struct.std_msgs::Float64_"*, align 8
   store %"class.boost::shared_ptr.26"* %r, %"class.boost::shared_ptr.26"** %1, align 8
@@ -11905,28 +15355,28 @@ define linkonce_odr void @_ZN5boost18const_pointer_castIN8std_msgs8Float64_ISaIv
   store %"struct.std_msgs::Float64_"* %3, %"struct.std_msgs::Float64_"** %p, align 8
   %4 = load %"class.boost::shared_ptr.26"** %1, align 8
   %5 = load %"struct.std_msgs::Float64_"** %p, align 8
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IKS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.42"* %agg.result, %"class.boost::shared_ptr.26"* %4, %"struct.std_msgs::Float64_"* %5)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IKS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.50"* %agg.result, %"class.boost::shared_ptr.26"* %4, %"struct.std_msgs::Float64_"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S5_E4typeE(%"class.boost::shared_ptr.26"* %this, %"class.boost::shared_ptr.42"* %r) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2IS4_EERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S5_E4typeE(%"class.boost::shared_ptr.26"* %this, %"class.boost::shared_ptr.50"* %r) unnamed_addr #3 align 2 {
   %1 = alloca %"struct.boost::detail::sp_empty", align 1
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.42"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.50"*, align 8
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.boost::shared_ptr.26"* %this, %"class.boost::shared_ptr.26"** %2, align 8
-  store %"class.boost::shared_ptr.42"* %r, %"class.boost::shared_ptr.42"** %3, align 8
+  store %"class.boost::shared_ptr.50"* %r, %"class.boost::shared_ptr.50"** %3, align 8
   %6 = load %"class.boost::shared_ptr.26"** %2
   %7 = getelementptr inbounds %"class.boost::shared_ptr.26"* %6, i32 0, i32 0
-  %8 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.42"* %8, i32 0, i32 0
+  %8 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.50"* %8, i32 0, i32 0
   %10 = load %"struct.std_msgs::Float64_"** %9, align 8
   store %"struct.std_msgs::Float64_"* %10, %"struct.std_msgs::Float64_"** %7, align 8
   %11 = getelementptr inbounds %"class.boost::shared_ptr.26"* %6, i32 0, i32 1
-  %12 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %13 = getelementptr inbounds %"class.boost::shared_ptr.42"* %12, i32 0, i32 1
+  %12 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %13 = getelementptr inbounds %"class.boost::shared_ptr.50"* %12, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %11, %"class.boost::detail::shared_count"* %13)
   invoke void @_ZN5boost6detail21sp_assert_convertibleIN8std_msgs8Float64_ISaIvEEEKS5_EEvv()
           to label %14 unwind label %15
@@ -11968,34 +15418,22 @@ define linkonce_odr void @_ZN5boost6detail21sp_assert_convertibleIN8std_msgs8Flo
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IKS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.26"* %r, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2IKS4_EERKNS0_IT_EEPS4_(%"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.26"* %r, %"struct.std_msgs::Float64_"* %p) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
   %3 = alloca %"struct.std_msgs::Float64_"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
   store %"class.boost::shared_ptr.26"* %r, %"class.boost::shared_ptr.26"** %2, align 8
   store %"struct.std_msgs::Float64_"* %p, %"struct.std_msgs::Float64_"** %3, align 8
-  %4 = load %"class.boost::shared_ptr.42"** %1
-  %5 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 0
+  %4 = load %"class.boost::shared_ptr.50"** %1
+  %5 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 0
   %6 = load %"struct.std_msgs::Float64_"** %3, align 8
   store %"struct.std_msgs::Float64_"* %6, %"struct.std_msgs::Float64_"** %5, align 8
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 1
   %8 = load %"class.boost::shared_ptr.26"** %2, align 8
   %9 = getelementptr inbounds %"class.boost::shared_ptr.26"* %8, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %7, %"class.boost::detail::shared_count"* %9)
   ret void
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::function_base"*, align 8
-  store %"class.boost::function_base"* %this, %"class.boost::function_base"** %1, align 8
-  %2 = load %"class.boost::function_base"** %1
-  %3 = getelementptr inbounds %"class.boost::function_base"* %2, i32 0, i32 0
-  %4 = load %"struct.boost::detail::function::vtable_base"** %3, align 8
-  %5 = icmp ne %"struct.boost::detail::function::vtable_base"* %4, null
-  %6 = xor i1 %5, true
-  ret i1 %6
 }
 
 ; Function Attrs: inlinehint noreturn uwtable
@@ -12079,7 +15517,7 @@ define linkonce_odr void @_ZN5boost17bad_function_callC2Ev(%"class.boost::bad_fu
   %6 = load %"class.boost::bad_function_call"** %1
   %7 = bitcast %"class.boost::bad_function_call"* %6 to %"class.std::runtime_error"*
   call void @_ZNSaIcEC1Ev(%"class.std::allocator"* %3) #1
-  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %2, i8* getelementptr inbounds ([30 x i8]* @.str33, i32 0, i32 0), %"class.std::allocator"* %3)
+  invoke void @_ZNSsC1EPKcRKSaIcE(%"class.std::basic_string"* %2, i8* getelementptr inbounds ([30 x i8]* @.str37, i32 0, i32 0), %"class.std::allocator"* %3)
           to label %8 unwind label %12
 
 ; <label>:8                                       ; preds = %0
@@ -13259,25 +16697,25 @@ define linkonce_odr void @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEC2E
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.42"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.42"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 0
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.50"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.50"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 0
   store %"struct.std_msgs::Float64_"* null, %"struct.std_msgs::Float64_"** %3, align 8
-  %4 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 1
+  %4 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2Ev(%"class.boost::detail::shared_count"* %4)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2Ev(%"class.boost::shared_ptr.53"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.53"*, align 8
-  store %"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.53"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.53"* %2, i32 0, i32 0
+define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2Ev(%"class.boost::shared_ptr.61"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.61"*, align 8
+  store %"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.61"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.61"* %2, i32 0, i32 0
   store %"class.std::map"* null, %"class.std::map"** %3, align 8
-  %4 = getelementptr inbounds %"class.boost::shared_ptr.53"* %2, i32 0, i32 1
+  %4 = getelementptr inbounds %"class.boost::shared_ptr.61"* %2, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2Ev(%"class.boost::detail::shared_count"* %4)
   ret void
 }
@@ -13293,47 +16731,47 @@ define linkonce_odr void @_ZN3ros4TimeC2Ev(%"class.ros::Time"* %this) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2Ev(%"class.boost::function.33"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.boost::function.33"*, align 8
-  store %"class.boost::function.33"* %this, %"class.boost::function.33"** %1, align 8
-  %2 = load %"class.boost::function.33"** %1
-  %3 = bitcast %"class.boost::function.33"* %2 to %"class.boost::function0.34"*
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2Ev(%"class.boost::function0.34"* %3)
+define linkonce_odr void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2Ev(%"class.boost::function.40"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.boost::function.40"*, align 8
+  store %"class.boost::function.40"* %this, %"class.boost::function.40"** %1, align 8
+  %2 = load %"class.boost::function.40"** %1
+  %3 = bitcast %"class.boost::function.40"* %2 to %"class.boost::function0.41"*
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2Ev(%"class.boost::function0.41"* %3)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE4initERKN5boost10shared_ptrIS5_EERKNS8_ISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEENS_4TimeEbRKNS7_8functionIFNS8_IS4_EEvEEE(%"class.ros::MessageEvent.57"* %this, %"class.boost::shared_ptr.26"* %message, %"class.boost::shared_ptr.53"* %connection_header, %"class.ros::Time"* %receipt_time, i1 zeroext %nonconst_need_copy, %"class.boost::function.33"* %create) #3 align 2 {
-  %1 = alloca %"class.ros::MessageEvent.57"*, align 8
+define linkonce_odr void @_ZN3ros12MessageEventIKN8std_msgs8Float64_ISaIvEEEE4initERKN5boost10shared_ptrIS5_EERKNS8_ISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEENS_4TimeEbRKNS7_8functionIFNS8_IS4_EEvEEE(%"class.ros::MessageEvent.65"* %this, %"class.boost::shared_ptr.26"* %message, %"class.boost::shared_ptr.61"* %connection_header, %"class.ros::Time"* %receipt_time, i1 zeroext %nonconst_need_copy, %"class.boost::function.40"* %create) #3 align 2 {
+  %1 = alloca %"class.ros::MessageEvent.65"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.53"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.61"*, align 8
   %4 = alloca i8, align 1
-  %5 = alloca %"class.boost::function.33"*, align 8
-  store %"class.ros::MessageEvent.57"* %this, %"class.ros::MessageEvent.57"** %1, align 8
+  %5 = alloca %"class.boost::function.40"*, align 8
+  store %"class.ros::MessageEvent.65"* %this, %"class.ros::MessageEvent.65"** %1, align 8
   store %"class.boost::shared_ptr.26"* %message, %"class.boost::shared_ptr.26"** %2, align 8
-  store %"class.boost::shared_ptr.53"* %connection_header, %"class.boost::shared_ptr.53"** %3, align 8
+  store %"class.boost::shared_ptr.61"* %connection_header, %"class.boost::shared_ptr.61"** %3, align 8
   %6 = zext i1 %nonconst_need_copy to i8
   store i8 %6, i8* %4, align 1
-  store %"class.boost::function.33"* %create, %"class.boost::function.33"** %5, align 8
-  %7 = load %"class.ros::MessageEvent.57"** %1
-  %8 = getelementptr inbounds %"class.ros::MessageEvent.57"* %7, i32 0, i32 0
+  store %"class.boost::function.40"* %create, %"class.boost::function.40"** %5, align 8
+  %7 = load %"class.ros::MessageEvent.65"** %1
+  %8 = getelementptr inbounds %"class.ros::MessageEvent.65"* %7, i32 0, i32 0
   %9 = load %"class.boost::shared_ptr.26"** %2, align 8
   %10 = call %"class.boost::shared_ptr.26"* @_ZN5boost10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEaSERKS6_(%"class.boost::shared_ptr.26"* %8, %"class.boost::shared_ptr.26"* %9)
-  %11 = getelementptr inbounds %"class.ros::MessageEvent.57"* %7, i32 0, i32 2
-  %12 = load %"class.boost::shared_ptr.53"** %3, align 8
-  %13 = call %"class.boost::shared_ptr.53"* @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEaSERKS9_(%"class.boost::shared_ptr.53"* %11, %"class.boost::shared_ptr.53"* %12)
-  %14 = getelementptr inbounds %"class.ros::MessageEvent.57"* %7, i32 0, i32 3
+  %11 = getelementptr inbounds %"class.ros::MessageEvent.65"* %7, i32 0, i32 2
+  %12 = load %"class.boost::shared_ptr.61"** %3, align 8
+  %13 = call %"class.boost::shared_ptr.61"* @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEaSERKS9_(%"class.boost::shared_ptr.61"* %11, %"class.boost::shared_ptr.61"* %12)
+  %14 = getelementptr inbounds %"class.ros::MessageEvent.65"* %7, i32 0, i32 3
   %15 = bitcast %"class.ros::Time"* %14 to i8*
   %16 = bitcast %"class.ros::Time"* %receipt_time to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %15, i8* %16, i64 8, i32 4, i1 false)
   %17 = load i8* %4, align 1
   %18 = trunc i8 %17 to i1
-  %19 = getelementptr inbounds %"class.ros::MessageEvent.57"* %7, i32 0, i32 4
+  %19 = getelementptr inbounds %"class.ros::MessageEvent.65"* %7, i32 0, i32 4
   %20 = zext i1 %18 to i8
   store i8 %20, i8* %19, align 1
-  %21 = getelementptr inbounds %"class.ros::MessageEvent.57"* %7, i32 0, i32 5
-  %22 = load %"class.boost::function.33"** %5, align 8
-  %23 = call %"class.boost::function.33"* @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEaSERKS8_(%"class.boost::function.33"* %21, %"class.boost::function.33"* %22)
+  %21 = getelementptr inbounds %"class.ros::MessageEvent.65"* %7, i32 0, i32 5
+  %22 = load %"class.boost::function.40"** %5, align 8
+  %23 = call %"class.boost::function.40"* @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEaSERKS8_(%"class.boost::function.40"* %21, %"class.boost::function.40"* %22)
   ret void
 }
 
@@ -13362,12 +16800,12 @@ define linkonce_odr void @_ZNK3ros12MessageEventIKvE10getMessageEv(%"class.boost
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"class.boost::shared_ptr.53"* @_ZNK3ros12MessageEventIKvE22getConnectionHeaderPtrEv(%"class.ros::MessageEvent"* %this) #2 align 2 {
+define linkonce_odr %"class.boost::shared_ptr.61"* @_ZNK3ros12MessageEventIKvE22getConnectionHeaderPtrEv(%"class.ros::MessageEvent"* %this) #2 align 2 {
   %1 = alloca %"class.ros::MessageEvent"*, align 8
   store %"class.ros::MessageEvent"* %this, %"class.ros::MessageEvent"** %1, align 8
   %2 = load %"class.ros::MessageEvent"** %1
   %3 = getelementptr inbounds %"class.ros::MessageEvent"* %2, i32 0, i32 2
-  ret %"class.boost::shared_ptr.53"* %3
+  ret %"class.boost::shared_ptr.61"* %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13396,19 +16834,19 @@ define linkonce_odr zeroext i1 @_ZNK3ros12MessageEventIKvE16nonConstWillCopyEv(%
 ; Function Attrs: uwtable
 define linkonce_odr void @_ZNK3ros12MessageEventIKvE22copyMessageIfNecessaryIS1_EEN5boost9enable_ifINS4_7is_voidIT_EENS4_10shared_ptrIS1_EEE4typeEv(%"class.boost::shared_ptr.27"* noalias sret %agg.result, %"class.ros::MessageEvent"* %this) #3 align 2 {
   %1 = alloca %"class.ros::MessageEvent"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.54", align 8
+  %2 = alloca %"class.boost::shared_ptr.62", align 8
   %3 = alloca %"struct.boost::detail::sp_empty", align 1
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.ros::MessageEvent"* %this, %"class.ros::MessageEvent"** %1, align 8
   %6 = load %"class.ros::MessageEvent"** %1
   %7 = getelementptr inbounds %"class.ros::MessageEvent"* %6, i32 0, i32 0
-  call void @_ZN5boost18const_pointer_castIvKvEENS_10shared_ptrIT_EERKNS2_IT0_EE(%"class.boost::shared_ptr.54"* sret %2, %"class.boost::shared_ptr.27"* %7)
-  invoke void @_ZN5boost10shared_ptrIKvEC2IvEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS4_S1_E4typeE(%"class.boost::shared_ptr.27"* %agg.result, %"class.boost::shared_ptr.54"* %2)
+  call void @_ZN5boost18const_pointer_castIvKvEENS_10shared_ptrIT_EERKNS2_IT0_EE(%"class.boost::shared_ptr.62"* sret %2, %"class.boost::shared_ptr.27"* %7)
+  invoke void @_ZN5boost10shared_ptrIKvEC2IvEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS4_S1_E4typeE(%"class.boost::shared_ptr.27"* %agg.result, %"class.boost::shared_ptr.62"* %2)
           to label %8 unwind label %9
 
 ; <label>:8                                       ; preds = %0
-  call void @_ZN5boost10shared_ptrIvED2Ev(%"class.boost::shared_ptr.54"* %2)
+  call void @_ZN5boost10shared_ptrIvED2Ev(%"class.boost::shared_ptr.62"* %2)
   ret void
 
 ; <label>:9                                       ; preds = %0
@@ -13418,7 +16856,7 @@ define linkonce_odr void @_ZNK3ros12MessageEventIKvE22copyMessageIfNecessaryIS1_
   store i8* %11, i8** %4
   %12 = extractvalue { i8*, i32 } %10, 1
   store i32 %12, i32* %5
-  invoke void @_ZN5boost10shared_ptrIvED2Ev(%"class.boost::shared_ptr.54"* %2)
+  invoke void @_ZN5boost10shared_ptrIvED2Ev(%"class.boost::shared_ptr.62"* %2)
           to label %13 unwind label %19
 
 ; <label>:13                                      ; preds = %9
@@ -13440,7 +16878,7 @@ define linkonce_odr void @_ZNK3ros12MessageEventIKvE22copyMessageIfNecessaryIS1_
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost18const_pointer_castIvKvEENS_10shared_ptrIT_EERKNS2_IT0_EE(%"class.boost::shared_ptr.54"* noalias sret %agg.result, %"class.boost::shared_ptr.27"* %r) #3 {
+define linkonce_odr void @_ZN5boost18const_pointer_castIvKvEENS_10shared_ptrIT_EERKNS2_IT0_EE(%"class.boost::shared_ptr.62"* noalias sret %agg.result, %"class.boost::shared_ptr.27"* %r) #3 {
   %1 = alloca %"class.boost::shared_ptr.27"*, align 8
   %p = alloca i8*, align 8
   store %"class.boost::shared_ptr.27"* %r, %"class.boost::shared_ptr.27"** %1, align 8
@@ -13449,28 +16887,28 @@ define linkonce_odr void @_ZN5boost18const_pointer_castIvKvEENS_10shared_ptrIT_E
   store i8* %3, i8** %p, align 8
   %4 = load %"class.boost::shared_ptr.27"** %1, align 8
   %5 = load i8** %p, align 8
-  call void @_ZN5boost10shared_ptrIvEC2IKvEERKNS0_IT_EEPv(%"class.boost::shared_ptr.54"* %agg.result, %"class.boost::shared_ptr.27"* %4, i8* %5)
+  call void @_ZN5boost10shared_ptrIvEC2IKvEERKNS0_IT_EEPv(%"class.boost::shared_ptr.62"* %agg.result, %"class.boost::shared_ptr.27"* %4, i8* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIKvEC2IvEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS4_S1_E4typeE(%"class.boost::shared_ptr.27"* %this, %"class.boost::shared_ptr.54"* %r) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost10shared_ptrIKvEC2IvEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS4_S1_E4typeE(%"class.boost::shared_ptr.27"* %this, %"class.boost::shared_ptr.62"* %r) unnamed_addr #3 align 2 {
   %1 = alloca %"struct.boost::detail::sp_empty", align 1
   %2 = alloca %"class.boost::shared_ptr.27"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.54"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.62"*, align 8
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.boost::shared_ptr.27"* %this, %"class.boost::shared_ptr.27"** %2, align 8
-  store %"class.boost::shared_ptr.54"* %r, %"class.boost::shared_ptr.54"** %3, align 8
+  store %"class.boost::shared_ptr.62"* %r, %"class.boost::shared_ptr.62"** %3, align 8
   %6 = load %"class.boost::shared_ptr.27"** %2
   %7 = getelementptr inbounds %"class.boost::shared_ptr.27"* %6, i32 0, i32 0
-  %8 = load %"class.boost::shared_ptr.54"** %3, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.54"* %8, i32 0, i32 0
+  %8 = load %"class.boost::shared_ptr.62"** %3, align 8
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.62"* %8, i32 0, i32 0
   %10 = load i8** %9, align 8
   store i8* %10, i8** %7, align 8
   %11 = getelementptr inbounds %"class.boost::shared_ptr.27"* %6, i32 0, i32 1
-  %12 = load %"class.boost::shared_ptr.54"** %3, align 8
-  %13 = getelementptr inbounds %"class.boost::shared_ptr.54"* %12, i32 0, i32 1
+  %12 = load %"class.boost::shared_ptr.62"** %3, align 8
+  %13 = getelementptr inbounds %"class.boost::shared_ptr.62"* %12, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %11, %"class.boost::detail::shared_count"* %13)
   invoke void @_ZN5boost6detail21sp_assert_convertibleIvKvEEvv()
           to label %14 unwind label %15
@@ -13507,11 +16945,11 @@ define linkonce_odr void @_ZN5boost10shared_ptrIKvEC2IvEERKNS0_IT_EENS_6detail24
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIvED2Ev(%"class.boost::shared_ptr.54"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.54"*, align 8
-  store %"class.boost::shared_ptr.54"* %this, %"class.boost::shared_ptr.54"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.54"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.54"* %2, i32 0, i32 1
+define linkonce_odr void @_ZN5boost10shared_ptrIvED2Ev(%"class.boost::shared_ptr.62"* %this) unnamed_addr #5 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.62"*, align 8
+  store %"class.boost::shared_ptr.62"* %this, %"class.boost::shared_ptr.62"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.62"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.62"* %2, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countD2Ev(%"class.boost::detail::shared_count"* %3)
   ret void
 }
@@ -13532,18 +16970,18 @@ define linkonce_odr i8* @_ZNK5boost10shared_ptrIKvE3getEv(%"class.boost::shared_
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIvEC2IKvEERKNS0_IT_EEPv(%"class.boost::shared_ptr.54"* %this, %"class.boost::shared_ptr.27"* %r, i8* %p) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.54"*, align 8
+define linkonce_odr void @_ZN5boost10shared_ptrIvEC2IKvEERKNS0_IT_EEPv(%"class.boost::shared_ptr.62"* %this, %"class.boost::shared_ptr.27"* %r, i8* %p) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.62"*, align 8
   %2 = alloca %"class.boost::shared_ptr.27"*, align 8
   %3 = alloca i8*, align 8
-  store %"class.boost::shared_ptr.54"* %this, %"class.boost::shared_ptr.54"** %1, align 8
+  store %"class.boost::shared_ptr.62"* %this, %"class.boost::shared_ptr.62"** %1, align 8
   store %"class.boost::shared_ptr.27"* %r, %"class.boost::shared_ptr.27"** %2, align 8
   store i8* %p, i8** %3, align 8
-  %4 = load %"class.boost::shared_ptr.54"** %1
-  %5 = getelementptr inbounds %"class.boost::shared_ptr.54"* %4, i32 0, i32 0
+  %4 = load %"class.boost::shared_ptr.62"** %1
+  %5 = getelementptr inbounds %"class.boost::shared_ptr.62"* %4, i32 0, i32 0
   %6 = load i8** %3, align 8
   store i8* %6, i8** %5, align 8
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.54"* %4, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.62"* %4, i32 0, i32 1
   %8 = load %"class.boost::shared_ptr.27"** %2, align 8
   %9 = getelementptr inbounds %"class.boost::shared_ptr.27"* %8, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %7, %"class.boost::detail::shared_count"* %9)
@@ -13617,23 +17055,23 @@ define linkonce_odr %"class.boost::shared_ptr.26"* @_ZN5boost10shared_ptrIKN8std
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"class.boost::shared_ptr.53"* @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEaSERKS9_(%"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"* %r) #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.53"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.53"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.53", align 8
+define linkonce_odr %"class.boost::shared_ptr.61"* @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEaSERKS9_(%"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"* %r) #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.61"*, align 8
+  %2 = alloca %"class.boost::shared_ptr.61"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.61", align 8
   %4 = alloca i8*
   %5 = alloca i32
-  store %"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"** %1, align 8
-  store %"class.boost::shared_ptr.53"* %r, %"class.boost::shared_ptr.53"** %2, align 8
-  %6 = load %"class.boost::shared_ptr.53"** %1
-  %7 = load %"class.boost::shared_ptr.53"** %2, align 8
-  call void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2ERKS9_(%"class.boost::shared_ptr.53"* %3, %"class.boost::shared_ptr.53"* %7)
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEE4swapERS9_(%"class.boost::shared_ptr.53"* %3, %"class.boost::shared_ptr.53"* %6)
+  store %"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"** %1, align 8
+  store %"class.boost::shared_ptr.61"* %r, %"class.boost::shared_ptr.61"** %2, align 8
+  %6 = load %"class.boost::shared_ptr.61"** %1
+  %7 = load %"class.boost::shared_ptr.61"** %2, align 8
+  call void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2ERKS9_(%"class.boost::shared_ptr.61"* %3, %"class.boost::shared_ptr.61"* %7)
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEE4swapERS9_(%"class.boost::shared_ptr.61"* %3, %"class.boost::shared_ptr.61"* %6)
           to label %8 unwind label %9
 
 ; <label>:8                                       ; preds = %0
-  call void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %3)
-  ret %"class.boost::shared_ptr.53"* %6
+  call void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %3)
+  ret %"class.boost::shared_ptr.61"* %6
 
 ; <label>:9                                       ; preds = %0
   %10 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
@@ -13642,7 +17080,7 @@ define linkonce_odr %"class.boost::shared_ptr.53"* @_ZN5boost10shared_ptrISt3map
   store i8* %11, i8** %4
   %12 = extractvalue { i8*, i32 } %10, 1
   store i32 %12, i32* %5
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %3)
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %3)
           to label %13 unwind label %19
 
 ; <label>:13                                      ; preds = %9
@@ -13664,25 +17102,25 @@ define linkonce_odr %"class.boost::shared_ptr.53"* @_ZN5boost10shared_ptrISt3map
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"class.boost::function.33"* @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEaSERKS8_(%"class.boost::function.33"* %this, %"class.boost::function.33"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function.33"*, align 8
-  %2 = alloca %"class.boost::function.33"*, align 8
-  %3 = alloca %"class.boost::function.33", align 8
+define linkonce_odr %"class.boost::function.40"* @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEaSERKS8_(%"class.boost::function.40"* %this, %"class.boost::function.40"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function.40"*, align 8
+  %2 = alloca %"class.boost::function.40"*, align 8
+  %3 = alloca %"class.boost::function.40", align 8
   %4 = alloca i8*
   %5 = alloca i32
-  store %"class.boost::function.33"* %this, %"class.boost::function.33"** %1, align 8
-  store %"class.boost::function.33"* %f, %"class.boost::function.33"** %2, align 8
-  %6 = load %"class.boost::function.33"** %1
-  %7 = load %"class.boost::function.33"** %2, align 8
-  call void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2ERKS8_(%"class.boost::function.33"* %3, %"class.boost::function.33"* %7)
-  %8 = bitcast %"class.boost::function.33"* %3 to %"class.boost::function0.34"*
-  %9 = bitcast %"class.boost::function.33"* %6 to %"class.boost::function0.34"*
-  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE4swapERS7_(%"class.boost::function0.34"* %8, %"class.boost::function0.34"* %9)
+  store %"class.boost::function.40"* %this, %"class.boost::function.40"** %1, align 8
+  store %"class.boost::function.40"* %f, %"class.boost::function.40"** %2, align 8
+  %6 = load %"class.boost::function.40"** %1
+  %7 = load %"class.boost::function.40"** %2, align 8
+  call void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEEC2ERKS8_(%"class.boost::function.40"* %3, %"class.boost::function.40"* %7)
+  %8 = bitcast %"class.boost::function.40"* %3 to %"class.boost::function0.41"*
+  %9 = bitcast %"class.boost::function.40"* %6 to %"class.boost::function0.41"*
+  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE4swapERS7_(%"class.boost::function0.41"* %8, %"class.boost::function0.41"* %9)
           to label %10 unwind label %11
 
 ; <label>:10                                      ; preds = %0
-  call void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %3)
-  ret %"class.boost::function.33"* %6
+  call void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %3)
+  ret %"class.boost::function.40"* %6
 
 ; <label>:11                                      ; preds = %0
   %12 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
@@ -13691,7 +17129,7 @@ define linkonce_odr %"class.boost::function.33"* @_ZN5boost8functionIFNS_10share
   store i8* %13, i8** %4
   %14 = extractvalue { i8*, i32 } %12, 1
   store i32 %14, i32* %5
-  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.33"* %3)
+  invoke void @_ZN5boost8functionIFNS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEvEED2Ev(%"class.boost::function.40"* %3)
           to label %15 unwind label %21
 
 ; <label>:15                                      ; preds = %11
@@ -13713,39 +17151,39 @@ define linkonce_odr %"class.boost::function.33"* @_ZN5boost8functionIFNS_10share
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE4swapERS7_(%"class.boost::function0.34"* %this, %"class.boost::function0.34"* %other) #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  %2 = alloca %"class.boost::function0.34"*, align 8
-  %tmp = alloca %"class.boost::function0.34", align 8
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE4swapERS7_(%"class.boost::function0.41"* %this, %"class.boost::function0.41"* %other) #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  %2 = alloca %"class.boost::function0.41"*, align 8
+  %tmp = alloca %"class.boost::function0.41", align 8
   %3 = alloca i8*
   %4 = alloca i32
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  store %"class.boost::function0.34"* %other, %"class.boost::function0.34"** %2, align 8
-  %5 = load %"class.boost::function0.34"** %1
-  %6 = load %"class.boost::function0.34"** %2, align 8
-  %7 = icmp eq %"class.boost::function0.34"* %6, %5
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  store %"class.boost::function0.41"* %other, %"class.boost::function0.41"** %2, align 8
+  %5 = load %"class.boost::function0.41"** %1
+  %6 = load %"class.boost::function0.41"** %2, align 8
+  %7 = icmp eq %"class.boost::function0.41"* %6, %5
   br i1 %7, label %8, label %9
 
 ; <label>:8                                       ; preds = %0
   br label %15
 
 ; <label>:9                                       ; preds = %0
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2Ev(%"class.boost::function0.34"* %tmp)
-  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.34"* %tmp, %"class.boost::function0.34"* %5)
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2Ev(%"class.boost::function0.41"* %tmp)
+  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.41"* %tmp, %"class.boost::function0.41"* %5)
           to label %10 unwind label %16
 
 ; <label>:10                                      ; preds = %9
-  %11 = load %"class.boost::function0.34"** %2, align 8
-  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.34"* %5, %"class.boost::function0.34"* %11)
+  %11 = load %"class.boost::function0.41"** %2, align 8
+  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.41"* %5, %"class.boost::function0.41"* %11)
           to label %12 unwind label %16
 
 ; <label>:12                                      ; preds = %10
-  %13 = load %"class.boost::function0.34"** %2, align 8
-  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.34"* %13, %"class.boost::function0.34"* %tmp)
+  %13 = load %"class.boost::function0.41"** %2, align 8
+  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.41"* %13, %"class.boost::function0.41"* %tmp)
           to label %14 unwind label %16
 
 ; <label>:14                                      ; preds = %12
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.34"* %tmp)
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.41"* %tmp)
   br label %15
 
 ; <label>:15                                      ; preds = %14, %8
@@ -13758,7 +17196,7 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
   store i8* %18, i8** %3
   %19 = extractvalue { i8*, i32 } %17, 1
   store i32 %19, i32* %4
-  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.34"* %tmp)
+  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.41"* %tmp)
           to label %20 unwind label %26
 
 ; <label>:20                                      ; preds = %16
@@ -13780,34 +17218,34 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2Ev(%"class.boost::function0.34"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  %2 = load %"class.boost::function0.34"** %1
-  %3 = bitcast %"class.boost::function0.34"* %2 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2Ev(%"class.boost::function0.41"* %this) unnamed_addr #2 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  %2 = load %"class.boost::function0.41"** %1
+  %3 = bitcast %"class.boost::function0.41"* %2 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %3)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.34"* %this, %"class.boost::function0.34"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  %2 = alloca %"class.boost::function0.34"*, align 8
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE11move_assignERS7_(%"class.boost::function0.41"* %this, %"class.boost::function0.41"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  %2 = alloca %"class.boost::function0.41"*, align 8
   %3 = alloca i8*
   %4 = alloca i32
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  store %"class.boost::function0.34"* %f, %"class.boost::function0.34"** %2, align 8
-  %5 = load %"class.boost::function0.34"** %1
-  %6 = load %"class.boost::function0.34"** %2, align 8
-  %7 = icmp eq %"class.boost::function0.34"* %6, %5
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  store %"class.boost::function0.41"* %f, %"class.boost::function0.41"** %2, align 8
+  %5 = load %"class.boost::function0.41"** %1
+  %6 = load %"class.boost::function0.41"** %2, align 8
+  %7 = icmp eq %"class.boost::function0.41"* %6, %5
   br i1 %7, label %8, label %9
 
 ; <label>:8                                       ; preds = %0
   br label %65
 
 ; <label>:9                                       ; preds = %0
-  %10 = load %"class.boost::function0.34"** %2, align 8
-  %11 = bitcast %"class.boost::function0.34"* %10 to %"class.boost::function_base"*
+  %10 = load %"class.boost::function0.41"** %2, align 8
+  %11 = bitcast %"class.boost::function0.41"* %10 to %"class.boost::function_base"*
   %12 = invoke zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %11)
           to label %13 unwind label %32
 
@@ -13815,14 +17253,14 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
   br i1 %12, label %57, label %14
 
 ; <label>:14                                      ; preds = %13
-  %15 = load %"class.boost::function0.34"** %2, align 8
-  %16 = bitcast %"class.boost::function0.34"* %15 to %"class.boost::function_base"*
+  %15 = load %"class.boost::function0.41"** %2, align 8
+  %16 = bitcast %"class.boost::function0.41"* %15 to %"class.boost::function_base"*
   %17 = getelementptr inbounds %"class.boost::function_base"* %16, i32 0, i32 0
   %18 = load %"struct.boost::detail::function::vtable_base"** %17, align 8
-  %19 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %19 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %20 = getelementptr inbounds %"class.boost::function_base"* %19, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %18, %"struct.boost::detail::function::vtable_base"** %20, align 8
-  %21 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %21 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %22 = invoke zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %21)
           to label %23 unwind label %32
 
@@ -13830,10 +17268,10 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
   br i1 %22, label %24, label %41
 
 ; <label>:24                                      ; preds = %23
-  %25 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %25 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %26 = getelementptr inbounds %"class.boost::function_base"* %25, i32 0, i32 1
-  %27 = load %"class.boost::function0.34"** %2, align 8
-  %28 = bitcast %"class.boost::function0.34"* %27 to %"class.boost::function_base"*
+  %27 = load %"class.boost::function0.41"** %2, align 8
+  %28 = bitcast %"class.boost::function0.41"* %27 to %"class.boost::function_base"*
   %29 = getelementptr inbounds %"class.boost::function_base"* %28, i32 0, i32 1
   %30 = bitcast %"union.boost::detail::function::function_buffer"* %26 to i8*
   %31 = bitcast %"union.boost::detail::function::function_buffer"* %29 to i8*
@@ -13852,24 +17290,24 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
 ; <label>:36                                      ; preds = %32
   %37 = load i8** %3
   %38 = call i8* @__cxa_begin_catch(i8* %37) #1
-  %39 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %39 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %40 = getelementptr inbounds %"class.boost::function_base"* %39, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %40, align 8
   invoke void @__cxa_rethrow() #19
           to label %74 unwind label %60
 
 ; <label>:41                                      ; preds = %23
-  %42 = invoke %"struct.boost::detail::function::basic_vtable0.41"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.34"* %5)
+  %42 = invoke %"struct.boost::detail::function::basic_vtable0.49"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.41"* %5)
           to label %43 unwind label %32
 
 ; <label>:43                                      ; preds = %41
-  %44 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.41"* %42, i32 0, i32 0
+  %44 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.49"* %42, i32 0, i32 0
   %45 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %44, i32 0, i32 0
   %46 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %45, align 8
-  %47 = load %"class.boost::function0.34"** %2, align 8
-  %48 = bitcast %"class.boost::function0.34"* %47 to %"class.boost::function_base"*
+  %47 = load %"class.boost::function0.41"** %2, align 8
+  %48 = bitcast %"class.boost::function0.41"* %47 to %"class.boost::function_base"*
   %49 = getelementptr inbounds %"class.boost::function_base"* %48, i32 0, i32 1
-  %50 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %50 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %51 = getelementptr inbounds %"class.boost::function_base"* %50, i32 0, i32 1
   invoke void %46(%"union.boost::detail::function::function_buffer"* %49, %"union.boost::detail::function::function_buffer"* %51, i32 1)
           to label %52 unwind label %32
@@ -13878,14 +17316,14 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
   br label %53
 
 ; <label>:53                                      ; preds = %52, %24
-  %54 = load %"class.boost::function0.34"** %2, align 8
-  %55 = bitcast %"class.boost::function0.34"* %54 to %"class.boost::function_base"*
+  %54 = load %"class.boost::function0.41"** %2, align 8
+  %55 = bitcast %"class.boost::function0.41"* %54 to %"class.boost::function_base"*
   %56 = getelementptr inbounds %"class.boost::function_base"* %55, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %56, align 8
   br label %59
 
 ; <label>:57                                      ; preds = %13
-  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function0.34"* %5)
+  invoke void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function0.41"* %5)
           to label %58 unwind label %32
 
 ; <label>:58                                      ; preds = %57
@@ -13929,52 +17367,52 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.34"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  %2 = load %"class.boost::function0.34"** %1
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function0.34"* %2)
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEED2Ev(%"class.boost::function0.41"* %this) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  %2 = load %"class.boost::function0.41"** %1
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE5clearEv(%"class.boost::function0.41"* %2)
   ret void
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2ERKS9_(%"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"*) unnamed_addr #5 align 2 {
-  %2 = alloca %"class.boost::shared_ptr.53"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.53"*, align 8
-  store %"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"** %2, align 8
-  store %"class.boost::shared_ptr.53"* %0, %"class.boost::shared_ptr.53"** %3, align 8
-  %4 = load %"class.boost::shared_ptr.53"** %2
-  %5 = getelementptr inbounds %"class.boost::shared_ptr.53"* %4, i32 0, i32 0
-  %6 = load %"class.boost::shared_ptr.53"** %3, align 8
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.53"* %6, i32 0, i32 0
+define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2ERKS9_(%"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"*) unnamed_addr #5 align 2 {
+  %2 = alloca %"class.boost::shared_ptr.61"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.61"*, align 8
+  store %"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"** %2, align 8
+  store %"class.boost::shared_ptr.61"* %0, %"class.boost::shared_ptr.61"** %3, align 8
+  %4 = load %"class.boost::shared_ptr.61"** %2
+  %5 = getelementptr inbounds %"class.boost::shared_ptr.61"* %4, i32 0, i32 0
+  %6 = load %"class.boost::shared_ptr.61"** %3, align 8
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.61"* %6, i32 0, i32 0
   %8 = load %"class.std::map"** %7, align 8
   store %"class.std::map"* %8, %"class.std::map"** %5, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.53"* %4, i32 0, i32 1
-  %10 = load %"class.boost::shared_ptr.53"** %3, align 8
-  %11 = getelementptr inbounds %"class.boost::shared_ptr.53"* %10, i32 0, i32 1
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.61"* %4, i32 0, i32 1
+  %10 = load %"class.boost::shared_ptr.61"** %3, align 8
+  %11 = getelementptr inbounds %"class.boost::shared_ptr.61"* %10, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %9, %"class.boost::detail::shared_count"* %11)
-  %12 = getelementptr inbounds %"class.boost::shared_ptr.53"* %4, i32 0, i32 0
-  %13 = load %"class.boost::shared_ptr.53"** %3, align 8
-  %14 = getelementptr inbounds %"class.boost::shared_ptr.53"* %13, i32 0, i32 0
+  %12 = getelementptr inbounds %"class.boost::shared_ptr.61"* %4, i32 0, i32 0
+  %13 = load %"class.boost::shared_ptr.61"** %3, align 8
+  %14 = getelementptr inbounds %"class.boost::shared_ptr.61"* %13, i32 0, i32 0
   %15 = load %"class.std::map"** %14, align 8
   store %"class.std::map"* %15, %"class.std::map"** %12, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEE4swapERS9_(%"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"* %other) #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.53"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.53"*, align 8
-  store %"class.boost::shared_ptr.53"* %this, %"class.boost::shared_ptr.53"** %1, align 8
-  store %"class.boost::shared_ptr.53"* %other, %"class.boost::shared_ptr.53"** %2, align 8
-  %3 = load %"class.boost::shared_ptr.53"** %1
-  %4 = getelementptr inbounds %"class.boost::shared_ptr.53"* %3, i32 0, i32 0
-  %5 = load %"class.boost::shared_ptr.53"** %2, align 8
-  %6 = getelementptr inbounds %"class.boost::shared_ptr.53"* %5, i32 0, i32 0
+define linkonce_odr void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEE4swapERS9_(%"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"* %other) #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.61"*, align 8
+  %2 = alloca %"class.boost::shared_ptr.61"*, align 8
+  store %"class.boost::shared_ptr.61"* %this, %"class.boost::shared_ptr.61"** %1, align 8
+  store %"class.boost::shared_ptr.61"* %other, %"class.boost::shared_ptr.61"** %2, align 8
+  %3 = load %"class.boost::shared_ptr.61"** %1
+  %4 = getelementptr inbounds %"class.boost::shared_ptr.61"* %3, i32 0, i32 0
+  %5 = load %"class.boost::shared_ptr.61"** %2, align 8
+  %6 = getelementptr inbounds %"class.boost::shared_ptr.61"* %5, i32 0, i32 0
   call void @_ZSt4swapIPSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEvRT_SA_(%"class.std::map"** %4, %"class.std::map"** %6)
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.53"* %3, i32 0, i32 1
-  %8 = load %"class.boost::shared_ptr.53"** %2, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.53"* %8, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.61"* %3, i32 0, i32 1
+  %8 = load %"class.boost::shared_ptr.61"** %2, align 8
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.61"* %8, i32 0, i32 1
   call void @_ZN5boost6detail12shared_count4swapERS1_(%"class.boost::detail::shared_count"* %7, %"class.boost::detail::shared_count"* %9)
   ret void
 }
@@ -14050,14 +17488,14 @@ define linkonce_odr void @_ZN3ros8TimeBaseINS_4TimeENS_8DurationEEC2Ev(%"class.r
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEclEv(%"class.boost::shared_ptr.42"* noalias sret %agg.result, %"class.boost::function0.34"* %this) #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
+define linkonce_odr void @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEclEv(%"class.boost::shared_ptr.50"* noalias sret %agg.result, %"class.boost::function0.41"* %this) #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
   %2 = alloca %"class.boost::bad_function_call", align 8
   %3 = alloca i8*
   %4 = alloca i32
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  %5 = load %"class.boost::function0.34"** %1
-  %6 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  %5 = load %"class.boost::function0.41"** %1
+  %6 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %7 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %6)
   br i1 %7, label %8, label %14
 
@@ -14080,12 +17518,12 @@ define linkonce_odr void @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float6
   br label %20
 
 ; <label>:14                                      ; preds = %0
-  %15 = call %"struct.boost::detail::function::basic_vtable0.41"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.34"* %5)
-  %16 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.41"* %15, i32 0, i32 1
-  %17 = load void (%"class.boost::shared_ptr.42"*, %"union.boost::detail::function::function_buffer"*)** %16, align 8
-  %18 = bitcast %"class.boost::function0.34"* %5 to %"class.boost::function_base"*
+  %15 = call %"struct.boost::detail::function::basic_vtable0.49"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.41"* %5)
+  %16 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.49"* %15, i32 0, i32 1
+  %17 = load void (%"class.boost::shared_ptr.50"*, %"union.boost::detail::function::function_buffer"*)** %16, align 8
+  %18 = bitcast %"class.boost::function0.41"* %5 to %"class.boost::function_base"*
   %19 = getelementptr inbounds %"class.boost::function_base"* %18, i32 0, i32 1
-  call void %17(%"class.boost::shared_ptr.42"* sret %agg.result, %"union.boost::detail::function::function_buffer"* %19)
+  call void %17(%"class.boost::shared_ptr.50"* sret %agg.result, %"union.boost::detail::function::function_buffer"* %19)
   ret void
 
 ; <label>:20                                      ; preds = %10
@@ -14097,11 +17535,11 @@ define linkonce_odr void @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float6
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEntEv(%"class.boost::shared_ptr.42"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.42"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 0
+define linkonce_odr zeroext i1 @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEntEv(%"class.boost::shared_ptr.50"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.50"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 0
   %4 = load %"struct.std_msgs::Float64_"** %3, align 8
   %5 = icmp eq %"struct.std_msgs::Float64_"* %4, null
   ret i1 %5
@@ -14115,9 +17553,9 @@ define linkonce_odr void @_ZN3ros13serialization20PreDeserializeParamsIN8std_msg
   store %"struct.ros::serialization::PreDeserializeParams"* %this, %"struct.ros::serialization::PreDeserializeParams"** %1, align 8
   %4 = load %"struct.ros::serialization::PreDeserializeParams"** %1
   %5 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %4, i32 0, i32 0
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.42"* %5)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2Ev(%"class.boost::shared_ptr.50"* %5)
   %6 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %4, i32 0, i32 1
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2Ev(%"class.boost::shared_ptr.53"* %6)
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEEC2Ev(%"class.boost::shared_ptr.61"* %6)
           to label %7 unwind label %8
 
 ; <label>:7                                       ; preds = %0
@@ -14130,7 +17568,7 @@ define linkonce_odr void @_ZN3ros13serialization20PreDeserializeParamsIN8std_msg
   store i8* %10, i8** %2
   %11 = extractvalue { i8*, i32 } %9, 1
   store i32 %11, i32* %3
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %5)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %5)
           to label %12 unwind label %18
 
 ; <label>:12                                      ; preds = %8
@@ -14152,23 +17590,23 @@ define linkonce_odr void @_ZN3ros13serialization20PreDeserializeParamsIN8std_msg
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"class.boost::shared_ptr.42"* @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEaSERKS5_(%"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"* %r) #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.42"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.42", align 8
+define linkonce_odr %"class.boost::shared_ptr.50"* @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEaSERKS5_(%"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"* %r) #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  %2 = alloca %"class.boost::shared_ptr.50"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.50", align 8
   %4 = alloca i8*
   %5 = alloca i32
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  store %"class.boost::shared_ptr.42"* %r, %"class.boost::shared_ptr.42"** %2, align 8
-  %6 = load %"class.boost::shared_ptr.42"** %1
-  %7 = load %"class.boost::shared_ptr.42"** %2, align 8
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2ERKS5_(%"class.boost::shared_ptr.42"* %3, %"class.boost::shared_ptr.42"* %7)
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE4swapERS5_(%"class.boost::shared_ptr.42"* %3, %"class.boost::shared_ptr.42"* %6)
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  store %"class.boost::shared_ptr.50"* %r, %"class.boost::shared_ptr.50"** %2, align 8
+  %6 = load %"class.boost::shared_ptr.50"** %1
+  %7 = load %"class.boost::shared_ptr.50"** %2, align 8
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2ERKS5_(%"class.boost::shared_ptr.50"* %3, %"class.boost::shared_ptr.50"* %7)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE4swapERS5_(%"class.boost::shared_ptr.50"* %3, %"class.boost::shared_ptr.50"* %6)
           to label %8 unwind label %9
 
 ; <label>:8                                       ; preds = %0
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %3)
-  ret %"class.boost::shared_ptr.42"* %6
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %3)
+  ret %"class.boost::shared_ptr.50"* %6
 
 ; <label>:9                                       ; preds = %0
   %10 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
@@ -14177,7 +17615,7 @@ define linkonce_odr %"class.boost::shared_ptr.42"* @_ZN5boost10shared_ptrIN8std_
   store i8* %11, i8** %4
   %12 = extractvalue { i8*, i32 } %10, 1
   store i32 %12, i32* %5
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %3)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %3)
           to label %13 unwind label %19
 
 ; <label>:13                                      ; preds = %9
@@ -14234,11 +17672,11 @@ define linkonce_odr void @_ZN3ros13serialization11deserializeIN8std_msgs8Float64
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv(%"class.boost::shared_ptr.42"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  %2 = load %"class.boost::shared_ptr.42"** %1
-  %3 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 0
+define linkonce_odr %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv(%"class.boost::shared_ptr.50"* %this) #2 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  %2 = load %"class.boost::shared_ptr.50"** %1
+  %3 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 0
   %4 = load %"struct.std_msgs::Float64_"** %3, align 8
   %5 = icmp ne %"struct.std_msgs::Float64_"* %4, null
   br i1 %5, label %6, label %7
@@ -14247,36 +17685,36 @@ define linkonce_odr %"struct.std_msgs::Float64_"* @_ZNK5boost10shared_ptrIN8std_
   br label %9
 
 ; <label>:7                                       ; preds = %0
-  call void @__assert_fail(i8* getelementptr inbounds ([8 x i8]* @.str31, i32 0, i32 0), i8* getelementptr inbounds ([44 x i8]* @.str32, i32 0, i32 0), i32 646, i8* getelementptr inbounds ([177 x i8]* @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv, i32 0, i32 0)) #14
+  call void @__assert_fail(i8* getelementptr inbounds ([8 x i8]* @.str32, i32 0, i32 0), i8* getelementptr inbounds ([44 x i8]* @.str33, i32 0, i32 0), i32 646, i8* getelementptr inbounds ([177 x i8]* @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEdeEv, i32 0, i32 0)) #14
   unreachable
                                                   ; No predecessors!
   br label %9
 
 ; <label>:9                                       ; preds = %8, %6
-  %10 = getelementptr inbounds %"class.boost::shared_ptr.42"* %2, i32 0, i32 0
+  %10 = getelementptr inbounds %"class.boost::shared_ptr.50"* %2, i32 0, i32 0
   %11 = load %"struct.std_msgs::Float64_"** %10, align 8
   ret %"struct.std_msgs::Float64_"* %11
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIKvEC2IN8std_msgs8Float64_ISaIvEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S1_E4typeE(%"class.boost::shared_ptr.27"* %this, %"class.boost::shared_ptr.42"* %r) unnamed_addr #3 align 2 {
+define linkonce_odr void @_ZN5boost10shared_ptrIKvEC2IN8std_msgs8Float64_ISaIvEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S1_E4typeE(%"class.boost::shared_ptr.27"* %this, %"class.boost::shared_ptr.50"* %r) unnamed_addr #3 align 2 {
   %1 = alloca %"struct.boost::detail::sp_empty", align 1
   %2 = alloca %"class.boost::shared_ptr.27"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.42"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.50"*, align 8
   %4 = alloca i8*
   %5 = alloca i32
   store %"class.boost::shared_ptr.27"* %this, %"class.boost::shared_ptr.27"** %2, align 8
-  store %"class.boost::shared_ptr.42"* %r, %"class.boost::shared_ptr.42"** %3, align 8
+  store %"class.boost::shared_ptr.50"* %r, %"class.boost::shared_ptr.50"** %3, align 8
   %6 = load %"class.boost::shared_ptr.27"** %2
   %7 = getelementptr inbounds %"class.boost::shared_ptr.27"* %6, i32 0, i32 0
-  %8 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.42"* %8, i32 0, i32 0
+  %8 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.50"* %8, i32 0, i32 0
   %10 = load %"struct.std_msgs::Float64_"** %9, align 8
   %11 = bitcast %"struct.std_msgs::Float64_"* %10 to i8*
   store i8* %11, i8** %7, align 8
   %12 = getelementptr inbounds %"class.boost::shared_ptr.27"* %6, i32 0, i32 1
-  %13 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %14 = getelementptr inbounds %"class.boost::shared_ptr.42"* %13, i32 0, i32 1
+  %13 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %14 = getelementptr inbounds %"class.boost::shared_ptr.50"* %13, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %12, %"class.boost::detail::shared_count"* %14)
   invoke void @_ZN5boost6detail21sp_assert_convertibleIN8std_msgs8Float64_ISaIvEEEKvEEvv()
           to label %15 unwind label %16
@@ -14320,12 +17758,12 @@ define linkonce_odr void @_ZN3ros13serialization20PreDeserializeParamsIN8std_msg
   store %"struct.ros::serialization::PreDeserializeParams"* %this, %"struct.ros::serialization::PreDeserializeParams"** %1, align 8
   %4 = load %"struct.ros::serialization::PreDeserializeParams"** %1
   %5 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %4, i32 0, i32 1
-  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.53"* %5)
+  invoke void @_ZN5boost10shared_ptrISt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEEED2Ev(%"class.boost::shared_ptr.61"* %5)
           to label %6 unwind label %8
 
 ; <label>:6                                       ; preds = %0
   %7 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %4, i32 0, i32 0
-  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %7)
+  call void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %7)
   ret void
 
 ; <label>:8                                       ; preds = %0
@@ -14336,7 +17774,7 @@ define linkonce_odr void @_ZN3ros13serialization20PreDeserializeParamsIN8std_msg
   %11 = extractvalue { i8*, i32 } %9, 1
   store i32 %11, i32* %3
   %12 = getelementptr inbounds %"struct.ros::serialization::PreDeserializeParams"* %4, i32 0, i32 0
-  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.42"* %12)
+  invoke void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEED2Ev(%"class.boost::shared_ptr.50"* %12)
           to label %13 unwind label %19
 
 ; <label>:13                                      ; preds = %8
@@ -14449,43 +17887,43 @@ _ZN3ros13serialization6Stream7advanceEj.exit:     ; preds = %0, %20
 }
 
 ; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2ERKS5_(%"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"*) unnamed_addr #5 align 2 {
-  %2 = alloca %"class.boost::shared_ptr.42"*, align 8
-  %3 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %2, align 8
-  store %"class.boost::shared_ptr.42"* %0, %"class.boost::shared_ptr.42"** %3, align 8
-  %4 = load %"class.boost::shared_ptr.42"** %2
-  %5 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 0
-  %6 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.42"* %6, i32 0, i32 0
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEEC2ERKS5_(%"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"*) unnamed_addr #5 align 2 {
+  %2 = alloca %"class.boost::shared_ptr.50"*, align 8
+  %3 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %2, align 8
+  store %"class.boost::shared_ptr.50"* %0, %"class.boost::shared_ptr.50"** %3, align 8
+  %4 = load %"class.boost::shared_ptr.50"** %2
+  %5 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 0
+  %6 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.50"* %6, i32 0, i32 0
   %8 = load %"struct.std_msgs::Float64_"** %7, align 8
   store %"struct.std_msgs::Float64_"* %8, %"struct.std_msgs::Float64_"** %5, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 1
-  %10 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %11 = getelementptr inbounds %"class.boost::shared_ptr.42"* %10, i32 0, i32 1
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 1
+  %10 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %11 = getelementptr inbounds %"class.boost::shared_ptr.50"* %10, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2ERKS1_(%"class.boost::detail::shared_count"* %9, %"class.boost::detail::shared_count"* %11)
-  %12 = getelementptr inbounds %"class.boost::shared_ptr.42"* %4, i32 0, i32 0
-  %13 = load %"class.boost::shared_ptr.42"** %3, align 8
-  %14 = getelementptr inbounds %"class.boost::shared_ptr.42"* %13, i32 0, i32 0
+  %12 = getelementptr inbounds %"class.boost::shared_ptr.50"* %4, i32 0, i32 0
+  %13 = load %"class.boost::shared_ptr.50"** %3, align 8
+  %14 = getelementptr inbounds %"class.boost::shared_ptr.50"* %13, i32 0, i32 0
   %15 = load %"struct.std_msgs::Float64_"** %14, align 8
   store %"struct.std_msgs::Float64_"* %15, %"struct.std_msgs::Float64_"** %12, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE4swapERS5_(%"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"* %other) #3 align 2 {
-  %1 = alloca %"class.boost::shared_ptr.42"*, align 8
-  %2 = alloca %"class.boost::shared_ptr.42"*, align 8
-  store %"class.boost::shared_ptr.42"* %this, %"class.boost::shared_ptr.42"** %1, align 8
-  store %"class.boost::shared_ptr.42"* %other, %"class.boost::shared_ptr.42"** %2, align 8
-  %3 = load %"class.boost::shared_ptr.42"** %1
-  %4 = getelementptr inbounds %"class.boost::shared_ptr.42"* %3, i32 0, i32 0
-  %5 = load %"class.boost::shared_ptr.42"** %2, align 8
-  %6 = getelementptr inbounds %"class.boost::shared_ptr.42"* %5, i32 0, i32 0
+define linkonce_odr void @_ZN5boost10shared_ptrIN8std_msgs8Float64_ISaIvEEEE4swapERS5_(%"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"* %other) #3 align 2 {
+  %1 = alloca %"class.boost::shared_ptr.50"*, align 8
+  %2 = alloca %"class.boost::shared_ptr.50"*, align 8
+  store %"class.boost::shared_ptr.50"* %this, %"class.boost::shared_ptr.50"** %1, align 8
+  store %"class.boost::shared_ptr.50"* %other, %"class.boost::shared_ptr.50"** %2, align 8
+  %3 = load %"class.boost::shared_ptr.50"** %1
+  %4 = getelementptr inbounds %"class.boost::shared_ptr.50"* %3, i32 0, i32 0
+  %5 = load %"class.boost::shared_ptr.50"** %2, align 8
+  %6 = getelementptr inbounds %"class.boost::shared_ptr.50"* %5, i32 0, i32 0
   call void @_ZSt4swapIPN8std_msgs8Float64_ISaIvEEEEvRT_S6_(%"struct.std_msgs::Float64_"** %4, %"struct.std_msgs::Float64_"** %6)
-  %7 = getelementptr inbounds %"class.boost::shared_ptr.42"* %3, i32 0, i32 1
-  %8 = load %"class.boost::shared_ptr.42"** %2, align 8
-  %9 = getelementptr inbounds %"class.boost::shared_ptr.42"* %8, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.boost::shared_ptr.50"* %3, i32 0, i32 1
+  %8 = load %"class.boost::shared_ptr.50"** %2, align 8
+  %9 = getelementptr inbounds %"class.boost::shared_ptr.50"* %8, i32 0, i32 1
   call void @_ZN5boost6detail12shared_count4swapERS1_(%"class.boost::detail::shared_count"* %7, %"class.boost::detail::shared_count"* %9)
   ret void
 }
@@ -14511,48 +17949,48 @@ define linkonce_odr void @_ZSt4swapIPN8std_msgs8Float64_ISaIvEEEEvRT_S6_(%"struc
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2ERKS7_(%"class.boost::function0.34"* %this, %"class.boost::function0.34"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  %2 = alloca %"class.boost::function0.34"*, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  store %"class.boost::function0.34"* %f, %"class.boost::function0.34"** %2, align 8
-  %3 = load %"class.boost::function0.34"** %1
-  %4 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEEC2ERKS7_(%"class.boost::function0.41"* %this, %"class.boost::function0.41"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  %2 = alloca %"class.boost::function0.41"*, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  store %"class.boost::function0.41"* %f, %"class.boost::function0.41"** %2, align 8
+  %3 = load %"class.boost::function0.41"** %1
+  %4 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %4)
-  %5 = load %"class.boost::function0.34"** %2, align 8
-  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS7_(%"class.boost::function0.34"* %3, %"class.boost::function0.34"* %5)
+  %5 = load %"class.boost::function0.41"** %2, align 8
+  call void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS7_(%"class.boost::function0.41"* %3, %"class.boost::function0.41"* %5)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS7_(%"class.boost::function0.34"* %this, %"class.boost::function0.34"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function0.34"*, align 8
-  %2 = alloca %"class.boost::function0.34"*, align 8
-  store %"class.boost::function0.34"* %this, %"class.boost::function0.34"** %1, align 8
-  store %"class.boost::function0.34"* %f, %"class.boost::function0.34"** %2, align 8
-  %3 = load %"class.boost::function0.34"** %1
-  %4 = load %"class.boost::function0.34"** %2, align 8
-  %5 = bitcast %"class.boost::function0.34"* %4 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS7_(%"class.boost::function0.41"* %this, %"class.boost::function0.41"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function0.41"*, align 8
+  %2 = alloca %"class.boost::function0.41"*, align 8
+  store %"class.boost::function0.41"* %this, %"class.boost::function0.41"** %1, align 8
+  store %"class.boost::function0.41"* %f, %"class.boost::function0.41"** %2, align 8
+  %3 = load %"class.boost::function0.41"** %1
+  %4 = load %"class.boost::function0.41"** %2, align 8
+  %5 = bitcast %"class.boost::function0.41"* %4 to %"class.boost::function_base"*
   %6 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %5)
   br i1 %6, label %35, label %7
 
 ; <label>:7                                       ; preds = %0
-  %8 = load %"class.boost::function0.34"** %2, align 8
-  %9 = bitcast %"class.boost::function0.34"* %8 to %"class.boost::function_base"*
+  %8 = load %"class.boost::function0.41"** %2, align 8
+  %9 = bitcast %"class.boost::function0.41"* %8 to %"class.boost::function_base"*
   %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 0
   %11 = load %"struct.boost::detail::function::vtable_base"** %10, align 8
-  %12 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  %12 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %11, %"struct.boost::detail::function::vtable_base"** %13, align 8
-  %14 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  %14 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %15 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %14)
   br i1 %15, label %16, label %24
 
 ; <label>:16                                      ; preds = %7
-  %17 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  %17 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %18 = getelementptr inbounds %"class.boost::function_base"* %17, i32 0, i32 1
-  %19 = load %"class.boost::function0.34"** %2, align 8
-  %20 = bitcast %"class.boost::function0.34"* %19 to %"class.boost::function_base"*
+  %19 = load %"class.boost::function0.41"** %2, align 8
+  %20 = bitcast %"class.boost::function0.41"* %19 to %"class.boost::function_base"*
   %21 = getelementptr inbounds %"class.boost::function_base"* %20, i32 0, i32 1
   %22 = bitcast %"union.boost::detail::function::function_buffer"* %18 to i8*
   %23 = bitcast %"union.boost::detail::function::function_buffer"* %21 to i8*
@@ -14560,14 +17998,14 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
   br label %34
 
 ; <label>:24                                      ; preds = %7
-  %25 = call %"struct.boost::detail::function::basic_vtable0.41"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.34"* %3)
-  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.41"* %25, i32 0, i32 0
+  %25 = call %"struct.boost::detail::function::basic_vtable0.49"* @_ZNK5boost9function0INS_10shared_ptrIN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function0.41"* %3)
+  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable0.49"* %25, i32 0, i32 0
   %27 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %26, i32 0, i32 0
   %28 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %27, align 8
-  %29 = load %"class.boost::function0.34"** %2, align 8
-  %30 = bitcast %"class.boost::function0.34"* %29 to %"class.boost::function_base"*
+  %29 = load %"class.boost::function0.41"** %2, align 8
+  %30 = bitcast %"class.boost::function0.41"* %29 to %"class.boost::function_base"*
   %31 = getelementptr inbounds %"class.boost::function_base"* %30, i32 0, i32 1
-  %32 = bitcast %"class.boost::function0.34"* %3 to %"class.boost::function_base"*
+  %32 = bitcast %"class.boost::function0.41"* %3 to %"class.boost::function_base"*
   %33 = getelementptr inbounds %"class.boost::function_base"* %32, i32 0, i32 1
   call void %28(%"union.boost::detail::function::function_buffer"* %31, %"union.boost::detail::function::function_buffer"* %33, i32 0)
   br label %34
@@ -14580,49 +18018,49 @@ define linkonce_odr void @_ZN5boost9function0INS_10shared_ptrIN8std_msgs8Float64
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKS8_(%"class.boost::function1.50"* %this, %"class.boost::function1.50"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
-  %2 = alloca %"class.boost::function1.50"*, align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  store %"class.boost::function1.50"* %f, %"class.boost::function1.50"** %2, align 8
-  %3 = load %"class.boost::function1.50"** %1
-  %4 = bitcast %"class.boost::function1.50"* %3 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKS8_(%"class.boost::function1.58"* %this, %"class.boost::function1.58"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
+  %2 = alloca %"class.boost::function1.58"*, align 8
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  store %"class.boost::function1.58"* %f, %"class.boost::function1.58"** %2, align 8
+  %3 = load %"class.boost::function1.58"** %1
+  %4 = bitcast %"class.boost::function1.58"* %3 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %4)
-  %5 = bitcast %"class.boost::function1.50"* %3 to %"struct.std::unary_function.51"*
-  %6 = load %"class.boost::function1.50"** %2, align 8
-  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS8_(%"class.boost::function1.50"* %3, %"class.boost::function1.50"* %6)
+  %5 = bitcast %"class.boost::function1.58"* %3 to %"struct.std::unary_function.59"*
+  %6 = load %"class.boost::function1.58"** %2, align 8
+  call void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS8_(%"class.boost::function1.58"* %3, %"class.boost::function1.58"* %6)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS8_(%"class.boost::function1.50"* %this, %"class.boost::function1.50"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
-  %2 = alloca %"class.boost::function1.50"*, align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  store %"class.boost::function1.50"* %f, %"class.boost::function1.50"** %2, align 8
-  %3 = load %"class.boost::function1.50"** %1
-  %4 = load %"class.boost::function1.50"** %2, align 8
-  %5 = bitcast %"class.boost::function1.50"* %4 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKS8_(%"class.boost::function1.58"* %this, %"class.boost::function1.58"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
+  %2 = alloca %"class.boost::function1.58"*, align 8
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  store %"class.boost::function1.58"* %f, %"class.boost::function1.58"** %2, align 8
+  %3 = load %"class.boost::function1.58"** %1
+  %4 = load %"class.boost::function1.58"** %2, align 8
+  %5 = bitcast %"class.boost::function1.58"* %4 to %"class.boost::function_base"*
   %6 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %5)
   br i1 %6, label %35, label %7
 
 ; <label>:7                                       ; preds = %0
-  %8 = load %"class.boost::function1.50"** %2, align 8
-  %9 = bitcast %"class.boost::function1.50"* %8 to %"class.boost::function_base"*
+  %8 = load %"class.boost::function1.58"** %2, align 8
+  %9 = bitcast %"class.boost::function1.58"* %8 to %"class.boost::function_base"*
   %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 0
   %11 = load %"struct.boost::detail::function::vtable_base"** %10, align 8
-  %12 = bitcast %"class.boost::function1.50"* %3 to %"class.boost::function_base"*
+  %12 = bitcast %"class.boost::function1.58"* %3 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %11, %"struct.boost::detail::function::vtable_base"** %13, align 8
-  %14 = bitcast %"class.boost::function1.50"* %3 to %"class.boost::function_base"*
+  %14 = bitcast %"class.boost::function1.58"* %3 to %"class.boost::function_base"*
   %15 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %14)
   br i1 %15, label %16, label %24
 
 ; <label>:16                                      ; preds = %7
-  %17 = bitcast %"class.boost::function1.50"* %3 to %"class.boost::function_base"*
+  %17 = bitcast %"class.boost::function1.58"* %3 to %"class.boost::function_base"*
   %18 = getelementptr inbounds %"class.boost::function_base"* %17, i32 0, i32 1
-  %19 = load %"class.boost::function1.50"** %2, align 8
-  %20 = bitcast %"class.boost::function1.50"* %19 to %"class.boost::function_base"*
+  %19 = load %"class.boost::function1.58"** %2, align 8
+  %20 = bitcast %"class.boost::function1.58"* %19 to %"class.boost::function_base"*
   %21 = getelementptr inbounds %"class.boost::function_base"* %20, i32 0, i32 1
   %22 = bitcast %"union.boost::detail::function::function_buffer"* %18 to i8*
   %23 = bitcast %"union.boost::detail::function::function_buffer"* %21 to i8*
@@ -14630,14 +18068,14 @@ define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float
   br label %34
 
 ; <label>:24                                      ; preds = %7
-  %25 = call %"struct.boost::detail::function::basic_vtable1.52"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.50"* %3)
-  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.52"* %25, i32 0, i32 0
+  %25 = call %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.58"* %3)
+  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %25, i32 0, i32 0
   %27 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %26, i32 0, i32 0
   %28 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %27, align 8
-  %29 = load %"class.boost::function1.50"** %2, align 8
-  %30 = bitcast %"class.boost::function1.50"* %29 to %"class.boost::function_base"*
+  %29 = load %"class.boost::function1.58"** %2, align 8
+  %30 = bitcast %"class.boost::function1.58"* %29 to %"class.boost::function_base"*
   %31 = getelementptr inbounds %"class.boost::function_base"* %30, i32 0, i32 1
-  %32 = bitcast %"class.boost::function1.50"* %3 to %"class.boost::function_base"*
+  %32 = bitcast %"class.boost::function1.58"* %3 to %"class.boost::function_base"*
   %33 = getelementptr inbounds %"class.boost::function_base"* %32, i32 0, i32 1
   call void %28(%"union.boost::detail::function::function_buffer"* %31, %"union.boost::detail::function::function_buffer"* %33, i32 0)
   br label %34
@@ -14692,24 +18130,24 @@ define linkonce_odr void @_ZN3ros26SubscriptionCallbackHelperD0Ev(%"class.ros::S
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_8functionIFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.50"* %this, %"class.boost::function.30"* %f, i32) unnamed_addr #3 align 2 {
-  %2 = alloca %"class.boost::function1.50"*, align 8
+define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2INS_8functionIFvRKS7_EEEEET_NS_11enable_if_cIXsr5boost11type_traits7ice_notIXsr11is_integralISF_EE5valueEEE5valueEiE4typeE(%"class.boost::function1.58"* %this, %"class.boost::function.37"* %f, i32) unnamed_addr #3 align 2 {
+  %2 = alloca %"class.boost::function1.58"*, align 8
   %3 = alloca i32, align 4
-  %4 = alloca %"class.boost::function.30", align 8
+  %4 = alloca %"class.boost::function.37", align 8
   %5 = alloca i8*
   %6 = alloca i32
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %2, align 8
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %2, align 8
   store i32 %0, i32* %3, align 4
-  %7 = load %"class.boost::function1.50"** %2
-  %8 = bitcast %"class.boost::function1.50"* %7 to %"class.boost::function_base"*
+  %7 = load %"class.boost::function1.58"** %2
+  %8 = bitcast %"class.boost::function1.58"* %7 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %8)
-  %9 = bitcast %"class.boost::function1.50"* %7 to %"struct.std::unary_function.51"*
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %4, %"class.boost::function.30"* %f)
-  invoke void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_(%"class.boost::function1.50"* %7, %"class.boost::function.30"* %4)
+  %9 = bitcast %"class.boost::function1.58"* %7 to %"struct.std::unary_function.59"*
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %4, %"class.boost::function.37"* %f)
+  invoke void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_(%"class.boost::function1.58"* %7, %"class.boost::function.37"* %4)
           to label %10 unwind label %11
 
 ; <label>:10                                      ; preds = %1
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %4)
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %4)
   ret void
 
 ; <label>:11                                      ; preds = %1
@@ -14719,7 +18157,7 @@ define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float
   store i8* %13, i8** %5
   %14 = extractvalue { i8*, i32 } %12, 1
   store i32 %14, i32* %6
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %4)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %4)
           to label %15 unwind label %21
 
 ; <label>:15                                      ; preds = %11
@@ -14741,29 +18179,29 @@ define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_(%"class.boost::function1.50"* %this, %"class.boost::function.30"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function1.50"*, align 8
-  %2 = alloca %"class.boost::function.30", align 8
+define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_(%"class.boost::function1.58"* %this, %"class.boost::function.37"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function1.58"*, align 8
+  %2 = alloca %"class.boost::function.37", align 8
   %3 = alloca i8*
   %4 = alloca i32
   %value = alloca i64, align 8
-  store %"class.boost::function1.50"* %this, %"class.boost::function1.50"** %1, align 8
-  %5 = load %"class.boost::function1.50"** %1
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %2, %"class.boost::function.30"* %f)
-  %6 = bitcast %"class.boost::function1.50"* %5 to %"class.boost::function_base"*
+  store %"class.boost::function1.58"* %this, %"class.boost::function1.58"** %1, align 8
+  %5 = load %"class.boost::function1.58"** %1
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %2, %"class.boost::function.37"* %f)
+  %6 = bitcast %"class.boost::function1.58"* %5 to %"class.boost::function_base"*
   %7 = getelementptr inbounds %"class.boost::function_base"* %6, i32 0, i32 1
-  %8 = invoke zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.52"* @_ZZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_E13stored_vtable, %"class.boost::function.30"* %2, %"union.boost::detail::function::function_buffer"* %7)
+  %8 = invoke zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.60"* @_ZZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_E13stored_vtable, %"class.boost::function.37"* %2, %"union.boost::detail::function::function_buffer"* %7)
           to label %9 unwind label %15
 
 ; <label>:9                                       ; preds = %0
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %2)
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %2)
   br i1 %8, label %10, label %20
 
 ; <label>:10                                      ; preds = %9
-  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable1.52"* @_ZZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_E13stored_vtable to i64), i64* %value, align 8
+  store i64 ptrtoint (%"struct.boost::detail::function::basic_vtable1.60"* @_ZZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS7_EEEEEvT_E13stored_vtable to i64), i64* %value, align 8
   %11 = load i64* %value, align 8
   %12 = inttoptr i64 %11 to %"struct.boost::detail::function::vtable_base"*
-  %13 = bitcast %"class.boost::function1.50"* %5 to %"class.boost::function_base"*
+  %13 = bitcast %"class.boost::function1.58"* %5 to %"class.boost::function_base"*
   %14 = getelementptr inbounds %"class.boost::function_base"* %13, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %12, %"struct.boost::detail::function::vtable_base"** %14, align 8
   br label %23
@@ -14775,14 +18213,14 @@ define linkonce_odr void @_ZN5boost9function1IvNS_10shared_ptrIKN8std_msgs8Float
   store i8* %17, i8** %3
   %18 = extractvalue { i8*, i32 } %16, 1
   store i32 %18, i32* %4
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %2)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %2)
           to label %19 unwind label %29
 
 ; <label>:19                                      ; preds = %15
   br label %24
 
 ; <label>:20                                      ; preds = %9
-  %21 = bitcast %"class.boost::function1.50"* %5 to %"class.boost::function_base"*
+  %21 = bitcast %"class.boost::function1.58"* %5 to %"class.boost::function_base"*
   %22 = getelementptr inbounds %"class.boost::function_base"* %21, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %22, align 8
   br label %23
@@ -14848,37 +18286,37 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
 ; Function Attrs: uwtable
 define linkonce_odr void @_ZN5boost6detail8function26void_function_obj_invoker1INS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEvSA_E6invokeERNS1_15function_bufferESA_(%"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"class.boost::shared_ptr.26"* %a0) #3 align 2 {
   %1 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  %f = alloca %"class.boost::function.30"*, align 8
+  %f = alloca %"class.boost::function.37"*, align 8
   store %"union.boost::detail::function::function_buffer"* %function_obj_ptr, %"union.boost::detail::function::function_buffer"** %1, align 8
   %2 = load %"union.boost::detail::function::function_buffer"** %1, align 8
   %3 = bitcast %"union.boost::detail::function::function_buffer"* %2 to i8**
   %4 = load i8** %3, align 8
-  %5 = bitcast i8* %4 to %"class.boost::function.30"*
-  store %"class.boost::function.30"* %5, %"class.boost::function.30"** %f, align 8
-  %6 = load %"class.boost::function.30"** %f, align 8
-  %7 = bitcast %"class.boost::function.30"* %6 to %"class.boost::function1.31"*
-  call void @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES9_(%"class.boost::function1.31"* %7, %"class.boost::shared_ptr.26"* %a0)
+  %5 = bitcast i8* %4 to %"class.boost::function.37"*
+  store %"class.boost::function.37"* %5, %"class.boost::function.37"** %f, align 8
+  %6 = load %"class.boost::function.37"** %f, align 8
+  %7 = bitcast %"class.boost::function.37"* %6 to %"class.boost::function1.38"*
+  call void @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES9_(%"class.boost::function1.38"* %7, %"class.boost::shared_ptr.26"* %a0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.52"* %this, %"class.boost::function.30"* %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.boost::detail::function::basic_vtable1.52"*, align 8
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.60"* %this, %"class.boost::function.37"* %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.boost::detail::function::basic_vtable1.60"*, align 8
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  %3 = alloca %"class.boost::function.30", align 8
+  %3 = alloca %"class.boost::function.37", align 8
   %4 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
   %5 = alloca i8*
   %6 = alloca i32
-  store %"struct.boost::detail::function::basic_vtable1.52"* %this, %"struct.boost::detail::function::basic_vtable1.52"** %1, align 8
+  store %"struct.boost::detail::function::basic_vtable1.60"* %this, %"struct.boost::detail::function::basic_vtable1.60"** %1, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %7 = load %"struct.boost::detail::function::basic_vtable1.52"** %1
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %3, %"class.boost::function.30"* %f)
+  %7 = load %"struct.boost::detail::function::basic_vtable1.60"** %1
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %3, %"class.boost::function.37"* %f)
   %8 = load %"union.boost::detail::function::function_buffer"** %2, align 8
-  %9 = invoke zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1.52"* %7, %"class.boost::function.30"* %3, %"union.boost::detail::function::function_buffer"* %8)
+  %9 = invoke zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1.60"* %7, %"class.boost::function.37"* %3, %"union.boost::detail::function::function_buffer"* %8)
           to label %10 unwind label %11
 
 ; <label>:10                                      ; preds = %0
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %3)
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %3)
   ret i1 %9
 
 ; <label>:11                                      ; preds = %0
@@ -14888,7 +18326,7 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10
   store i8* %13, i8** %5
   %14 = extractvalue { i8*, i32 } %12, 1
   store i32 %14, i32* %6
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %3)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %3)
           to label %15 unwind label %21
 
 ; <label>:15                                      ; preds = %11
@@ -14910,31 +18348,31 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1.52"* %this, %"class.boost::function.30"* %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE9assign_toINS_8functionIFvRKS9_EEEEEbT_RNS1_15function_bufferENS1_16function_obj_tagE(%"struct.boost::detail::function::basic_vtable1.60"* %this, %"class.boost::function.37"* %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
   %1 = alloca i1, align 1
   %2 = alloca %"struct.boost::detail::function::function_obj_tag", align 1
-  %3 = alloca %"struct.boost::detail::function::basic_vtable1.52"*, align 8
+  %3 = alloca %"struct.boost::detail::function::basic_vtable1.60"*, align 8
   %4 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  %5 = alloca %"class.boost::function.30", align 8
-  %6 = alloca %"struct.mpl_::bool_.58", align 1
+  %5 = alloca %"class.boost::function.37", align 8
+  %6 = alloca %"struct.mpl_::bool_.66", align 1
   %7 = alloca i8*
   %8 = alloca i32
-  store %"struct.boost::detail::function::basic_vtable1.52"* %this, %"struct.boost::detail::function::basic_vtable1.52"** %3, align 8
+  store %"struct.boost::detail::function::basic_vtable1.60"* %this, %"struct.boost::detail::function::basic_vtable1.60"** %3, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %4, align 8
-  %9 = load %"struct.boost::detail::function::basic_vtable1.52"** %3
-  %10 = call %"class.boost::function.30"* @_ZN5boost9addressofINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEEPT_RSD_(%"class.boost::function.30"* %f)
-  %11 = bitcast %"class.boost::function.30"* %10 to %"class.boost::function_base"*
+  %9 = load %"struct.boost::detail::function::basic_vtable1.60"** %3
+  %10 = call %"class.boost::function.37"* @_ZN5boost9addressofINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEEPT_RSD_(%"class.boost::function.37"* %f)
+  %11 = bitcast %"class.boost::function.37"* %10 to %"class.boost::function_base"*
   %12 = call zeroext i1 @_ZN5boost6detail8function16has_empty_targetEPKNS_13function_baseE(%"class.boost::function_base"* %11)
   br i1 %12, label %21, label %13
 
 ; <label>:13                                      ; preds = %0
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %5, %"class.boost::function.30"* %f)
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %5, %"class.boost::function.37"* %f)
   %14 = load %"union.boost::detail::function::function_buffer"** %4, align 8
-  invoke void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_8functionIFvRKS9_EEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb0EEE(%"struct.boost::detail::function::basic_vtable1.52"* %9, %"class.boost::function.30"* %5, %"union.boost::detail::function::function_buffer"* %14)
+  invoke void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_8functionIFvRKS9_EEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb0EEE(%"struct.boost::detail::function::basic_vtable1.60"* %9, %"class.boost::function.37"* %5, %"union.boost::detail::function::function_buffer"* %14)
           to label %15 unwind label %16
 
 ; <label>:15                                      ; preds = %13
-  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %5)
+  call void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %5)
   store i1 true, i1* %1
   br label %22
 
@@ -14945,7 +18383,7 @@ define linkonce_odr zeroext i1 @_ZNK5boost6detail8function13basic_vtable1IvNS_10
   store i8* %18, i8** %7
   %19 = extractvalue { i8*, i32 } %17, 1
   store i32 %19, i32* %8
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %5)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %5)
           to label %20 unwind label %29
 
 ; <label>:20                                      ; preds = %16
@@ -14984,34 +18422,34 @@ define linkonce_odr zeroext i1 @_ZN5boost6detail8function16has_empty_targetEPKNS
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr %"class.boost::function.30"* @_ZN5boost9addressofINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEEPT_RSD_(%"class.boost::function.30"* %v) #3 {
-  %1 = alloca %"class.boost::function.30"*, align 8
-  %2 = alloca %"struct.boost::detail::addr_impl_ref.59", align 8
-  store %"class.boost::function.30"* %v, %"class.boost::function.30"** %1, align 8
-  %3 = load %"class.boost::function.30"** %1, align 8
-  call void @_ZN5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEC2ERSD_(%"struct.boost::detail::addr_impl_ref.59"* %2, %"class.boost::function.30"* %3)
-  %4 = call %"class.boost::function.30"* @_ZNK5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEcvRSD_Ev(%"struct.boost::detail::addr_impl_ref.59"* %2)
-  %5 = call %"class.boost::function.30"* @_ZN5boost6detail14addressof_implINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE1fERSD_l(%"class.boost::function.30"* %4, i64 0)
-  ret %"class.boost::function.30"* %5
+define linkonce_odr %"class.boost::function.37"* @_ZN5boost9addressofINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEEPT_RSD_(%"class.boost::function.37"* %v) #3 {
+  %1 = alloca %"class.boost::function.37"*, align 8
+  %2 = alloca %"struct.boost::detail::addr_impl_ref.67", align 8
+  store %"class.boost::function.37"* %v, %"class.boost::function.37"** %1, align 8
+  %3 = load %"class.boost::function.37"** %1, align 8
+  call void @_ZN5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEC2ERSD_(%"struct.boost::detail::addr_impl_ref.67"* %2, %"class.boost::function.37"* %3)
+  %4 = call %"class.boost::function.37"* @_ZNK5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEcvRSD_Ev(%"struct.boost::detail::addr_impl_ref.67"* %2)
+  %5 = call %"class.boost::function.37"* @_ZN5boost6detail14addressof_implINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE1fERSD_l(%"class.boost::function.37"* %4, i64 0)
+  ret %"class.boost::function.37"* %5
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_8functionIFvRKS9_EEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb0EEE(%"struct.boost::detail::function::basic_vtable1.52"* %this, %"class.boost::function.30"* %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.mpl_::bool_.58", align 1
-  %2 = alloca %"struct.boost::detail::function::basic_vtable1.52"*, align 8
+define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE14assign_functorINS_8functionIFvRKS9_EEEEEvT_RNS1_15function_bufferEN4mpl_5bool_ILb0EEE(%"struct.boost::detail::function::basic_vtable1.60"* %this, %"class.boost::function.37"* %f, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
+  %1 = alloca %"struct.mpl_::bool_.66", align 1
+  %2 = alloca %"struct.boost::detail::function::basic_vtable1.60"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %4 = alloca i8*
   %5 = alloca i32
-  store %"struct.boost::detail::function::basic_vtable1.52"* %this, %"struct.boost::detail::function::basic_vtable1.52"** %2, align 8
+  store %"struct.boost::detail::function::basic_vtable1.60"* %this, %"struct.boost::detail::function::basic_vtable1.60"** %2, align 8
   store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %3, align 8
-  %6 = load %"struct.boost::detail::function::basic_vtable1.52"** %2
+  %6 = load %"struct.boost::detail::function::basic_vtable1.60"** %2
   %7 = call noalias i8* @_Znwm(i64 32) #16
-  %8 = bitcast i8* %7 to %"class.boost::function.30"*
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %8, %"class.boost::function.30"* %f)
+  %8 = bitcast i8* %7 to %"class.boost::function.37"*
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %8, %"class.boost::function.37"* %f)
           to label %9 unwind label %13
 
 ; <label>:9                                       ; preds = %0
-  %10 = bitcast %"class.boost::function.30"* %8 to i8*
+  %10 = bitcast %"class.boost::function.37"* %8 to i8*
   %11 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %12 = bitcast %"union.boost::detail::function::function_buffer"* %11 to i8**
   store i8* %10, i8** %12, align 8
@@ -15036,51 +18474,51 @@ define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvNS_10shared
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"class.boost::function.30"* @_ZN5boost6detail14addressof_implINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE1fERSD_l(%"class.boost::function.30"* %v, i64) #8 align 2 {
-  %2 = alloca %"class.boost::function.30"*, align 8
+define linkonce_odr %"class.boost::function.37"* @_ZN5boost6detail14addressof_implINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE1fERSD_l(%"class.boost::function.37"* %v, i64) #8 align 2 {
+  %2 = alloca %"class.boost::function.37"*, align 8
   %3 = alloca i64, align 8
-  store %"class.boost::function.30"* %v, %"class.boost::function.30"** %2, align 8
+  store %"class.boost::function.37"* %v, %"class.boost::function.37"** %2, align 8
   store i64 %0, i64* %3, align 8
-  %4 = load %"class.boost::function.30"** %2, align 8
-  %5 = bitcast %"class.boost::function.30"* %4 to i8*
-  %6 = bitcast i8* %5 to %"class.boost::function.30"*
-  ret %"class.boost::function.30"* %6
+  %4 = load %"class.boost::function.37"** %2, align 8
+  %5 = bitcast %"class.boost::function.37"* %4 to i8*
+  %6 = bitcast i8* %5 to %"class.boost::function.37"*
+  ret %"class.boost::function.37"* %6
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEC2ERSD_(%"struct.boost::detail::addr_impl_ref.59"* %this, %"class.boost::function.30"* %v) unnamed_addr #8 align 2 {
-  %1 = alloca %"struct.boost::detail::addr_impl_ref.59"*, align 8
-  %2 = alloca %"class.boost::function.30"*, align 8
-  store %"struct.boost::detail::addr_impl_ref.59"* %this, %"struct.boost::detail::addr_impl_ref.59"** %1, align 8
-  store %"class.boost::function.30"* %v, %"class.boost::function.30"** %2, align 8
-  %3 = load %"struct.boost::detail::addr_impl_ref.59"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.59"* %3, i32 0, i32 0
-  %5 = load %"class.boost::function.30"** %2, align 8
-  store %"class.boost::function.30"* %5, %"class.boost::function.30"** %4, align 8
+define linkonce_odr void @_ZN5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEC2ERSD_(%"struct.boost::detail::addr_impl_ref.67"* %this, %"class.boost::function.37"* %v) unnamed_addr #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.67"*, align 8
+  %2 = alloca %"class.boost::function.37"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.67"* %this, %"struct.boost::detail::addr_impl_ref.67"** %1, align 8
+  store %"class.boost::function.37"* %v, %"class.boost::function.37"** %2, align 8
+  %3 = load %"struct.boost::detail::addr_impl_ref.67"** %1
+  %4 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.67"* %3, i32 0, i32 0
+  %5 = load %"class.boost::function.37"** %2, align 8
+  store %"class.boost::function.37"* %5, %"class.boost::function.37"** %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr %"class.boost::function.30"* @_ZNK5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEcvRSD_Ev(%"struct.boost::detail::addr_impl_ref.59"* %this) #8 align 2 {
-  %1 = alloca %"struct.boost::detail::addr_impl_ref.59"*, align 8
-  store %"struct.boost::detail::addr_impl_ref.59"* %this, %"struct.boost::detail::addr_impl_ref.59"** %1, align 8
-  %2 = load %"struct.boost::detail::addr_impl_ref.59"** %1
-  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.59"* %2, i32 0, i32 0
-  %4 = load %"class.boost::function.30"** %3, align 8
-  ret %"class.boost::function.30"* %4
+define linkonce_odr %"class.boost::function.37"* @_ZNK5boost6detail13addr_impl_refINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEEcvRSD_Ev(%"struct.boost::detail::addr_impl_ref.67"* %this) #8 align 2 {
+  %1 = alloca %"struct.boost::detail::addr_impl_ref.67"*, align 8
+  store %"struct.boost::detail::addr_impl_ref.67"* %this, %"struct.boost::detail::addr_impl_ref.67"** %1, align 8
+  %2 = load %"struct.boost::detail::addr_impl_ref.67"** %1
+  %3 = getelementptr inbounds %"struct.boost::detail::addr_impl_ref.67"* %2, i32 0, i32 0
+  %4 = load %"class.boost::function.37"** %3, align 8
+  ret %"class.boost::function.37"* %4
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES9_(%"class.boost::function1.31"* %this, %"class.boost::shared_ptr.26"* %a0) #3 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
+define linkonce_odr void @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEclES9_(%"class.boost::function1.38"* %this, %"class.boost::shared_ptr.26"* %a0) #3 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
   %2 = alloca %"class.boost::shared_ptr.26"*, align 8
   %3 = alloca %"class.boost::bad_function_call", align 8
   %4 = alloca i8*
   %5 = alloca i32
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
   store %"class.boost::shared_ptr.26"* %a0, %"class.boost::shared_ptr.26"** %2, align 8
-  %6 = load %"class.boost::function1.31"** %1
-  %7 = bitcast %"class.boost::function1.31"* %6 to %"class.boost::function_base"*
+  %6 = load %"class.boost::function1.38"** %1
+  %7 = bitcast %"class.boost::function1.38"* %6 to %"class.boost::function_base"*
   %8 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %7)
   br i1 %8, label %9, label %15
 
@@ -15103,10 +18541,10 @@ define linkonce_odr void @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Fl
   br label %22
 
 ; <label>:15                                      ; preds = %0
-  %16 = call %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.31"* %6)
-  %17 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %16, i32 0, i32 1
+  %16 = call %"struct.boost::detail::function::basic_vtable1.48"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.38"* %6)
+  %17 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.48"* %16, i32 0, i32 1
   %18 = load void (%"union.boost::detail::function::function_buffer"*, %"class.boost::shared_ptr.26"*)** %17, align 8
-  %19 = bitcast %"class.boost::function1.31"* %6 to %"class.boost::function_base"*
+  %19 = bitcast %"class.boost::function1.38"* %6 to %"class.boost::function_base"*
   %20 = getelementptr inbounds %"class.boost::function_base"* %19, i32 0, i32 1
   %21 = load %"class.boost::shared_ptr.26"** %2, align 8
   call void %18(%"union.boost::detail::function::function_buffer"* %20, %"class.boost::shared_ptr.26"* %21)
@@ -15126,7 +18564,7 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %4 = alloca i32, align 4
-  %5 = alloca %"struct.mpl_::bool_.58", align 1
+  %5 = alloca %"struct.mpl_::bool_.66", align 1
   store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
   store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %3, align 8
   store i32 %op, i32* %4, align 4
@@ -15139,15 +18577,15 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
 
 ; Function Attrs: inlinehint uwtable
 define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEEE7managerERKNS1_15function_bufferERSG_NS1_30functor_manager_operation_typeEN4mpl_5bool_ILb0EEE(%"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"* %out_buffer, i32 %op) #5 align 2 {
-  %1 = alloca %"struct.mpl_::bool_.58", align 1
+  %1 = alloca %"struct.mpl_::bool_.66", align 1
   %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %3 = alloca %"union.boost::detail::function::function_buffer"*, align 8
   %4 = alloca i32, align 4
-  %f = alloca %"class.boost::function.30"*, align 8
-  %new_f = alloca %"class.boost::function.30"*, align 8
+  %f = alloca %"class.boost::function.37"*, align 8
+  %new_f = alloca %"class.boost::function.37"*, align 8
   %5 = alloca i8*
   %6 = alloca i32
-  %f1 = alloca %"class.boost::function.30"*, align 8
+  %f1 = alloca %"class.boost::function.37"*, align 8
   %check_type = alloca %"class.std::type_info"*, align 8
   store %"union.boost::detail::function::function_buffer"* %in_buffer, %"union.boost::detail::function::function_buffer"** %2, align 8
   store %"union.boost::detail::function::function_buffer"* %out_buffer, %"union.boost::detail::function::function_buffer"** %3, align 8
@@ -15160,18 +18598,18 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
   %10 = load %"union.boost::detail::function::function_buffer"** %2, align 8
   %11 = bitcast %"union.boost::detail::function::function_buffer"* %10 to i8**
   %12 = load i8** %11, align 8
-  %13 = bitcast i8* %12 to %"class.boost::function.30"*
-  store %"class.boost::function.30"* %13, %"class.boost::function.30"** %f, align 8
+  %13 = bitcast i8* %12 to %"class.boost::function.37"*
+  store %"class.boost::function.37"* %13, %"class.boost::function.37"** %f, align 8
   %14 = call noalias i8* @_Znwm(i64 32) #16
-  %15 = bitcast i8* %14 to %"class.boost::function.30"*
-  %16 = load %"class.boost::function.30"** %f, align 8
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.30"* %15, %"class.boost::function.30"* %16)
+  %15 = bitcast i8* %14 to %"class.boost::function.37"*
+  %16 = load %"class.boost::function.37"** %f, align 8
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEEC2ERKSB_(%"class.boost::function.37"* %15, %"class.boost::function.37"* %16)
           to label %17 unwind label %22
 
 ; <label>:17                                      ; preds = %9
-  store %"class.boost::function.30"* %15, %"class.boost::function.30"** %new_f, align 8
-  %18 = load %"class.boost::function.30"** %new_f, align 8
-  %19 = bitcast %"class.boost::function.30"* %18 to i8*
+  store %"class.boost::function.37"* %15, %"class.boost::function.37"** %new_f, align 8
+  %18 = load %"class.boost::function.37"** %new_f, align 8
+  %19 = bitcast %"class.boost::function.37"* %18 to i8*
   %20 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %21 = bitcast %"union.boost::detail::function::function_buffer"* %20 to i8**
   store i8* %19, i8** %21, align 8
@@ -15213,18 +18651,18 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
   %41 = load %"union.boost::detail::function::function_buffer"** %3, align 8
   %42 = bitcast %"union.boost::detail::function::function_buffer"* %41 to i8**
   %43 = load i8** %42, align 8
-  %44 = bitcast i8* %43 to %"class.boost::function.30"*
-  store %"class.boost::function.30"* %44, %"class.boost::function.30"** %f1, align 8
-  %45 = load %"class.boost::function.30"** %f1, align 8
-  %46 = icmp eq %"class.boost::function.30"* %45, null
+  %44 = bitcast i8* %43 to %"class.boost::function.37"*
+  store %"class.boost::function.37"* %44, %"class.boost::function.37"** %f1, align 8
+  %45 = load %"class.boost::function.37"** %f1, align 8
+  %46 = icmp eq %"class.boost::function.37"* %45, null
   br i1 %46, label %50, label %47
 
 ; <label>:47                                      ; preds = %40
-  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.30"* %45)
+  invoke void @_ZN5boost8functionIFvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEED2Ev(%"class.boost::function.37"* %45)
           to label %48 unwind label %53
 
 ; <label>:48                                      ; preds = %47
-  %49 = bitcast %"class.boost::function.30"* %45 to i8*
+  %49 = bitcast %"class.boost::function.37"* %45 to i8*
   call void @_ZdlPv(i8* %49) #18
   br label %50
 
@@ -15241,7 +18679,7 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
   store i8* %55, i8** %5
   %56 = extractvalue { i8*, i32 } %54, 1
   store i32 %56, i32* %6
-  %57 = bitcast %"class.boost::function.30"* %45 to i8*
+  %57 = bitcast %"class.boost::function.37"* %45 to i8*
   call void @_ZdlPv(i8* %57) #18
   br label %95
 
@@ -15317,49 +18755,49 @@ define linkonce_odr void @_ZN5boost6detail8function15functor_managerINS_8functio
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKSA_(%"class.boost::function1.31"* %this, %"class.boost::function1.31"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
-  %2 = alloca %"class.boost::function1.31"*, align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
-  store %"class.boost::function1.31"* %f, %"class.boost::function1.31"** %2, align 8
-  %3 = load %"class.boost::function1.31"** %1
-  %4 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEEC2ERKSA_(%"class.boost::function1.38"* %this, %"class.boost::function1.38"* %f) unnamed_addr #3 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
+  %2 = alloca %"class.boost::function1.38"*, align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
+  store %"class.boost::function1.38"* %f, %"class.boost::function1.38"** %2, align 8
+  %3 = load %"class.boost::function1.38"** %1
+  %4 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %4)
-  %5 = bitcast %"class.boost::function1.31"* %3 to %"struct.std::unary_function.32"*
-  %6 = load %"class.boost::function1.31"** %2, align 8
-  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKSA_(%"class.boost::function1.31"* %3, %"class.boost::function1.31"* %6)
+  %5 = bitcast %"class.boost::function1.38"* %3 to %"struct.std::unary_function.39"*
+  %6 = load %"class.boost::function1.38"** %2, align 8
+  call void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKSA_(%"class.boost::function1.38"* %3, %"class.boost::function1.38"* %6)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKSA_(%"class.boost::function1.31"* %this, %"class.boost::function1.31"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function1.31"*, align 8
-  %2 = alloca %"class.boost::function1.31"*, align 8
-  store %"class.boost::function1.31"* %this, %"class.boost::function1.31"** %1, align 8
-  store %"class.boost::function1.31"* %f, %"class.boost::function1.31"** %2, align 8
-  %3 = load %"class.boost::function1.31"** %1
-  %4 = load %"class.boost::function1.31"** %2, align 8
-  %5 = bitcast %"class.boost::function1.31"* %4 to %"class.boost::function_base"*
+define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE13assign_to_ownERKSA_(%"class.boost::function1.38"* %this, %"class.boost::function1.38"* %f) #3 align 2 {
+  %1 = alloca %"class.boost::function1.38"*, align 8
+  %2 = alloca %"class.boost::function1.38"*, align 8
+  store %"class.boost::function1.38"* %this, %"class.boost::function1.38"** %1, align 8
+  store %"class.boost::function1.38"* %f, %"class.boost::function1.38"** %2, align 8
+  %3 = load %"class.boost::function1.38"** %1
+  %4 = load %"class.boost::function1.38"** %2, align 8
+  %5 = bitcast %"class.boost::function1.38"* %4 to %"class.boost::function_base"*
   %6 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %5)
   br i1 %6, label %35, label %7
 
 ; <label>:7                                       ; preds = %0
-  %8 = load %"class.boost::function1.31"** %2, align 8
-  %9 = bitcast %"class.boost::function1.31"* %8 to %"class.boost::function_base"*
+  %8 = load %"class.boost::function1.38"** %2, align 8
+  %9 = bitcast %"class.boost::function1.38"* %8 to %"class.boost::function_base"*
   %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 0
   %11 = load %"struct.boost::detail::function::vtable_base"** %10, align 8
-  %12 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %12 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 0
   store %"struct.boost::detail::function::vtable_base"* %11, %"struct.boost::detail::function::vtable_base"** %13, align 8
-  %14 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %14 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %15 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %14)
   br i1 %15, label %16, label %24
 
 ; <label>:16                                      ; preds = %7
-  %17 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %17 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %18 = getelementptr inbounds %"class.boost::function_base"* %17, i32 0, i32 1
-  %19 = load %"class.boost::function1.31"** %2, align 8
-  %20 = bitcast %"class.boost::function1.31"* %19 to %"class.boost::function_base"*
+  %19 = load %"class.boost::function1.38"** %2, align 8
+  %20 = bitcast %"class.boost::function1.38"* %19 to %"class.boost::function_base"*
   %21 = getelementptr inbounds %"class.boost::function_base"* %20, i32 0, i32 1
   %22 = bitcast %"union.boost::detail::function::function_buffer"* %18 to i8*
   %23 = bitcast %"union.boost::detail::function::function_buffer"* %21 to i8*
@@ -15367,14 +18805,14 @@ define linkonce_odr void @_ZN5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Flo
   br label %34
 
 ; <label>:24                                      ; preds = %7
-  %25 = call %"struct.boost::detail::function::basic_vtable1"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.31"* %3)
-  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1"* %25, i32 0, i32 0
+  %25 = call %"struct.boost::detail::function::basic_vtable1.48"* @_ZNK5boost9function1IvRKNS_10shared_ptrIKN8std_msgs8Float64_ISaIvEEEEEE10get_vtableEv(%"class.boost::function1.38"* %3)
+  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.48"* %25, i32 0, i32 0
   %27 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %26, i32 0, i32 0
   %28 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %27, align 8
-  %29 = load %"class.boost::function1.31"** %2, align 8
-  %30 = bitcast %"class.boost::function1.31"* %29 to %"class.boost::function_base"*
+  %29 = load %"class.boost::function1.38"** %2, align 8
+  %30 = bitcast %"class.boost::function1.38"* %29 to %"class.boost::function_base"*
   %31 = getelementptr inbounds %"class.boost::function_base"* %30, i32 0, i32 1
-  %32 = bitcast %"class.boost::function1.31"* %3 to %"class.boost::function_base"*
+  %32 = bitcast %"class.boost::function1.38"* %3 to %"class.boost::function_base"*
   %33 = getelementptr inbounds %"class.boost::function_base"* %32, i32 0, i32 1
   call void %28(%"union.boost::detail::function::function_buffer"* %31, %"union.boost::detail::function::function_buffer"* %33, i32 0)
   br label %34
@@ -15450,12 +18888,12 @@ define linkonce_odr void @_ZSt4swapIPN3ros26SubscriptionCallbackHelperEEvRT_S4_(
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits8DataTypeIN8std_msgs8Float64_ISaIvEEEE5valueEv() #2 align 2 {
-  ret i8* getelementptr inbounds ([17 x i8]* @.str36, i32 0, i32 0)
+  ret i8* getelementptr inbounds ([17 x i8]* @.str40, i32 0, i32 0)
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs8Float64_ISaIvEEEE5valueEv() #2 align 2 {
-  ret i8* getelementptr inbounds ([33 x i8]* @.str37, i32 0, i32 0)
+  ret i8* getelementptr inbounds ([33 x i8]* @.str41, i32 0, i32 0)
 }
 
 ; Function Attrs: uwtable
@@ -15468,159 +18906,6 @@ define linkonce_odr void @_ZN5boost10shared_ptrIN3ros26SubscriptionCallbackHelpe
   %4 = getelementptr inbounds %"class.boost::shared_ptr.20"* %2, i32 0, i32 1
   call void @_ZN5boost6detail12shared_countC2Ev(%"class.boost::detail::shared_count"* %4)
   ret void
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN3ros16AdvertiseOptionsC2Ev(%"struct.ros::AdvertiseOptions"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"struct.ros::AdvertiseOptions"*, align 8
-  %2 = alloca i8*
-  %3 = alloca i32
-  store %"struct.ros::AdvertiseOptions"* %this, %"struct.ros::AdvertiseOptions"** %1, align 8
-  %4 = load %"struct.ros::AdvertiseOptions"** %1
-  %5 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 0
-  call void @_ZNSsC1Ev(%"class.std::basic_string"* %5)
-  %6 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 2
-  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %6)
-          to label %7 unwind label %20
-
-; <label>:7                                       ; preds = %0
-  %8 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 3
-  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %8)
-          to label %9 unwind label %24
-
-; <label>:9                                       ; preds = %7
-  %10 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 4
-  invoke void @_ZNSsC1Ev(%"class.std::basic_string"* %10)
-          to label %11 unwind label %28
-
-; <label>:11                                      ; preds = %9
-  %12 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 5
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %12)
-          to label %13 unwind label %32
-
-; <label>:13                                      ; preds = %11
-  %14 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 6
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %14)
-          to label %15 unwind label %36
-
-; <label>:15                                      ; preds = %13
-  %16 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 7
-  store %"class.ros::CallbackQueueInterface"* null, %"class.ros::CallbackQueueInterface"** %16, align 8
-  %17 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 8
-  invoke void @_ZN5boost10shared_ptrIKvEC2Ev(%"class.boost::shared_ptr.27"* %17)
-          to label %18 unwind label %40
-
-; <label>:18                                      ; preds = %15
-  %19 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 9
-  store i8 0, i8* %19, align 1
-  ret void
-
-; <label>:20                                      ; preds = %0
-  %21 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %22 = extractvalue { i8*, i32 } %21, 0
-  store i8* %22, i8** %2
-  %23 = extractvalue { i8*, i32 } %21, 1
-  store i32 %23, i32* %3
-  br label %53
-
-; <label>:24                                      ; preds = %7
-  %25 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %26 = extractvalue { i8*, i32 } %25, 0
-  store i8* %26, i8** %2
-  %27 = extractvalue { i8*, i32 } %25, 1
-  store i32 %27, i32* %3
-  br label %51
-
-; <label>:28                                      ; preds = %9
-  %29 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %30 = extractvalue { i8*, i32 } %29, 0
-  store i8* %30, i8** %2
-  %31 = extractvalue { i8*, i32 } %29, 1
-  store i32 %31, i32* %3
-  br label %49
-
-; <label>:32                                      ; preds = %11
-  %33 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %34 = extractvalue { i8*, i32 } %33, 0
-  store i8* %34, i8** %2
-  %35 = extractvalue { i8*, i32 } %33, 1
-  store i32 %35, i32* %3
-  br label %47
-
-; <label>:36                                      ; preds = %13
-  %37 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %38 = extractvalue { i8*, i32 } %37, 0
-  store i8* %38, i8** %2
-  %39 = extractvalue { i8*, i32 } %37, 1
-  store i32 %39, i32* %3
-  br label %45
-
-; <label>:40                                      ; preds = %15
-  %41 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %42 = extractvalue { i8*, i32 } %41, 0
-  store i8* %42, i8** %2
-  %43 = extractvalue { i8*, i32 } %41, 1
-  store i32 %43, i32* %3
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %14)
-          to label %44 unwind label %60
-
-; <label>:44                                      ; preds = %40
-  br label %45
-
-; <label>:45                                      ; preds = %44, %36
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %12)
-          to label %46 unwind label %60
-
-; <label>:46                                      ; preds = %45
-  br label %47
-
-; <label>:47                                      ; preds = %46, %32
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %10)
-          to label %48 unwind label %60
-
-; <label>:48                                      ; preds = %47
-  br label %49
-
-; <label>:49                                      ; preds = %48, %28
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %8)
-          to label %50 unwind label %60
-
-; <label>:50                                      ; preds = %49
-  br label %51
-
-; <label>:51                                      ; preds = %50, %24
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %6)
-          to label %52 unwind label %60
-
-; <label>:52                                      ; preds = %51
-  br label %53
-
-; <label>:53                                      ; preds = %52, %20
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %5)
-          to label %54 unwind label %60
-
-; <label>:54                                      ; preds = %53
-  br label %55
-
-; <label>:55                                      ; preds = %54
-  %56 = load i8** %2
-  %57 = load i32* %3
-  %58 = insertvalue { i8*, i32 } undef, i8* %56, 0
-  %59 = insertvalue { i8*, i32 } %58, i32 %57, 1
-  resume { i8*, i32 } %59
-
-; <label>:60                                      ; preds = %53, %51, %49, %47, %45, %40
-  %61 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          catch i8* null
-  %62 = extractvalue { i8*, i32 } %61, 0
-  call void @__clang_call_terminate(i8* %62) #14
-  unreachable
 }
 
 ; Function Attrs: uwtable
@@ -15664,305 +18949,6 @@ define linkonce_odr void @_ZN3ros16AdvertiseOptions4initIN8std_msgs7String_ISaIv
   ret void
 }
 
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2Ev(%"class.boost::function"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function"*, align 8
-  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
-  %2 = load %"class.boost::function"** %1
-  %3 = bitcast %"class.boost::function"* %2 to %"class.boost::function1"*
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2Ev(%"class.boost::function1"* %3)
-  ret void
-}
-
-; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"class.boost::function"*, align 8
-  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
-  %2 = load %"class.boost::function"** %1
-  %3 = bitcast %"class.boost::function"* %2 to %"class.boost::function1"*
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %3)
-  ret void
-}
-
-declare void @_ZN3ros10NodeHandle9advertiseERNS_16AdvertiseOptionsE(%"class.ros::Publisher"* sret, %"class.ros::NodeHandle"*, %"struct.ros::AdvertiseOptions"*) #0
-
-; Function Attrs: inlinehint uwtable
-define linkonce_odr void @_ZN3ros16AdvertiseOptionsD2Ev(%"struct.ros::AdvertiseOptions"* %this) unnamed_addr #5 align 2 {
-  %1 = alloca %"struct.ros::AdvertiseOptions"*, align 8
-  %2 = alloca i8*
-  %3 = alloca i32
-  store %"struct.ros::AdvertiseOptions"* %this, %"struct.ros::AdvertiseOptions"** %1, align 8
-  %4 = load %"struct.ros::AdvertiseOptions"** %1
-  %5 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 8
-  invoke void @_ZN5boost10shared_ptrIKvED2Ev(%"class.boost::shared_ptr.27"* %5)
-          to label %6 unwind label %18
-
-; <label>:6                                       ; preds = %0
-  %7 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 6
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %7)
-          to label %8 unwind label %23
-
-; <label>:8                                       ; preds = %6
-  %9 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 5
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %9)
-          to label %10 unwind label %28
-
-; <label>:10                                      ; preds = %8
-  %11 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 4
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %11)
-          to label %12 unwind label %35
-
-; <label>:12                                      ; preds = %10
-  %13 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 3
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %13)
-          to label %14 unwind label %42
-
-; <label>:14                                      ; preds = %12
-  %15 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 2
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %15)
-          to label %16 unwind label %49
-
-; <label>:16                                      ; preds = %14
-  %17 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 0
-  call void @_ZNSsD1Ev(%"class.std::basic_string"* %17)
-  ret void
-
-; <label>:18                                      ; preds = %0
-  %19 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %20 = extractvalue { i8*, i32 } %19, 0
-  store i8* %20, i8** %2
-  %21 = extractvalue { i8*, i32 } %19, 1
-  store i32 %21, i32* %3
-  %22 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 6
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %22)
-          to label %27 unwind label %64
-
-; <label>:23                                      ; preds = %6
-  %24 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %25 = extractvalue { i8*, i32 } %24, 0
-  store i8* %25, i8** %2
-  %26 = extractvalue { i8*, i32 } %24, 1
-  store i32 %26, i32* %3
-  br label %32
-
-; <label>:27                                      ; preds = %18
-  br label %32
-
-; <label>:28                                      ; preds = %8
-  %29 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %30 = extractvalue { i8*, i32 } %29, 0
-  store i8* %30, i8** %2
-  %31 = extractvalue { i8*, i32 } %29, 1
-  store i32 %31, i32* %3
-  br label %39
-
-; <label>:32                                      ; preds = %27, %23
-  %33 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 5
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %33)
-          to label %34 unwind label %64
-
-; <label>:34                                      ; preds = %32
-  br label %39
-
-; <label>:35                                      ; preds = %10
-  %36 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %37 = extractvalue { i8*, i32 } %36, 0
-  store i8* %37, i8** %2
-  %38 = extractvalue { i8*, i32 } %36, 1
-  store i32 %38, i32* %3
-  br label %46
-
-; <label>:39                                      ; preds = %34, %28
-  %40 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 4
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %40)
-          to label %41 unwind label %64
-
-; <label>:41                                      ; preds = %39
-  br label %46
-
-; <label>:42                                      ; preds = %12
-  %43 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %44 = extractvalue { i8*, i32 } %43, 0
-  store i8* %44, i8** %2
-  %45 = extractvalue { i8*, i32 } %43, 1
-  store i32 %45, i32* %3
-  br label %53
-
-; <label>:46                                      ; preds = %41, %35
-  %47 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 3
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %47)
-          to label %48 unwind label %64
-
-; <label>:48                                      ; preds = %46
-  br label %53
-
-; <label>:49                                      ; preds = %14
-  %50 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %51 = extractvalue { i8*, i32 } %50, 0
-  store i8* %51, i8** %2
-  %52 = extractvalue { i8*, i32 } %50, 1
-  store i32 %52, i32* %3
-  br label %56
-
-; <label>:53                                      ; preds = %48, %42
-  %54 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 2
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %54)
-          to label %55 unwind label %64
-
-; <label>:55                                      ; preds = %53
-  br label %56
-
-; <label>:56                                      ; preds = %55, %49
-  %57 = getelementptr inbounds %"struct.ros::AdvertiseOptions"* %4, i32 0, i32 0
-  invoke void @_ZNSsD1Ev(%"class.std::basic_string"* %57)
-          to label %58 unwind label %64
-
-; <label>:58                                      ; preds = %56
-  br label %59
-
-; <label>:59                                      ; preds = %58
-  %60 = load i8** %2
-  %61 = load i32* %3
-  %62 = insertvalue { i8*, i32 } undef, i8* %60, 0
-  %63 = insertvalue { i8*, i32 } %62, i32 %61, 1
-  resume { i8*, i32 } %63
-
-; <label>:64                                      ; preds = %56, %53, %46, %39, %32, %18
-  %65 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          catch i8* null
-  %66 = extractvalue { i8*, i32 } %65, 0
-  call void @__clang_call_terminate(i8* %66) #14
-  unreachable
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE5clearEv(%"class.boost::function1"* %this) #3 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  %2 = load %"class.boost::function1"** %1
-  %3 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
-  %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
-  %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
-  %6 = icmp ne %"struct.boost::detail::function::vtable_base"* %5, null
-  br i1 %6, label %7, label %17
-
-; <label>:7                                       ; preds = %0
-  %8 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
-  %9 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %8)
-  br i1 %9, label %14, label %10
-
-; <label>:10                                      ; preds = %7
-  %11 = call %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %2)
-  %12 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
-  %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 1
-  call void @_ZNK5boost6detail8function13basic_vtable1IvRKN3ros25SingleSubscriberPublisherEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.60"* %11, %"union.boost::detail::function::function_buffer"* %13)
-  br label %14
-
-; <label>:14                                      ; preds = %10, %7
-  %15 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
-  %16 = getelementptr inbounds %"class.boost::function_base"* %15, i32 0, i32 0
-  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %16, align 8
-  br label %17
-
-; <label>:17                                      ; preds = %14, %0
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %this) #2 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  %2 = load %"class.boost::function1"** %1
-  %3 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
-  %4 = getelementptr inbounds %"class.boost::function_base"* %3, i32 0, i32 0
-  %5 = load %"struct.boost::detail::function::vtable_base"** %4, align 8
-  %6 = ptrtoint %"struct.boost::detail::function::vtable_base"* %5 to i64
-  %7 = and i64 %6, -2
-  %8 = inttoptr i64 %7 to %"struct.boost::detail::function::basic_vtable1.60"*
-  ret %"struct.boost::detail::function::basic_vtable1.60"* %8
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZNK5boost6detail8function13basic_vtable1IvRKN3ros25SingleSubscriberPublisherEE5clearERNS1_15function_bufferE(%"struct.boost::detail::function::basic_vtable1.60"* %this, %"union.boost::detail::function::function_buffer"* %functor) #3 align 2 {
-  %1 = alloca %"struct.boost::detail::function::basic_vtable1.60"*, align 8
-  %2 = alloca %"union.boost::detail::function::function_buffer"*, align 8
-  store %"struct.boost::detail::function::basic_vtable1.60"* %this, %"struct.boost::detail::function::basic_vtable1.60"** %1, align 8
-  store %"union.boost::detail::function::function_buffer"* %functor, %"union.boost::detail::function::function_buffer"** %2, align 8
-  %3 = load %"struct.boost::detail::function::basic_vtable1.60"** %1
-  %4 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %4, i32 0, i32 0
-  %6 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %5, align 8
-  %7 = icmp ne void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)* %6, null
-  br i1 %7, label %8, label %14
-
-; <label>:8                                       ; preds = %0
-  %9 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %3, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %9, i32 0, i32 0
-  %11 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %10, align 8
-  %12 = load %"union.boost::detail::function::function_buffer"** %2, align 8
-  %13 = load %"union.boost::detail::function::function_buffer"** %2, align 8
-  call void %11(%"union.boost::detail::function::function_buffer"* %12, %"union.boost::detail::function::function_buffer"* %13, i32 2)
-  br label %14
-
-; <label>:14                                      ; preds = %8, %0
-  ret void
-}
-
-; Function Attrs: uwtable
-define linkonce_odr %"class.boost::function"* @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEaSERKS6_(%"class.boost::function"* %this, %"class.boost::function"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function"*, align 8
-  %2 = alloca %"class.boost::function"*, align 8
-  %3 = alloca %"class.boost::function", align 8
-  %4 = alloca i8*
-  %5 = alloca i32
-  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
-  store %"class.boost::function"* %f, %"class.boost::function"** %2, align 8
-  %6 = load %"class.boost::function"** %1
-  %7 = load %"class.boost::function"** %2, align 8
-  call void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2ERKS6_(%"class.boost::function"* %3, %"class.boost::function"* %7)
-  %8 = bitcast %"class.boost::function"* %3 to %"class.boost::function1"*
-  %9 = bitcast %"class.boost::function"* %6 to %"class.boost::function1"*
-  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE4swapERS5_(%"class.boost::function1"* %8, %"class.boost::function1"* %9)
-          to label %10 unwind label %11
-
-; <label>:10                                      ; preds = %0
-  call void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %3)
-  ret %"class.boost::function"* %6
-
-; <label>:11                                      ; preds = %0
-  %12 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %13 = extractvalue { i8*, i32 } %12, 0
-  store i8* %13, i8** %4
-  %14 = extractvalue { i8*, i32 } %12, 1
-  store i32 %14, i32* %5
-  invoke void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEED2Ev(%"class.boost::function"* %3)
-          to label %15 unwind label %21
-
-; <label>:15                                      ; preds = %11
-  br label %16
-
-; <label>:16                                      ; preds = %15
-  %17 = load i8** %4
-  %18 = load i32* %5
-  %19 = insertvalue { i8*, i32 } undef, i8* %17, 0
-  %20 = insertvalue { i8*, i32 } %19, i32 %18, 1
-  resume { i8*, i32 } %20
-
-; <label>:21                                      ; preds = %11
-  %22 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          catch i8* null
-  %23 = extractvalue { i8*, i32 } %22, 0
-  call void @__clang_call_terminate(i8* %23) #14
-  unreachable
-}
-
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits6md5sumIN8std_msgs7String_ISaIvEEEEEPKcv() #8 {
   %1 = call i8* @_ZN3ros14message_traits6MD5SumIN8std_msgs7String_ISaIvEEEE5valueEv()
@@ -15988,317 +18974,7 @@ define linkonce_odr zeroext i1 @_ZN3ros14message_traits9hasHeaderIN8std_msgs7Str
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr i8* @_ZN3ros14message_traits10DefinitionIN8std_msgs7String_ISaIvEEEE5valueEv() #2 align 2 {
-  ret i8* getelementptr inbounds ([13 x i8]* @.str38, i32 0, i32 0)
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost8functionIFvRKN3ros25SingleSubscriberPublisherEEEC2ERKS6_(%"class.boost::function"* %this, %"class.boost::function"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function"*, align 8
-  %2 = alloca %"class.boost::function"*, align 8
-  store %"class.boost::function"* %this, %"class.boost::function"** %1, align 8
-  store %"class.boost::function"* %f, %"class.boost::function"** %2, align 8
-  %3 = load %"class.boost::function"** %1
-  %4 = bitcast %"class.boost::function"* %3 to %"class.boost::function1"*
-  %5 = load %"class.boost::function"** %2, align 8
-  %6 = bitcast %"class.boost::function"* %5 to %"class.boost::function1"*
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2ERKS5_(%"class.boost::function1"* %4, %"class.boost::function1"* %6)
-  ret void
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE4swapERS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %other) #3 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  %2 = alloca %"class.boost::function1"*, align 8
-  %tmp = alloca %"class.boost::function1", align 8
-  %3 = alloca i8*
-  %4 = alloca i32
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  store %"class.boost::function1"* %other, %"class.boost::function1"** %2, align 8
-  %5 = load %"class.boost::function1"** %1
-  %6 = load %"class.boost::function1"** %2, align 8
-  %7 = icmp eq %"class.boost::function1"* %6, %5
-  br i1 %7, label %8, label %9
-
-; <label>:8                                       ; preds = %0
-  br label %15
-
-; <label>:9                                       ; preds = %0
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2Ev(%"class.boost::function1"* %tmp)
-  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %tmp, %"class.boost::function1"* %5)
-          to label %10 unwind label %16
-
-; <label>:10                                      ; preds = %9
-  %11 = load %"class.boost::function1"** %2, align 8
-  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %5, %"class.boost::function1"* %11)
-          to label %12 unwind label %16
-
-; <label>:12                                      ; preds = %10
-  %13 = load %"class.boost::function1"** %2, align 8
-  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %13, %"class.boost::function1"* %tmp)
-          to label %14 unwind label %16
-
-; <label>:14                                      ; preds = %12
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %tmp)
-  br label %15
-
-; <label>:15                                      ; preds = %14, %8
-  ret void
-
-; <label>:16                                      ; preds = %12, %10, %9
-  %17 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %18 = extractvalue { i8*, i32 } %17, 0
-  store i8* %18, i8** %3
-  %19 = extractvalue { i8*, i32 } %17, 1
-  store i32 %19, i32* %4
-  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %tmp)
-          to label %20 unwind label %26
-
-; <label>:20                                      ; preds = %16
-  br label %21
-
-; <label>:21                                      ; preds = %20
-  %22 = load i8** %3
-  %23 = load i32* %4
-  %24 = insertvalue { i8*, i32 } undef, i8* %22, 0
-  %25 = insertvalue { i8*, i32 } %24, i32 %23, 1
-  resume { i8*, i32 } %25
-
-; <label>:26                                      ; preds = %16
-  %27 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          catch i8* null
-  %28 = extractvalue { i8*, i32 } %27, 0
-  call void @__clang_call_terminate(i8* %28) #14
-  unreachable
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2Ev(%"class.boost::function1"* %this) unnamed_addr #2 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  %2 = load %"class.boost::function1"** %1
-  %3 = bitcast %"class.boost::function1"* %2 to %"class.boost::function_base"*
-  call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %3)
-  %4 = bitcast %"class.boost::function1"* %2 to %"struct.std::unary_function"*
-  ret void
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE11move_assignERS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  %2 = alloca %"class.boost::function1"*, align 8
-  %3 = alloca i8*
-  %4 = alloca i32
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  store %"class.boost::function1"* %f, %"class.boost::function1"** %2, align 8
-  %5 = load %"class.boost::function1"** %1
-  %6 = load %"class.boost::function1"** %2, align 8
-  %7 = icmp eq %"class.boost::function1"* %6, %5
-  br i1 %7, label %8, label %9
-
-; <label>:8                                       ; preds = %0
-  br label %65
-
-; <label>:9                                       ; preds = %0
-  %10 = load %"class.boost::function1"** %2, align 8
-  %11 = bitcast %"class.boost::function1"* %10 to %"class.boost::function_base"*
-  %12 = invoke zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %11)
-          to label %13 unwind label %32
-
-; <label>:13                                      ; preds = %9
-  br i1 %12, label %57, label %14
-
-; <label>:14                                      ; preds = %13
-  %15 = load %"class.boost::function1"** %2, align 8
-  %16 = bitcast %"class.boost::function1"* %15 to %"class.boost::function_base"*
-  %17 = getelementptr inbounds %"class.boost::function_base"* %16, i32 0, i32 0
-  %18 = load %"struct.boost::detail::function::vtable_base"** %17, align 8
-  %19 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
-  %20 = getelementptr inbounds %"class.boost::function_base"* %19, i32 0, i32 0
-  store %"struct.boost::detail::function::vtable_base"* %18, %"struct.boost::detail::function::vtable_base"** %20, align 8
-  %21 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
-  %22 = invoke zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %21)
-          to label %23 unwind label %32
-
-; <label>:23                                      ; preds = %14
-  br i1 %22, label %24, label %41
-
-; <label>:24                                      ; preds = %23
-  %25 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
-  %26 = getelementptr inbounds %"class.boost::function_base"* %25, i32 0, i32 1
-  %27 = load %"class.boost::function1"** %2, align 8
-  %28 = bitcast %"class.boost::function1"* %27 to %"class.boost::function_base"*
-  %29 = getelementptr inbounds %"class.boost::function_base"* %28, i32 0, i32 1
-  %30 = bitcast %"union.boost::detail::function::function_buffer"* %26 to i8*
-  %31 = bitcast %"union.boost::detail::function::function_buffer"* %29 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %30, i8* %31, i64 24, i32 8, i1 false)
-  br label %53
-
-; <label>:32                                      ; preds = %57, %43, %41, %14, %9
-  %33 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          catch i8* null
-  %34 = extractvalue { i8*, i32 } %33, 0
-  store i8* %34, i8** %3
-  %35 = extractvalue { i8*, i32 } %33, 1
-  store i32 %35, i32* %4
-  br label %36
-
-; <label>:36                                      ; preds = %32
-  %37 = load i8** %3
-  %38 = call i8* @__cxa_begin_catch(i8* %37) #1
-  %39 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
-  %40 = getelementptr inbounds %"class.boost::function_base"* %39, i32 0, i32 0
-  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %40, align 8
-  invoke void @__cxa_rethrow() #19
-          to label %74 unwind label %60
-
-; <label>:41                                      ; preds = %23
-  %42 = invoke %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %5)
-          to label %43 unwind label %32
-
-; <label>:43                                      ; preds = %41
-  %44 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %42, i32 0, i32 0
-  %45 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %44, i32 0, i32 0
-  %46 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %45, align 8
-  %47 = load %"class.boost::function1"** %2, align 8
-  %48 = bitcast %"class.boost::function1"* %47 to %"class.boost::function_base"*
-  %49 = getelementptr inbounds %"class.boost::function_base"* %48, i32 0, i32 1
-  %50 = bitcast %"class.boost::function1"* %5 to %"class.boost::function_base"*
-  %51 = getelementptr inbounds %"class.boost::function_base"* %50, i32 0, i32 1
-  invoke void %46(%"union.boost::detail::function::function_buffer"* %49, %"union.boost::detail::function::function_buffer"* %51, i32 1)
-          to label %52 unwind label %32
-
-; <label>:52                                      ; preds = %43
-  br label %53
-
-; <label>:53                                      ; preds = %52, %24
-  %54 = load %"class.boost::function1"** %2, align 8
-  %55 = bitcast %"class.boost::function1"* %54 to %"class.boost::function_base"*
-  %56 = getelementptr inbounds %"class.boost::function_base"* %55, i32 0, i32 0
-  store %"struct.boost::detail::function::vtable_base"* null, %"struct.boost::detail::function::vtable_base"** %56, align 8
-  br label %59
-
-; <label>:57                                      ; preds = %13
-  invoke void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE5clearEv(%"class.boost::function1"* %5)
-          to label %58 unwind label %32
-
-; <label>:58                                      ; preds = %57
-  br label %59
-
-; <label>:59                                      ; preds = %58, %53
-  br label %65
-
-; <label>:60                                      ; preds = %36
-  %61 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          cleanup
-  %62 = extractvalue { i8*, i32 } %61, 0
-  store i8* %62, i8** %3
-  %63 = extractvalue { i8*, i32 } %61, 1
-  store i32 %63, i32* %4
-  invoke void @__cxa_end_catch()
-          to label %64 unwind label %71
-
-; <label>:64                                      ; preds = %60
-  br label %66
-
-; <label>:65                                      ; preds = %8, %59
-  ret void
-
-; <label>:66                                      ; preds = %64
-  %67 = load i8** %3
-  %68 = load i32* %4
-  %69 = insertvalue { i8*, i32 } undef, i8* %67, 0
-  %70 = insertvalue { i8*, i32 } %69, i32 %68, 1
-  resume { i8*, i32 } %70
-
-; <label>:71                                      ; preds = %60
-  %72 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
-          catch i8* null
-  %73 = extractvalue { i8*, i32 } %72, 0
-  call void @__clang_call_terminate(i8* %73) #14
-  unreachable
-
-; <label>:74                                      ; preds = %36
-  unreachable
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEED2Ev(%"class.boost::function1"* %this) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  %2 = load %"class.boost::function1"** %1
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE5clearEv(%"class.boost::function1"* %2)
-  ret void
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEEC2ERKS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %f) unnamed_addr #3 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  %2 = alloca %"class.boost::function1"*, align 8
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  store %"class.boost::function1"* %f, %"class.boost::function1"** %2, align 8
-  %3 = load %"class.boost::function1"** %1
-  %4 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
-  call void @_ZN5boost13function_baseC2Ev(%"class.boost::function_base"* %4)
-  %5 = bitcast %"class.boost::function1"* %3 to %"struct.std::unary_function"*
-  %6 = load %"class.boost::function1"** %2, align 8
-  call void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE13assign_to_ownERKS5_(%"class.boost::function1"* %3, %"class.boost::function1"* %6)
-  ret void
-}
-
-; Function Attrs: uwtable
-define linkonce_odr void @_ZN5boost9function1IvRKN3ros25SingleSubscriberPublisherEE13assign_to_ownERKS5_(%"class.boost::function1"* %this, %"class.boost::function1"* %f) #3 align 2 {
-  %1 = alloca %"class.boost::function1"*, align 8
-  %2 = alloca %"class.boost::function1"*, align 8
-  store %"class.boost::function1"* %this, %"class.boost::function1"** %1, align 8
-  store %"class.boost::function1"* %f, %"class.boost::function1"** %2, align 8
-  %3 = load %"class.boost::function1"** %1
-  %4 = load %"class.boost::function1"** %2, align 8
-  %5 = bitcast %"class.boost::function1"* %4 to %"class.boost::function_base"*
-  %6 = call zeroext i1 @_ZNK5boost13function_base5emptyEv(%"class.boost::function_base"* %5)
-  br i1 %6, label %35, label %7
-
-; <label>:7                                       ; preds = %0
-  %8 = load %"class.boost::function1"** %2, align 8
-  %9 = bitcast %"class.boost::function1"* %8 to %"class.boost::function_base"*
-  %10 = getelementptr inbounds %"class.boost::function_base"* %9, i32 0, i32 0
-  %11 = load %"struct.boost::detail::function::vtable_base"** %10, align 8
-  %12 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
-  %13 = getelementptr inbounds %"class.boost::function_base"* %12, i32 0, i32 0
-  store %"struct.boost::detail::function::vtable_base"* %11, %"struct.boost::detail::function::vtable_base"** %13, align 8
-  %14 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
-  %15 = call zeroext i1 @_ZNK5boost13function_base28has_trivial_copy_and_destroyEv(%"class.boost::function_base"* %14)
-  br i1 %15, label %16, label %24
-
-; <label>:16                                      ; preds = %7
-  %17 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
-  %18 = getelementptr inbounds %"class.boost::function_base"* %17, i32 0, i32 1
-  %19 = load %"class.boost::function1"** %2, align 8
-  %20 = bitcast %"class.boost::function1"* %19 to %"class.boost::function_base"*
-  %21 = getelementptr inbounds %"class.boost::function_base"* %20, i32 0, i32 1
-  %22 = bitcast %"union.boost::detail::function::function_buffer"* %18 to i8*
-  %23 = bitcast %"union.boost::detail::function::function_buffer"* %21 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %22, i8* %23, i64 24, i32 8, i1 false)
-  br label %34
-
-; <label>:24                                      ; preds = %7
-  %25 = call %"struct.boost::detail::function::basic_vtable1.60"* @_ZNK5boost9function1IvRKN3ros25SingleSubscriberPublisherEE10get_vtableEv(%"class.boost::function1"* %3)
-  %26 = getelementptr inbounds %"struct.boost::detail::function::basic_vtable1.60"* %25, i32 0, i32 0
-  %27 = getelementptr inbounds %"struct.boost::detail::function::vtable_base"* %26, i32 0, i32 0
-  %28 = load void (%"union.boost::detail::function::function_buffer"*, %"union.boost::detail::function::function_buffer"*, i32)** %27, align 8
-  %29 = load %"class.boost::function1"** %2, align 8
-  %30 = bitcast %"class.boost::function1"* %29 to %"class.boost::function_base"*
-  %31 = getelementptr inbounds %"class.boost::function_base"* %30, i32 0, i32 1
-  %32 = bitcast %"class.boost::function1"* %3 to %"class.boost::function_base"*
-  %33 = getelementptr inbounds %"class.boost::function_base"* %32, i32 0, i32 1
-  call void %28(%"union.boost::detail::function::function_buffer"* %31, %"union.boost::detail::function::function_buffer"* %33, i32 0)
-  br label %34
-
-; <label>:34                                      ; preds = %24, %16
-  br label %35
-
-; <label>:35                                      ; preds = %34, %0
-  ret void
+  ret i8* getelementptr inbounds ([13 x i8]* @.str42, i32 0, i32 0)
 }
 
 declare zeroext i1 @_ZNK3ros10NodeHandle8hasParamERKSs(%"class.ros::NodeHandle"*, %"class.std::basic_string"*) #0
@@ -16947,8 +19623,8 @@ attributes #19 = { noreturn }
 !llvm.ident = !{!0}
 
 !0 = metadata !{metadata !"Ubuntu clang version 3.5-1ubuntu1 (trunk) (based on LLVM 3.5)"}
-!1 = metadata !{i32 -2126707968}
-!2 = metadata !{i32 -2126699977}
-!3 = metadata !{i32 -2126690386}
-!4 = metadata !{i32 13904771, i32 13904778}
-!5 = metadata !{i32 13905083, i32 13905090}
+!1 = metadata !{i32 -2126707717}
+!2 = metadata !{i32 -2126699726}
+!3 = metadata !{i32 -2126690135}
+!4 = metadata !{i32 13905022, i32 13905029}
+!5 = metadata !{i32 13905334, i32 13905341}
