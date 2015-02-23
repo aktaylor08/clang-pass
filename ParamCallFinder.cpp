@@ -46,11 +46,16 @@ public:
 				  if(!name.compare(0, prefix.size(), prefix)){
 					std::cerr << inv_inst ->getCalledValue()->getName().str() << std::endl;
 					totalCount++;
+					inv_inst -> dump();
 					int arg_size = inv_inst->getNumArgOperands();
 					if(arg_size == 3 || arg_size == 4){
 						Value* val_arg = inv_inst -> getArgOperand(2);
-						val_arg-> dump();
 						std::cerr << val_arg->getNumUses() << std::endl;
+						if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*val_arg)){
+							ptr_inst -> dump();
+						}else{
+							std::cerr << "Non elemental pointer?" << std::endl;
+						}
 
 
 
