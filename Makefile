@@ -3,16 +3,7 @@
 # Path to top level of LLVM hierarchy
 LEVEL = ../../..
 
-SOURCES=ParamCallFinder.cpp
-# SOURCES=constant.cpp
-
-# Name of the library to build
-LIBRARYNAME = Threshold
-
-# Make the shared library become a loadable module so the tools can
-# dlopen/dlsym on the resulting library.
-LOADABLE_MODULE = 1
-
+DIRS=ParamSetupFinder ParamUsageFinder
 
 # Include the makefile implementation stuff
 include $(LEVEL)/Makefile.common
