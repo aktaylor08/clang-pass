@@ -1,6 +1,6 @@
-/home/ataylor/llvm_src/llvm/lib/Transforms/Thresholds/ParamSetupFinder/Debug+Asserts/ParamCallFinder.o \
- /home/ataylor/llvm_src/llvm/lib/Transforms/Thresholds/ParamSetupFinder/Debug+Asserts/ParamCallFinder.d: \
- ParamCallFinder.cpp ../include/ParamCallFinder.h \
+/home/ataylor/llvm_src/llvm/lib/Transforms/Constant/ParamSetupFinder/Debug+Asserts/ParamCallFinder.o \
+ /home/ataylor/llvm_src/llvm/lib/Transforms/Constant/ParamSetupFinder/Debug+Asserts/ParamCallFinder.d: \
+ ParamCallFinder.cpp ParamCallFinder.h \
  /home/ataylor/llvm_src/llvm/include/llvm/Pass.h \
  /home/ataylor/llvm_src/llvm/include/llvm/Support/Compiler.h \
  /home/ataylor/llvm_src/llvm/include/llvm/Config/llvm-config.h \
@@ -83,7 +83,7 @@
  /home/ataylor/llvm_src/llvm/include/llvm/Config/AsmParsers.def \
  /home/ataylor/llvm_src/llvm/include/llvm/Config/Disassemblers.def
 
-../include/ParamCallFinder.h:
+ParamCallFinder.h:
 
 /home/ataylor/llvm_src/llvm/include/llvm/Pass.h:
 

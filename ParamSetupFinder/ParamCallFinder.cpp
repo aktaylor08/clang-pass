@@ -1,4 +1,4 @@
-#include "ParamCallFinder.h"
+#include "../include/ParamCallFinder.h"
 
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
@@ -56,6 +56,9 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
       {
     	runOnFunction(*MI);
       }
+    for(int i=0;i<param_ptr_list.size(); i++){
+    	param_ptr_list[i] -> dump();
+    }
     return false;
   }
 
