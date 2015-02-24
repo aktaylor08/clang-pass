@@ -16,33 +16,28 @@
 
 using namespace llvm;
 
-namespace
-{
 	class ParamUsageFinder: public ModulePass{
 
 	public:
+		static char ID;
 		ParamUsageFinder();
 		virtual bool runOnFunction(Function &F);
 		virtual bool runOnModule(Module &M);
-		static char ID;
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
 	};
 
 
 
-}
 
 
-namespace
-{
 	class ParamCallFinder : public ModulePass{
 
 	public:
+		static char ID;
 		std::vector<GetElementPtrInst*> param_ptr_list;
 		virtual bool runOnFunction(Function &F);
 		virtual bool runOnModule(Module &M);
-		static char ID;
 		ParamCallFinder();
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 		std::vector<GetElementPtrInst*>* getParamPtrs();
@@ -51,7 +46,6 @@ namespace
 	};
 
 
-}
 //	namespace llvm{void initializeParamCallFinderPass(PassRegistry&);}
 //	INITIALIZE_PASS_BEGIN(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
 //	INITIALIZE_PASS_END(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
