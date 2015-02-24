@@ -11,6 +11,9 @@
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/InitializePasses.h"
+#include "llvm/PassRegistry.h"
 
 #include <iostream>
 
@@ -25,31 +28,38 @@ namespace
 		virtual bool runOnFunction(Function &F);
 		virtual bool runOnModule(Module &M);
 		static char ID;
-		virtual void getAnalysisUsage(AnalysisUsage &AU) const;
+		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
 	};
+
+	char ParamUsageFinder::ID = 0;
 
 
 }
+
 
 namespace
 {
 	class ParamCallFinder : public ModulePass{
 
 	public:
-		ParamCallFinder();
 		std::vector<GetElementPtrInst*> param_ptr_list;
 		virtual bool runOnFunction(Function &F);
 		virtual bool runOnModule(Module &M);
 		static char ID;
-		virtual void getAnalysisUsage(AnalysisUsage &AU) const;
+		ParamCallFinder();
+		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 		std::vector<GetElementPtrInst*>* getParamPtrs();
 	private:
 		int totalCount;
 	};
 
+	char ParamCallFinder::ID = 0;
 
 }
-
+	namespace llvm{void initializeParamCallFinderPass(PassRegistry&);}
+	INITIALIZE_PASS_BEGIN(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
+	INITIALIZE_PASS_END(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
 
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/

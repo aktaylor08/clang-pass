@@ -1,11 +1,11 @@
-#include "../include/Threshold.h"
+#include "include/Threshold.h"
 
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
 	totalCount = 0;
 }
 
-void ParamCallFinder::getAnalysisUsage(AnalysisUsage &AU) const{
+void ParamCallFinder::getAnalysisUsage(AnalysisUsage &AU) const {
 	AU.setPreservesAll();
 }
 
@@ -49,18 +49,18 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
 	}
     return false;
   }
-  
+
   bool ParamCallFinder::runOnModule(Module& M)
   {
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);
       }
-    for(int i=0;i<param_ptr_list.size(); i++){
+    for(unsigned long i=0;i<param_ptr_list.size(); i++){
     	param_ptr_list[i] -> dump();
     }
     return false;
   }
 
-char ParamCallFinder::ID = 0;
-RegisterPass<ParamCallFinder> X("param-calls", "Finding ROS Param calls", false, false);
+
+//RegisterPass<ParamCallFinder> X("param-calls", "Finding ROS Param calls", false, false);
