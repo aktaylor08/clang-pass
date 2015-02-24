@@ -11,9 +11,6 @@
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
-#include "llvm/IR/LegacyPassManager.h"
-#include "llvm/InitializePasses.h"
-#include "llvm/PassRegistry.h"
 
 #include <iostream>
 
@@ -32,7 +29,6 @@ namespace
 
 	};
 
-	char ParamUsageFinder::ID = 0;
 
 
 }
@@ -53,7 +49,6 @@ namespace
 	private:
 		int totalCount;
 	};
-	char ParamCallFinder::ID = 0;
 
 
 }

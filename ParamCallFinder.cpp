@@ -1,5 +1,6 @@
 #include "include/RosThreshold.h"
 
+char ParamCallFinder::ID = 0;
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
 	totalCount = 0;
@@ -16,7 +17,7 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
   {
 	std::string prefix("_ZNK3ros10NodeHandle5param");
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
-		for(BasicBlock::iterator inst = block -> begin(), ie = block -> end(); inst != ie; ++inst){
+		for(BasicBlock::iterator inst = block->begin(), ie = block -> end(); inst != ie; ++inst){
 			if(InvokeInst* inv_inst= dyn_cast<InvokeInst>(&*inst)){
 				std::string name = inv_inst->getCalledValue() -> getName().str();
 				  if(!name.compare(0, prefix.size(), prefix)){

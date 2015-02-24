@@ -1,5 +1,6 @@
 #include "include/RosThreshold.h"
 
+char ParamUsageFinder::ID = 0;
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
 
