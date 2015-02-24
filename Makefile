@@ -1,9 +1,7 @@
-# Makefile for hello pass
-
 # Path to top level of LLVM hierarchy
 LEVEL = ../../..
 
-LIBRARYNAME = Thresholds 
+LIBRARYNAME = RosThresholds 
 
 LOADABLE_MODULE = 1
 
