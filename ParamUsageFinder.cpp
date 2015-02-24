@@ -13,18 +13,30 @@ void ParamUsageFinder::getAnalysisUsage(AnalysisUsage &AU) const{
 
   bool ParamUsageFinder::runOnFunction(Function &F)
   {
-    return false;
+	  for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
+	  		for(BasicBlock::iterator inst = block->begin(), ie = block -> end(); inst != ie; ++inst){
+	  			if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*inst)){
+	  				if (result_set.count(ptr_inst) > 0){
+	  					std::cerr << "setup call" << "\n";
+	  				}else{
+
+
+	  				}
+	  			}
+
+	  		}
+
+	  }
+	  return false;
   }
   
   bool ParamUsageFinder::runOnModule(Module& M)
   {
 
 
-	std::vector<GetElementPtrInst*> ptrs;
-	 ptrs = *(getAnalysis<ParamCallFinder>().getParamPtrs());
-	 for(unsigned int i=0; i < ptrs.size(); i++){
-		 ptrs[i] ->dump();
-	 }
+	SmallPtrSet<GetElementPtrInst*, 10> ptrs;
+	 result_set = *(getAnalysis<ParamCallFinder>().getParamPtrSet());
+	 result_list = *(getAnalysis<ParamCallFinder>().getParamPtrList());
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);

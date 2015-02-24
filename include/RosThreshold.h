@@ -9,6 +9,7 @@
 #define LLVM_TRANSFORM_THRESHOLD_H_
 #include "llvm/Pass.h"
 #include "llvm/IR/Instructions.h"
+#include "llvm/ADT/SmallPtrSet.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
 
@@ -24,11 +25,10 @@ using namespace llvm;
 		virtual bool runOnFunction(Function &F);
 		virtual bool runOnModule(Module &M);
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+		SmallPtrSet<GetElementPtrInst*, 10> result_set;
+		std::vector<GetElementPtrInst*> result_list;
 
 	};
-
-
-
 
 
 	class ParamCallFinder : public ModulePass{
@@ -36,19 +36,16 @@ using namespace llvm;
 	public:
 		static char ID;
 		std::vector<GetElementPtrInst*> param_ptr_list;
+		SmallPtrSet<GetElementPtrInst*, 10> param_ptr_set;
 		virtual bool runOnFunction(Function &F);
 		virtual bool runOnModule(Module &M);
 		ParamCallFinder();
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-		std::vector<GetElementPtrInst*>* getParamPtrs();
+		SmallPtrSet<GetElementPtrInst*, 10>* getParamPtrSet();
+		std::vector<GetElementPtrInst*>* getParamPtrList();
 	private:
 		int totalCount;
 	};
-
-
-//	namespace llvm{void initializeParamCallFinderPass(PassRegistry&);}
-//	INITIALIZE_PASS_BEGIN(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
-//	INITIALIZE_PASS_END(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
 
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/

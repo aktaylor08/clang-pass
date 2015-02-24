@@ -10,7 +10,11 @@ void ParamCallFinder::getAnalysisUsage(AnalysisUsage &AU) const {
 	AU.setPreservesAll();
 }
 
-std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
+SmallPtrSet<GetElementPtrInst*, 10>* ParamCallFinder::getParamPtrSet(){
+	return &param_ptr_set;
+}
+
+std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrList(){
 	return &param_ptr_list;
 }
   bool ParamCallFinder::runOnFunction(Function &F)
@@ -27,6 +31,7 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
 						Value* val_arg = inv_inst -> getArgOperand(2);
 						if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*val_arg)){
 							param_ptr_list.push_back(ptr_inst);
+							param_ptr_set.insert(ptr_inst);
 						}else{
 							std::cerr << "Non elemental pointer?" << std::endl;
 						}
@@ -57,9 +62,7 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
       {
     	runOnFunction(*MI);
       }
-    for(unsigned long i=0;i<param_ptr_list.size(); i++){
-    	param_ptr_list[i] -> dump();
-    }
+    std::cerr << "Total Param Pointers: "<< param_ptr_set.size() << "\n";
     return false;
   }
 
