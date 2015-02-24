@@ -53,13 +53,13 @@ namespace
 	private:
 		int totalCount;
 	};
-
 	char ParamCallFinder::ID = 0;
 
+
 }
-	namespace llvm{void initializeParamCallFinderPass(PassRegistry&);}
-	INITIALIZE_PASS_BEGIN(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
-	INITIALIZE_PASS_END(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
+//	namespace llvm{void initializeParamCallFinderPass(PassRegistry&);}
+//	INITIALIZE_PASS_BEGIN(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
+//	INITIALIZE_PASS_END(ParamCallFinder,"param-calls","Find ROS Param Loadings", false, false);
 
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/

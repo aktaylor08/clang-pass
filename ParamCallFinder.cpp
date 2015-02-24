@@ -63,4 +63,4 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrs(){
   }
 
 
-//RegisterPass<ParamCallFinder> X("param-calls", "Finding ROS Param calls", false, false);
+RegisterPass<ParamCallFinder> X("param-calls", "Finding ROS Param calls", false, false);
