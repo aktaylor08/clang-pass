@@ -1,7 +1,6 @@
-/Users/ataylor/Research/llvm_src/llvm/lib/Transforms/Constants/ParamUsageFinder/Debug+Asserts/ParamUsageFinder.o \
-  /Users/ataylor/Research/llvm_src/llvm/lib/Transforms/Constants/ParamUsageFinder/Debug+Asserts/ParamUsageFinder.d: \
-  ParamUsageFinder.cpp \
-  /Users/ataylor/Research/llvm_src/llvm/lib/Transforms/Constants/ParamUsageFinder/../include/Threshold.h \
+/Users/ataylor/Research/llvm_src/llvm/lib/Transforms/Constants/Debug+Asserts/PubCallFinder.o \
+  /Users/ataylor/Research/llvm_src/llvm/lib/Transforms/Constants/Debug+Asserts/PubCallFinder.d: \
+  PubCallFinder.cpp \
   /Users/ataylor/Research/llvm_src/llvm/include/llvm/Pass.h \
   /Users/ataylor/Research/llvm_src/llvm/include/llvm/Support/Compiler.h \
   /Users/ataylor/Research/llvm_src/llvm/include/llvm/Config/llvm-config.h \
@@ -82,8 +81,6 @@
   /Users/ataylor/Research/llvm_src/llvm/include/llvm/Config/AsmPrinters.def \
   /Users/ataylor/Research/llvm_src/llvm/include/llvm/Config/AsmParsers.def \
   /Users/ataylor/Research/llvm_src/llvm/include/llvm/Config/Disassemblers.def
-
-/Users/ataylor/Research/llvm_src/llvm/lib/Transforms/Constants/ParamUsageFinder/../include/Threshold.h:
 
 /Users/ataylor/Research/llvm_src/llvm/include/llvm/Pass.h:
 

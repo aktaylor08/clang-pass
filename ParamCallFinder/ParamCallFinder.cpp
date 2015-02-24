@@ -1,11 +1,11 @@
-#include "../include/ParamCallFinder.h"
+#include "../include/Threshold.h"
 
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
 	totalCount = 0;
 }
 
-void ParamCallFinder::getAnalysisUsage(AnalysisUsage &AU){
+void ParamCallFinder::getAnalysisUsage(AnalysisUsage &AU) const{
 	AU.setPreservesAll();
 }
 

@@ -1,18 +1,22 @@
-#include "ParamUsageFinder.h"
+#include "../include/Threshold.h"
 
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
 
 }
 
-void ParamUsageFinder::getAnalysisUsage(AnalysisUsage &AU){
+void ParamUsageFinder::getAnalysisUsage(AnalysisUsage &AU) const{
 	AU.setPreservesAll();
 	AU.addRequired<ParamCallFinder>();
 }
 
   bool ParamUsageFinder::runOnFunction(Function &F)
   {
-	 getAnalysis<ParamCallFinder>();
+	std::vector<GetElementPtrInst*> ptrs;
+	 ptrs = *(getAnalysis<ParamCallFinder>().getParamPtrs());
+	 for(unsigned int i=0; i < ptrs.size(); i++){
+		 ptrs[i] ->dump();
+	 }
     return false;
   }
   
@@ -28,4 +32,4 @@ void ParamUsageFinder::getAnalysisUsage(AnalysisUsage &AU){
   }
 
 char ParamUsageFinder::ID = 0;
-RegisterPass<ParamUsageFinder> X("param-usage", "Finding ROS Param calls", false, false);
+RegisterPass<ParamUsageFinder> X("param-uses", "Finding Used Ros Params", false, false);
