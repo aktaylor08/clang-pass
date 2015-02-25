@@ -12,6 +12,7 @@
 #include "llvm/ADT/SmallPtrSet.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
+#include "llvm/Analysis/CFG.h"
 
 #include <iostream>
 #include <queue>
@@ -47,6 +48,20 @@ using namespace llvm;
 		std::vector<GetElementPtrInst*>* getParamPtrList();
 	private:
 		int totalCount;
+	};
+
+	class PubCallFinder : public ModulePass{
+
+	public:
+		static char ID;
+		virtual bool runOnFunction(Function &F);
+		virtual bool runOnModule(Module &M);
+		PubCallFinder();
+		~PubCallFinder();
+		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
+	private:
+		std::vector<BasicBlock> locations;
 	};
 
 
