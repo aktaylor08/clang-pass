@@ -44,9 +44,7 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrList(){
 			if(CallInst* call_inst = dyn_cast<CallInst>(&*inst)){
 				std::string name = call_inst->getCalledValue() -> getName().str();
 				  if(!name.compare(0, prefix.size(), prefix)){
-					std::cerr << call_inst ->getCalledValue()->getName().str() << std::endl;
 					totalCount++;
-					std::cerr << "CALL" << std::endl;
 					call_inst-> dump();
 				}
 
@@ -62,7 +60,6 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrList(){
       {
     	runOnFunction(*MI);
       }
-    std::cerr << "Total Param Pointers: "<< param_ptr_set.size() << "\n";
     return false;
   }
 
