@@ -12,6 +12,7 @@
 #include "llvm/ADT/SmallPtrSet.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
+#include "llvm/IR/CallSite.h"
 #include "llvm/Analysis/CFG.h"
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/Analysis/LoopInfoImpl.h"
@@ -19,6 +20,7 @@
 
 #include <iostream>
 #include <queue>
+#include <utility>
 
 using namespace llvm;
 namespace ros_thresh{
@@ -67,6 +69,27 @@ public:
 private:
 	std::vector<BasicBlock> locations;
 };
+
+class ExternCallFinder : public ModulePass{
+public:
+	static char ID;
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	ExternCallFinder();
+	~ExternCallFinder();
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
+	const std::vector<std::pair<BasicBlock*, CallSite> >& getSites() const {
+		return sites;
+	}
+
+private:
+	std::vector<std::pair<BasicBlock*, CallSite>> sites;
+	std::string pub_name = "_ZNK3ros9Publisher7publishIN";
+	std::string srv_name = "FIGURE_THIS_ONE_OUT";
+
+};
+
 }
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
