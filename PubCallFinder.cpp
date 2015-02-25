@@ -1,7 +1,7 @@
 #include "include/RosThreshold.h"
 
 using namespace llvm;
-
+namespace ros_thresh{
 
 
 PubCallFinder::PubCallFinder() :
@@ -80,7 +80,7 @@ void iterrrrr(BasicBlock* B){
 	bool PubCallFinder::runOnFunction(Function &F)
 	{
 //		LoopInfo &loopInfo = getAnalysis<LoopInfoWrapperPass>().getLoopInfo();
-		getAnalysis<LoopInfoWrapperPass>();//.getLoopInfo();
+		llvm::LoopInfo* loop_info=&getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 		std::string prefix("_ZNK3ros9Publisher7publishIN");
 		for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 			for(BasicBlock::iterator inst = block -> begin(), ie = block -> end(); inst != ie; ++inst){
@@ -89,10 +89,16 @@ void iterrrrr(BasicBlock* B){
 					if(!f_name.compare(0, prefix.size(), prefix)){
 						std::cerr << f_name << "\n";
 						BasicBlock * BB = inv_inst ->getParent();
-		//				loopInfo.getLoopFor(BB) -> dump();
+						llvm::Loop* info;
+						info = loop_info -> getLoopFor(BB);
+						if(info){
+							std::cerr << "LOOP!" << info -> getNumBlocks() << "\n";
+							info ->dump();
+						}else{
+							std::cerr << "No Loop!\n";
+						}
 
 					}
-
 				}
 				if(CallInst* call_inst= dyn_cast<CallInst>(&*inst)){
 					std::string f_name =  call_inst->getCalledValue()->getName().str();
@@ -109,7 +115,10 @@ void iterrrrr(BasicBlock* B){
 	{
 		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 		{
-			runOnFunction(*MI);
+			Function* f = MI;
+			if(!f ->isDeclaration()){
+				runOnFunction(*MI);
+			}
 		}
 		return false;
 	}
@@ -120,19 +129,6 @@ void iterrrrr(BasicBlock* B){
 
 
 char PubCallFinder::ID = 0;
+RegisterPass<PubCallFinder> Z("publishers", "identifying ROS publish calls", false, false);
 
-
-namespace llvm { void initializePubCallFinderPass(llvm::PassRegistry&); }
-INITIALIZE_PASS_BEGIN(PubCallFinder, "publishers", "identify ros publish calls", false, false)
-INITIALIZE_PASS_DEPENDENCY(LoopInfoWrapperPass)
-INITIALIZE_PASS_END(PubCallFinder, "publishers", "identify ros publish calls", false, false)
-class StaticInitializer {
-public:
-	StaticInitializer() {
-		PassRegistry &Registry = *PassRegistry::getPassRegistry();
-		initializePubCallFinderPass(Registry);
-	}
-};
-
-static StaticInitializer InitializeEverything;
-	//RegisterPass<PubCallFinder> Z("publishers", "identifying ROS publish calls", false, false);
+}

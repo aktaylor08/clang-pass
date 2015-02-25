@@ -1,5 +1,6 @@
 #include "include/RosThreshold.h"
 
+namespace ros_thresh{
 char ParamUsageFinder::ID = 0;
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
@@ -141,3 +142,4 @@ bool ParamUsageFinder::runOnModule(Module& M)
 
 
 RegisterPass<ParamUsageFinder> Y("param-uses", "Finding Used Ros Params", false, false);
+}

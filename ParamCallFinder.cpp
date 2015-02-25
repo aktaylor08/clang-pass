@@ -1,5 +1,5 @@
 #include "include/RosThreshold.h"
-
+namespace ros_thresh{
 char ParamCallFinder::ID = 0;
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
@@ -65,3 +65,5 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrList(){
 
 
 RegisterPass<ParamCallFinder> X("param-calls", "Finding ROS Param calls", false, false);
+
+}

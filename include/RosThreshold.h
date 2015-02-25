@@ -21,45 +21,52 @@
 #include <queue>
 
 using namespace llvm;
+namespace ros_thresh{
 
-	class ParamUsageFinder: public ModulePass{
+class ParamUsageFinder: public ModulePass{
 
-	public:
-		static char ID;
-		ParamUsageFinder();
-		virtual bool runOnFunction(Function &F);
-		virtual bool runOnModule(Module &M);
-		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-		SmallPtrSet<GetElementPtrInst*, 10> result_set;
-		std::vector<GetElementPtrInst*> result_list; bool matches_setup_param(GetElementPtrInst * ptr_inst); }; class ParamCallFinder : public ModulePass{
+public:
+	static char ID;
+	ParamUsageFinder();
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	SmallPtrSet<GetElementPtrInst*, 10> result_set;
+	std::vector<GetElementPtrInst*> result_list; bool matches_setup_param(GetElementPtrInst * ptr_inst);
+};
 
-	public:
-		static char ID;
-		std::vector<GetElementPtrInst*> param_ptr_list;
-		SmallPtrSet<GetElementPtrInst*, 10> param_ptr_set;
-		virtual bool runOnFunction(Function &F);
-		virtual bool runOnModule(Module &M);
-		ParamCallFinder();
-		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-		SmallPtrSet<GetElementPtrInst*, 10>* getParamPtrSet();
-		std::vector<GetElementPtrInst*>* getParamPtrList();
-	private:
-		int totalCount;
-	};
 
-	class PubCallFinder : public ModulePass{
+class ParamCallFinder : public ModulePass{
 
-	public:
-		static char ID;
-		virtual bool runOnFunction(Function &F);
-		virtual bool runOnModule(Module &M);
-		PubCallFinder();
-		~PubCallFinder();
+public:
+	static char ID;
+	std::vector<GetElementPtrInst*> param_ptr_list;
+	SmallPtrSet<GetElementPtrInst*, 10> param_ptr_set;
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	ParamCallFinder();
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	SmallPtrSet<GetElementPtrInst*, 10>* getParamPtrSet();
+	std::vector<GetElementPtrInst*>* getParamPtrList();
+private:
+	int totalCount;
+};
 
-		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
-	private:
-		std::vector<BasicBlock> locations;
-	};
+class PubCallFinder : public ModulePass{
+
+public:
+	static char ID;
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	PubCallFinder();
+	~PubCallFinder();
+
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
+private:
+	std::vector<BasicBlock> locations;
+};
+}
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
