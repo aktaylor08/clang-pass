@@ -4,9 +4,7 @@ using namespace llvm;
 namespace ros_thresh{
 
 
-PubCallFinder::PubCallFinder() :
-									  ModulePass(ID)
-{
+PubCallFinder::PubCallFinder() : ModulePass(ID) {
 }
 
 PubCallFinder::~PubCallFinder()
