@@ -13,6 +13,9 @@
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
 #include "llvm/Analysis/CFG.h"
+#include "llvm/Analysis/LoopInfo.h"
+#include "llvm/Analysis/LoopInfoImpl.h"
+#include "llvm/Analysis/LoopPass.h"
 
 #include <iostream>
 #include <queue>
@@ -28,13 +31,7 @@ using namespace llvm;
 		virtual bool runOnModule(Module &M);
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 		SmallPtrSet<GetElementPtrInst*, 10> result_set;
-		std::vector<GetElementPtrInst*> result_list;
-		bool matches_setup_param(GetElementPtrInst * ptr_inst);
-
-	};
-
-
-	class ParamCallFinder : public ModulePass{
+		std::vector<GetElementPtrInst*> result_list; bool matches_setup_param(GetElementPtrInst * ptr_inst); }; class ParamCallFinder : public ModulePass{
 
 	public:
 		static char ID;
@@ -58,11 +55,11 @@ using namespace llvm;
 		virtual bool runOnModule(Module &M);
 		PubCallFinder();
 		~PubCallFinder();
+
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
 	private:
 		std::vector<BasicBlock> locations;
 	};
-
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
