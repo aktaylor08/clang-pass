@@ -14,6 +14,7 @@
 #include "llvm/IR/Module.h"
 
 #include <iostream>
+#include <queue>
 
 using namespace llvm;
 
@@ -27,6 +28,7 @@ using namespace llvm;
 		virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 		SmallPtrSet<GetElementPtrInst*, 10> result_set;
 		std::vector<GetElementPtrInst*> result_list;
+		bool matches_setup_param(GetElementPtrInst * ptr_inst);
 
 	};
 
