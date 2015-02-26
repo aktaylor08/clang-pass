@@ -120,6 +120,10 @@ void iterrrrr(BasicBlock* B){
 				LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 
 				//Check to see if it is in a loop?
+				Loop* loop = loop_info -> getLoopFor(block);
+				if(loop){
+					std::cerr << "ITS in a loop";
+				}
 
 
 				//Handle loop if needed
@@ -166,6 +170,6 @@ void iterrrrr(BasicBlock* B){
 
 
 char BackwardPropigate::ID = 0;
-RegisterPass<BackwardPropigate> Z("back-prop-ros", "Id which blocks are in the flow of calls", false, false);
+RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
 }

@@ -74,8 +74,8 @@ private:
 	SmallPtrSet<BasicBlock*, 10>* next_iter;
 	SmallPtrSet<BasicBlock*, 50> visited;
 	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
-	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
-	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
+//	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
+//	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
 
 
 
