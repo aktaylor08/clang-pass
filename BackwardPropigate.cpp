@@ -117,6 +117,7 @@ void iterrrrr(BasicBlock* B){
 			//Is the block in the working list?
 			if(current_iter ->count(block) > 0){
 				current_iter->erase(block);
+				LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 
 				//Check to see if it is in a loop?
 
