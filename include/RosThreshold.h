@@ -55,14 +55,14 @@ private:
 };
 
 
-class PubCallFinder : public ModulePass{
+class BackwardPropigate: public ModulePass{
 
 public:
 	static char ID;
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
-	PubCallFinder();
-	~PubCallFinder();
+	BackwardPropigate();
+	~BackwardPropigate();
 
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
