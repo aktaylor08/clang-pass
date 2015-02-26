@@ -45,7 +45,7 @@ std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrList(){
 				std::string name = call_inst->getCalledValue() -> getName().str();
 				  if(!name.compare(0, prefix.size(), prefix)){
 					totalCount++;
-					call_inst-> dump();
+					//call_inst-> dump();
 				}
 
 			}

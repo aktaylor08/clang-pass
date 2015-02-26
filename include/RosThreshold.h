@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <queue>
+#include <unordered_map>
 #include <utility>
 
 using namespace llvm;
@@ -61,15 +62,21 @@ public:
 	static char ID;
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
+	bool poop(Function &F);
 	BackwardPropigate();
 	~BackwardPropigate();
 
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
 private:
-	SmallPtrSet<BasicBlock*, 10> current_list;
-	SmallPtrSet<BasicBlock*, 10> next_iter;
+	std::vector<std::pair<BasicBlock*, CallSite>> actual_calls;
+	SmallPtrSet<BasicBlock*, 10>* current_iter;
+	SmallPtrSet<BasicBlock*, 10>* next_iter;
 	SmallPtrSet<BasicBlock*, 50> visited;
+	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
+	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
+	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
+
 
 
 };

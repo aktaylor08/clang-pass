@@ -54,14 +54,14 @@ bool ExternCallFinder::runOnModule(Module& M) {
 			runOnFunction(*MI);
 		}
 	}
-	for(unsigned long i=0; i< sites.size();i++){
-		std::cerr << "Call:\n";
-		sites[i].second.getInstruction() -> dump();
-		std::cerr << "in: \n";
-		sites[i].first -> dump();
-		std::cerr << "\n";
+	// for(unsigned long i=0; i< sites.size();i++){
+	//     std::cerr << "Call:\n";
+	//     sites[i].second.getInstruction() -> dump();
+	//     std::cerr << "in: \n";
+	//     sites[i].first -> dump();
+	//     std::cerr << "\n";
 
-	}
+	// }
 	return false;
 }
 

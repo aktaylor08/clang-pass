@@ -5,6 +5,8 @@ namespace ros_thresh{
 
 
 BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
+	current_iter = new SmallPtrSet<BasicBlock*, 10>;
+	next_iter = new SmallPtrSet<BasicBlock*, 10>;
 }
 
 BackwardPropigate::~BackwardPropigate()
@@ -76,7 +78,7 @@ void iterrrrr(BasicBlock* B){
 		std::cerr << encountered_self << "\n";
 	}
 
-	bool BackwardPropigate::runOnFunction(Function &F)
+	bool BackwardPropigate::poop(Function &F)
 	{
 //		LoopInfo &loopInfo = getAnalysis<LoopInfoWrapperPass>().getLoopInfo();
 		llvm::LoopInfo* loop_info=&getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
@@ -110,19 +112,50 @@ void iterrrrr(BasicBlock* B){
 		return false;
 	}
 
+	bool BackwardPropigate::runOnFunction(Function &F){
+		for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
+			//Is the block in the working list?
+			if(current_iter ->count(block) > 0){
+				current_iter->erase(block);
+
+				//Check to see if it is in a loop?
+
+
+				//Handle loop if needed
+
+				//Check to see if in if statement
+
+				//Handle if needed
+
+				//if neither than check for function calls?
+
+
+				//Do data dependencies..
+
+
+			}
+
+		}
+		return false;
+	}
+
 	bool BackwardPropigate::runOnModule(Module& M)
 	{
-		for(std::pair<BasicBlock*, CallSite> p : *getAnalysis<ExternCallFinder>().getSites()){
-			p.first -> dump();
-			this->current_list.insert(p.first);
+		actual_calls = *getAnalysis<ExternCallFinder>().getSites();
+		for(std::pair<BasicBlock*, CallSite> p :actual_calls){
+			current_iter ->insert(p.first);
+
 		}
-//		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
-//		{
-//			Function* f = MI;
-//			if(!f ->isDeclaration()){
-//				runOnFunction(*MI);
-//			}
-//		}
+		while(current_iter->size() > 0){
+			for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
+			{
+
+				Function* f = MI;
+				if(!f ->isDeclaration()){
+					runOnFunction(*MI);
+				}
+			}
+		}
 		return false;
 	}
 
