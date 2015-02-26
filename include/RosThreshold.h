@@ -17,6 +17,7 @@
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/Analysis/LoopInfoImpl.h"
 #include "llvm/Analysis/LoopPass.h"
+#include "llvm/IR/Dominators.h"
 
 #include <iostream>
 #include <queue>
@@ -40,6 +41,7 @@ public:
 
 
 class ParamCallFinder : public ModulePass{
+
 
 public:
 	static char ID;
@@ -74,8 +76,8 @@ private:
 	SmallPtrSet<BasicBlock*, 10>* next_iter;
 	SmallPtrSet<BasicBlock*, 50> visited;
 	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
-//	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
-//	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
+	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
+	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
 
 
 
