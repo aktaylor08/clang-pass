@@ -4,17 +4,18 @@ using namespace llvm;
 namespace ros_thresh{
 
 
-PubCallFinder::PubCallFinder() : ModulePass(ID) {
+BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
 }
 
-PubCallFinder::~PubCallFinder()
+BackwardPropigate::~BackwardPropigate()
 {
 }
 
 // We don't modify the program, so we preserve all analyses
-void PubCallFinder::getAnalysisUsage(AnalysisUsage &AU) const
+void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<LoopInfoWrapperPass>();
+	AU.addRequired<ExternCallFinder>();
 	AU.setPreservesAll();
 
 }
@@ -75,7 +76,7 @@ void iterrrrr(BasicBlock* B){
 		std::cerr << encountered_self << "\n";
 	}
 
-	bool PubCallFinder::runOnFunction(Function &F)
+	bool BackwardPropigate::runOnFunction(Function &F)
 	{
 //		LoopInfo &loopInfo = getAnalysis<LoopInfoWrapperPass>().getLoopInfo();
 		llvm::LoopInfo* loop_info=&getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
@@ -109,24 +110,28 @@ void iterrrrr(BasicBlock* B){
 		return false;
 	}
 
-	bool PubCallFinder::runOnModule(Module& M)
+	bool BackwardPropigate::runOnModule(Module& M)
 	{
-		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
-		{
-			Function* f = MI;
-			if(!f ->isDeclaration()){
-				runOnFunction(*MI);
-			}
+		for(std::pair<BasicBlock*, CallSite> p : *getAnalysis<ExternCallFinder>().getSites()){
+			p.first -> dump();
+			this->current_list.insert(p.first);
 		}
+//		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
+//		{
+//			Function* f = MI;
+//			if(!f ->isDeclaration()){
+//				runOnFunction(*MI);
+//			}
+//		}
 		return false;
 	}
 
 	Pass *createPubCallFinderPass() {
-	    return new PubCallFinder();
+	    return new BackwardPropigate();
 	}
 
 
-char PubCallFinder::ID = 0;
-RegisterPass<PubCallFinder> Z("publishers", "identifying ROS publish calls", false, false);
+char BackwardPropigate::ID = 0;
+RegisterPass<BackwardPropigate> Z("back-prop-ros", "Id which blocks are in the flow of calls", false, false);
 
 }

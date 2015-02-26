@@ -67,7 +67,11 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
 private:
-	std::vector<BasicBlock> locations;
+	SmallPtrSet<BasicBlock*, 10> current_list;
+	SmallPtrSet<BasicBlock*, 10> next_iter;
+	SmallPtrSet<BasicBlock*, 50> visited;
+
+
 };
 
 class ExternCallFinder : public ModulePass{
@@ -79,8 +83,9 @@ public:
 	~ExternCallFinder();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
-	const std::vector<std::pair<BasicBlock*, CallSite> >& getSites() const {
-		return sites;
+
+	std::vector<std::pair<BasicBlock*, CallSite> >* getSites() {
+		return &sites;
 	}
 
 private:
