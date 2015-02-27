@@ -23,6 +23,7 @@ private:
   int _threshold;
   ros::Subscriber 	msg_sub;
   ros::Publisher 	msg_pub;
+  ros::Publisher 	other_pub;
 };
 
 
@@ -30,6 +31,7 @@ Test::Test(void): private_nh_("~"){
     private_nh_.param("thresh_val", _threshold, 42);
 	ROS_INFO("Kalman started");
 	msg_pub = nh.advertise<std_msgs::String>("i_like_turtles", 2);
+	other_pub = nh.advertise<std_msgs::String>("caar_name", 2);
 	msg_sub = nh.subscribe("give_me_info", 1, &Test::callbackSimple, this);
 
 }
@@ -45,6 +47,13 @@ void Test::callbackSimple(const boost::shared_ptr<std_msgs::Float64 const> &in_m
             msg.data = ss.str();
              msg_pub.publish(msg);
          }
+         std_msgs::String mmmm;
+
+         std::stringstream ss;
+         ss << "cargs";
+         mmmm.data = ss.str();
+         other_pub.publish(mmmm);
+
 }
 
 

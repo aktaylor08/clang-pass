@@ -83,6 +83,8 @@ bool BackwardPropigate::runOnFunction(Function &F){
 				 " " << dom_tree->dominates(b->getParent(), block) << "\n";
 
 			}
+			std::cerr << "\n------------\n";
+			F.viewCFG();
 
 			//Handle loop if needed
 			//Handle if if needed
