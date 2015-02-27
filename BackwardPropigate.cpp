@@ -17,7 +17,7 @@ BackwardPropigate::~BackwardPropigate()
 void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<LoopInfoWrapperPass>();
-	AU.addRequired<DominatorTree>();
+	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.addRequired<ExternCallFinder>();
 	AU.setPreservesAll();
 }
@@ -38,7 +38,6 @@ void get_branches(BasicBlock* B, std::vector<BranchInst*>* branches){
 			//and need to break out of it
 			//If we encounter an if statement start it up
 			if(BranchInst *branch = dyn_cast<BranchInst>(&*(Pred)-> getTerminator())){
-				std:: cerr << "branch!\n";
 				branches -> push_back(branch);
 			}
 			//DOn't loop but continue on adding for ever.....
@@ -51,17 +50,10 @@ void get_branches(BasicBlock* B, std::vector<BranchInst*>* branches){
 		}
 	}
 
-	if (encountered_self){
-		if(visited.count(B) > 0){
-			std::cerr << "It is inside of a loop!";
-		}
-	}
-	std::cerr << encountered_self << "\n";
 }
 
 
 bool BackwardPropigate::runOnFunction(Function &F){
-	DominatorTree &DT = getAnalysis<DominatorTree>();
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
@@ -70,6 +62,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			bool in_loop = false;
 			bool in_if = false;
 
+			DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
 			LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 
 			//Check to see if it is in a loop?
@@ -84,7 +77,11 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			get_branches(block, &branches);
 
 			for(unsigned long i=0;i<branches.size(); i++){
-				branches[i] -> dump();
+				BranchInst* b = branches[i];
+				b -> dump();
+				std::cerr <<  dom_tree->properlyDominates(b->getParent(), block) <<
+				 " " << dom_tree->dominates(b->getParent(), block) << "\n";
+
 			}
 
 			//Handle loop if needed
