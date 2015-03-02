@@ -18,6 +18,8 @@
 #include "llvm/Analysis/LoopInfoImpl.h"
 #include "llvm/Analysis/LoopPass.h"
 #include "llvm/IR/Dominators.h"
+#include "llvm/Analysis/PostDominators.h"
+
 
 #include <iostream>
 #include <queue>
@@ -26,6 +28,24 @@
 
 using namespace llvm;
 namespace ros_thresh{
+
+class IfStatementPass: public FunctionPass{
+
+public:
+	static char ID;
+	IfStatementPass();
+	~IfStatementPass();
+	virtual bool runOnFunction(Function &F);
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	void getParents(std::vector<BasicBlock*>* parents, BasicBlock* block);
+
+private:
+	std::vector<BasicBlock> branch_statements;
+	/* Child map -> If statements to contained blocks */
+	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> child_map;
+	/* Child map -> Block to all if statements*/
+	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> parent_map;
+};
 
 class ParamUsageFinder: public ModulePass{
 
@@ -36,7 +56,8 @@ public:
 	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	SmallPtrSet<GetElementPtrInst*, 10> result_set;
-	std::vector<GetElementPtrInst*> result_list; bool matches_setup_param(GetElementPtrInst * ptr_inst);
+	std::vector<GetElementPtrInst*> result_list;
+	bool matches_setup_param(GetElementPtrInst * ptr_inst);
 };
 
 
@@ -67,7 +88,6 @@ public:
 	bool poop(Function &F);
 	BackwardPropigate();
 	~BackwardPropigate();
-
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
 private:
@@ -78,8 +98,6 @@ private:
 	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
-
-
 
 };
 
@@ -102,6 +120,17 @@ private:
 	std::string pub_name = "_ZNK3ros9Publisher7publishIN";
 	std::string srv_name = "FIGURE_THIS_ONE_OUT";
 
+};
+
+class PrintDoms: public ModulePass{
+
+public:
+	static char ID;
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	PrintDoms();
+	~PrintDoms();
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 };
 
 }
