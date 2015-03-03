@@ -18,38 +18,11 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<LoopInfoWrapperPass>();
 	AU.addRequired<DominatorTreeWrapperPass>();
+	AU.addRequired<PostDominatorTree>();
 	AU.addRequired<ExternCallFinder>();
+	AU.addRequired<IfStatementPass>();
+	AU.addRequired<PrintDoms>();
 	AU.setPreservesAll();
-}
-
-void get_branches(BasicBlock* B, std::vector<BranchInst*>* branches){
-	std::deque<BasicBlock*> todo;
-	SmallPtrSet<BasicBlock*, 10> visited;
-	bool encountered_self = false;
-
-	todo.push_back(B);
-	BasicBlock * cur;
-	while(!todo.empty()){
-		cur = todo.front();
-		todo.pop_front();
-		for (pred_iterator PI = pred_begin(cur), E = pred_end(cur); PI != E; ++PI) {
-			BasicBlock *Pred = *PI;
-			//If we have already encountered it that we are inside of a loop a
-			//and need to break out of it
-			//If we encounter an if statement start it up
-			if(BranchInst *branch = dyn_cast<BranchInst>(&*(Pred)-> getTerminator())){
-				branches -> push_back(branch);
-			}
-			//DOn't loop but continue on adding for ever.....
-			if(visited.count(Pred) > 0){
-				encountered_self = true;
-			}else{
-				todo.push_back(Pred);
-			}
-			visited.insert(Pred);
-		}
-	}
-
 }
 
 
@@ -63,28 +36,25 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			bool in_if = false;
 
 			DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
+			PostDominatorTree* post_dom = &getAnalysis<PostDominatorTree>(F);
 			LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
+			IfStatementPass* if_info= &getAnalysis<IfStatementPass>(F);
+			std::cerr << "SUP";
 
 			//Check to see if it is in a loop?
 			Loop* loop = loop_info -> getLoopFor(block);
 			if(loop){
 				in_loop = true;
-				std::cerr << "ITS in a loop" << loop -> getNumBlocks() << "\n";
 			}
 
-			//Check to see if in if statement
-			std::vector<BranchInst*> branches;
-			get_branches(block, &branches);
+			//Check to see if it is in an if statement
+			std::vector<BasicBlock*> parent_branches;
+			if_info -> getParents(&parent_branches, block);
+			in_if = parent_branches.size()  > 0;
+			std::cerr << parent_branches.size() << std::endl;
 
-			for(unsigned long i=0;i<branches.size(); i++){
-				BranchInst* b = branches[i];
-				b -> dump();
-				std::cerr <<  dom_tree->properlyDominates(b->getParent(), block) <<
-				 " " << dom_tree->dominates(b->getParent(), block) << "\n";
+			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
 
-			}
-			std::cerr << "\n------------\n";
-			F.viewCFG();
 
 			//Handle loop if needed
 			//Handle if if needed
@@ -111,7 +81,6 @@ bool BackwardPropigate::runOnModule(Module& M)
 	while(current_iter->size() > 0){
 		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 		{
-
 			Function* f = MI;
 			if(!f ->isDeclaration()){
 				runOnFunction(*MI);

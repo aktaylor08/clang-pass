@@ -15,6 +15,7 @@ void IfStatementPass::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.addRequired<PostDominatorTree>();
+	AU.addRequired<DominanceFrontier>();
 	AU.setPreservesAll();
 }
 void populate_branches(std::vector<BasicBlock*>* to_fill, Function* F){
@@ -44,6 +45,8 @@ bool IfStatementPass::runOnFunction(Function &F){
 	//First step get the require information
 	DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>().getDomTree();
 	PostDominatorTree* post_dom = &getAnalysis<PostDominatorTree>();
+	DominanceFrontier* dom_fron = &getAnalysis<DominanceFrontier>();
+
 
 	//Next find all of the conditional breaks in code
 	std::deque<BasicBlock *> todo;
@@ -80,6 +83,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 				}
 			}
 		}
+		std::cerr << "\n";
 		//Save the child map for the block
 		std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(cur, children);
 		child_map.insert(to_insert);
