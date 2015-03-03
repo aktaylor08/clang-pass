@@ -18,10 +18,8 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<LoopInfoWrapperPass>();
 	AU.addRequired<DominatorTreeWrapperPass>();
-	AU.addRequired<PostDominatorTree>();
 	AU.addRequired<ExternCallFinder>();
 	AU.addRequired<IfStatementPass>();
-	AU.addRequired<PrintDoms>();
 	AU.setPreservesAll();
 }
 
@@ -36,10 +34,8 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			bool in_if = false;
 
 			DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
-			PostDominatorTree* post_dom = &getAnalysis<PostDominatorTree>(F);
 			LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 			IfStatementPass* if_info= &getAnalysis<IfStatementPass>(F);
-			std::cerr << "SUP";
 
 			//Check to see if it is in a loop?
 			Loop* loop = loop_info -> getLoopFor(block);
@@ -51,9 +47,8 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			std::vector<BasicBlock*> parent_branches;
 			if_info -> getParents(&parent_branches, block);
 			in_if = parent_branches.size()  > 0;
-			std::cerr << parent_branches.size() << std::endl;
-
 			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
+
 
 
 			//Handle loop if needed
@@ -97,5 +92,4 @@ Pass *createPubCallFinderPass() {
 
 char BackwardPropigate::ID = 0;
 RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
-
 }

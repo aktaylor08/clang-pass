@@ -13,9 +13,7 @@ IfStatementPass::~IfStatementPass(){
 // We don't modify the program, so we preserve all analyses
 void IfStatementPass::getAnalysisUsage(AnalysisUsage &AU) const
 {
-	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.addRequired<PostDominatorTree>();
-	AU.addRequired<DominanceFrontier>();
 	AU.setPreservesAll();
 }
 void populate_branches(std::vector<BasicBlock*>* to_fill, Function* F){
@@ -43,9 +41,7 @@ void IfStatementPass::getParents(std::vector<BasicBlock*>* insert_into, BasicBlo
 
 bool IfStatementPass::runOnFunction(Function &F){
 	//First step get the require information
-	DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>().getDomTree();
 	PostDominatorTree* post_dom = &getAnalysis<PostDominatorTree>();
-	DominanceFrontier* dom_fron = &getAnalysis<DominanceFrontier>();
 
 
 	//Next find all of the conditional breaks in code
@@ -59,36 +55,68 @@ bool IfStatementPass::runOnFunction(Function &F){
 		}
 
 	}
-
-	//Loop through the found loops now
 	while(todo.size() > 0){
-		BasicBlock* cur = todo.front();
-		todo.pop_front();
-		std::vector<BasicBlock*> children;
 
-		//iterate through the function to find the nodes contained within the if statements
-		for(Function::iterator J=F.begin(), JE=F.end(); J !=JE;++J){
-			//Its inside if it is dominated by the node but does not post dominate the node
-			bool inside = (dom_tree -> dominates(cur, J) && !post_dom -> dominates(J, cur));
-			if(inside){
-				children.push_back(J);
-				//Insert into parent map -> check if there and push
-				if(parent_map.count(J) == 0){
-					std::vector<BasicBlock*> parents;
-					parents.push_back(cur);
-					std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(J, parents);
-					parent_map.insert(to_insert);
-				}else{
-					parent_map.at(J).push_back(cur);
+		//START THE PROCESS FOR ONE IF STATEMENT IN THE CODE
+		std::deque<BasicBlock*> queue;
+		SmallPtrSet<BasicBlock*, 20> branches;
+		std::unordered_map<BasicBlock*, int> visit_count;
+
+		BasicBlock* Start = todo.front();
+		queue.push_back(Start);
+		todo.pop_front();
+		//NOW ITERATE THROUGH THE CFG
+		while(! queue.empty()){
+			BasicBlock *current = queue.front();
+			queue.pop_front();
+			//Add to the counter of visits
+			if(branches.count(current) > 0){
+				continue;
+			}
+
+			if(BranchInst* b = dyn_cast<BranchInst>(&*(current -> getTerminator()))){
+				if(b->isConditional()){
+					branches.insert(current);
+				}
+			}
+			if(visit_count.count(current) > 0){
+				visit_count.at(current) = visit_count.at(current) + 1;
+			}else{
+				std::pair<BasicBlock*, int> to_insert(current, 1);
+				visit_count.insert(to_insert);
+			}
+			if(InvokeInst* invoke = dyn_cast<InvokeInst>(&*(current -> getTerminator()))){
+				BasicBlock* dest = invoke ->getNormalDest();
+				queue.push_back(dest);
+			}else{
+				for(succ_iterator PI = succ_begin(current), E = succ_end(current); PI !=E; ++PI){
+					BasicBlock *Pred = *PI;
+					queue.push_back(Pred);
 				}
 			}
 		}
-		std::cerr << "\n";
-		//Save the child map for the block
-		std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(cur, children);
+		int branch_count = branches.size();
+		std::vector<BasicBlock*> children;
+		for(auto& val: visit_count){
+			if(val.second <= branch_count && val.first != Start){
+				children.push_back(val.first);
+				//Insert into parent mapping
+				if(parent_map.count(val.first) == 0){
+					std::vector<BasicBlock*> parents;
+					parents.push_back(Start);
+					std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(val.first, parents);
+					parent_map.insert(to_insert);
+				}else{
+					parent_map.at(val.first).push_back(Start);
+				}
+			}
+		}
+		std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(Start, children);
 		child_map.insert(to_insert);
+		//Done with one of the loops use the iteration results
+
 	}
-	return false;
+return false;
 }
 
 char IfStatementPass::ID = 0;
