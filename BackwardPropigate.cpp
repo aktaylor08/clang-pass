@@ -68,6 +68,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
 			current_iter->erase(block);
+			std::cerr << "--------------------->\n";
 			std::cerr << F.getName().str() << "\n";
 
 			bool in_loop = false;
@@ -84,38 +85,67 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			if(loop){
 				in_loop = true;
 				loop_branch = getLoopBranch(loop -> getHeader());
-				loop_branch -> dump();
 			}
 
 			//Check to see if it is in an if statement
 			BasicBlock* if_branch = if_info ->getLocalParent(block);
 			if(if_branch){
 				in_if = true;
-				if_branch -> dump();
 			}
 
-			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
+			BasicBlock* working_block = nullptr;
 			//This will undoubtly happen so we have to take care of it and determine which values to process choose one and falsify the other variable
 			if(in_loop && in_if){
 				//They are the same process the loop first;
 				if(if_branch == loop_branch){
-					std::cerr << "SAME\n";
 					in_loop = true;
 					in_if = false;
+					working_block = loop_branch;
 				}else if(dom_tree -> dominates(if_branch, loop_branch)){
 					in_loop = true;
 					in_if = false;
+					working_block = loop_branch;
 				}else{
 					in_loop =false;
 					in_if = true;
-
+					working_block = if_branch;
 				}
-
-
+			}else if(in_loop){
+				working_block = loop_branch;
+			}else if(in_if){
+				working_block = if_branch;
 			}
 
+
 			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
-			std::cerr << "\n\n";
+			//Check if null and do functionc calls otherwise work on the rest
+			if(working_block){
+				Instruction* i =working_block -> getTerminator();
+				//should be a branch or something is very wrong here :)!
+				BranchInst* bi =  cast<BranchInst>(i);
+				std::deque<Value*> list;
+				list.push_back(bi -> getCondition());
+				while(list.size() > 0)
+				{
+					Value* cur_val = list.front();
+					list.pop_front();
+
+					if(Instruction* inst = dyn_cast<Instruction>(&*cur_val)){
+						inst -> dump();
+						for(Use &U : inst -> operands()){
+							list.push_back(U.get());
+						}
+					}
+					std::cerr << "********\n";
+				}
+
+			}else{
+				//DO FunctionCall here...
+				std::cerr << "Look at function calls\n";
+
+			}
+			std::cerr << "<---------------------\n";
+
 
 
 
