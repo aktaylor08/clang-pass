@@ -23,12 +23,52 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.setPreservesAll();
 }
 
+/**
+ * Get the branch instruction that deterimines whether or not the loop will execute.
+ * Found using simple iteration -> May return null pointer if something is wrong or asssert
+ * if there is more than one path from the loop header to the branch.
+ * Also like everything in this analysis it will ignore invoke unwinds
+ */
+BasicBlock* getLoopBranch(BasicBlock* start){
+	std::deque<BasicBlock*> todo;
+	todo.push_back(start);
+	while(todo.size() != 0)
+	{
+		BasicBlock* cur = todo.front();
+		todo.pop_front();
+		if(BranchInst* branch = dyn_cast<BranchInst>(&*(cur->getTerminator())))
+		{
+			//Found it
+			if(branch -> isConditional()){
+				return cur;
+			}
+		}
+		else if(InvokeInst* invoke = dyn_cast<InvokeInst>(&*(cur ->getTerminator())))
+		{
+			//only go the normal way
+			todo.push_back(invoke->getNormalDest());
+			continue;
+		}
+		bool once = false;
+		for(succ_iterator SI= succ_begin(cur), E = succ_end(cur); SI != E; ++SI){
+			if(once){
+				//Error we have a branch before what we wanted to happen
+				assert(false);
+			}
+			todo.push_back(*SI);
+			once = true;
+		}
+	}
+	return nullptr;
+}
+
 
 bool BackwardPropigate::runOnFunction(Function &F){
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
 			current_iter->erase(block);
+			std::cerr << F.getName().str() << "\n";
 
 			bool in_loop = false;
 			bool in_if = false;
@@ -38,16 +78,46 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			IfStatementPass* if_info= &getAnalysis<IfStatementPass>(F);
 
 			//Check to see if it is in a loop?
+			BasicBlock* loop_branch;
 			Loop* loop = loop_info -> getLoopFor(block);
+
 			if(loop){
 				in_loop = true;
+				loop_branch = getLoopBranch(loop -> getHeader());
+				loop_branch -> dump();
 			}
 
 			//Check to see if it is in an if statement
-			std::vector<BasicBlock*> parent_branches;
-			if_info -> getParents(&parent_branches, block);
-			in_if = parent_branches.size()  > 0;
+			BasicBlock* if_branch = if_info ->getLocalParent(block);
+			if(if_branch){
+				in_if = true;
+				if_branch -> dump();
+			}
+
 			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
+			//This will undoubtly happen so we have to take care of it and determine which values to process choose one and falsify the other variable
+			if(in_loop && in_if){
+				//They are the same process the loop first;
+				if(if_branch == loop_branch){
+					std::cerr << "SAME\n";
+					in_loop = true;
+					in_if = false;
+				}else if(dom_tree -> dominates(if_branch, loop_branch)){
+					in_loop = true;
+					in_if = false;
+				}else{
+					in_loop =false;
+					in_if = true;
+
+				}
+
+
+			}
+
+			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
+			std::cerr << "\n\n";
+
+
 
 
 
@@ -68,6 +138,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 bool BackwardPropigate::runOnModule(Module& M)
 {
+	std::cerr << "\n\n";
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	for(std::pair<BasicBlock*, CallSite> p :actual_calls){
 		current_iter ->insert(p.first);

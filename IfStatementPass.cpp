@@ -13,7 +13,7 @@ IfStatementPass::~IfStatementPass(){
 // We don't modify the program, so we preserve all analyses
 void IfStatementPass::getAnalysisUsage(AnalysisUsage &AU) const
 {
-	AU.addRequired<PostDominatorTree>();
+	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.setPreservesAll();
 }
 void populate_branches(std::vector<BasicBlock*>* to_fill, Function* F){
@@ -37,11 +37,21 @@ void IfStatementPass::getParents(std::vector<BasicBlock*>* insert_into, BasicBlo
 	}
 }
 
+BasicBlock* IfStatementPass::getLocalParent(BasicBlock* node){
+	if(direct_parents.count(node) > 0){
+		return direct_parents.at(node);
+	}
+	return nullptr;
+
+
+}
+
+
 
 
 bool IfStatementPass::runOnFunction(Function &F){
 	//First step get the require information
-	PostDominatorTree* post_dom = &getAnalysis<PostDominatorTree>();
+	DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>().getDomTree();
 
 
 	//Next find all of the conditional breaks in code
@@ -116,7 +126,24 @@ bool IfStatementPass::runOnFunction(Function &F){
 		//Done with one of the loops use the iteration results
 
 	}
-return false;
+	for(auto& pair : parent_map){
+		BasicBlock* node = pair.first;
+		BasicBlock* temp;
+		std::vector<BasicBlock*> stmts = pair.second;
+		for(unsigned long i=0;i<stmts.size(); i++){
+			int j = i;
+			while(j > 0 && dom_tree->properlyDominates(stmts[i], stmts[j])){
+				temp = stmts[i];
+				stmts[i] = stmts[j];
+				stmts[j] = temp;
+			}
+
+		}
+		std::pair<BasicBlock*, BasicBlock*> asdf(node, stmts[stmts.size() -1]);
+		direct_parents.insert(asdf);
+
+	}
+	return false;
 }
 
 char IfStatementPass::ID = 0;

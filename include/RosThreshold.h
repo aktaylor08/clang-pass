@@ -40,6 +40,7 @@ public:
 	virtual bool runOnFunction(Function &F);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	void getParents(std::vector<BasicBlock*>* parents, BasicBlock* block);
+	BasicBlock* getLocalParent(BasicBlock* node);
 
 private:
 	std::vector<BasicBlock> branch_statements;
@@ -47,6 +48,8 @@ private:
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> child_map;
 	/* Child map -> Block to all if statements*/
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> parent_map;
+	std::unordered_map<BasicBlock*, BasicBlock*> direct_parents;
+
 };
 
 class ParamUsageFinder: public ModulePass{
