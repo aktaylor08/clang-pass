@@ -66,6 +66,28 @@ public:
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
 };
 
+typedef std::unordered_map<GetElementPtrInst*, std::vector<GetElementPtrInst*>> ptr_map_type;
+typedef std::pair<GetElementPtrInst*, std::vector<GetElementPtrInst*>> ptr_pair_type;
+class ClassObjectAccess: public ModulePass{
+
+public:
+	static char ID;
+	ClassObjectAccess();
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
+private:
+	int _count;
+	std::vector<GetElementPtrInst*> representatives;
+	GetElementPtrInst* getRepInst(GetElementPtrInst* inst);
+	void addLoad(GetElementPtrInst* inst);
+	void addStore(GetElementPtrInst* inst);
+	void addToStore(GetElementPtrInst* inst);
+	ptr_map_type loads;
+	ptr_map_type stores;
+};
+
 
 class ParamCallFinder : public ModulePass{
 
