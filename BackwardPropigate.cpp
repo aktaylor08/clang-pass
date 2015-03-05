@@ -118,7 +118,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 
 			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
-			//Check if null and do functionc calls otherwise work on the rest
+			//Check if null and do function calls otherwise work on the rest
 			if(working_block){
 				Instruction* i =working_block -> getTerminator();
 				//should be a branch or something is very wrong here :)!
