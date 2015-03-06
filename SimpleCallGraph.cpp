@@ -66,5 +66,5 @@ bool SimpleCallGraph::runOnModule(Module& M)
 	return false;
 }
 
-RegisterPass<SimpleCallGraph> GOBIGRED("module-call-map", "Build super simple call map", false, false);
+RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
 }

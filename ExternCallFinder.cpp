@@ -64,5 +64,5 @@ bool ExternCallFinder::runOnModule(Module& M) {
 
 
 char ExternCallFinder::ID = 0;
-RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern", "identifying ROS publish and service calls", false, false);
+RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);
 }

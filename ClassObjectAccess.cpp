@@ -113,6 +113,6 @@ bool ClassObjectAccess::runOnModule(Module &M){
 	return false;
 }
 
-RegisterPass<ClassObjectAccess> M("element-ptr-access", "Getting object access patterns", false, false);
+RegisterPass<ClassObjectAccess> M("ros-element-ptr-access", "Getting object access patterns", false, false);
 
 }

@@ -167,5 +167,5 @@ bool ParamUsageFinder::runOnModule(Module& M)
 
 
 
-RegisterPass<ParamUsageFinder> Y("param-uses", "Finding Used Ros Params", false, false);
+RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
 }

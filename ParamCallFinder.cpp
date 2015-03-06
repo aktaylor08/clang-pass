@@ -66,6 +66,6 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
   }
 
 
-RegisterPass<ParamCallFinder> X("param-calls", "Finding ROS Param calls", false, false);
+RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
 
 }

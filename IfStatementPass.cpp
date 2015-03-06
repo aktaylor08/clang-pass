@@ -147,6 +147,6 @@ bool IfStatementPass::runOnFunction(Function &F){
 }
 
 char IfStatementPass::ID = 0;
-RegisterPass<IfStatementPass> IHAVENOMORENAMES("if-statements", "If Statements and printing information", false, false);
+RegisterPass<IfStatementPass> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
 
 }
