@@ -4,7 +4,6 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-
 #ifndef LLVM_TRANSFORM_THRESHOLD_H_
 #define LLVM_TRANSFORM_THRESHOLD_H_
 #include "llvm/Pass.h"
@@ -31,10 +30,28 @@
 using namespace llvm;
 namespace ros_thresh{
 
-//SmallPtrSet to get element pointers
+//Set defs
 typedef SmallPtrSet<GetElementPtrInst*, 10> ptr_set;
 typedef SmallPtrSet<BasicBlock*, 10> block_set;
 typedef SmallPtrSet<BranchInst*, 10> branch_set;
+
+typedef std::pair<BasicBlock*, BasicBlock*> block_pair;
+typedef std::pair<BasicBlock*, CallSite*> call_pair;
+
+
+typedef std::vector<BasicBlock*> block_vect;
+typedef std::vector<GetElementPtrInst*> ptr_vect;
+//map defs
+typedef std::unordered_map<BasicBlock*, block_vect> block_map;
+typedef std::pair<BasicBlock*, block_vect> block_map_pair;
+
+typedef std::unordered_map<GetElementPtrInst*, ptr_set> ptr_map_type;
+typedef std::pair<GetElementPtrInst*, ptr_set> ptr_pair_type;
+
+typedef std::vector<call_pair> call_pair_vect;
+
+
+
 
 class IfStatementPass: public FunctionPass{
 
@@ -44,15 +61,15 @@ public:
 	~IfStatementPass();
 	virtual bool runOnFunction(Function &F);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	void getParents(std::vector<BasicBlock*>* parents, BasicBlock* block);
+	void getParents(block_vect* parents, BasicBlock* block);
 	BasicBlock* getLocalParent(BasicBlock* node);
 
 private:
-	std::vector<BasicBlock> branch_statements;
+	block_vect branch_statements;
 	/* Child map -> If statements to contained blocks */
-	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> child_map;
+	block_map child_map;
 	/* Child map -> Block to all if statements*/
-	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> parent_map;
+	block_map parent_map;
 	std::unordered_map<BasicBlock*, BasicBlock*> direct_parents;
 
 };
@@ -66,13 +83,10 @@ public:
 	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	ptr_set result_set;
-	std::vector<GetElementPtrInst*> result_list;
+	ptr_vect result_list;
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
 };
 
-//Def of the types in this class
-typedef std::unordered_map<GetElementPtrInst*, ptr_set> ptr_map_type;
-typedef std::pair<GetElementPtrInst*, ptr_set> ptr_pair_type;
 //Get
 class ClassObjectAccess: public ModulePass{
 
@@ -87,7 +101,7 @@ public:
 
 private:
 	int _count;
-	std::vector<GetElementPtrInst*> representatives;
+	ptr_vect representatives;
 	GetElementPtrInst* getRepInst(GetElementPtrInst* inst);
 	void addLoad(GetElementPtrInst* inst);
 	void addStore(GetElementPtrInst* inst);
@@ -102,14 +116,14 @@ class ParamCallFinder : public ModulePass{
 
 public:
 	static char ID;
-	std::vector<GetElementPtrInst*> param_ptr_list;
+	ptr_vect param_ptr_list;
 	ptr_set param_ptr_set;
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
 	ParamCallFinder();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	ptr_set* getParamPtrSet();
-	std::vector<GetElementPtrInst*>* getParamPtrList();
+	ptr_vect* getParamPtrList();
 private:
 	int totalCount;
 };
@@ -125,21 +139,20 @@ public:
 	BackwardPropigate();
 	~BackwardPropigate();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	branch_set* get_marked_branches;
+	branch_set* get_marked_branches();
 
 private:
-	std::vector<std::pair<BasicBlock*, CallSite>> actual_calls;
+	call_pair_vect actual_calls;
 	block_set* current_iter;
 	block_set* next_iter;
 	block_set visited;
 	branch_set marked_branches;
 	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
-	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
-	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
+	block_map preds;
+	block_map succs;
 	ClassObjectAccess* obj_acc;
-
-
 };
+
 
 class ExternCallFinder : public ModulePass{
 public:
@@ -151,12 +164,12 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 
 
-	std::vector<std::pair<BasicBlock*, CallSite> >* getSites() {
+	call_pair_vect* getSites() {
 		return &sites;
 	}
 
 private:
-	std::vector<std::pair<BasicBlock*, CallSite>> sites;
+	call_pair_vect sites;
 	std::string pub_name = "_ZNK3ros9Publisher7publishIN";
 	std::string srv_name = "FIGURE_THIS_ONE_OUT";
 

@@ -34,7 +34,9 @@ bool ExternCallFinder::runOnFunction(Function& F) {
 				if( (!f_name.compare( 0, pub_name.size(), pub_name)) ||
 						(!f_name.compare( 0, srv_name.size(), srv_name))){
 					BasicBlock * BB = inst ->getParent();
-					std::pair<BasicBlock*, CallSite> p = std::make_pair(BB, cs);
+					call_pair p;
+					p.first = BB;
+					p.second = &cs;
 					sites.push_back(p);
 				}
 			}
@@ -54,14 +56,6 @@ bool ExternCallFinder::runOnModule(Module& M) {
 			runOnFunction(*MI);
 		}
 	}
-	// for(unsigned long i=0; i< sites.size();i++){
-	//     std::cerr << "Call:\n";
-	//     sites[i].second.getInstruction() -> dump();
-	//     std::cerr << "in: \n";
-	//     sites[i].first -> dump();
-	//     std::cerr << "\n";
-
-	// }
 	return false;
 }
 

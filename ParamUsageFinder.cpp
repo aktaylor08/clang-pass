@@ -117,7 +117,7 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 							B -> dump();
 							llvm::DebugLoc info;
 							info = (B ->getDebugLoc());
-							std::cerr << info.isUnknown();
+							std::cerr << info.isUnknown() << "\n";
 							info.dump();
 						}
 					}//end it is a param call

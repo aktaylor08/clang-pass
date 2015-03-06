@@ -14,6 +14,10 @@ BackwardPropigate::~BackwardPropigate()
 {
 }
 
+branch_set* BackwardPropigate::get_marked_branches(){
+	return &marked_branches;
+}
+
 // We don't modify the program, so we preserve all analyses
 void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 {
@@ -174,7 +178,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
 
-	for(std::pair<BasicBlock*, CallSite> p :actual_calls){
+	for(call_pair p :actual_calls){
 		current_iter ->insert(p.first);
 
 	}

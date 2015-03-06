@@ -16,7 +16,7 @@ void IfStatementPass::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.setPreservesAll();
 }
-void populate_branches(std::vector<BasicBlock*>* to_fill, Function* F){
+void populate_branches(block_vect* to_fill, Function* F){
 	to_fill->clear();
 	for(Function::iterator I=F -> begin(), E=F -> end(); I !=E;++I){
 		if(BranchInst *branch = dyn_cast<BranchInst>(&*(I)-> getTerminator())){
@@ -27,10 +27,10 @@ void populate_branches(std::vector<BasicBlock*>* to_fill, Function* F){
 	}
 }
 
-void IfStatementPass::getParents(std::vector<BasicBlock*>* insert_into, BasicBlock* block){
+void IfStatementPass::getParents(block_vect* insert_into, BasicBlock* block){
 	insert_into -> clear();
 	if(parent_map.count(block) != 0){
-		std::vector<BasicBlock*> maped_vals = parent_map.at(block);
+		block_vect maped_vals = parent_map.at(block);
 		for(unsigned long i=0; i< maped_vals.size(); i++){
 			insert_into ->push_back(maped_vals[i]);
 		}
@@ -106,22 +106,22 @@ bool IfStatementPass::runOnFunction(Function &F){
 			}
 		}
 		int branch_count = branches.size();
-		std::vector<BasicBlock*> children;
+		block_vect children;
 		for(auto& val: visit_count){
 			if(val.second <= branch_count && val.first != Start){
 				children.push_back(val.first);
 				//Insert into parent mapping
 				if(parent_map.count(val.first) == 0){
-					std::vector<BasicBlock*> parents;
+					block_vect parents;
 					parents.push_back(Start);
-					std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(val.first, parents);
+					block_map_pair to_insert(val.first, parents);
 					parent_map.insert(to_insert);
 				}else{
 					parent_map.at(val.first).push_back(Start);
 				}
 			}
 		}
-		std::pair<BasicBlock*, std::vector<BasicBlock*>> to_insert(Start, children);
+		block_map_pair to_insert(Start, children);
 		child_map.insert(to_insert);
 		//Done with one of the loops use the iteration results
 
@@ -129,7 +129,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 	for(auto& pair : parent_map){
 		BasicBlock* node = pair.first;
 		BasicBlock* temp;
-		std::vector<BasicBlock*> stmts = pair.second;
+		block_vect stmts = pair.second;
 		for(unsigned long i=0;i<stmts.size(); i++){
 			int j = i;
 			while(j > 0 && dom_tree->properlyDominates(stmts[i], stmts[j])){
@@ -139,7 +139,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 			}
 
 		}
-		std::pair<BasicBlock*, BasicBlock*> asdf(node, stmts[stmts.size() -1]);
+		block_pair asdf(node, stmts[stmts.size() -1]);
 		direct_parents.insert(asdf);
 
 	}

@@ -14,7 +14,7 @@ ptr_set* ParamCallFinder::getParamPtrSet(){
 	return &param_ptr_set;
 }
 
-std::vector<GetElementPtrInst*>* ParamCallFinder::getParamPtrList(){
+ptr_vect* ParamCallFinder::getParamPtrList(){
 	return &param_ptr_list;
 }
   bool ParamCallFinder::runOnFunction(Function &F)
