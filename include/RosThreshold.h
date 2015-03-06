@@ -34,6 +34,7 @@ namespace ros_thresh{
 //SmallPtrSet to get element pointers
 typedef SmallPtrSet<GetElementPtrInst*, 10> ptr_set;
 typedef SmallPtrSet<BasicBlock*, 10> block_set;
+typedef SmallPtrSet<BranchInst*, 10> branch_set;
 
 class IfStatementPass: public FunctionPass{
 
@@ -124,12 +125,14 @@ public:
 	BackwardPropigate();
 	~BackwardPropigate();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	branch_set* get_marked_branches;
 
 private:
 	std::vector<std::pair<BasicBlock*, CallSite>> actual_calls;
 	block_set* current_iter;
 	block_set* next_iter;
 	block_set visited;
+	branch_set marked_branches;
 	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;

@@ -72,63 +72,48 @@ bool BackwardPropigate::runOnFunction(Function &F){
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
+			visited.insert(block);
 			block_set to_add;
 			current_iter->erase(block);
-			std::cerr << F.getName().str() << "----->\n";
-
-			bool in_loop = false;
-			bool in_if = false;
-
 			DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
 			LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 			IfStatementPass* if_info= &getAnalysis<IfStatementPass>(F);
 
+			BasicBlock* working_block = nullptr;
+			BasicBlock* loop_branch = nullptr;
 			//Check to see if it is in a loop?
-			BasicBlock* loop_branch;
-			Loop* loop = loop_info -> getLoopFor(block);
 
+			Loop* loop = loop_info -> getLoopFor(block);
 			if(loop){
-				in_loop = true;
 				loop_branch = getLoopBranch(loop -> getHeader());
 			}
-
-			//Check to see if it is in an if statement
 			BasicBlock* if_branch = if_info ->getLocalParent(block);
-			if(if_branch){
-				in_if = true;
-			}
 
-			BasicBlock* working_block = nullptr;
-			//This will undoubtly happen so we have to take care of it and determine which values to process choose one and falsify the other variable
-			if(in_loop && in_if){
+			if(loop_branch && if_branch){
 				//They are the same process the loop first;
 				if(if_branch == loop_branch){
-					in_loop = true;
-					in_if = false;
 					working_block = loop_branch;
 				}else if(dom_tree -> dominates(if_branch, loop_branch)){
-					in_loop = true;
-					in_if = false;
 					working_block = loop_branch;
 				}else{
-					in_loop =false;
-					in_if = true;
 					working_block = if_branch;
 				}
-			}else if(in_loop){
+			}else if(loop_branch){
 				working_block = loop_branch;
-			}else if(in_if){
+			}else if(if_branch){
 				working_block = if_branch;
 			}
 
-
-			std::cerr <<"loop: " <<  in_loop << " if: " << in_if << "\n";
 			//Check if null and do function calls otherwise work on the rest
 			if(working_block){
 				Instruction* i =working_block -> getTerminator();
 				to_add.insert(working_block);
 				//should be a branch or something is very wrong here :)!
 				BranchInst* bi =  cast<BranchInst>(i);
+
+				//Add to the marked branches
+				marked_branches.insert(bi);
+
 				std::deque<Value*> list;
 				list.push_back(bi -> getCondition());
 				while(list.size() > 0)
@@ -174,10 +159,10 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 
 			for(BasicBlock *B : to_add){
-				std::cerr << "\t\t\t" << B -> getParent() -> getName().str() << "\n";
-
+				if(visited.count(B) == 0){
+					next_iter->insert(B);
+				}
 			}
-			std::cerr << "<-------------\n";
 		}
 
 	}
@@ -193,6 +178,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 		current_iter ->insert(p.first);
 
 	}
+	std::cerr << "sup?";
 	while(current_iter->size() > 0){
 		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 		{
@@ -201,6 +187,16 @@ bool BackwardPropigate::runOnModule(Module& M)
 				runOnFunction(*MI);
 			}
 		}
+		std::cerr << "Discovered: " << next_iter->size() << " Blocks\n";
+		block_set* temp = current_iter;
+		current_iter = next_iter;
+		next_iter = temp;
+		next_iter -> clear();
+	}
+	std::cerr << "Fount " << marked_branches.size() << "Branches\n";
+	for(BranchInst* bi : marked_branches){
+		bi -> dump();
+
 	}
 	return false;
 }
