@@ -30,10 +30,13 @@
 using namespace llvm;
 namespace ros_thresh{
 
+class BackwardPropigate;
+
 //Set defs
 typedef SmallPtrSet<GetElementPtrInst*, 10> ptr_set;
 typedef SmallPtrSet<BasicBlock*, 10> block_set;
 typedef SmallPtrSet<BranchInst*, 10> branch_set;
+typedef SmallPtrSet<Instruction*, 10> instruction_set;
 
 typedef std::pair<BasicBlock*, BasicBlock*> block_pair;
 typedef std::pair<BasicBlock*, CallSite*> call_pair;
@@ -85,6 +88,11 @@ public:
 	ptr_set result_set;
 	ptr_vect result_list;
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
+
+private:
+	BackwardPropigate* back_prop_res;
+	branch_set thresh_branches;
+
 };
 
 //Get
@@ -140,6 +148,8 @@ public:
 	~BackwardPropigate();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	branch_set* get_marked_branches();
+	bool branch_marked(BranchInst*);
+
 
 private:
 	call_pair_vect actual_calls;

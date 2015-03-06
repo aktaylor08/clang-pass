@@ -18,6 +18,10 @@ branch_set* BackwardPropigate::get_marked_branches(){
 	return &marked_branches;
 }
 
+bool BackwardPropigate::branch_marked(BranchInst* check){
+	return marked_branches.count(check) > 0;
+}
+
 // We don't modify the program, so we preserve all analyses
 void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 {
@@ -182,7 +186,6 @@ bool BackwardPropigate::runOnModule(Module& M)
 		current_iter ->insert(p.first);
 
 	}
-	std::cerr << "sup?";
 	while(current_iter->size() > 0){
 		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 		{
@@ -197,7 +200,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 		next_iter = temp;
 		next_iter -> clear();
 	}
-	std::cerr << "Fount " << marked_branches.size() << "Branches\n";
+	std::cerr << "Found " << marked_branches.size() << "Branches\n";
 	for(BranchInst* bi : marked_branches){
 		bi -> dump();
 

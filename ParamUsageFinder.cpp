@@ -4,12 +4,13 @@ namespace ros_thresh{
 char ParamUsageFinder::ID = 0;
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
-
+	back_prop_res = nullptr;
 }
 
 void ParamUsageFinder::getAnalysisUsage(AnalysisUsage &AU) const{
 	AU.setPreservesAll();
 	AU.addRequiredTransitive<ParamCallFinder>();
+	AU.addRequiredTransitive<BackwardPropigate>();
 }
 
 Type* getPointerElementType(GetElementPtrInst* gepi){
@@ -33,7 +34,7 @@ bool ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
 	for(unsigned long i=0; i < result_list.size(); i++){
 		bool matched = false;
 		if(pointToSameStruct(ptr_inst, result_list[i])){
-			llvm::GetElementPtrInst* pos_match = result_list[i];
+			GetElementPtrInst* pos_match = result_list[i];
 			if(pos_match ->getNumIndices() == ptr_inst -> getNumIndices()){
 				matched = true;
 				User::op_iterator PMI,PME, II;
@@ -69,8 +70,8 @@ void iter_on_uses(Instruction * I){
 
 }
 
-SmallPtrSet<Instruction *, 5> get_usage_sinks(Instruction* I){
-	SmallPtrSet<Instruction *, 5> ret_val;
+instruction_set get_usage_sinks(Instruction* I){
+	instruction_set ret_val;
 	std::deque<Instruction*> to_process;
 	to_process.push_back(I);
 	while(!to_process.empty()){
@@ -97,29 +98,28 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 
 			//Are we getting a pointer address for one of the param objects we set up?
 			if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*inst)){
-				//Is it not in the actual setup?
-				if (result_set.count(ptr_inst) == 0){
-					if(matches_setup_param(ptr_inst)){
-						SmallPtrSet<Instruction *, 5> sinks = get_usage_sinks(ptr_inst);
 
+				//Check to make sure it is not one of the original setup calls identified
+				if (result_set.count(ptr_inst) == 0){
+
+					//Does it reference a setup parameter though?
+					if(matches_setup_param(ptr_inst)){
+
+						//Check to see if it ends with a break statement..
+						instruction_set sinks = get_usage_sinks(ptr_inst);
 						//See if it ends on a br statement -> We have  a loop or if or something
-						bool br_sink = false;
 						BranchInst * B;
-						for(SmallPtrSet<Instruction *, 5>::iterator s=sinks.begin(); s!=sinks.end(); ++s){
+						//Does it end at a branch?
+						for(instruction_set::iterator s=sinks.begin(); s!=sinks.end(); ++s){
 							Instruction* I = *s;
 							if((B = dyn_cast<BranchInst>(&*I))){
-								std::cerr << B->getOpcodeName() << "\n";
-								br_sink = true;
+								if(back_prop_res ->branch_marked(B)){
+									thresh_branches.insert(B);
+								}
+
 							}
 						}
-						if(br_sink){
-							ptr_inst -> dump();
-							B -> dump();
-							llvm::DebugLoc info;
-							info = (B ->getDebugLoc());
-							std::cerr << info.isUnknown() << "\n";
-							info.dump();
-						}
+
 					}//end it is a param call
 				}
 			} //end possible pointer
@@ -132,9 +132,15 @@ bool ParamUsageFinder::runOnModule(Module& M)
 {
 	result_set = *(getAnalysis<ParamCallFinder>().getParamPtrSet());
 	result_list = *(getAnalysis<ParamCallFinder>().getParamPtrList());
+	back_prop_res = &getAnalysis<BackwardPropigate>();
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		runOnFunction(*MI);
+	}
+	std::cerr << "Found: " << thresh_branches.size() << " Dependent Branches\n";
+	for(BranchInst* b: thresh_branches){
+		b-> dump();
+
 	}
 	return false;
 }

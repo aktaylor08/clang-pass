@@ -35,9 +35,6 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 						}else{
 							std::cerr << "Non elemental pointer?" << std::endl;
 						}
-
-
-
 					}
 				}
 			}
