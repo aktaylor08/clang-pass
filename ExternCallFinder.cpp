@@ -38,7 +38,7 @@ bool ExternCallFinder::runOnFunction(Function& F) {
 					BasicBlock * BB = inst ->getParent();
 					call_pair p;
 					p.first = BB;
-					p.second = &cs;
+					p.second = cs;
 					sites.push_back(p);
 				}
 			}
@@ -58,6 +58,12 @@ bool ExternCallFinder::runOnModule(Module& M) {
 		if(!f ->isDeclaration()){
 			runOnFunction(*MI);
 		}
+	}
+	DEBUG( errs() << "Found " << sites.size() << "External Calls\n" );
+	for(call_pair p: sites){
+		errs() << p.second.getInstruction() -> hasMetadata() << "\n";
+		DEBUG( dump_instruction(p.second.getInstruction(), 1, ""));
+
 	}
 	return false;
 }

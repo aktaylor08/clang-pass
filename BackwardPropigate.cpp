@@ -211,19 +211,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	}
 	DEBUG(errs() << ">\tFound: " << marked_branches.size() << " Branches\n");
 	for(BranchInst* bi : marked_branches){
-		if(MDNode *N = bi -> getMetadata("dbg")){
-			DILocation Loc(N);
-			DEBUG(errs()<< "\tLine Number: ");
-			DEBUG(errs() << Loc.getLineNumber());
-			DEBUG(errs() << " in file ");
-			DEBUG(errs() << Loc.getDirectory().str());
-			DEBUG(errs() << "/");
-			DEBUG(errs() << Loc.getFilename().str());
-			DEBUG(errs() << "\n");
-		}else{
-			DEBUG(errs() << "\tNo debug information compile with -g! instruction:");
-			DEBUG(bi -> dump());
-		}
+		dump_instruction(bi, 1, "");
 	}
 	return false;
 }

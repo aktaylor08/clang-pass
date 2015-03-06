@@ -38,7 +38,7 @@ typedef SmallPtrSet<BranchInst*, 10> branch_set;
 typedef SmallPtrSet<Instruction*, 10> instruction_set;
 
 typedef std::pair<BasicBlock*, BasicBlock*> block_pair;
-typedef std::pair<BasicBlock*, CallSite*> call_pair;
+typedef std::pair<BasicBlock*, CallSite> call_pair;
 
 
 typedef std::vector<BasicBlock*> block_vect;
@@ -56,6 +56,7 @@ typedef std::vector<CallSite> call_vect;
 typedef std::pair<Function*, call_vect> func_call_pair;
 typedef std::unordered_map<Function*, call_vect> func_call_map_type;
 
+void dump_instruction(Instruction* inst, int tabs, std::string msg);
 
 
 class SimpleCallGraph: public ModulePass{
@@ -216,6 +217,9 @@ public:
 	~PrintDoms();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 };
+
+
+
 
 }
 
