@@ -17,9 +17,6 @@
 #include "llvm/Analysis/LoopInfoImpl.h"
 #include "llvm/Analysis/LoopPass.h"
 #include "llvm/IR/Dominators.h"
-#include "llvm/Analysis/DominanceFrontier.h"
-#include "llvm/Analysis/DependenceAnalysis.h"
-#include "llvm/Analysis/PostDominators.h"
 
 
 #include <iostream>

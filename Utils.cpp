@@ -15,25 +15,12 @@ PrintDoms::~PrintDoms()
 void PrintDoms::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<DominatorTreeWrapperPass>();
-	AU.addRequired<PostDominatorTree>();
 	AU.setPreservesAll();
 }
 
 bool PrintDoms::runOnFunction(Function &F){
 		DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
-		PostDominatorTree* post_dom = &getAnalysis<PostDominatorTree>(F);
 		//Is the block in the working list?
-
-
-		std::cerr << "Post Dom:\n";
-		for(Function::iterator I=F.begin(), E=F.end(); I !=E;++I){
-			for(Function::iterator J=F.begin(), JE=F.end(); J !=JE;++J){
-				std::cerr <<post_dom->dominates(I, J) << ",";
-			}
-			std::cerr << std::endl;
-		}
-		std::cerr << std::endl;
-
 		std::cerr << "Dom:\n";
 		for(Function::iterator I=F.begin(), E=F.end(); I !=E;++I){
 			for(Function::iterator J=F.begin(), JE=F.end(); J !=JE;++J){
@@ -62,20 +49,7 @@ bool PrintDoms::runOnFunction(Function &F){
 			for(Function::iterator J=F.begin(), JE=F.end(); J !=JE;++J){
 				std::cerr << dom_tree -> dominates(cur, J) << ",";
 			}
-			std::cerr << "\n";
-			std::cerr << "post dom:\n";
-			for(Function::iterator J=F.begin(), JE=F.end(); J !=JE;++J){
-				std::cerr << post_dom-> dominates(J, cur) << ",";
-			}
-			std::cerr << "\n";
 
-
-			std::cerr << "inside if:\n";
-			for(Function::iterator J=F.begin(), JE=F.end(); J !=JE;++J){
-				bool inside = (dom_tree -> dominates(cur, J) && !post_dom -> dominates(J, cur));
-				std::cerr << inside << ",";
-			}
-			std::cerr << "\n";
 
 		}
 
