@@ -17,7 +17,6 @@
 #include "llvm/Analysis/LoopInfoImpl.h"
 #include "llvm/Analysis/LoopPass.h"
 #include "llvm/IR/Dominators.h"
-#include "llvm/Analysis/CallGraph.h"
 
 
 #include <iostream>
@@ -51,7 +50,28 @@ typedef std::pair<GetElementPtrInst*, ptr_set> ptr_pair_type;
 
 typedef std::vector<call_pair> call_pair_vect;
 
+typedef std::vector<CallSite> call_vect;
+typedef std::pair<Function*, call_vect> func_call_pair;
+typedef std::unordered_map<Function*, call_vect> func_call_map_type;
 
+
+
+class SimpleCallGraph: public ModulePass{
+public:
+	static char ID;
+	SimpleCallGraph();
+	~SimpleCallGraph();
+	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	call_vect getCallSites(Function* target);
+
+private:
+	func_call_map_type call_map;
+
+
+
+};
 
 
 class IfStatementPass: public FunctionPass{
@@ -159,7 +179,7 @@ private:
 	block_map preds;
 	block_map succs;
 	ClassObjectAccess* obj_acc;
-	CallGraph* call_graph;
+	SimpleCallGraph* call_pass;
 };
 
 
@@ -196,5 +216,6 @@ public:
 };
 
 }
+
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
