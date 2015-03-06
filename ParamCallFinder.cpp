@@ -1,5 +1,9 @@
 #include "include/RosThreshold.h"
+
+#define DEBUG_TYPE "param_call_finder"
+
 namespace ros_thresh{
+
 char ParamCallFinder::ID = 0;
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
@@ -33,7 +37,7 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 							param_ptr_list.push_back(ptr_inst);
 							param_ptr_set.insert(ptr_inst);
 						}else{
-							std::cerr << "Non elemental pointer?" << std::endl;
+							errs() << "Non elemental pointer?\n";
 						}
 					}
 				}
@@ -42,7 +46,6 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 				std::string name = call_inst->getCalledValue() -> getName().str();
 				  if(!name.compare(0, prefix.size(), prefix)){
 					totalCount++;
-					//call_inst-> dump();
 				}
 
 			}
@@ -53,10 +56,12 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
   bool ParamCallFinder::runOnModule(Module& M)
   {
+	 DEBUG(errs() << "\n\nFunning Parameter Finder.\n");
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);
       }
+    DEBUG(errs() << "\tFound: " << totalCount << " Param setups\n");
     return false;
   }
 

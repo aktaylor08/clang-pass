@@ -1,5 +1,7 @@
 #include "include/RosThreshold.h"
 
+#define DEBUG_TYPE "ifstatements"
+
 using namespace llvm;
 namespace ros_thresh{
 
@@ -52,8 +54,6 @@ BasicBlock* IfStatementPass::getLocalParent(BasicBlock* node){
 bool IfStatementPass::runOnFunction(Function &F){
 	//First step get the require information
 	DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>().getDomTree();
-
-
 	//Next find all of the conditional breaks in code
 	std::deque<BasicBlock *> todo;
 	for(Function::iterator I=F.begin(), E=F.end(); I !=E;++I){

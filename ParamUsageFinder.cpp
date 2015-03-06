@@ -1,5 +1,7 @@
 #include "include/RosThreshold.h"
 
+#define DEBUG_TYPE "param_usage_finder"
+
 namespace ros_thresh{
 char ParamUsageFinder::ID = 0;
 
@@ -130,6 +132,7 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 
 bool ParamUsageFinder::runOnModule(Module& M)
 {
+	DEBUG(errs() << "\n\nStarting parameter usage finder:\n");
 	result_set = *(getAnalysis<ParamCallFinder>().getParamPtrSet());
 	result_list = *(getAnalysis<ParamCallFinder>().getParamPtrList());
 	back_prop_res = &getAnalysis<BackwardPropigate>();
@@ -137,22 +140,22 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	{
 		runOnFunction(*MI);
 	}
-	std::cerr << "Found: " << thresh_branches.size() << " Dependent Branches\n";
+	DEBUG(errs()  << ">\tFound: " << thresh_branches.size() << " Dependent Branches\n");
 	for(BranchInst* b: thresh_branches){
 		if(MDNode *N = b -> getMetadata("dbg")){
 			DILocation Loc(N);
-			std::cerr << "\tLine Number: ";
-			std::cerr << Loc.getLineNumber();
-			std::cerr << " in file ";
-			std::cerr << Loc.getDirectory().str();
-			std::cerr << "/";
-			std::cerr << Loc.getFilename().str();
-			std::cerr << "\n";
+			DEBUG(errs()  << "\tLine Number: ");
+			DEBUG(errs()  << Loc.getLineNumber());
+			DEBUG(errs()  << " in file ");
+			DEBUG(errs()  << Loc.getDirectory().str());
+			DEBUG(errs()  << "/");
+			DEBUG(errs()  << Loc.getFilename().str());
+			DEBUG(errs()  << "\n");
 		}else{
-			std::cerr << "\tNo debug information compile with -g! instruction:";
-			b -> dump();
-			std::cerr << "\tIn function: " << b -> getParent() -> getParent() -> getName().str();
-			std::cerr << "\n";
+			DEBUG(errs()  << "\tNo debug information compile with -g! instruction:");
+			DEBUG(b -> dump());
+			DEBUG(errs()  << "\tIn function: " << b -> getParent() -> getParent() -> getName().str());
+			DEBUG(errs()  << "\n");
 
 		}
 

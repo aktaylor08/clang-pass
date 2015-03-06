@@ -1,6 +1,7 @@
 #include "include/RosThreshold.h"
-
 using namespace llvm;
+
+#define DEBUG_TYPE "backward_propigate"
 namespace ros_thresh{
 
 
@@ -139,7 +140,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 								}
 								break;
 							}else{
-								std::cerr << "Fix this?\n";
+								errs() << "Fix this perhaps?\n";
 							}
 							//store values
 							for(Use &U : gep -> operands()){
@@ -186,7 +187,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 bool BackwardPropigate::runOnModule(Module& M)
 {
-    std::cerr << "Starting Backward Propigate Pass";
+    DEBUG(errs() << "\n\nStarting Backward Propigate Pass:\n");
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
 	call_pass = &getAnalysis<SimpleCallGraph>();
@@ -203,27 +204,25 @@ bool BackwardPropigate::runOnModule(Module& M)
 				runOnFunction(*MI);
 			}
 		}
-		// std::cerr << "\tDiscovered: " << next_iter->size() << " Blocks\n";
-		// std::cerr << "\tCurrent Branch Count: " << marked_branches.size() << " Blocks\n";
 		block_set* temp = current_iter;
 		current_iter = next_iter;
 		next_iter = temp;
 		next_iter -> clear();
 	}
-	std::cerr << "Found: " << marked_branches.size() << " Branches\n";
+	DEBUG(errs() << ">\tFound: " << marked_branches.size() << " Branches\n");
 	for(BranchInst* bi : marked_branches){
 		if(MDNode *N = bi -> getMetadata("dbg")){
 			DILocation Loc(N);
-			std::cerr << "\tLine Number: ";
-			std::cerr << Loc.getLineNumber();
-			std::cerr << " in file ";
-			std::cerr << Loc.getDirectory().str();
-			std::cerr << "/";
-			std::cerr << Loc.getFilename().str();
-			std::cerr << "\n";
+			DEBUG(errs()<< "\tLine Number: ");
+			DEBUG(errs() << Loc.getLineNumber());
+			DEBUG(errs() << " in file ");
+			DEBUG(errs() << Loc.getDirectory().str());
+			DEBUG(errs() << "/");
+			DEBUG(errs() << Loc.getFilename().str());
+			DEBUG(errs() << "\n");
 		}else{
-			std::cerr << "\tNo debug information compile with -g! instruction:";
-			bi -> dump();
+			DEBUG(errs() << "\tNo debug information compile with -g! instruction:");
+			DEBUG(bi -> dump());
 		}
 	}
 	return false;

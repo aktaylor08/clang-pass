@@ -43,7 +43,6 @@ bool SimpleCallGraph::runOnFunction(Function &F){
 }
 
 
-
 bool SimpleCallGraph::runOnModule(Module& M)
 {
 	//Init the map
@@ -67,12 +66,5 @@ bool SimpleCallGraph::runOnModule(Module& M)
 	return false;
 }
 
-
-
 RegisterPass<SimpleCallGraph> GOBIGRED("module-call-map", "Build super simple call map", false, false);
-
-
-
-
-
 }

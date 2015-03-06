@@ -1,5 +1,7 @@
 #include "include/RosThreshold.h"
 
+#define DEBUG_TYPE "object_pointers"
+
 
 namespace ros_thresh{
 
@@ -102,10 +104,12 @@ bool ClassObjectAccess::runOnFunction(Function &F){
 }
 
 bool ClassObjectAccess::runOnModule(Module &M){
+	DEBUG(errs() << "\n\nStarting Object Pointer Pass\n");
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);
       }
+    DEBUG(errs() << "\tFound " << _count << " Pointers in the class with " << representatives.size() << " Unique ones\n");
 	return false;
 }
 

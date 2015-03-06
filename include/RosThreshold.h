@@ -18,9 +18,10 @@
 #include "llvm/Analysis/LoopPass.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/DebugInfo.h"
+#include "llvm/Support/raw_ostream.h"
+#include "llvm/Support/Debug.h"
 
 
-#include <iostream>
 #include <queue>
 #include <unordered_map>
 #include <utility>

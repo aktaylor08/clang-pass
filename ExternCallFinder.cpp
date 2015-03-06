@@ -1,6 +1,8 @@
 #include "include/RosThreshold.h"
 
 using namespace llvm;
+
+#define DEBUG_TYPE "external_call_finder"
 namespace ros_thresh{
 
 
@@ -49,6 +51,7 @@ bool ExternCallFinder::runOnFunction(Function& F) {
  * Loop through everything
  */
 bool ExternCallFinder::runOnModule(Module& M) {
+	DEBUG( errs() << "\n\nStarting External Call Finder");
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		Function* f = MI;
