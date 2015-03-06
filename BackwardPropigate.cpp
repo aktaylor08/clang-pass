@@ -8,6 +8,7 @@ BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
 	current_iter = new block_set;
 	next_iter = new block_set;
 	obj_acc = nullptr;
+	call_graph = nullptr;
 }
 
 BackwardPropigate::~BackwardPropigate()
@@ -30,6 +31,7 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<ExternCallFinder>();
 	AU.addRequired<IfStatementPass>();
 	AU.addRequired<ClassObjectAccess>();
+	AU.addRequired<CallGraphWrapperPass>();
 	AU.setPreservesAll();
 }
 
@@ -157,7 +159,6 @@ bool BackwardPropigate::runOnFunction(Function &F){
 				}
 
 			}else{
-				//DO FunctionCall here...
 
 			}
 			//if neither than check for function calls?
@@ -181,6 +182,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 {
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
+	call_graph = &getAnalysis<CallGraphWrapperPass>().getCallGraph();
 
 	for(call_pair p :actual_calls){
 		current_iter ->insert(p.first);
@@ -194,7 +196,8 @@ bool BackwardPropigate::runOnModule(Module& M)
 				runOnFunction(*MI);
 			}
 		}
-		std::cerr << "Discovered: " << next_iter->size() << " Blocks\n";
+		std::cerr << "\tDiscovered: " << next_iter->size() << " Blocks\n";
+		std::cerr << "\tCurrent Branch Count: " << marked_branches.size() << " Blocks\n";
 		block_set* temp = current_iter;
 		current_iter = next_iter;
 		next_iter = temp;
@@ -203,7 +206,6 @@ bool BackwardPropigate::runOnModule(Module& M)
 	std::cerr << "Found " << marked_branches.size() << "Branches\n";
 	for(BranchInst* bi : marked_branches){
 		bi -> dump();
-
 	}
 	return false;
 }

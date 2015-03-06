@@ -17,6 +17,7 @@
 #include "llvm/Analysis/LoopInfoImpl.h"
 #include "llvm/Analysis/LoopPass.h"
 #include "llvm/IR/Dominators.h"
+#include "llvm/Analysis/CallGraph.h"
 
 
 #include <iostream>
@@ -158,6 +159,7 @@ private:
 	block_map preds;
 	block_map succs;
 	ClassObjectAccess* obj_acc;
+	CallGraph* call_graph;
 };
 
 
