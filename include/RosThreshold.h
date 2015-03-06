@@ -31,6 +31,9 @@
 using namespace llvm;
 namespace ros_thresh{
 
+//SmallPtrSet to get element pointers
+typedef SmallPtrSet<GetElementPtrInst*, 10> ptr_set;
+typedef SmallPtrSet<BasicBlock*, 10> block_set;
 
 class IfStatementPass: public FunctionPass{
 
@@ -61,13 +64,15 @@ public:
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	SmallPtrSet<GetElementPtrInst*, 10> result_set;
+	ptr_set result_set;
 	std::vector<GetElementPtrInst*> result_list;
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
 };
 
-typedef std::unordered_map<GetElementPtrInst*, std::vector<GetElementPtrInst*>> ptr_map_type;
-typedef std::pair<GetElementPtrInst*, std::vector<GetElementPtrInst*>> ptr_pair_type;
+//Def of the types in this class
+typedef std::unordered_map<GetElementPtrInst*, ptr_set> ptr_map_type;
+typedef std::pair<GetElementPtrInst*, ptr_set> ptr_pair_type;
+//Get
 class ClassObjectAccess: public ModulePass{
 
 public:
@@ -76,6 +81,8 @@ public:
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	ptr_set getLoads(GetElementPtrInst* inst);
+	ptr_set getStores(GetElementPtrInst*inst);
 
 private:
 	int _count;
@@ -95,12 +102,12 @@ class ParamCallFinder : public ModulePass{
 public:
 	static char ID;
 	std::vector<GetElementPtrInst*> param_ptr_list;
-	SmallPtrSet<GetElementPtrInst*, 10> param_ptr_set;
+	ptr_set param_ptr_set;
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
 	ParamCallFinder();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	SmallPtrSet<GetElementPtrInst*, 10>* getParamPtrSet();
+	ptr_set* getParamPtrSet();
 	std::vector<GetElementPtrInst*>* getParamPtrList();
 private:
 	int totalCount;
@@ -120,12 +127,14 @@ public:
 
 private:
 	std::vector<std::pair<BasicBlock*, CallSite>> actual_calls;
-	SmallPtrSet<BasicBlock*, 10>* current_iter;
-	SmallPtrSet<BasicBlock*, 10>* next_iter;
-	SmallPtrSet<BasicBlock*, 50> visited;
+	block_set* current_iter;
+	block_set* next_iter;
+	block_set visited;
 	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> preds;
 	std::unordered_map<BasicBlock*, std::vector<BasicBlock*>> succs;
+	ClassObjectAccess* obj_acc;
+
 
 };
 

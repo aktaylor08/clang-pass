@@ -16,8 +16,20 @@ void ClassObjectAccess::getAnalysisUsage(AnalysisUsage &AU) const{
 
 GetElementPtrInst* ClassObjectAccess::getRepInst(GetElementPtrInst* inst){
 	for(GetElementPtrInst* cmp : representatives){
-		if(cmp -> isSameOperationAs(inst)){
-			return cmp;
+		if(cmp -> getPointerOperandType() == inst -> getPointerOperandType()){
+			if(cmp -> getNumIndices() == inst -> getNumIndices()){
+				bool matched = true;
+				User::op_iterator PMI,PME, II;
+				PMI = cmp-> idx_begin();
+				PME = cmp-> idx_end();
+				II = inst-> idx_begin();
+				for(;PMI != PME;++II, ++PMI){
+					matched = matched && (II -> get() == PMI -> get());
+				}
+				if(matched){
+					return cmp;
+				}
+			}
 		}
 	}
 	representatives.push_back(inst);
@@ -26,10 +38,10 @@ GetElementPtrInst* ClassObjectAccess::getRepInst(GetElementPtrInst* inst){
 
 void ClassObjectAccess::addToStore(GetElementPtrInst* inst){
 		for(User *a : inst -> users()){
-			if(LoadInst* load = dyn_cast<LoadInst>(&*a)){
+			if(isa<LoadInst>(&*a)){
 				addLoad(inst);
 			}
-			if(StoreInst* store = dyn_cast<StoreInst>(&*a)){
+			if(isa<StoreInst>(&*a)){
 				addStore(inst);
 			}
 		}
@@ -40,13 +52,11 @@ void ClassObjectAccess::addLoad(GetElementPtrInst* inst){
 	if(loads.count(inst) == 0){
 		ptr_pair_type insert;
 		insert.first = ref;
-		insert.second.push_back(inst);
+		insert.second.insert(inst);
 		loads.insert(insert);
 	}else{
-		loads.at(ref).push_back(inst);
+		loads.at(ref).insert(inst);
 	}
-
-
 }
 
 void ClassObjectAccess::addStore(GetElementPtrInst* inst){
@@ -54,14 +64,30 @@ void ClassObjectAccess::addStore(GetElementPtrInst* inst){
 	if(stores.count(inst) == 0){
 		ptr_pair_type insert;
 		insert.first = ref;
-		insert.second.push_back(inst);
+		insert.second.insert(inst);
 		stores.insert(insert);
 	}else{
-		stores.at(ref).push_back(inst);
+		stores.at(ref).insert(inst);
 	}
-
 }
 
+ptr_set ClassObjectAccess::getLoads(GetElementPtrInst* inst){
+	GetElementPtrInst* ref = getRepInst(inst);
+	if(loads.count(ref) == 0){
+		return ptr_set();
+	}else{
+		return loads.at(ref);
+	}
+}
+
+ptr_set ClassObjectAccess::getStores(GetElementPtrInst* inst){
+	GetElementPtrInst* ref = getRepInst(inst);
+	if(stores.count(ref) == 0){
+		return ptr_set();
+	}else{
+		return stores.at(ref);
+	}
+}
 
 bool ClassObjectAccess::runOnFunction(Function &F){
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
@@ -80,11 +106,9 @@ bool ClassObjectAccess::runOnModule(Module &M){
       {
     	runOnFunction(*MI);
       }
-    std::cerr << _count << "\n";
-    std::cerr << representatives.size() << "\n";
 	return false;
 }
 
-RegisterPass<ClassObjectAccess> M("class-obj-access", "Getting object acess patterns", false, false);
+RegisterPass<ClassObjectAccess> M("element-ptr-access", "Getting object access patterns", false, false);
 
 }

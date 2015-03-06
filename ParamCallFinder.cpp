@@ -10,7 +10,7 @@ void ParamCallFinder::getAnalysisUsage(AnalysisUsage &AU) const {
 	AU.setPreservesAll();
 }
 
-SmallPtrSet<GetElementPtrInst*, 10>* ParamCallFinder::getParamPtrSet(){
+ptr_set* ParamCallFinder::getParamPtrSet(){
 	return &param_ptr_set;
 }
 

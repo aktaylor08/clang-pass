@@ -5,8 +5,9 @@ namespace ros_thresh{
 
 
 BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
-	current_iter = new SmallPtrSet<BasicBlock*, 10>;
-	next_iter = new SmallPtrSet<BasicBlock*, 10>;
+	current_iter = new block_set;
+	next_iter = new block_set;
+	obj_acc = nullptr;
 }
 
 BackwardPropigate::~BackwardPropigate()
@@ -20,6 +21,7 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.addRequired<ExternCallFinder>();
 	AU.addRequired<IfStatementPass>();
+	AU.addRequired<ClassObjectAccess>();
 	AU.setPreservesAll();
 }
 
@@ -63,13 +65,16 @@ BasicBlock* getLoopBranch(BasicBlock* start){
 }
 
 
+/**
+ * Main value here is to update everything on this function run...
+ */
 bool BackwardPropigate::runOnFunction(Function &F){
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
+			block_set to_add;
 			current_iter->erase(block);
-			std::cerr << "--------------------->\n";
-			std::cerr << F.getName().str() << "\n";
+			std::cerr << F.getName().str() << "----->\n";
 
 			bool in_loop = false;
 			bool in_if = false;
@@ -121,6 +126,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			//Check if null and do function calls otherwise work on the rest
 			if(working_block){
 				Instruction* i =working_block -> getTerminator();
+				to_add.insert(working_block);
 				//should be a branch or something is very wrong here :)!
 				BranchInst* bi =  cast<BranchInst>(i);
 				std::deque<Value*> list;
@@ -129,37 +135,49 @@ bool BackwardPropigate::runOnFunction(Function &F){
 				{
 					Value* cur_val = list.front();
 					list.pop_front();
+					if(GetElementPtrInst* gep = dyn_cast<GetElementPtrInst>(&*cur_val) ){
+						for(User *u : gep->users()){
+							if(isa<LoadInst>(&*u)){
+								ptr_set stores = obj_acc->getStores(gep);
+								for(GetElementPtrInst* it : stores){
+									to_add.insert(it ->getParent());
+								}
+								break;
+							}else{
+								std::cerr << "Fix this?\n";
+							}
+							//store values
+							for(Use &U : gep -> operands()){
+								list.push_back(U.get());
+							}
 
+						}
+					}
 					if(Instruction* inst = dyn_cast<Instruction>(&*cur_val)){
-						inst -> dump();
+						BasicBlock* B = inst -> getParent();
+						to_add.insert(B);
 						for(Use &U : inst -> operands()){
 							list.push_back(U.get());
 						}
+
 					}
-					std::cerr << "********\n";
 				}
 
 			}else{
 				//DO FunctionCall here...
-				std::cerr << "Look at function calls\n";
 
 			}
-			std::cerr << "<---------------------\n";
-
-
-
-
-
-
-			//Handle loop if needed
-			//Handle if if needed
-
 			//if neither than check for function calls?
 
 
 			//Do data dependencies..
 
 
+			for(BasicBlock *B : to_add){
+				std::cerr << "\t\t\t" << B -> getParent() -> getName().str() << "\n";
+
+			}
+			std::cerr << "<-------------\n";
 		}
 
 	}
@@ -168,8 +186,9 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 bool BackwardPropigate::runOnModule(Module& M)
 {
-	std::cerr << "\n\n";
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
+	obj_acc = &getAnalysis<ClassObjectAccess>();
+
 	for(std::pair<BasicBlock*, CallSite> p :actual_calls){
 		current_iter ->insert(p.first);
 
