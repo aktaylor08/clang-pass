@@ -8,7 +8,7 @@ BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
 	current_iter = new block_set;
 	next_iter = new block_set;
 	obj_acc = nullptr;
-	call_graph = nullptr;
+	call_pass = nullptr;
 }
 
 BackwardPropigate::~BackwardPropigate()
@@ -31,7 +31,7 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<ExternCallFinder>();
 	AU.addRequired<IfStatementPass>();
 	AU.addRequired<ClassObjectAccess>();
-	AU.addRequired<CallGraphWrapperPass>();
+	AU.addRequired<SimpleCallGraph>();
 	AU.setPreservesAll();
 }
 
@@ -159,9 +159,15 @@ bool BackwardPropigate::runOnFunction(Function &F){
 				}
 
 			}else{
+				//At this location we are not inside an if or other loop type. So we will
+				//simple go onto the next location.
+				//add found function call locations within the module.
+				call_vect locations = call_pass-> getCallSites(block -> getParent());
+				for(CallSite s: locations){
+					to_add.insert(s.getInstruction() -> getParent());
+				}
 
 			}
-			//if neither than check for function calls?
 
 
 			//Do data dependencies..
@@ -182,7 +188,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 {
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
-	call_graph = &getAnalysis<CallGraphWrapperPass>().getCallGraph();
+	call_pass = &getAnalysis<SimpleCallGraph>();
 
 	for(call_pair p :actual_calls){
 		current_iter ->insert(p.first);

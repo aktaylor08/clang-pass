@@ -56,12 +56,13 @@ bool SimpleCallGraph::runOnModule(Module& M)
 			call_map.insert(p);
 		}
 
+
+	}
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI){
 		if(!MI ->isDeclaration()){
 			runOnFunction(*MI);
 		}
 	}
-
 
 	return false;
 }
