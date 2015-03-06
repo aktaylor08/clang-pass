@@ -139,7 +139,24 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	}
 	std::cerr << "Found: " << thresh_branches.size() << " Dependent Branches\n";
 	for(BranchInst* b: thresh_branches){
-		b-> dump();
+		if(MDNode *N = b -> getMetadata("dbg")){
+			DILocation Loc(N);
+			std::cerr << "\tLine Number: ";
+			std::cerr << Loc.getLineNumber();
+			std::cerr << " in file ";
+			std::cerr << Loc.getDirectory().str();
+			std::cerr << "/";
+			std::cerr << Loc.getFilename().str();
+			std::cerr << "\n";
+		}else{
+			std::cerr << "\tNo debug information compile with -g! instruction:";
+			b -> dump();
+			std::cerr << "\tIn function: " << b -> getParent() -> getParent() -> getName().str();
+			std::cerr << "\n";
+
+		}
+
+
 
 	}
 	return false;

@@ -209,9 +209,21 @@ bool BackwardPropigate::runOnModule(Module& M)
 		next_iter = temp;
 		next_iter -> clear();
 	}
-	std::cerr << "Found " << marked_branches.size() << "Branches\n";
+	std::cerr << "Found: " << marked_branches.size() << " Branches\n";
 	for(BranchInst* bi : marked_branches){
-		bi -> dump();
+		if(MDNode *N = bi -> getMetadata("dbg")){
+			DILocation Loc(N);
+			std::cerr << "\tLine Number: ";
+			std::cerr << Loc.getLineNumber();
+			std::cerr << " in file ";
+			std::cerr << Loc.getDirectory().str();
+			std::cerr << "/";
+			std::cerr << Loc.getFilename().str();
+			std::cerr << "\n";
+		}else{
+			std::cerr << "\tNo debug information compile with -g! instruction:";
+			bi -> dump();
+		}
 	}
 	return false;
 }
