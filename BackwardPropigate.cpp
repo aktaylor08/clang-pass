@@ -186,6 +186,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 bool BackwardPropigate::runOnModule(Module& M)
 {
+    std::cerr << "Starting Backward Propigate Pass";
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
 	call_pass = &getAnalysis<SimpleCallGraph>();
@@ -202,8 +203,8 @@ bool BackwardPropigate::runOnModule(Module& M)
 				runOnFunction(*MI);
 			}
 		}
-		std::cerr << "\tDiscovered: " << next_iter->size() << " Blocks\n";
-		std::cerr << "\tCurrent Branch Count: " << marked_branches.size() << " Blocks\n";
+		// std::cerr << "\tDiscovered: " << next_iter->size() << " Blocks\n";
+		// std::cerr << "\tCurrent Branch Count: " << marked_branches.size() << " Blocks\n";
 		block_set* temp = current_iter;
 		current_iter = next_iter;
 		next_iter = temp;
