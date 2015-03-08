@@ -3,8 +3,6 @@ using namespace llvm;
 #define DEBUG_TYPE "backward_propigate"
 namespace ros_thresh{
 
-std::string wanted_name = "_ZN4Test9main_loopEv";
-
 IfStatementPass::IfStatementPass() : ModulePass(ID) {
 	count = 0;
 }
@@ -54,8 +52,8 @@ BasicBlock* IfStatementPass::getLocalParent(BasicBlock* node){
 
 
 bool IfStatementPass::runOnFunction(Function &F){
-	bool print = F.getName().str() == wanted_name;
 	block_vect m;
+	std::set<BasicBlock*> inserted;
 	std::pair<Function*, block_vect> toinsert(&F, m);
 	if_map.insert(toinsert);
 	//First step get the require information
@@ -71,67 +69,65 @@ bool IfStatementPass::runOnFunction(Function &F){
 		}
 	}
 	count += todo.size();
-	if(print){
-		errs() << todo.size() << "\n";
-	}
 	while(todo.size() > 0){
-
 		//START THE PROCESS FOR ONE IF STATEMENT IN THE CODE
 		std::deque<BasicBlock*> queue;
 		SmallPtrSet<BasicBlock*, 20> branches;
 		std::unordered_map<BasicBlock*, int> visit_count;
 
+		//Get the first one to do
 		BasicBlock* Start = todo.front();
-		if(print){
-			dump_instruction(Start->getTerminator(), 0, "Start: ");
-		}
-
-		queue.push_back(Start);
 		todo.pop_front();
+		for(succ_iterator PI = succ_begin(Start), E = succ_end(Start); PI !=E; ++PI){
+			BasicBlock *Pred = *PI;
+			queue.push_back(Pred);
+
+		}
+		branches.insert(Start);
 		//NOW ITERATE THROUGH THE CFG
 		while(! queue.empty()){
-			BasicBlock *current = queue.front();
-			if(print){
-				dump_block_lines(current, 2);
-				errs() << "----\n";
-			}
+			BasicBlock * current = queue.front();
 			queue.pop_front();
-			//Add to the counter of visits
-			if(visit_count.count(current) > 0){
-				visit_count.at(current) = visit_count.at(current) + 1;
-			}else{
-				std::pair<BasicBlock*, int> to_insert(current, 1);
-				visit_count.insert(to_insert);
-			}
-			if(branches.count(current) > 0){
-				//skip for now.
-			}else if(InvokeInst* invoke = dyn_cast<InvokeInst>(&*(current -> getTerminator()))){
-				BasicBlock* dest = invoke ->getNormalDest();
-				queue.push_back(dest);
-			}else{
-				for(succ_iterator PI = succ_begin(current), E = succ_end(current); PI !=E; ++PI){
-					BasicBlock *Pred = *PI;
-					queue.push_back(Pred);
-				}
-			}
-			if(BranchInst* b = dyn_cast<BranchInst>(&*(current -> getTerminator()))){
-				if(branches.count(b -> getParent()) == 0){
+
+			//Only do this stuff if it doesn't dominate it.
+			if(     (!dom_tree->dominates(current, Start)) &&
+					(current != Start) &&
+					(branches.count(current) == 0) ) {
+				//Add to the list of branches if it is there.
+				if(BranchInst* b = dyn_cast<BranchInst>(&*(current -> getTerminator()))){
 					if(b->isConditional()){
 						branches.insert(current);
+					}
+				}
+
+				//Add to the counter of visits
+				if(visit_count.count(current) > 0){
+					visit_count.at(current) = visit_count.at(current) + 1;
+				}else{
+					std::pair<BasicBlock*, int> to_insert(current, 1);
+					visit_count.insert(to_insert);
+				}
+
+				if(InvokeInst* invoke = dyn_cast<InvokeInst>(&*(current -> getTerminator()))){
+					BasicBlock* dest = invoke ->getNormalDest();
+					queue.push_back(dest);
+				}else{
+					for(succ_iterator PI = succ_begin(current), E = succ_end(current); PI !=E; ++PI){
+						BasicBlock *Pred = *PI;
+						queue.push_back(Pred);
 					}
 				}
 			}
 		}
 
+		//Done iterating through the set now
 		int branch_count = branches.size();
-		if(print){
-			errs() << "BRANCHES: " << branches.size() << "\n";
-		}
 		block_vect children;
 		for(auto& val: visit_count){
 			if(val.second <= branch_count && val.first != Start){
 				children.push_back(val.first);
 				//Insert into parent mapping
+				inserted.insert(val.first);
 				if(parent_map.count(val.first) == 0){
 					block_vect parents;
 					parents.push_back(Start);
@@ -140,38 +136,16 @@ bool IfStatementPass::runOnFunction(Function &F){
 				}else{
 					parent_map.at(val.first).push_back(Start);
 				}
-			}else{
-				if(print){
-					dump_instruction(val.first->getTerminator(), 1, "excluded");
-				}
-
-
 			}
 		}
 		block_map_pair to_insert(Start, children);
 		child_map.insert(to_insert);
-		if(print){
-			std::set<int> lineset;
-			dump_instruction(Start-> getTerminator(), 0, "Branch: ");
-			for(BasicBlock* ittt : children){
-				for(BasicBlock::iterator I=ittt->begin(), E=ittt->end(); I != E; ++E){
-					if(MDNode *N = I -> getMetadata("dbg")){
-							DILocation Loc(N);
-							lineset.insert(Loc.getLineNumber());
-					}
-				}
-			}
-			for(int i: lineset){
-				errs() << i << "\n";
-			}
-
-		}
 		//Done with one of the loops use the iteration results
 	}
-	for(auto& pair : parent_map){
-		BasicBlock* node = pair.first;
+
+	for(BasicBlock* b: inserted){
 		BasicBlock* temp;
-		block_vect stmts = pair.second;
+		block_vect stmts = parent_map.at(b);
 		for(unsigned long i=0;i<stmts.size(); i++){
 			int j = i;
 			while(j > 0 && dom_tree->properlyDominates(stmts[i], stmts[j])){
@@ -179,9 +153,8 @@ bool IfStatementPass::runOnFunction(Function &F){
 				stmts[i] = stmts[j];
 				stmts[j] = temp;
 			}
-
 		}
-		block_pair asdf(node, stmts[stmts.size() -1]);
+		block_pair asdf(b, stmts[stmts.size() -1]);
 		direct_parents.insert(asdf);
 	}
 	return false;
@@ -196,8 +169,7 @@ bool IfStatementPass::runOnModule(Module& M)
 			runOnFunction(*MI);
 		}
 	}
-	DEBUG(errs() << child_map.size() << "\n");
-	DEBUG(errs() << count  << "\n");
+	DEBUG(errs() << "Found: " << child_map.size() << " Branch Statements\n");
 	return false;
 }
 
