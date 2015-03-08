@@ -51,7 +51,7 @@ bool ExternCallFinder::runOnFunction(Function& F) {
  * Loop through everything
  */
 bool ExternCallFinder::runOnModule(Module& M) {
-	DEBUG( errs() << "\n\nStarting External Call Finder");
+	DEBUG( errs() << "\n\nStarting External Call Finder\n");
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		Function* f = MI;
@@ -59,9 +59,8 @@ bool ExternCallFinder::runOnModule(Module& M) {
 			runOnFunction(*MI);
 		}
 	}
-	DEBUG( errs() << "Found " << sites.size() << "External Calls\n" );
+	DEBUG( errs() << "Found " << sites.size() << " External Calls\n" );
 	for(call_pair p: sites){
-		errs() << p.second.getInstruction() -> hasMetadata() << "\n";
 		DEBUG( dump_instruction(p.second.getInstruction(), 1, ""));
 
 	}

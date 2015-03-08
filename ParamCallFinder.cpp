@@ -29,11 +29,11 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 			if(InvokeInst* inv_inst= dyn_cast<InvokeInst>(&*inst)){
 				std::string name = inv_inst->getCalledValue() -> getName().str();
 				  if(!name.compare(0, prefix.size(), prefix)){
-					totalCount++;
 					int arg_size = inv_inst->getNumArgOperands();
 					if(arg_size == 3 || arg_size == 4){
 						Value* val_arg = inv_inst -> getArgOperand(2);
 						if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*val_arg)){
+							totalCount++;
 							param_ptr_list.push_back(ptr_inst);
 							param_ptr_set.insert(ptr_inst);
 						}else{
@@ -45,7 +45,17 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 			if(CallInst* call_inst = dyn_cast<CallInst>(&*inst)){
 				std::string name = call_inst->getCalledValue() -> getName().str();
 				  if(!name.compare(0, prefix.size(), prefix)){
-					totalCount++;
+					int arg_size = call_inst->getNumArgOperands();
+					if(arg_size == 3 || arg_size == 4){
+						Value* val_arg = call_inst -> getArgOperand(2);
+						if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*val_arg)){
+							totalCount++;
+							param_ptr_list.push_back(ptr_inst);
+							param_ptr_set.insert(ptr_inst);
+						}else{
+							errs() << "Non elemental pointer?\n";
+						}
+					}
 				}
 
 			}
@@ -62,6 +72,10 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
     	runOnFunction(*MI);
       }
     DEBUG(errs() << "\tFound: " << totalCount << " Param setups\n");
+    for(GetElementPtrInst* p : param_ptr_list){
+    	dump_instruction(p, 1, "");
+    }
+
     return false;
   }
 
