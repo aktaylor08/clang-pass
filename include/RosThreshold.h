@@ -188,6 +188,7 @@ private:
 	block_map succs;
 	ClassObjectAccess* obj_acc;
 	SimpleCallGraph* call_pass;
+	IfStatementPass* if_info;
 };
 
 

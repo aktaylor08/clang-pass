@@ -10,6 +10,7 @@ BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
 	next_iter = new block_set;
 	obj_acc = nullptr;
 	call_pass = nullptr;
+	if_info = nullptr;
 }
 
 BackwardPropigate::~BackwardPropigate()
@@ -90,7 +91,6 @@ bool BackwardPropigate::runOnFunction(Function &F){
 
 			DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
 			LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
-			IfStatementPass* if_info= &getAnalysis<IfStatementPass>(F);
 
 			BasicBlock* working_block = nullptr;
 			BasicBlock* loop_branch = nullptr;
@@ -194,6 +194,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
 	call_pass = &getAnalysis<SimpleCallGraph>();
+	if_info= &getAnalysis<IfStatementPass>();
 
 	for(call_pair p :actual_calls){
 		current_iter ->insert(p.first);

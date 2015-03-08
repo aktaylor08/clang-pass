@@ -162,6 +162,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 
 bool IfStatementPass::runOnModule(Module& M)
 {
+	DEBUG(errs() << "\n\nStarting If Statement Passes");
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		Function* f = MI;
