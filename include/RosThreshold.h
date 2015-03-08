@@ -57,7 +57,7 @@ typedef std::pair<Function*, call_vect> func_call_pair;
 typedef std::unordered_map<Function*, call_vect> func_call_map_type;
 
 void dump_instruction(Instruction* inst, int tabs, std::string msg);
-
+void dump_block_lines(BasicBlock* b, int tabs);
 
 class SimpleCallGraph: public ModulePass{
 public:
@@ -77,24 +77,29 @@ private:
 };
 
 
-class IfStatementPass: public FunctionPass{
+class IfStatementPass: public ModulePass{
 
 public:
 	static char ID;
 	IfStatementPass();
 	~IfStatementPass();
 	virtual bool runOnFunction(Function &F);
+	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	void getParents(block_vect* parents, BasicBlock* block);
 	BasicBlock* getLocalParent(BasicBlock* node);
 
 private:
+	void addChildren(block_map children);
+	void addParents();
 	block_vect branch_statements;
 	/* Child map -> If statements to contained blocks */
 	block_map child_map;
 	/* Child map -> Block to all if statements*/
 	block_map parent_map;
+	std::unordered_map<Function*, block_vect> if_map;
 	std::unordered_map<BasicBlock*, BasicBlock*> direct_parents;
+	int count;
 
 };
 

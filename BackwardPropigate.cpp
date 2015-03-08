@@ -83,9 +83,11 @@ bool BackwardPropigate::runOnFunction(Function &F){
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
+			dump_instruction(block->getTerminator(), 1, "Current at:");
 			visited.insert(block);
-			block_set to_add;
 			current_iter->erase(block);
+			block_set to_add;
+
 			DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
 			LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
 			IfStatementPass* if_info= &getAnalysis<IfStatementPass>(F);
@@ -118,6 +120,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			//Check if null and do function calls otherwise work on the rest
 			if(working_block){
 				Instruction* i =working_block -> getTerminator();
+				dump_instruction(i, 2, "Branch: ");
 				to_add.insert(working_block);
 				//should be a branch or something is very wrong here :)!
 				BranchInst* bi =  cast<BranchInst>(i);
