@@ -2,17 +2,17 @@
 int main(){
 	int x = 4;
 	int y = 4;
-	int cat = 0;
-	if(x < 5){
-		y = 9;
-		if(cat == 3){
-			cat = 55;
-		}
-		x = 22;
-	}else{
-		y = 14;
-	}
-	int z = 33;
+	int z = 0;
+    while(x > 0){
+        if( y < 3){
+	        if(x < 5){
+		        y = 9;
+		        x = 22;
+	        }
+            z = 22;
+        }
+        x--;
+    }
 
 
 }

@@ -74,6 +74,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 		std::deque<BasicBlock*> queue;
 		SmallPtrSet<BasicBlock*, 20> branches;
 		std::unordered_map<BasicBlock*, int> visit_count;
+		bool loop = false;
 
 		//Get the first one to do
 		BasicBlock* Start = todo.front();
@@ -81,13 +82,15 @@ bool IfStatementPass::runOnFunction(Function &F){
 		for(succ_iterator PI = succ_begin(Start), E = succ_end(Start); PI !=E; ++PI){
 			BasicBlock *Pred = *PI;
 			queue.push_back(Pred);
-
 		}
 		branches.insert(Start);
 		//NOW ITERATE THROUGH THE CFG
 		while(! queue.empty()){
 			BasicBlock * current = queue.front();
 			queue.pop_front();
+			if(current == Start){
+				loop = true;
+			}
 
 			//Only do this stuff if it doesn't dominate it.
 			if(     (!dom_tree->dominates(current, Start)) &&
@@ -120,26 +123,34 @@ bool IfStatementPass::runOnFunction(Function &F){
 			}
 		}
 
-		//Done iterating through the set now
-		int branch_count = branches.size();
-		block_vect children;
-		for(auto& val: visit_count){
-			if(val.second <= branch_count && val.first != Start){
-				children.push_back(val.first);
-				//Insert into parent mapping
-				inserted.insert(val.first);
-				if(parent_map.count(val.first) == 0){
-					block_vect parents;
-					parents.push_back(Start);
-					block_map_pair to_insert(val.first, parents);
-					parent_map.insert(to_insert);
-				}else{
-					parent_map.at(val.first).push_back(Start);
+
+		if(!loop){
+			//Done iterating through the set now
+			int branch_count = branches.size();
+			block_vect children;
+			for(auto& val: visit_count){
+				if(val.second <= branch_count && val.first != Start){
+					children.push_back(val.first);
+					//Insert into parent mapping
+					inserted.insert(val.first);
+					if(parent_map.count(val.first) == 0){
+						block_vect parents;
+						parents.push_back(Start);
+						block_map_pair to_insert(val.first, parents);
+						parent_map.insert(to_insert);
+					}else{
+						parent_map.at(val.first).push_back(Start);
+					}
 				}
 			}
+			block_map_pair to_insert(Start, children);
+			child_map.insert(to_insert);
+		}else{
+			DEBUG(errs() << "\t\tloop ignoring!\n");
+			count --;
+
+
 		}
-		block_map_pair to_insert(Start, children);
-		child_map.insert(to_insert);
 		//Done with one of the loops use the iteration results
 	}
 
@@ -162,7 +173,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 
 bool IfStatementPass::runOnModule(Module& M)
 {
-	DEBUG(errs() << "\n\nStarting If Statement Passes");
+	DEBUG(errs() << "\n\nStarting If Statement Pass:\n");
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		Function* f = MI;
