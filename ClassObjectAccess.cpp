@@ -51,7 +51,7 @@ void ClassObjectAccess::addToStore(GetElementPtrInst* inst){
 
 void ClassObjectAccess::addLoad(GetElementPtrInst* inst){
 	GetElementPtrInst* ref = getRepInst(inst);
-	if(loads.count(inst) == 0){
+	if(loads.count(ref) == 0){
 		ptr_pair_type insert;
 		insert.first = ref;
 		insert.second.insert(inst);
@@ -63,7 +63,7 @@ void ClassObjectAccess::addLoad(GetElementPtrInst* inst){
 
 void ClassObjectAccess::addStore(GetElementPtrInst* inst){
 	GetElementPtrInst* ref = getRepInst(inst);
-	if(stores.count(inst) == 0){
+	if(stores.count(ref) == 0){
 		ptr_pair_type insert;
 		insert.first = ref;
 		insert.second.insert(inst);
@@ -110,6 +110,12 @@ bool ClassObjectAccess::runOnModule(Module &M){
     	runOnFunction(*MI);
       }
     DEBUG(errs() << "\tFound " << _count << " Pointers in the class with " << representatives.size() << " Unique ones\n");
+//    for(ptr_pair_type p : loads){
+//    	errs() << p.second.size() << "\n";
+//    }
+//    for(ptr_pair_type p : stores){
+//    	errs() << p.second.size() << "\n";
+//    }
 	return false;
 }
 

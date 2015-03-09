@@ -13,8 +13,8 @@ void dump_instruction(Instruction* inst, int tabs, std::string msg){
 		errs()<< "Line Number: ";
 		errs() << Loc.getLineNumber();
 		errs() << " in file ";
-		errs() << Loc.getDirectory().str();
-		errs() << "/";
+//		errs() << Loc.getDirectory().str();
+//		errs() << "/";
 		errs() << Loc.getFilename().str();
 		errs() << "\n";
 	}else{

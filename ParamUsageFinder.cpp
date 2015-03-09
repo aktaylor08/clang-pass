@@ -7,6 +7,8 @@ char ParamUsageFinder::ID = 0;
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
 	back_prop_res = nullptr;
+	param_use_count = 0;
+	param_branch_count = 0;
 }
 
 void ParamUsageFinder::getAnalysisUsage(AnalysisUsage &AU) const{
@@ -106,6 +108,8 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 
 					//Does it reference a setup parameter though?
 					if(matches_setup_param(ptr_inst)){
+						param_use_count++;
+						params.push_back(ptr_inst);
 
 						//Check to see if it ends with a break statement..
 						instruction_set sinks = get_usage_sinks(ptr_inst);
@@ -115,6 +119,8 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 						for(instruction_set::iterator s=sinks.begin(); s!=sinks.end(); ++s){
 							Instruction* I = *s;
 							if((B = dyn_cast<BranchInst>(&*I))){
+								param_branch_count++;
+								branch_params.push_back(ptr_inst);
 								if(back_prop_res ->branch_marked(B)){
 									thresh_branches.insert(B);
 								}
@@ -140,6 +146,13 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	{
 		runOnFunction(*MI);
 	}
+	DEBUG(errs() << "Found: " << params.size() << " Param uses\n");
+	DEBUG(errs() << "Found: " << branch_params.size() << " Branch Parameter uses\n");
+	for(GetElementPtrInst* gepi : branch_params){
+		DEBUG(dump_instruction(gepi, 1, "param: "));
+	}
+
+
 	DEBUG(errs()  << ">\tFound: " << thresh_branches.size() << " Dependent Branches\n");
 	for(BranchInst* b: thresh_branches){
 		if(MDNode *N = b -> getMetadata("dbg")){

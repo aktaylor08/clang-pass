@@ -118,6 +118,10 @@ public:
 private:
 	BackwardPropigate* back_prop_res;
 	branch_set thresh_branches;
+	ptr_vect params;
+	int param_use_count;
+	ptr_vect branch_params;
+	int param_branch_count;
 
 };
 
@@ -175,6 +179,7 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	branch_set* get_marked_branches();
 	bool branch_marked(BranchInst*);
+	int pass_count;
 
 
 private:
