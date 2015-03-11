@@ -188,4 +188,12 @@ bool IfStatementPass::runOnModule(Module& M)
 char IfStatementPass::ID = 0;
 RegisterPass<IfStatementPass> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
 
+static void registerIfStatementPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
+	PM.add(new IfStatementPass());
+}
+
+static RegisterStandardPasses
+RegisterIfStatementPass(PassManagerBuilder::EP_EarlyAsPossible, registerIfStatementPass);
+
+
 }

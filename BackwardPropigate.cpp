@@ -85,7 +85,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		//Is the block in the working list?
 		if(current_iter ->count(block) > 0){
-//			DEBUG(dump_instruction(block->getTerminator(), 1, "Current at:"));
+			DEBUG(dump_instruction(block->getTerminator(), 1, "Current at:"));
 			visited.insert(block);
 			current_iter->erase(block);
 			block_set to_add;
@@ -121,7 +121,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 			//Check if null and do function calls otherwise work on the rest
 			if(working_block){
 				Instruction* i =working_block -> getTerminator();
-//				DEBUG(dump_instruction(i, 2, "Branch: "));
+				DEBUG(dump_instruction(i, 2, "Branch: "));
 				to_add.insert(working_block);
 				//should be a branch or something is very wrong here :)!
 				BranchInst* bi =  cast<BranchInst>(i);
@@ -139,16 +139,16 @@ bool BackwardPropigate::runOnFunction(Function &F){
 						for(User *u : gep->users()){
 							if(isa<LoadInst>(&*u)){
 								ptr_set stores = obj_acc->getStores(gep);
-//								errs() << stores.size();
+								DEBUG(errs() << stores.size());
 								for(GetElementPtrInst* it : stores){
 									to_add.insert(it ->getParent());
-//									DEBUG(dump_instruction(it, 2, "Pointer Load Instruction "));
+									DEBUG(dump_instruction(it, 2, "Pointer Load Instruction "));
 								}
 								break;
 							}else{
-//								errs() << "Non load on GEP?\n";
-//								u ->dump();
-//								errs() << "---\n";
+								errs() << "Non load on GEP?\n";
+								u ->dump();
+								errs() << "---\n";
 							}
 							//store values
 							for(Use &U : gep -> operands()){
@@ -159,7 +159,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 					}
 					if(Instruction* inst = dyn_cast<Instruction>(&*cur_val)){
 						BasicBlock* B = inst -> getParent();
-//						DEBUG(dump_instruction(inst, 2, "Basic Data Flow "));
+						DEBUG(dump_instruction(inst, 2, "Basic Data Flow "));
 						to_add.insert(B);
 						for(Use &U : inst -> operands()){
 							list.push_back(U.get());
@@ -174,7 +174,7 @@ bool BackwardPropigate::runOnFunction(Function &F){
 				//add found function call locations within the module.
 				call_vect locations = call_pass-> getCallSites(block -> getParent());
 				for(CallSite s: locations){
-//					DEBUG(dump_instruction(s.getInstruction(), 2, "Call: "));
+					DEBUG(dump_instruction(s.getInstruction(), 2, "Call: "));
 					to_add.insert(s.getInstruction() -> getParent());
 				}
 
@@ -224,7 +224,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	}
 	DEBUG(errs() << ">\tFound: " << marked_branches.size() << " Branches\n");
 	for(BranchInst* bi : marked_branches){
-//		dump_instruction(bi, 1, "");
+		DEBUG(dump_instruction(bi, 1, ""));
 	}
 	return false;
 }
@@ -232,8 +232,15 @@ bool BackwardPropigate::runOnModule(Module& M)
 Pass *createPubCallFinderPass() {
 	return new BackwardPropigate();
 }
-
-
 char BackwardPropigate::ID = 0;
 RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
+
+static void registerBackwardPropigatePass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
+	PM.add(new BackwardPropigate());
+}
+
+static RegisterStandardPasses
+RegisterBackwardPropigatePass(PassManagerBuilder::EP_EarlyAsPossible, registerBackwardPropigatePass);
+
+
 }

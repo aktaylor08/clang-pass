@@ -78,8 +78,15 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
     return false;
   }
-
-
 RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
+
+
+  static void registerParamCallFinderPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
+  	PM.add(new ParamCallFinder());
+  }
+
+  static RegisterStandardPasses
+  RegisterParamCallFinderPass(PassManagerBuilder::EP_EarlyAsPossible, registerParamCallFinderPass);
+
 
 }
