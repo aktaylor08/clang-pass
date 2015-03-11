@@ -20,6 +20,8 @@
 #include "llvm/IR/DebugInfo.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/Debug.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
 
 
 #include <queue>
