@@ -73,7 +73,7 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
       }
     DEBUG(errs() << "\tFound: " << totalCount << " Param setups\n");
     for(GetElementPtrInst* p : param_ptr_list){
-    	dump_instruction(p, 1, "");
+    	DEBUG(dump_instruction(p, 1, ""));
     }
 
     return false;

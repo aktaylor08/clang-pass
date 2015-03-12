@@ -64,7 +64,6 @@ void iter_on_uses(Instruction * I){
 		I = to_process.front();
 		to_process.pop_back();
 		for(User *U : I -> users()){
-			U -> dump();
 			if(Instruction* next_i = dyn_cast<Instruction>(U)){
 				to_process.push_back(next_i);
 			}
@@ -146,33 +145,16 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	{
 		runOnFunction(*MI);
 	}
-	DEBUG(errs() << "Found: " << params.size() << " Param uses\n");
+	DEBUG(errs() << "Found: " << params.size() << " Param uses\n\n");
 	DEBUG(errs() << "Found: " << branch_params.size() << " Branch Parameter uses\n");
 	for(GetElementPtrInst* gepi : branch_params){
 		DEBUG(dump_instruction(gepi, 1, "param: "));
 	}
 
 
-	DEBUG(errs()  << ">\tFound: " << thresh_branches.size() << " Dependent Branches\n");
+	errs()  << "Found: " << thresh_branches.size() << " Dependent Branches\n";
 	for(BranchInst* b: thresh_branches){
-		if(MDNode *N = b -> getMetadata("dbg")){
-			DILocation Loc(N);
-			DEBUG(errs()  << "\tLine Number: ");
-			DEBUG(errs()  << Loc.getLineNumber());
-			DEBUG(errs()  << " in file ");
-			DEBUG(errs()  << Loc.getDirectory().str());
-			DEBUG(errs()  << "/");
-			DEBUG(errs()  << Loc.getFilename().str());
-			DEBUG(errs()  << "\n");
-		}else{
-			DEBUG(errs()  << "\tNo debug information compile with -g! instruction:");
-			DEBUG(b -> dump());
-			DEBUG(errs()  << "\tIn function: " << b -> getParent() -> getParent() -> getName().str());
-			DEBUG(errs()  << "\n");
-
-		}
-
-
+		dump_instruction(b, 1, "Param in Branch: ");
 
 	}
 	return false;
