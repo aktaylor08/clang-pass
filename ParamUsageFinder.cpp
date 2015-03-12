@@ -65,6 +65,7 @@ void iter_on_uses(Instruction * I){
 		to_process.pop_back();
 		for(User *U : I -> users()){
 			if(Instruction* next_i = dyn_cast<Instruction>(U)){
+				next_i -> dump();
 				to_process.push_back(next_i);
 			}
 		}
@@ -76,18 +77,24 @@ void iter_on_uses(Instruction * I){
 instruction_set get_usage_sinks(Instruction* I){
 	instruction_set ret_val;
 	std::deque<Instruction*> to_process;
+	instruction_set visited;
 	to_process.push_back(I);
 	while(!to_process.empty()){
 		I = to_process.front();
 		to_process.pop_back();
-		if(I -> getNumUses() == 0){
-			ret_val.insert(I);
-		}
-		for(User *U : I -> users()){
-			if(Instruction* next_i = dyn_cast<Instruction>(U)){
-				to_process.push_back(next_i);
+		if(visited.count(I) == 0){
+			if(I -> getNumUses() == 0){
+				ret_val.insert(I);
+			}
+			for(User *U : I -> users()){
+				if(Instruction* next_i = dyn_cast<Instruction>(U)){
+					if(visited.count(next_i) == 0){
+						to_process.push_back(next_i);
+					}
+				}
 			}
 		}
+		visited.insert(I);
 	}
 	return ret_val;
 }
@@ -98,12 +105,12 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 	//Iterate through all of the instructions
 	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
 		for(BasicBlock::iterator inst = block->begin(), ie = block -> end(); inst != ie; ++inst){
-
 			//Are we getting a pointer address for one of the param objects we set up?
 			if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*inst)){
 
 				//Check to make sure it is not one of the original setup calls identified
 				if (result_set.count(ptr_inst) == 0){
+
 
 					//Does it reference a setup parameter though?
 					if(matches_setup_param(ptr_inst)){

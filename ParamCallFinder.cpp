@@ -37,7 +37,7 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 							param_ptr_list.push_back(ptr_inst);
 							param_ptr_set.insert(ptr_inst);
 						}else{
-							errs() << "Non elemental pointer?\n";
+//							errs() << "Non elemental pointer?\n";
 						}
 					}
 				}
@@ -53,7 +53,7 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 							param_ptr_list.push_back(ptr_inst);
 							param_ptr_set.insert(ptr_inst);
 						}else{
-							errs() << "Non elemental pointer?\n";
+//							errs() << "Non elemental pointer?\n";
 						}
 					}
 				}
