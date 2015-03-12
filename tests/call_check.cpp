@@ -15,7 +15,7 @@ private:
   int _threshold;
   ros::Subscriber 	msg_sub;
   ros::Publisher 	msg_pub;
-  bool check_val();
+  bool check_val(int x);
 };
 
 
@@ -27,7 +27,7 @@ Test::Test(void): private_nh_("~"){
 
 
 
-void Test::check_val(int x){
+bool Test::check_val(int x){
          if(x > _threshold){
              return true;
          }else{
@@ -38,7 +38,7 @@ void Test::check_val(int x){
 void Test::callbackSimple(const boost::shared_ptr<std_msgs::Int16 const> &in_msg)
 {
     if(check_val(in_msg -> data)){
-        std::msgs::Int16 out;
+        std_msgs::Int16 out;
         out.data = 2;
         msg_pub.publish(out);
     }
