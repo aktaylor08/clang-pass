@@ -45,10 +45,18 @@ typedef std::pair<BasicBlock*, CallSite> call_pair;
 
 typedef std::vector<BasicBlock*> block_vect;
 typedef std::vector<GetElementPtrInst*> ptr_vect;
+typedef std::vector<CallSite> call_vect;
+
 //map defs
+//block map
 typedef std::unordered_map<BasicBlock*, block_vect> block_map;
 typedef std::pair<BasicBlock*, block_vect> block_map_pair;
 
+//instruction map
+typedef std::unordered_map<Instruction*, instruction_set> inst_map;
+typedef std::pair<Instruction*, instruction_set> inst_map_pair;
+
+//ptrt map
 typedef std::unordered_map<GetElementPtrInst*, ptr_set> ptr_map_type;
 typedef std::pair<GetElementPtrInst*, ptr_set> ptr_pair_type;
 
@@ -57,6 +65,12 @@ typedef std::vector<call_pair> call_pair_vect;
 typedef std::vector<CallSite> call_vect;
 typedef std::pair<Function*, call_vect> func_call_pair;
 typedef std::unordered_map<Function*, call_vect> func_call_map_type;
+
+typedef std::unordered_map<Instruction*, block_set> inst_back_map;
+typedef std::pair<Instruction*, block_set> inst_back_map_type;
+
+typedef std::unordered_map<BasicBlock*, block_set> block_set_map;
+typedef std::pair<BasicBlock*, block_set> block_set_map_type;
 
 void dump_instruction(Instruction* inst, int tabs, std::string msg);
 void dump_block_lines(BasicBlock* b, int tabs);
@@ -168,7 +182,6 @@ private:
 	int totalCount;
 };
 
-
 class BackwardPropigate: public ModulePass{
 
 public:
@@ -181,18 +194,23 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	branch_set* get_marked_branches();
 	bool branch_marked(BranchInst*);
+	instruction_set getDataDependencies(Instruction* inst);
 	int pass_count;
 
 
 private:
 	call_pair_vect actual_calls;
-	block_set* current_iter;
-	block_set* next_iter;
-	block_set visited;
+	instruction_set* current_iter;
+	instruction_set* next_iter;
+	instruction_set visited;
+
+	//Predicates and successors
 	branch_set marked_branches;
-	std::vector<std::pair<BranchInst*, BasicBlock* >> control_flow;
-	block_map preds;
-	block_map succs;
+	inst_map preds;
+	inst_map succs;
+
+
+	//Other passes needed to complete this pass
 	ClassObjectAccess* obj_acc;
 	SimpleCallGraph* call_pass;
 	IfStatementPass* if_info;

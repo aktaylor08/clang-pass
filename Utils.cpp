@@ -18,7 +18,6 @@ void dump_instruction(Instruction* inst, int tabs, std::string msg){
 		errs() << Loc.getFilename().str();
 		errs() << "\n";
 	}else{
-		errs() << "No debug information compile with -g! instruction:";
 		inst -> dump();
 	}
 
