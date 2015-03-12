@@ -38,6 +38,7 @@ typedef SmallPtrSet<GetElementPtrInst*, 10> ptr_set;
 typedef SmallPtrSet<BasicBlock*, 10> block_set;
 typedef SmallPtrSet<BranchInst*, 10> branch_set;
 typedef SmallPtrSet<Instruction*, 10> instruction_set;
+typedef SmallPtrSet<Function*, 10> function_set;
 
 typedef std::pair<BasicBlock*, BasicBlock*> block_pair;
 typedef std::pair<BasicBlock*, CallSite> call_pair;
@@ -55,6 +56,9 @@ typedef std::pair<BasicBlock*, block_vect> block_map_pair;
 //instruction map
 typedef std::unordered_map<Instruction*, instruction_set> inst_map;
 typedef std::pair<Instruction*, instruction_set> inst_map_pair;
+
+typedef std::unordered_map<Instruction*, Instruction*> single_inst_map;
+typedef std::pair<Instruction*, Instruction*> single_inst_pair;
 
 //ptrt map
 typedef std::unordered_map<GetElementPtrInst*, ptr_set> ptr_map_type;
@@ -186,7 +190,8 @@ class BackwardPropigate: public ModulePass{
 
 public:
 	static char ID;
-	virtual bool runOnFunction(Function &F);
+//	virtual bool runOnFunction(Function &F);
+	void do_an_iter();
 	virtual bool runOnModule(Module &M);
 	bool poop(Function &F);
 	BackwardPropigate();
@@ -203,6 +208,10 @@ private:
 	instruction_set* current_iter;
 	instruction_set* next_iter;
 	instruction_set visited;
+	function_set func_to_examine;
+
+
+	single_inst_map return_point;
 
 	//Predicates and successors
 	branch_set marked_branches;

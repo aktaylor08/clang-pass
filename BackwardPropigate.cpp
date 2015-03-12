@@ -77,11 +77,19 @@ BasicBlock* getLoopBranch(BasicBlock* start){
 	return nullptr;
 }
 
+
+
 instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 	instruction_set ret_val;
 	std::deque<Value*> list;
 	SmallPtrSet<Value*, 10> visited;
 	list.push_back(inst);
+	if(isa<CallInst>(&*inst) || isa<InvokeInst>(&*inst)){
+		CallSite cs = CallSite(inst);
+		if(!cs.getCalledFunction() -> getFunctionType() -> isVoidTy()){
+			func_to_examine.insert(cs.getCalledFunction());
+		}
+	}
 	//iterate through all the values that will be added
 	while(list.size() > 0)
 	{
@@ -160,24 +168,23 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 /**
  * Main value here is to update everything on this function run...
  */
-bool BackwardPropigate::runOnFunction(Function &F){
+void BackwardPropigate::do_an_iter(){
+
 	//Maybe we should do something smart here to get rid of a lot of unessary iterations
-	//TODO: Set a flag to preven uneccary iters?
-	for(Function::iterator block = F.begin(), E=F.end(); block != E; ++block){
-		//Now go through the Instruction List
-		for(BasicBlock::iterator inst = block -> begin(), EI = block -> end(); inst != EI; ++inst ){
 			//If it is an instruction we should visit than start doing work.
-			if(current_iter->count(inst) > 0){
+	for(instruction_set::iterator cur_inst=current_iter->begin(), end = current_iter -> end(); cur_inst != end; ++cur_inst){
+				Instruction* inst = *cur_inst;
+				Function* F =inst -> getParent() -> getParent();
+				BasicBlock* block = inst -> getParent();
 				//Dump the current iter
 				DEBUG(errs() << "\n");
 				DEBUG(dump_instruction(inst, 1, "Current at:"));
 				visited.insert(inst);
-				current_iter -> erase(inst);
 				//set of next round of instructions
 				instruction_set to_add;
 
-				DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(F).getDomTree();
-				LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(F).getLoopInfo();
+				DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(*F).getDomTree();
+				LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(*F).getLoopInfo();
 
 				//Get if it is in a loop or if it is in an if statement here
 				BasicBlock* working_block = nullptr;
@@ -241,10 +248,9 @@ bool BackwardPropigate::runOnFunction(Function &F){
 					}
 				}
 			}//end work on instruction
-		}//End Instruction iterator
-	}//End basic block iterator
-	return false;
 }
+
+
 
 bool BackwardPropigate::runOnModule(Module& M)
 {
@@ -261,13 +267,14 @@ bool BackwardPropigate::runOnModule(Module& M)
 	while(current_iter->size() > 0){
 		pass_count++;
 		DEBUG(errs() << "\nOn Pass " << pass_count << "\n\n");
-		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
-		{
-			Function* f = MI;
-			if(!f ->isDeclaration()){
-				runOnFunction(*MI);
-			}
-		}
+		do_an_iter();
+//		for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
+//		{
+//			Function* f = MI;
+//			if(!f ->isDeclaration()){
+//				runOnFunction(*MI);
+//			}
+//		}
 		instruction_set* temp = current_iter;
 		current_iter = next_iter;
 		next_iter = temp;
