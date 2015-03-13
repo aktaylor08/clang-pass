@@ -262,6 +262,20 @@ public:
 };
 
 
+class FindConstComps: public ModulePass{
+
+public:
+	static char ID;
+	virtual bool runOnModule(Module &M);
+	FindConstComps();
+	~FindConstComps();
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
+private:
+	BackwardPropigate* back_prop_res;
+
+};
+
 
 
 }
