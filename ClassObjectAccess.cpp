@@ -122,12 +122,4 @@ bool ClassObjectAccess::runOnModule(Module &M){
 
 RegisterPass<ClassObjectAccess> M("ros-element-ptr-access", "Getting object access patterns", false, false);
 
-static void registerClassObjectAccessPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
-	PM.add(new ClassObjectAccess());
-}
-
-static RegisterStandardPasses
-	RegisterClassObjectAccessPass(PassManagerBuilder::EP_EarlyAsPossible, registerClassObjectAccessPass);
-
-
 }

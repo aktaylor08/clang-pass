@@ -398,12 +398,5 @@ Pass *createPubCallFinderPass() {
 char BackwardPropigate::ID = 0;
 RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
-static void registerBackwardPropigatePass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
-	PM.add(new BackwardPropigate());
-}
-
-static RegisterStandardPasses
-RegisterBackwardPropigatePass(PassManagerBuilder::EP_EarlyAsPossible, registerBackwardPropigatePass);
-
 
 }

@@ -40,11 +40,4 @@ bool FindConstComps::runOnModule(Module& M)
 }
 RegisterPass<FindConstComps> whatisgoingon("ros-const-comps", "ROS Constant Comparisons", false, false);
 
-static void registerParamUsageFingerPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
-	PM.add(new FindConstComps());
-}
-
-static RegisterStandardPasses
-RegisterFindConstCompsPass(PassManagerBuilder::EP_EarlyAsPossible, registerParamUsageFingerPass);
-
 }

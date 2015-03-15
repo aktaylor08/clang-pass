@@ -69,12 +69,4 @@ bool ExternCallFinder::runOnModule(Module& M) {
 
 char ExternCallFinder::ID = 0;
 RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);
-
-static void registerExternCallFinderPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
-	PM.add(new ExternCallFinder());
-}
-
-static RegisterStandardPasses
-RegisterExternCallFinderPass(PassManagerBuilder::EP_EarlyAsPossible, registerExternCallFinderPass);
-
 }

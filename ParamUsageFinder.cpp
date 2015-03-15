@@ -169,11 +169,4 @@ bool ParamUsageFinder::runOnModule(Module& M)
 }
 RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
 
-static void registerParamUsageFingerPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
-	PM.add(new ParamUsageFinder());
-}
-
-static RegisterStandardPasses
-RegisterParamUsageFinderPass(PassManagerBuilder::EP_EarlyAsPossible, registerParamUsageFingerPass);
-
 }

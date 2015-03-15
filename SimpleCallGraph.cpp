@@ -68,11 +68,4 @@ bool SimpleCallGraph::runOnModule(Module& M)
 
 RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
 
-static void registerSimpleCallGraphPass(const PassManagerBuilder&, legacy::PassManagerBase &PM){
-	PM.add(new SimpleCallGraph());
-}
-
-static RegisterStandardPasses
-RegisterSimpleCallGraphPass(PassManagerBuilder::EP_EarlyAsPossible, registerSimpleCallGraphPass);
-
 }
