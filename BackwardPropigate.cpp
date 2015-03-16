@@ -1,4 +1,4 @@
-#include "include/RosThreshold.h"
+#include "include/BackwardPropigate.h"
 using namespace llvm;
 
 #define DEBUG_TYPE "backward_propigate"
@@ -35,7 +35,6 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<IfStatementPass>();
 	AU.addRequired<ClassObjectAccess>();
 	AU.addRequired<SimpleCallGraph>();
-	AU.addRequired<MemoryDependenceAnalysis>();
 	AU.setPreservesAll();
 }
 
