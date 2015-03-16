@@ -98,9 +98,9 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 		CallSite cs = CallSite(inst);
 		Function* called_f = cs.getCalledFunction();
 		if(called_f){
-		if(called_f -> getFunctionType() -> isVoidTy()){
-			func_to_examine.insert(cs.getCalledFunction());
-		}
+		    if(!called_f -> getFunctionType() -> isVoidTy()){
+			    func_to_examine.insert(cs.getCalledFunction());
+		    }
 
 		}
 	}
