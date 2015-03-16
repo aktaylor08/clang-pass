@@ -146,7 +146,6 @@ bool IfStatementPass::runOnFunction(Function &F){
 			block_map_pair to_insert(Start, children);
 			child_map.insert(to_insert);
 		}else{
-			DEBUG(errs() << "\t\tloop ignoring!\n");
 			count --;
 
 
