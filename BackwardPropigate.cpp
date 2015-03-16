@@ -333,8 +333,8 @@ void BackwardPropigate::do_an_iter(){
 				Instruction* inst = *cur_inst;
 				BasicBlock* block = inst -> getParent();
 				//Dump the current iter
-				DEBUG(errs() << "\n");
-				DEBUG(dump_instruction(inst, 1, "Current at:"));
+//				DEBUG(errs() << "\n");
+//				DEBUG(dump_instruction(inst, 1, "Current at:"));
 				visited.insert(inst);
 				//set of next round of instructions
 				instruction_set to_add;
@@ -368,7 +368,7 @@ void BackwardPropigate::do_an_iter(){
 				for(Instruction *I : to_add){
 					if(visited.count(I) == 0){
 						next_iter -> insert(I);
-						DEBUG(dump_instruction(I, 2, "Added: "));
+//						DEBUG(dump_instruction(I, 2, "Added: "));
 					}
 				}
 			}//end work on instruction
@@ -390,7 +390,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 
 	while(current_iter->size() > 0){
 		pass_count++;
-		DEBUG(errs() << "\nOn Pass " << pass_count << "\n\n");
+//		DEBUG(errs() << "\nOn Pass " << pass_count << "\n\n");
 		do_an_iter();
 		instruction_set* temp = current_iter;
 		current_iter = next_iter;
@@ -400,7 +400,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	for(Function* f: func_to_examine){
 		iter_on_function(f);
 	}
-	DEBUG(errs() << ">\tFound: " << marked_branches.size() << " Branches\n");
+	DEBUG(errs() << ">\tIn " << pass_count << " passes found: " << marked_branches.size() << " Branches\n");
 	for(BranchInst* bi : marked_branches){
 		DEBUG(dump_instruction(bi, 1, ""));
 	}
