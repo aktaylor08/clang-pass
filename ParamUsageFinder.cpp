@@ -130,6 +130,8 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 								branch_params.push_back(ptr_inst);
 								if(back_prop_res ->branch_marked(B)){
 									thresh_branches.insert(B);
+									thresh_branch_pair res(ptr_inst, B);
+									result_vector.push_back(res);
 								}
 
 							}
@@ -149,6 +151,10 @@ branch_set ParamUsageFinder::getBranches(){
 		ret_val.insert(b);
 	}
 	return ret_val;
+}
+
+thresh_branch_vect ParamUsageFinder::getResults(){
+	return result_vector;
 }
 
 bool ParamUsageFinder::runOnModule(Module& M)

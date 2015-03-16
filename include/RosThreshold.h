@@ -40,6 +40,9 @@ typedef SmallPtrSet<BranchInst*, 10> branch_set;
 typedef SmallPtrSet<Instruction*, 10> instruction_set;
 typedef SmallPtrSet<Function*, 10> function_set;
 
+typedef std::pair<Instruction*, BranchInst*>  thresh_branch_pair;
+typedef std::vector<thresh_branch_pair> thresh_branch_vect;
+
 typedef std::pair<BasicBlock*, BasicBlock*> block_pair;
 typedef std::pair<BasicBlock*, CallSite> call_pair;
 
@@ -135,11 +138,13 @@ public:
 	ptr_vect result_list;
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
 	branch_set getBranches();
+	thresh_branch_vect getResults();
 
 
 private:
 	BackwardPropigate* back_prop_res;
 	branch_set thresh_branches;
+	thresh_branch_vect result_vector;
 	ptr_vect params;
 	int param_use_count;
 	ptr_vect branch_params;
@@ -288,6 +293,8 @@ public:
 	InstrumentBranches();
 	~InstrumentBranches();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	void instrumentBranch(BranchInst* branch);
+	void instrumentBranch(thresh_branch_pair branch);
 
 private:
 	branch_set inst_to_instrument;
