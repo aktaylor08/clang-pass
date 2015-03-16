@@ -134,6 +134,8 @@ public:
 	ptr_set result_set;
 	ptr_vect result_list;
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
+	branch_set getBranches();
+
 
 private:
 	BackwardPropigate* back_prop_res;
@@ -277,8 +279,23 @@ private:
 
 };
 
-}
 
+class InstrumentBranches: public ModulePass{
+
+public:
+	static char ID;
+	virtual bool runOnModule(Module &M);
+	InstrumentBranches();
+	~InstrumentBranches();
+	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+
+private:
+	branch_set inst_to_instrument;
+
+
+};
+
+}//end namespace ros_thresh
 
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/

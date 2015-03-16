@@ -33,6 +33,7 @@ bool pointToSameStruct(GetElementPtrInst* p1, GetElementPtrInst* p2){
 	return false;
 }
 
+
 bool ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
 	//Otherwise is it a call to the param from somewhere else?
 	for(unsigned long i=0; i < result_list.size(); i++){
@@ -140,6 +141,14 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 		} //End ITER through isntructions
 	} //End iter through blocks
 	return false;
+}
+
+branch_set ParamUsageFinder::getBranches(){
+	branch_set ret_val;
+	for(BranchInst* b: thresh_branches){
+		ret_val.insert(b);
+	}
+	return ret_val;
 }
 
 bool ParamUsageFinder::runOnModule(Module& M)
