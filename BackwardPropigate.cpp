@@ -35,6 +35,7 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<IfStatementPass>();
 	AU.addRequired<ClassObjectAccess>();
 	AU.addRequired<SimpleCallGraph>();
+	AU.addRequired<MemoryDependenceAnalysis>();
 	AU.setPreservesAll();
 }
 
@@ -77,6 +78,15 @@ BasicBlock* getLoopBranch(BasicBlock* start){
 	return nullptr;
 }
 
+void BackwardPropigate::testDataDependencies(Instruction* inst){
+//	inst -> dump();
+//	Function *f = inst -> getParent() -> getParent();
+//	llvm::MemDepResult a;
+//	a = getAnalysis<MemoryDependenceAnalysis>(*f).getNonLocalPointerDependency();
+//	errs() << "\t\t";
+//	if(a.getInst())
+//		a.getInst() -> dump();
+}
 
 
 instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
@@ -86,8 +96,12 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 	list.push_back(inst);
 	if(isa<CallInst>(&*inst) || isa<InvokeInst>(&*inst)){
 		CallSite cs = CallSite(inst);
-		if(!cs.getCalledFunction() -> getFunctionType() -> isVoidTy()){
+		Function* called_f = cs.getCalledFunction();
+		if(called_f){
+		if(called_f -> getFunctionType() -> isVoidTy()){
 			func_to_examine.insert(cs.getCalledFunction());
+		}
+
 		}
 	}
 	//iterate through all the values that will be added
@@ -346,6 +360,7 @@ void BackwardPropigate::do_an_iter(){
 					}
 				}
 				//Handle data dependencies now
+				testDataDependencies(inst);
 				for(Instruction* data_dep : getDataDependencies(inst)){
 					to_add.insert(data_dep);
 				}

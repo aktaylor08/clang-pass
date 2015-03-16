@@ -16,12 +16,12 @@
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/Analysis/LoopInfoImpl.h"
 #include "llvm/Analysis/LoopPass.h"
+#include "llvm/Analysis/MemoryDependenceAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/DebugInfo.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/Debug.h"
-#include "llvm/IR/LegacyPassManager.h"
-#include "llvm/Transforms/IPO/PassManagerBuilder.h"
+
 
 
 #include <queue>
@@ -201,6 +201,7 @@ public:
 	branch_set* get_marked_branches();
 	bool branch_marked(BranchInst*);
 	instruction_set getDataDependencies(Instruction* inst);
+	void testDataDependencies(Instruction* inst);
 	instruction_set getLocalDataDependencies(Instruction* inst);
 	BasicBlock* getWorkingBlock(Instruction* i);
 	int pass_count;
@@ -276,9 +277,8 @@ private:
 
 };
 
-
-
 }
+
 
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
