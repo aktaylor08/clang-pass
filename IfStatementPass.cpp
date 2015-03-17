@@ -128,7 +128,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 			//Done iterating through the set now
 			int branch_count = branches.size();
 			block_vect children;
-			for(auto& val: visit_count){
+			for(std::pair<BasicBlock*, int> val: visit_count){
 				if(val.second <= branch_count && val.first != Start){
 					children.push_back(val.first);
 					//Insert into parent mapping
