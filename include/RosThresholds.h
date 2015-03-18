@@ -23,7 +23,7 @@ namespace ros_thresh{
 
 class BackwardPropigate;
 
-//Set defs
+//Set def
 typedef SmallPtrSet<GetElementPtrInst*, 10> ptr_set;
 typedef SmallPtrSet<BasicBlock*, 10> block_set;
 typedef SmallPtrSet<BranchInst*, 10> branch_set;
@@ -40,6 +40,10 @@ typedef std::pair<BasicBlock*, CallSite> call_pair;
 typedef std::vector<BasicBlock*> block_vect;
 typedef std::vector<GetElementPtrInst*> ptr_vect;
 typedef std::vector<CallSite> call_vect;
+typedef std::vector<Instruction*> instruction_vect;
+
+typedef std::pair<BranchInst*, instruction_vect>  branch_thresh_pair;
+typedef std::unordered_map<BranchInst*, instruction_vect> thresh_result_type;
 
 //map defs
 //block map
@@ -82,6 +86,7 @@ class ExternCallFinder;
 class PrintDoms;
 class FindConstComps;
 class InstrumentBranches;
+class GatherResults;
 
 }//end Namespace
 

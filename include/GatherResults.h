@@ -4,29 +4,27 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-#ifndef INSTRUMENT_BRANCHES_H_ 
-#define INSTRUMENT_BRANCHES_H_ 
+#ifndef GATHER_RESULTS_H_
+#define GATHER_RESULTS_H_
 #include "RosThresholds.h"
-
-#include <queue>
-#include <string>
-#include <sstream>
+#include "ParamUsageFinder.h"
 
 using namespace llvm;
 namespace ros_thresh{
 
-class InstrumentBranches: public ModulePass{
+class GatherResults: public ModulePass{
 
 public:
 	static char ID;
 	virtual bool runOnModule(Module &M);
-	InstrumentBranches();
-	~InstrumentBranches();
+	GatherResults();
+	~GatherResults();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	void instrumentBranch(branch_thresh_pair branch);
+	void add_to_results(thresh_result_type results);
+	thresh_result_type get_results();
 
 private:
-	branch_set inst_to_instrument;
+	thresh_result_type cur_vals;
 
 
 };

@@ -30,17 +30,19 @@ public:
 	ptr_vect result_list;
 	bool matches_setup_param(GetElementPtrInst * ptr_inst);
 	branch_set getBranches();
-	thresh_branch_vect getResults();
+	thresh_result_type getResults();
 
 
 private:
+	void add_to_result(BranchInst* branch, Instruction* threshold);
 	BackwardPropigate* back_prop_res;
 	branch_set thresh_branches;
-	thresh_branch_vect result_vector;
+	thresh_result_type results;
 	ptr_vect params;
 	int param_use_count;
 	ptr_vect branch_params;
 	int param_branch_count;
+
 
 };
 

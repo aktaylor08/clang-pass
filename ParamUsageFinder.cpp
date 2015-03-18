@@ -33,6 +33,18 @@ bool pointToSameStruct(GetElementPtrInst* p1, GetElementPtrInst* p2){
 	return false;
 }
 
+void ParamUsageFinder::add_to_result(BranchInst* branch, Instruction* threshold){
+	if(results.count(branch) == 0){
+		instruction_vect v;
+		v.push_back(threshold);
+		branch_thresh_pair to_add(branch, v);
+		results.insert(to_add);
+	}else{
+		results.at(branch).push_back(threshold);
+	}
+}
+
+
 
 bool ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
 	//Otherwise is it a call to the param from somewhere else?
@@ -130,8 +142,7 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 								branch_params.push_back(ptr_inst);
 								if(back_prop_res ->branch_marked(B)){
 									thresh_branches.insert(B);
-									thresh_branch_pair res(ptr_inst, B);
-									result_vector.push_back(res);
+									add_to_result(B, ptr_inst);
 								}
 
 							}
@@ -153,8 +164,8 @@ branch_set ParamUsageFinder::getBranches(){
 	return ret_val;
 }
 
-thresh_branch_vect ParamUsageFinder::getResults(){
-	return result_vector;
+thresh_result_type ParamUsageFinder::getResults(){
+	return results;
 }
 
 bool ParamUsageFinder::runOnModule(Module& M)
