@@ -29,7 +29,7 @@ Test::Test(void): private_nh_("~"){
 
 void Test::callbackSimple(const boost::shared_ptr<std_msgs::Int16 const> &in_msg)
 {
-         if(in_msg-> data < _threshold && in_msg ->data > _sec_thresh){
+         if((in_msg-> data < _threshold) && (in_msg ->data > _sec_thresh)){
             std_msgs::Int16 msg;
             msg.data = 42;
             msg_pub.publish(msg);
