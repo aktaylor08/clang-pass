@@ -126,6 +126,15 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	if(rnum>1){
 		errs() << "multiple CHECKS!\n";
 	}
+	std::ostringstream result_n;
+	result_n << "result";
+	if(Instruction* I = dyn_cast<Instruction>(branch.first -> getCondition())){
+	std::pair<std::string, Instruction*> val_res(result_n.str(),I);
+	mapping.insert(val_res);
+	}else{
+		//INVALID ASSERTION ON WHAT WE BE IN THE BRANCH!
+		assert(false);
+	}
 
 	//Temp print out results
 	for(std::pair<std::string, Instruction*> to_print : mapping){
@@ -133,17 +142,21 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		to_print.second -> dump();
 	}
 
+	Instruction* new_inst = CallInst::Create(hookFunc, "");
+	branch.first->getParent()->getInstList().insert(branch.first, new_inst);
 
 }
 
 bool InstrumentBranches::runOnModule(Module& M)
 {
+	hookFunc = M.getOrInsertFunction("print_int", Type::getVoidTy(M.getContext()));
+	hookFunc -> dump();
 	DEBUG(errs() << "\n\nStarting instrumentation usage finder:\n");
 	thresh_result_type vals = getAnalysis<GatherResults>().get_results();
 	for(branch_thresh_pair b: vals){
 		instrumentBranch(b);
 	}
-	return false;
+	return true;
 }
 
 RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);

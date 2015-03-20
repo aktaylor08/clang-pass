@@ -11,6 +11,8 @@
 #include <queue>
 #include <string>
 #include <sstream>
+//#include <json/json.h>
+
 
 using namespace llvm;
 namespace ros_thresh{
@@ -27,8 +29,8 @@ public:
 
 private:
 	branch_set inst_to_instrument;
-
-
+	std::string get_key(Instruction* inst);
+	Constant* hookFunc;
 };
 
 }//end namespace ros_thresh
