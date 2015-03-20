@@ -142,15 +142,30 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		to_print.second -> dump();
 	}
 
-	Instruction* new_inst = CallInst::Create(hookFunc, "");
+	std::vector<Value*> args;
+	args.push_back(mapping.at("result"));
+	mapping.at("result") ->getType() -> dump();
+
+	args.push_back(mapping.at("cmp_0"));
+	mapping.at("cmp_0") ->getType() -> dump();
+	args.push_back(mapping.at("thresh_0"));
+	mapping.at("thresh_0") ->getType() -> dump();
+	args.push_back(mapping.at("res_0"));
+	mapping.at("res_0") ->getType() -> dump();
+	Instruction* new_inst = CallInst::Create(oneFunction, args);
 	branch.first->getParent()->getInstList().insert(branch.first, new_inst);
+
 
 }
 
 bool InstrumentBranches::runOnModule(Module& M)
 {
-	hookFunc = M.getOrInsertFunction("print_int", Type::getVoidTy(M.getContext()));
-	hookFunc -> dump();
+	errs() << "EHY\n";
+	oneFunction = M.getOrInsertFunction("_Z14print_one_compbddb", Type::getVoidTy(M.getContext()),
+			Type::getInt1Ty(M.getContext()), Type::getDoubleTy(M.getContext()), Type::getDoubleTy(M.getContext()),
+			Type::getInt1Ty(M.getContext()), nullptr);
+	oneFunction -> dump();
+
 	DEBUG(errs() << "\n\nStarting instrumentation usage finder:\n");
 	thresh_result_type vals = getAnalysis<GatherResults>().get_results();
 	for(branch_thresh_pair b: vals){

@@ -30,7 +30,8 @@ public:
 private:
 	branch_set inst_to_instrument;
 	std::string get_key(Instruction* inst);
-	Constant* hookFunc;
+	Constant* oneFunction;
+	Constant* twoFunction;
 };
 
 }//end namespace ros_thresh
