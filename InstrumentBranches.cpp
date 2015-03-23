@@ -144,15 +144,38 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 
 	std::vector<Value*> args;
 	args.push_back(mapping.at("result"));
-	mapping.at("result") ->getType() -> dump();
+	if(mapping.at("cmp_0")->getType()->isFloatTy()){
+		args.push_back(mapping.at("cmp_0"));
+	}else{
+		CastInst* conv = new SIToFPInst(mapping.at("cmp_0"),
+				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
+				"conversion_cmp",
+				branch.first
+				);
+		args.push_back(conv);
+		errs() << "NOT AN FLOAT!\n";
+	}
+	if(mapping.at("thresh_0") -> getType() -> isFloatTy()){
+		args.push_back(mapping.at("thresh_0"));
+	}else{
+		CastInst* conv = new SIToFPInst(mapping.at("thresh_0"),
+				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
+				"conversion_cmp",
+				branch.first
+				);
+		args.push_back(conv);
+		errs() << "NOT AN FLAOT!\n";
 
-	args.push_back(mapping.at("cmp_0"));
-	mapping.at("cmp_0") ->getType() -> dump();
-	args.push_back(mapping.at("thresh_0"));
-	mapping.at("thresh_0") ->getType() -> dump();
+	}
 	args.push_back(mapping.at("res_0"));
-	mapping.at("res_0") ->getType() -> dump();
+	for(Value* v: args){
+		v -> dump();
+		v -> getType() -> dump();
+
+	}
+	oneFunction ->dump();
 	Instruction* new_inst = CallInst::Create(oneFunction, args);
+	new_inst-> dump();
 	branch.first->getParent()->getInstList().insert(branch.first, new_inst);
 
 
