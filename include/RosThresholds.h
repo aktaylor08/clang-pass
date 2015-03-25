@@ -15,7 +15,6 @@
 #include "llvm/IR/CallSite.h"
 #include "llvm/Support/Debug.h"
 
-#include <unordered_map>
 #include <utility>
 
 using namespace llvm;
@@ -43,34 +42,34 @@ typedef std::vector<CallSite> call_vect;
 typedef std::vector<Instruction*> instruction_vect;
 
 typedef std::pair<BranchInst*, instruction_vect>  branch_thresh_pair;
-typedef std::unordered_map<BranchInst*, instruction_vect> thresh_result_type;
+typedef std::map<BranchInst*, instruction_vect> thresh_result_type;
 
 //map defs
 //block map
-typedef std::unordered_map<BasicBlock*, block_vect> block_map;
+typedef std::map<BasicBlock*, block_vect> block_map;
 typedef std::pair<BasicBlock*, block_vect> block_map_pair;
 
 //instruction map
-typedef std::unordered_map<Instruction*, instruction_set> inst_map;
+typedef std::map<Instruction*, instruction_set> inst_map;
 typedef std::pair<Instruction*, instruction_set> inst_map_pair;
 
-typedef std::unordered_map<Instruction*, Instruction*> single_inst_map;
+typedef std::map<Instruction*, Instruction*> single_inst_map;
 typedef std::pair<Instruction*, Instruction*> single_inst_pair;
 
 //ptrt map
-typedef std::unordered_map<GetElementPtrInst*, ptr_set> ptr_map_type;
+typedef std::map<GetElementPtrInst*, ptr_set> ptr_map_type;
 typedef std::pair<GetElementPtrInst*, ptr_set> ptr_pair_type;
 
 typedef std::vector<call_pair> call_pair_vect;
 
 typedef std::vector<CallSite> call_vect;
 typedef std::pair<Function*, call_vect> func_call_pair;
-typedef std::unordered_map<Function*, call_vect> func_call_map_type;
+typedef std::map<Function*, call_vect> func_call_map_type;
 
-typedef std::unordered_map<Instruction*, block_set> inst_back_map;
+typedef std::map<Instruction*, block_set> inst_back_map;
 typedef std::pair<Instruction*, block_set> inst_back_map_type;
 
-typedef std::unordered_map<BasicBlock*, block_set> block_set_map;
+typedef std::map<BasicBlock*, block_set> block_set_map;
 typedef std::pair<BasicBlock*, block_set> block_set_map_type;
 
 void dump_instruction(Instruction* inst, int tabs, std::string msg);

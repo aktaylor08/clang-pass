@@ -73,7 +73,7 @@ bool IfStatementPass::runOnFunction(Function &F){
 		//START THE PROCESS FOR ONE IF STATEMENT IN THE CODE
 		std::deque<BasicBlock*> queue;
 		SmallPtrSet<BasicBlock*, 20> branches;
-		std::unordered_map<BasicBlock*, int> visit_count;
+		std::map<BasicBlock*, int> visit_count;
 		bool loop = false;
 
 		//Get the first one to do

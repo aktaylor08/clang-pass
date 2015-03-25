@@ -35,8 +35,8 @@ private:
 	block_map child_map;
 	/* Child map -> Block to all if statements*/
 	block_map parent_map;
-	std::unordered_map<Function*, block_vect> if_map;
-	std::unordered_map<BasicBlock*, BasicBlock*> direct_parents;
+	std::map<Function*, block_vect> if_map;
+	std::map<BasicBlock*, BasicBlock*> direct_parents;
 	int count;
 
 };

@@ -58,7 +58,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	int cnum = 0;
 	int tnum = 0;
 	int rnum = 0;
-	std::unordered_map<std::string, Instruction*> mapping;
+	std::map<std::string, Instruction*> mapping;
 
 	instruction_set insts;
 	bool found_cmp = false;

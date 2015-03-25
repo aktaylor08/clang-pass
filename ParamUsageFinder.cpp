@@ -185,10 +185,10 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	}
 
 
-	errs() << "Found: " << branch_params.size() << " Branch Parameter uses\n";
-	errs()  << "Found: " << thresh_branches.size() << " Dependent Branches\n";
+	errs() << "\tFound: " << branch_params.size() << " Branch Parameter uses\n";
+	errs()  << "\tFound: " << thresh_branches.size() << " Dependent Branches\n";
 	for(BranchInst* b: thresh_branches){
-		dump_instruction(b, 1, "Param in Branch: ");
+		dump_instruction(b, 2, "Param in Branch: ");
 
 	}
 	return false;
