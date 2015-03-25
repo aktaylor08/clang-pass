@@ -21,6 +21,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser("Test Runner", description="Run the tests on a directory")
     parser.add_argument('-v', '--verbose', help="Show more printed information", default=False,
         action="store_true")
+    parser.add_argument('-t', '--time', help="print timeing information", default=False, 
+            action="store_true") 
+
     parser.add_argument('-d', '--directory', help="directory to process", required=True)
     parser.add_argument('-p', '--passes', help="the passes to run", required=True, nargs='*')
     args = parser.parse_args()
@@ -43,6 +46,8 @@ if __name__ == '__main__':
         command = ' '.join(command)
         if args.verbose:
             command += ' -debug'
+        if args.time:
+            command += ' -time-passes'
         a = subprocess.Popen(command, shell=True).communicate()
         print("\n")
 
