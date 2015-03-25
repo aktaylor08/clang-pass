@@ -8,11 +8,16 @@ import argparse
 import subprocess
 
 opt_name = "/Users/ataylor/Research/llvm_src/llvm/Debug+Asserts/bin/opt"
+if not os.path.exists(opt_name):
+    opt_name = "/home/ataylor/llvm_src/llvm/Debug+Asserts/bin/opt"
+
 dyn_lib = "/Users/ataylor/Research/llvm_src/llvm/Debug+Asserts/lib/RosThresholds.dylib"
+if not os.path.exists(dyn_lib):
+    dyn_lib = "/home/ataylor/llvm_src/llvm/Debug+Asserts/lib/RosThresholds.so"
+
 output_loc = ">/dev/null"
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser("Test Runner", description="Run the tests on a directory")
     parser.add_argument('-v', '--verbose', help="Show more printed information", default=False,
         action="store_true")
@@ -29,13 +34,15 @@ if __name__ == '__main__':
         raise Exception("Directory argument is not directory!")
 
     val = directory + '*.bc'
-    for in_file in glob(val):
+    asdf = glob(val)
+    asdf = sorted(asdf)
+
+    for in_file in asdf:
         print(in_file +  ":")
         command = [opt_name, '-load', dyn_lib, output_loc, '<', in_file] + passes
         command = ' '.join(command)
         if args.verbose:
             command += ' -debug'
-        print command
         a = subprocess.Popen(command, shell=True).communicate()
         print("\n")
 
