@@ -160,7 +160,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	}else{
 		CastInst* conv = new SIToFPInst(mapping.at("thresh_0"),
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
-				"conversion_cmp",
+				"conversion_thresh",
 				branch.first
 				);
 		args.push_back(conv);
@@ -173,7 +173,6 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		v -> getType() -> dump();
 
 	}
-	oneFunction ->dump();
 	Instruction* new_inst = CallInst::Create(oneFunction, args);
 	new_inst-> dump();
 	branch.first->getParent()->getInstList().insert(branch.first, new_inst);
@@ -183,12 +182,14 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 
 bool InstrumentBranches::runOnModule(Module& M)
 {
-	errs() << "EHY\n";
-	oneFunction = M.getOrInsertFunction("_Z14print_one_compbddb", Type::getVoidTy(M.getContext()),
-			Type::getInt1Ty(M.getContext()), Type::getDoubleTy(M.getContext()), Type::getDoubleTy(M.getContext()),
+	llvm::StructType* t;
+	t = M.getTypeByName("class.std::basic_string");
+	t -> dump();
+	oneFunction = M.getOrInsertFunction("_Z7log_oneSsbddb",  Type::getVoidTy(M.getContext()),
+			t, Type::getInt1Ty(M.getContext()), Type::getDoubleTy(M.getContext()), Type::getDoubleTy(M.getContext()),
 			Type::getInt1Ty(M.getContext()), nullptr);
-	oneFunction -> dump();
 
+	oneFunction -> dump();
 	DEBUG(errs() << "\n\nStarting instrumentation usage finder:\n");
 	thresh_result_type vals = getAnalysis<GatherResults>().get_results();
 	for(branch_thresh_pair b: vals){
