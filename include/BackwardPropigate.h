@@ -2,7 +2,6 @@
 #define BACKWARD_PROPIGATE_H_
 #include "RosThresholds.h"
 #include "ClassObjectAccess.h"
-#include "IfStatementPass.h"
 #include "SimpleCallGraph.h"
 #include "ExternCallFinder.h"
 
@@ -10,6 +9,7 @@
 #include "llvm/Analysis/LoopPass.h"
 
 #include <queue>
+#include "IfStatement.h"
 
 
 using namespace llvm;
@@ -55,7 +55,7 @@ private:
 	//Other passes needed to complete this pass
 	ClassObjectAccess* obj_acc;
 	SimpleCallGraph* call_pass;
-	IfStatementPass* if_info;
+	IfStatement* if_info;
 };
 
 }//end namespace ros_thresh

@@ -15,14 +15,16 @@
 #include "llvm/IR/CallSite.h"
 #include "llvm/Support/Debug.h"
 
-#include "llvm/IR/LegacyPassManager.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
+#include "llvm/IR/PassManager.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/PassSupport.h"
 
 
 #include <utility>
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 class BackwardPropigate;
 
@@ -80,7 +82,7 @@ void dump_instruction(Instruction* inst, int tabs, std::string msg);
 void dump_block_lines(BasicBlock* b, int tabs);
 
 class SimpleCallGraph;
-class IfStatementPass;
+class IfStatement;
 class ParamUsageFinder;
 class ClassObjectAccess;
 class ParamCallFinder;

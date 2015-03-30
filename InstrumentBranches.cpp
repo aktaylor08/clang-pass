@@ -1,6 +1,5 @@
 #include "include/InstrumentBranches.h"
 #include "include/GatherResults.h"
-#include "llvm/PassSupport.h"
 
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
@@ -233,17 +232,15 @@ bool InstrumentBranches::runOnModule(Module& M)
 }
 
 char InstrumentBranches::ID = 0;
-//INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation","instrument the code", false, false);
-//INITIALIZE_PASS_DEPENDENCY(GatherResults);
-//INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation","instrument the code", false, false);
 RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);
 
-static void registerInstrumentPass(const PassManagerBuilder &,
-                           legacy::PassManagerBase &PM) {
+static void loadInstrumentPass(const PassManagerBuilder &,
+                           legacy::PassManagerBase&PM) {
+	PM.add(new BackwardPropigate());
     PM.add(new InstrumentBranches());
 }
 static RegisterStandardPasses
     RegisterInstrumentPass(PassManagerBuilder::EP_EarlyAsPossible,
-                   registerInstrumentPass);
+                   loadInstrumentPass);
 
 }
