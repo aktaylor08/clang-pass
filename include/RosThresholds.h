@@ -82,7 +82,7 @@ void dump_instruction(Instruction* inst, int tabs, std::string msg);
 void dump_block_lines(BasicBlock* b, int tabs);
 
 class SimpleCallGraph;
-class IfStatement;
+class IfStatements;
 class ParamUsageFinder;
 class ClassObjectAccess;
 class ParamCallFinder;

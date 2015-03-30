@@ -32,7 +32,7 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<LoopInfoWrapperPass>();
 	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.addRequired<ExternCallFinder>();
-	AU.addRequired<IfStatement>();
+	AU.addRequired<IfStatements>();
 	AU.addRequired<ClassObjectAccess>();
 	AU.addRequired<SimpleCallGraph>();
 	AU.setPreservesAll();
@@ -381,7 +381,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
 	call_pass = &getAnalysis<SimpleCallGraph>();
-	if_info= &getAnalysis<IfStatement>();
+	if_info= &getAnalysis<IfStatements>();
 
 	for(call_pair p :actual_calls){
 		current_iter ->insert(p.second.getInstruction());

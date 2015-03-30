@@ -1,19 +1,19 @@
-#include "include/IfStatement.h"
+#include "include/IfStatements.h"
 #define DEBUG_TYPE "if_statements"
 using namespace llvm;
 namespace ros_thresh{
 
-IfStatement::IfStatement() : ModulePass(ID) {
+IfStatements::IfStatements() : ModulePass(ID) {
 	count = 0;
 }
 
 
-IfStatement::~IfStatement(){
+IfStatements::~IfStatements(){
 }
 
 
 // We don't modify the program, so we preserve all analyses
-void IfStatement::getAnalysisUsage(AnalysisUsage &AU) const
+void IfStatements::getAnalysisUsage(AnalysisUsage &AU) const
 {
 	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.setPreservesAll();
@@ -32,7 +32,7 @@ void populate_branches(block_vect* to_fill, Function* F){
 }
 
 
-void IfStatement::getParents(block_vect* insert_into, BasicBlock* block){
+void IfStatements::getParents(block_vect* insert_into, BasicBlock* block){
 	insert_into -> clear();
 	if(parent_map.count(block) != 0){
 		block_vect maped_vals = parent_map.at(block);
@@ -43,7 +43,7 @@ void IfStatement::getParents(block_vect* insert_into, BasicBlock* block){
 }
 
 
-BasicBlock* IfStatement::getLocalParent(BasicBlock* node){
+BasicBlock* IfStatements::getLocalParent(BasicBlock* node){
 	if(direct_parents.count(node) > 0){
 		return direct_parents.at(node);
 	}
@@ -51,7 +51,7 @@ BasicBlock* IfStatement::getLocalParent(BasicBlock* node){
 }
 
 
-bool IfStatement::runOnFunction(Function &F){
+bool IfStatements::runOnFunction(Function &F){
 	block_vect m;
 	std::set<BasicBlock*> inserted;
 	std::pair<Function*, block_vect> toinsert(&F, m);
@@ -170,7 +170,7 @@ bool IfStatement::runOnFunction(Function &F){
 	return false;
 }
 
-bool IfStatement::runOnModule(Module& M)
+bool IfStatements::runOnModule(Module& M)
 {
 	DEBUG(errs() << "\n\nStarting If Statement Pass:\n");
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
@@ -185,12 +185,8 @@ bool IfStatement::runOnModule(Module& M)
 }
 
 using namespace llvm;
-char IfStatement::ID = 0;
-INITIALIZE_PASS_BEGIN(IfStatement, "ros-if-statements", "If Statements and printing information", false, false);
-INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass);
-INITIALIZE_PASS_END(IfStatement, "ros-if-statements", "If Statements and printing information", false, false);
-
-//RegisterPass<IfStatementPass> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
+char IfStatements::ID = 0;
+RegisterPass<IfStatements> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
 
 
 }

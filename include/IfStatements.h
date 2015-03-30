@@ -15,12 +15,12 @@
 using namespace llvm;
 namespace ros_thresh{
 
-class IfStatement: public ModulePass{
+class IfStatements: public ModulePass{
 
 public:
 	static char ID;
-	IfStatement();
-	~IfStatement();
+	IfStatements();
+	~IfStatements();
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;

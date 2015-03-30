@@ -9,7 +9,7 @@
 #include "llvm/Analysis/LoopPass.h"
 
 #include <queue>
-#include "IfStatement.h"
+#include "include/IfStatements.h"
 
 
 using namespace llvm;
@@ -55,7 +55,7 @@ private:
 	//Other passes needed to complete this pass
 	ClassObjectAccess* obj_acc;
 	SimpleCallGraph* call_pass;
-	IfStatement* if_info;
+	IfStatements* if_info;
 };
 
 }//end namespace ros_thresh
