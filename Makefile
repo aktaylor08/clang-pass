@@ -1,6 +1,8 @@
 # Path to top level of LLVM hierarchy
 LEVEL = ../../..
 
+CXXFLAGS=-fexceptions
+
 LIBRARYNAME = RosThresholds 
 
 LOADABLE_MODULE = 1

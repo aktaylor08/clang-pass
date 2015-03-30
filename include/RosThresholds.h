@@ -15,6 +15,10 @@
 #include "llvm/IR/CallSite.h"
 #include "llvm/Support/Debug.h"
 
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
+
+
 #include <utility>
 
 using namespace llvm;

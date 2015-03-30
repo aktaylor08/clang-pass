@@ -1,16 +1,19 @@
 #include "include/InstrumentBranches.h"
 #include "include/GatherResults.h"
+#include "llvm/PassSupport.h"
 
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>
 
+
 #define DEBUG_TYPE "instrumentation"
 
+using namespace llvm;
 namespace ros_thresh{
-char InstrumentBranches::ID = 0;
 
 InstrumentBranches::InstrumentBranches() : ModulePass(ID){
+	name_int = 0;
 }
 
 InstrumentBranches::~InstrumentBranches(){
@@ -141,23 +144,55 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	}
 
 	//Temp print out results
-	for(std::pair<std::string, Instruction*> to_print : mapping){
+//	for(std::pair<std::string, Instruction*> to_print : mapping){
 //		errs() << to_print.first << "\n\t";
 //		to_print.second -> dump();
-	}
+//	}
 
+	//TODO HANDLE POINTERS
+    boost::uuids::uuid uuid = boost::uuids::random_generator()();
+    std::string uids = boost::uuids::to_string(uuid);
+    const char* cuuid = uids.c_str();
+    errs() << cuuid << "\n";
+
+    //Get the module
+    Module &M = *branch.first->getParent()->getParent() -> getParent();
+
+    //create the
+    StringRef str = StringRef(cuuid);
+    Constant *StrConstant = ConstantDataArray::getString(M.getContext(), str);
+    GlobalVariable *GV = new GlobalVariable(M, StrConstant->getType(),
+    		true, GlobalValue::PrivateLinkage,
+			StrConstant);
+    GV -> setName("rosinstrumentkey");
+    GV -> setConstant(true);
+    errs() << GV->getName() << "\n";
+    GV->setUnnamedAddr(true);
+
+    Value *indexes[2];
+    indexes[0] = ConstantInt::getSigned(Type::getInt32Ty(M.getContext()), 0);
+    indexes[1] = ConstantInt::getSigned(Type::getInt32Ty(M.getContext()), 0);
+
+    Constant* to_global = ConstantExpr::getGetElementPtr(GV, indexes, true);
+    to_global -> dump();
+
+
+
+    //Create the argument list next.  Do this by adding values from the mapping we made and from the global
+    //pointer that we just created
 	std::vector<Value*> args;
+	args.push_back(to_global);
 	args.push_back(mapping.at("result"));
 	if(mapping.at("cmp_0")->getType()->isFloatTy()){
 		args.push_back(mapping.at("cmp_0"));
 	}else{
+		mapping.at("cmp_0") -> getType() -> dump();
 		CastInst* conv = new SIToFPInst(mapping.at("cmp_0"),
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_cmp",
 				branch.first
 				);
 		args.push_back(conv);
-//		errs() << "NOT AN FLOAT!\n";
 	}
 	if(mapping.at("thresh_0") -> getType() -> isFloatTy()){
 		args.push_back(mapping.at("thresh_0"));
@@ -168,32 +203,14 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 				branch.first
 				);
 		args.push_back(conv);
-//		errs() << "NOT AN FLAOT!\n";
 
 	}
 	args.push_back(mapping.at("res_0"));
-	for(Value* v: args){
-//		v -> dump();
-//		v -> getType() -> dump();
 
-	}
-	//Instruction* new_inst = CallInst::Create(oneFunction, args);
-	//new_inst-> dump();
-	//branch.first->getParent()->getInstList().insert(branch.first, new_inst);
-    boost::uuids::uuid uuid = boost::uuids::random_generator()();
-    std::string uids = boost::uuids::to_string(uuid);
-    const char* cuuid = uids.c_str();
-    errs() << cuuid << "\n";
-
-    Module &M = *branch.first->getParent()->getParent() -> getParent();
-
-    StringRef str = StringRef(cuuid);
-    Constant *StrConstant = ConstantDataArray::getString(M.getContext(), str);
-    GlobalVariable *GV = new GlobalVariable(M, StrConstant->getType(),
-    		true, GlobalValue::PrivateLinkage,
-			StrConstant);
-    GV->setName(Name);
-    GV->setUnnamedAddr(true);
+	//Create the new instruction that calls the function and insert it into the code
+	Instruction* new_inst = CallInst::Create(logging_function, args);
+	new_inst-> dump();
+	branch.first->getParent()->getInstList().insert(branch.first, new_inst);
 
 
 
@@ -202,12 +219,11 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 
 bool InstrumentBranches::runOnModule(Module& M)
 {
-	llvm::StructType* t;
-	oneFunction = M.getOrInsertFunction("_Z7log_onePcbddb",  Type::getVoidTy(M.getContext()),
+	//Get the logging function in the module!
+	logging_function = M.getOrInsertFunction("_Z7log_onePcbddb",  Type::getVoidTy(M.getContext()),
 			Type::getInt8PtrTy(M.getContext()), Type::getInt1Ty(M.getContext()), Type::getDoubleTy(M.getContext()), Type::getDoubleTy(M.getContext()),
 			Type::getInt1Ty(M.getContext()), nullptr);
 
-//	oneFunction -> dump();
 	DEBUG(errs() << "\n\nStarting instrumentation usage finder:\n");
 	thresh_result_type vals = getAnalysis<GatherResults>().get_results();
 	for(branch_thresh_pair b: vals){
@@ -216,6 +232,18 @@ bool InstrumentBranches::runOnModule(Module& M)
 	return true;
 }
 
+char InstrumentBranches::ID = 0;
+//INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation","instrument the code", false, false);
+//INITIALIZE_PASS_DEPENDENCY(GatherResults);
+//INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation","instrument the code", false, false);
 RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);
+
+static void registerInstrumentPass(const PassManagerBuilder &,
+                           legacy::PassManagerBase &PM) {
+    PM.add(new InstrumentBranches());
+}
+static RegisterStandardPasses
+    RegisterInstrumentPass(PassManagerBuilder::EP_EarlyAsPossible,
+                   registerInstrumentPass);
 
 }

@@ -11,6 +11,7 @@
 #include <queue>
 #include <string>
 #include <sstream>
+#include <llvm/IR/Constants.h>
 //#include <json/json.h>
 
 
@@ -30,8 +31,8 @@ public:
 private:
 	branch_set inst_to_instrument;
 	std::string get_key(Instruction* inst);
-	Constant* oneFunction;
-	Constant* twoFunction;
+	Constant* logging_function;
+	int name_int;
 };
 
 }//end namespace ros_thresh
