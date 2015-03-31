@@ -12,11 +12,12 @@
 #include <string>
 #include <sstream>
 #include <llvm/IR/Constants.h>
-#include <json/json.h>
 
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>
+
+#include "json/json.h"
 
 
 using namespace llvm;
@@ -37,7 +38,7 @@ private:
 	std::string get_key(Instruction* inst);
 	Constant* logging_function;
 	int name_int;
-//	Json::Value static_informaiton;
+	Json::Value static_informaiton;
 };
 
 }//end namespace ros_thresh
