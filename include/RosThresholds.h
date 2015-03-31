@@ -78,8 +78,6 @@ typedef std::pair<Instruction*, block_set> inst_back_map_type;
 typedef std::map<BasicBlock*, block_set> block_set_map;
 typedef std::pair<BasicBlock*, block_set> block_set_map_type;
 
-void dump_instruction(Instruction* inst, int tabs, std::string msg);
-void dump_block_lines(BasicBlock* b, int tabs);
 
 class SimpleCallGraph;
 class IfStatements;
@@ -94,5 +92,8 @@ class InstrumentBranches;
 class GatherResults;
 
 }//end Namespace
+
+void dump_instruction(Instruction* inst, int tabs, std::string msg);
+void dump_block_lines(BasicBlock* b, int tabs);
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
