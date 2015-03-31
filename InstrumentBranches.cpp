@@ -229,6 +229,7 @@ bool InstrumentBranches::runOnModule(Module& M)
 			Type::getInt8PtrTy(M.getContext()), Type::getInt1Ty(M.getContext()), Type::getDoubleTy(M.getContext()), Type::getDoubleTy(M.getContext()),
 			Type::getInt1Ty(M.getContext()), nullptr);
 
+	errs() << "HI THERE HOW ARE YOU?\n";
 	DEBUG(errs() << "\n\nStarting instrumentation usage finder:\n");
 	thresh_result_type vals = getAnalysis<GatherResults>().get_results();
 	for(branch_thresh_pair b: vals){
