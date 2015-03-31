@@ -21,10 +21,13 @@ public:
 	~GatherResults();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	void add_to_results(thresh_result_type results);
+	void add_to_setups(std::map<Instruction*, Instruction*> setups_in);
 	thresh_result_type get_results();
+	Instruction* get_setup(Instruction* to_find);
 
 private:
 	thresh_result_type cur_vals;
+	std::map<Instruction*, Instruction*> setups;
 
 
 };

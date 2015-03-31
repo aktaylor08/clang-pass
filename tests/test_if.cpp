@@ -1,3 +1,4 @@
+//include <iostream>
 
 int main(){
 	int x = 4;
@@ -14,5 +15,6 @@ int main(){
         x--;
     }
 
+//std::cout << x << " " << y << " " << z << "\n";
 
 }
