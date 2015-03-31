@@ -249,7 +249,7 @@ static void loadInstrumentPass(const PassManagerBuilder &,
     PM.add(new InstrumentBranches());
 }
 static RegisterStandardPasses
-    RegisterInstrumentPass(PassManagerBuilder::EP_EarlyAsPossible,
+    RegisterInstrumentPass(PassManagerBuilder::EP_ModuleOptimizerEarly,
                    loadInstrumentPass);
 
 }
