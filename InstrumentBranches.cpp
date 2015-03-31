@@ -1,9 +1,7 @@
 #include "include/InstrumentBranches.h"
 #include "include/GatherResults.h"
 
-#include <boost/uuid/uuid.hpp>            // uuid class
-#include <boost/uuid/uuid_generators.hpp> // generators
-#include <boost/uuid/uuid_io.hpp>
+
 
 
 #define DEBUG_TYPE "instrumentation"
@@ -12,6 +10,7 @@ using namespace llvm;
 namespace ros_thresh{
 
 InstrumentBranches::InstrumentBranches() : ModulePass(ID){
+	logging_function = nullptr;
 	name_int = 0;
 }
 
