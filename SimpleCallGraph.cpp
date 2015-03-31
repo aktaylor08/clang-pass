@@ -48,19 +48,18 @@ bool SimpleCallGraph::runOnModule(Module& M)
 	//Init the map
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
-		if(! MI ->isDeclaration()){
-			func_call_pair p;
-			p.first = MI;
-			p.second = call_vect();
-			call_map.insert(p);
-		}
-
-
-	}
-	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI){
-		if(!MI ->isDeclaration()){
-			runOnFunction(*MI);
-		}
+		MI -> dump();
+//		if(! MI ->isDeclaration()){
+//			func_call_pair p;
+//			p.first = MI;
+//			p.second = call_vect();
+//			call_map.insert(p);
+//		}
+//	}
+//	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI){
+//		if(!MI ->isDeclaration()){
+//			runOnFunction(*MI);
+//		}
 	}
 
 	return false;

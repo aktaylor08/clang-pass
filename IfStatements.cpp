@@ -184,7 +184,6 @@ bool IfStatements::runOnModule(Module& M)
 	return false;
 }
 
-using namespace llvm;
 char IfStatements::ID = 0;
 RegisterPass<IfStatements> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
 

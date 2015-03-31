@@ -79,17 +79,6 @@ typedef std::map<BasicBlock*, block_set> block_set_map;
 typedef std::pair<BasicBlock*, block_set> block_set_map_type;
 
 
-class SimpleCallGraph;
-class IfStatements;
-class ParamUsageFinder;
-class ClassObjectAccess;
-class ParamCallFinder;
-class BackwardPropigate;
-class ExternCallFinder;
-class PrintDoms;
-class FindConstComps;
-class InstrumentBranches;
-class GatherResults;
 
 }//end Namespace
 
