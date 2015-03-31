@@ -37,7 +37,7 @@ private:
 	std::string get_key(Instruction* inst);
 	Constant* logging_function;
 	int name_int;
-	Json::Value static_informaiton;
+//	Json::Value static_informaiton;
 };
 
 }//end namespace ros_thresh

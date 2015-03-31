@@ -147,11 +147,18 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 //		to_print.second -> dump();
 //	}
 
+
 	//TODO HANDLE POINTERS
     boost::uuids::uuid uuid = boost::uuids::random_generator()();
     std::string uids = boost::uuids::to_string(uuid);
     const char* cuuid = uids.c_str();
     errs() << cuuid << "\n";
+
+
+	 // Json::Value thresh_info(Json::objectValue);
+	 // thresh_info["key"]=uids;
+	 // errs() << thresh_info.toStyledString();
+
 
     //Get the module
     Module &M = *branch.first->getParent()->getParent() -> getParent();
