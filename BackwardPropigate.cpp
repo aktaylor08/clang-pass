@@ -1,4 +1,4 @@
-#include "include/RosThreshold.h"
+#include "include/BackwardPropigate.h"
 using namespace llvm;
 
 #define DEBUG_TYPE "backward_propigate"
@@ -32,10 +32,9 @@ void BackwardPropigate::getAnalysisUsage(AnalysisUsage &AU) const
 	AU.addRequired<LoopInfoWrapperPass>();
 	AU.addRequired<DominatorTreeWrapperPass>();
 	AU.addRequired<ExternCallFinder>();
-	AU.addRequired<IfStatementPass>();
+	AU.addRequired<IfStatements>();
 	AU.addRequired<ClassObjectAccess>();
 	AU.addRequired<SimpleCallGraph>();
-	AU.addRequired<MemoryDependenceAnalysis>();
 	AU.setPreservesAll();
 }
 
@@ -382,7 +381,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 	actual_calls = *getAnalysis<ExternCallFinder>().getSites();
 	obj_acc = &getAnalysis<ClassObjectAccess>();
 	call_pass = &getAnalysis<SimpleCallGraph>();
-	if_info= &getAnalysis<IfStatementPass>();
+	if_info= &getAnalysis<IfStatements>();
 
 	for(call_pair p :actual_calls){
 		current_iter ->insert(p.second.getInstruction());

@@ -1,8 +1,11 @@
-#include "include/RosThreshold.h"
+#include "include/RosThresholds.h"
+#include "llvm/IR/DebugInfo.h"
+#include <set>
+
+
 
 using namespace llvm;
 
-namespace ros_thresh{
 void dump_instruction(Instruction* inst, int tabs, std::string msg){
 	for(int i=0;i< tabs;i++){
 		errs() << "\t";
@@ -38,5 +41,4 @@ void dump_block_lines(BasicBlock* b, int tabs){
 		}
 		errs() << i << "\n";
 	}
-}
 }
