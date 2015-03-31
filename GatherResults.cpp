@@ -16,6 +16,11 @@ void GatherResults::getAnalysisUsage(AnalysisUsage &AU) const {
 	AU.setPreservesAll();
 	AU.addRequired<ParamUsageFinder>();
 }
+void GatherResults::add_to_setups(std::map<Instruction*, Instruction*> setups_in){
+	for(std::pair<Instruction*, Instruction*> val : setups_in){
+		setups.insert(val);
+	}
+}
 
 void GatherResults::add_to_results(thresh_result_type new_res){
 	for(branch_thresh_pair one_res : new_res){
@@ -38,9 +43,14 @@ thresh_result_type GatherResults::get_results(){
 	return cur_vals;
 }
 
+Instruction* GatherResults::get_setup(Instruction* lookup){
+	return setups.at(lookup);
+}
+
 
 bool GatherResults::runOnModule(Module& M) {
 	add_to_results(getAnalysis<ParamUsageFinder>().getResults());
+	add_to_setups(getAnalysis<ParamUsageFinder>().getSetups());
 	return false;
 }
 

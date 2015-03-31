@@ -28,9 +28,12 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	ptr_set result_set;
 	ptr_vect result_list;
-	bool matches_setup_param(GetElementPtrInst * ptr_inst);
+	int matches_setup_param(GetElementPtrInst * ptr_inst);
 	branch_set getBranches();
 	thresh_result_type getResults();
+	std::map<Instruction*, Instruction*> getSetups();
+
+
 
 
 private:
@@ -38,6 +41,7 @@ private:
 	BackwardPropigate* back_prop_res;
 	branch_set thresh_branches;
 	thresh_result_type results;
+	std::map<Instruction*, Instruction*> map_to_setup;
 	ptr_vect params;
 	int param_use_count;
 	ptr_vect branch_params;

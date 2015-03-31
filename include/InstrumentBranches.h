@@ -7,6 +7,7 @@
 #ifndef INSTRUMENT_BRANCHES_H_ 
 #define INSTRUMENT_BRANCHES_H_ 
 #include "RosThresholds.h"
+#include "GatherResults.h"
 
 #include <queue>
 #include <string>
@@ -32,8 +33,10 @@ public:
 	~InstrumentBranches();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	void instrumentBranch(branch_thresh_pair branch);
+	void write_to_file();
 
 private:
+	GatherResults* gather_results_results;
 	branch_set inst_to_instrument;
 	std::string get_key(Instruction* inst);
 	Constant* logging_function;

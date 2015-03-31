@@ -46,7 +46,7 @@ void ParamUsageFinder::add_to_result(BranchInst* branch, Instruction* threshold)
 
 
 
-bool ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
+int ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
 	//Otherwise is it a call to the param from somewhere else?
 	for(unsigned long i=0; i < result_list.size(); i++){
 		bool matched = false;
@@ -63,11 +63,11 @@ bool ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
 				}
 			}
 			if(matched){
-				return matched;
+				return i;
 			}
 		}
 	}
-	return false;
+	return -1;
 }
 
 void iter_on_uses(Instruction * I){
@@ -126,7 +126,8 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 
 
 					//Does it reference a setup parameter though?
-					if(matches_setup_param(ptr_inst)){
+					int idx = matches_setup_param(ptr_inst);
+					if(idx > -1){
 						param_use_count++;
 						params.push_back(ptr_inst);
 
@@ -143,8 +144,11 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 								if(back_prop_res ->branch_marked(B)){
 									thresh_branches.insert(B);
 									add_to_result(B, ptr_inst);
+									std::pair<Instruction*, GetElementPtrInst*> insert_pair;
+									insert_pair.first = B;
+									insert_pair.second= result_list[idx];
+									map_to_setup.insert(insert_pair);
 								}
-
 							}
 						}
 
@@ -166,6 +170,10 @@ branch_set ParamUsageFinder::getBranches(){
 
 thresh_result_type ParamUsageFinder::getResults(){
 	return results;
+}
+
+std::map<Instruction*, Instruction*> ParamUsageFinder::getSetups(){
+	return map_to_setup;
 }
 
 bool ParamUsageFinder::runOnModule(Module& M)
