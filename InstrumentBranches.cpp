@@ -45,9 +45,6 @@ void InstrumentBranches::write_to_file(){
 	outfile << static_informaiton;
 	outfile.close();
 	return;
-
-
-
 }
 
 bool targetReachableBack(Instruction* current, Instruction* target){
@@ -84,6 +81,35 @@ bool getConnectingInstructions(Instruction* current, Instruction* target, instru
 	}
 	return flag;
 }
+
+
+std::string get_param_src_string(Instruction* inst){
+	if(GetElementPtrInst* ptr = dyn_cast<GetElementPtrInst>(&*inst)){
+		for(User* u :  ptr-> users()){
+			if(InvokeInst* i = dyn_cast<InvokeInst>(&*u)){
+				std::string prefix("_ZNK3ros10NodeHandle5param");
+				std::string name = i->getCalledValue() -> getName().str();
+				  if(!name.compare(0, prefix.size(), prefix)){
+
+
+						Value* v = i -> getArgOperand(1);
+						errs() << "ffffff\n";
+						v -> dump();
+						v ->getType() -> dump();
+						for(User* x: v ->users()){
+							errs() << "\t";
+							x ->  dump();
+
+						}
+
+				  }
+			}
+			u -> dump();
+		}
+	}
+	return "";
+}
+
 
 void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	errs() << "-----\n";
@@ -170,13 +196,12 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	}
 
 
-
 	boost::uuids::uuid uuid = boost::uuids::random_generator()();
 	std::string uids = boost::uuids::to_string(uuid);
 	const char* cuuid = uids.c_str();
 
 	Instruction* src = gather_results_results -> get_setup(branch.first);
-	src -> dump();
+	std::string src_str = get_param_src_string(src);
 
 	std::pair<std::string, int> location = get_file_lineno(branch.first);
 	branch.second[0] -> dump();
