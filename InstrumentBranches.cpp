@@ -259,35 +259,45 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 
 	//Create the argument list next.  Do this by adding values from the mapping we made and from the global
 	//pointer that we just created
+	bool okay = true;
 	std::vector<Value*> args;
 	args.push_back(to_global);
 	args.push_back(mapping.at("result"));
 	if(mapping.at("cmp_0")->getType()->isFloatTy()){
 		args.push_back(mapping.at("cmp_0"));
-	}else{
+	}else if(mapping.at("cmp_0")->getType()->isIntegerTy()){
+		mapping.at("cmp_0")->getType()-> dump();
 		CastInst* conv = new SIToFPInst(mapping.at("cmp_0"),
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_cmp",
 				branch.first
 		);
 		args.push_back(conv);
+	}else{
+		mapping.at("cmp_0")->getType()-> dump();
+		okay = false;
 	}
 	if(mapping.at("thresh_0") -> getType() -> isFloatTy()){
 		args.push_back(mapping.at("thresh_0"));
-	}else{
+	}else if(mapping.at("thresh_0") -> getType() -> isIntegerTy()){
 		CastInst* conv = new SIToFPInst(mapping.at("thresh_0"),
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_thresh",
 				branch.first
 		);
 		args.push_back(conv);
+	}else{
+		mapping.at("thresh_0")->getType()-> dump();
+		okay = false;
 
 	}
 	args.push_back(mapping.at("res_0"));
 
-	//Create the new instruction that calls the function and insert it into the code
-	Instruction* new_inst = CallInst::Create(logging_function, args);
-	branch.first->getParent()->getInstList().insert(branch.first, new_inst);
+	if(okay){
+		//Create the new instruction that calls the function and insert it into the code
+		Instruction* new_inst = CallInst::Create(logging_function, args);
+		branch.first->getParent()->getInstList().insert(branch.first, new_inst);
+	}
 
 
 
