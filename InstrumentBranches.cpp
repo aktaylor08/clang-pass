@@ -125,12 +125,11 @@ std::string get_param_src_string(Instruction* inst){
 
 
 void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
-	errs() << "-----\n";
 	//keep track of values
 	int cnum = 0;
 	int tnum = 0;
 	int rnum = 0;
-	std::map<std::string, Instruction*> mapping;
+	std::map<std::string, Value*> mapping;
 
 	instruction_set insts;
 	bool found_cmp = false;
@@ -177,9 +176,13 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 			std::ostringstream os;
 			os << "res_" << rnum;
 			rnum++;
-			std::pair<std::string, Instruction*> val(os.str(),thresh);
-			mapping.insert(val);
-			errs() << "It's just a flag\n";
+			if(Instruction* I = dyn_cast<Instruction>(branch.first -> getCondition())){
+				std::pair<std::string, Instruction*> val_res(os.str(),I);
+				mapping.insert(val_res);
+			}else{
+				//INVALID ASSERTION ON WHAT WE BE IN THE BRANCH!
+				assert(false);
+			}
 			std::ostringstream cname;
 			cname << "cmp_" << cnum;
 			cnum++;
@@ -262,43 +265,81 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	bool okay = true;
 	std::vector<Value*> args;
 	args.push_back(to_global);
+
+	//don't need to worry about result type
 	args.push_back(mapping.at("result"));
-	if(mapping.at("cmp_0")->getType()->isFloatTy()){
-		args.push_back(mapping.at("cmp_0"));
-	}else if(mapping.at("cmp_0")->getType()->isIntegerTy()){
-		CastInst* conv = new SIToFPInst(mapping.at("cmp_0"),
+
+
+	//Get the comparison value
+	Value *comp = mapping.at("cmp_0");
+	if(comp->getType()->isFloatTy()){
+		args.push_back(comp);
+	//convert integer
+	}else if(comp->getType()->isIntegerTy()){
+		CastInst* conv = new SIToFPInst(comp,
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_cmp",
 				branch.first
 		);
 		args.push_back(conv);
-	}else if(PointerType*pt = dyn_cast<PointerType>(mapping.at("cmp_0")->getType())){
-		pt->dump();
+	//If it is a pointer than cast it and convert if needed
+	}else if(PointerType*pt = dyn_cast<PointerType>(comp->getType())){
 		if(pt->getElementType() -> isFloatTy()){
-			args.push_back(mappi);
-		}
-		if(pt->getElementType() -> isIntegerTy()){
+			LoadInst* lp = new LoadInst(comp,"loaded_val",branch.first);
+			args.push_back(lp);
+		}else if(pt->getElementType() -> isIntegerTy()){
+		LoadInst* lp = new LoadInst(comp,"loaded_val",branch.first);
+		CastInst* conv = new SIToFPInst(lp,
+				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
+				"conversion_cmp",
+				branch.first
+		);
+		args.push_back(conv);
+		}else{
+			errs() << "UNKOWN POINTER TYPE";
+			okay = false;
 		}
 
 	}else{
-		mapping.at("cmp_0")->getType()-> dump();
+		errs() << "UNKOWN TYPE NOT CONVERTED!!";
 		okay = false;
 	}
-	if(mapping.at("thresh_0") -> getType() -> isFloatTy()){
-		args.push_back(mapping.at("thresh_0"));
-	}else if(mapping.at("thresh_0") -> getType() -> isIntegerTy()){
-		CastInst* conv = new SIToFPInst(mapping.at("thresh_0"),
+
+	Value* thresh = mapping.at("thresh_0");
+	if(thresh->getType()->isFloatTy()){
+		args.push_back(thresh);
+	}else if(thresh->getType()->isIntegerTy()){
+		CastInst* conv = new SIToFPInst(thresh,
+				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
+				"converstion_thresh",
+				branch.first
+		);
+		args.push_back(conv);
+	}else if(PointerType*pt = dyn_cast<PointerType>(thresh->getType())){
+		if(pt->getElementType() -> isFloatTy()){
+			LoadInst* lp = new LoadInst(thresh,"loaded_val",branch.first);
+			args.push_back(lp);
+		} else if(pt->getElementType() -> isIntegerTy()){
+		LoadInst* lp = new LoadInst(thresh,"loaded_val",branch.first);
+		CastInst* conv = new SIToFPInst(lp,
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_thresh",
 				branch.first
 		);
 		args.push_back(conv);
-	}else{
-		mapping.at("thresh_0")->getType()-> dump();
-		okay = false;
+		}else{
+			errs() << "UNKOWN POINTER TYPE";
+			okay = false;
+		}
 
+	}else{
+		errs() << "UNKOWN TYPE NOT CONVERTED!!";
+		okay = false;
 	}
-	args.push_back(mapping.at("res_0"));
+
+	//handle the result as well
+	Value* res = mapping.at("res_0");
+	args.push_back(res);
 
 	if(okay){
 		//Create the new instruction that calls the function and insert it into the code
@@ -318,9 +359,10 @@ bool InstrumentBranches::runOnModule(Module& M)
 			Type::getInt8PtrTy(M.getContext()), Type::getInt1Ty(M.getContext()), Type::getDoubleTy(M.getContext()), Type::getDoubleTy(M.getContext()),
 			Type::getInt1Ty(M.getContext()), nullptr);
 
-	DEBUG(errs() << "\n\nStarting instrumentation usage finder:\n");
+	errs() << "\n\nStarting instrumentation :\n";
 	gather_results_results = &getAnalysis<GatherResults>();
 	thresh_result_type vals = gather_results_results -> get_results();
+	errs() << "Must instrument " << vals.size() << " Locations\n";
 	for(branch_thresh_pair b: vals){
 		instrumentBranch(b);
 	}
