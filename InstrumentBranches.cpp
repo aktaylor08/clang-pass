@@ -266,13 +266,20 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	if(mapping.at("cmp_0")->getType()->isFloatTy()){
 		args.push_back(mapping.at("cmp_0"));
 	}else if(mapping.at("cmp_0")->getType()->isIntegerTy()){
-		mapping.at("cmp_0")->getType()-> dump();
 		CastInst* conv = new SIToFPInst(mapping.at("cmp_0"),
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_cmp",
 				branch.first
 		);
 		args.push_back(conv);
+	}else if(PointerType*pt = dyn_cast<PointerType>(mapping.at("cmp_0")->getType())){
+		pt->dump();
+		if(pt->getElementType() -> isFloatTy()){
+			args.push_back(mappi);
+		}
+		if(pt->getElementType() -> isIntegerTy()){
+		}
+
 	}else{
 		mapping.at("cmp_0")->getType()-> dump();
 		okay = false;
