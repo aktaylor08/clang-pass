@@ -33,12 +33,6 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 					if(arg_size == 3 || arg_size == 4){
 						Value* val_arg = inv_inst -> getArgOperand(2);
 						if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*val_arg)){
-							llvm::Value* v;
-							v = inv_inst -> getArgOperand(1);
-
-							v -> dump();
-							v ->getType() -> dump();
-
 							totalCount++;
 							param_ptr_list.push_back(ptr_inst);
 							param_ptr_set.insert(ptr_inst);

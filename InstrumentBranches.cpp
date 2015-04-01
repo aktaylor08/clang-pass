@@ -3,6 +3,7 @@
 
 #include <ctime>
 #include <fstream>
+#include <sstream>
 #include <iostream>
 
 #define DEBUG_TYPE "instrumentation"
@@ -13,6 +14,7 @@ namespace ros_thresh{
 
 InstrumentBranches::InstrumentBranches() : ModulePass(ID){
 	logging_function = nullptr;
+	gather_results_results = nullptr;
 	name_int = 0;
 }
 
@@ -38,7 +40,6 @@ void InstrumentBranches::write_to_file(){
 	strftime(buffer, 80, "%Y-%m-%d-%I-%M-%S", timeinfo);
 	std::string str(buffer);
 	std::string fname = "/home/ataylor/clang_results/" + str + ".json";
-	errs() << fname << "\n";
 
 	std::ofstream outfile;
 	outfile.open(fname.c_str());
@@ -84,30 +85,42 @@ bool getConnectingInstructions(Instruction* current, Instruction* target, instru
 
 
 std::string get_param_src_string(Instruction* inst){
+	/**
+	 * This function is ugly and I do not care.  Not sure if this is the right way to get a constant string init call
+	 * to ros param but it seems to the be only way to get this to work..
+	 */
+
+	std::string ret = "";
+	//This is making some assumptions about the method that llvm will use to setup the string name in the parameter
 	if(GetElementPtrInst* ptr = dyn_cast<GetElementPtrInst>(&*inst)){
 		for(User* u :  ptr-> users()){
 			if(InvokeInst* i = dyn_cast<InvokeInst>(&*u)){
 				std::string prefix("_ZNK3ros10NodeHandle5param");
 				std::string name = i->getCalledValue() -> getName().str();
-				  if(!name.compare(0, prefix.size(), prefix)){
-
-
-						Value* v = i -> getArgOperand(1);
-						errs() << "ffffff\n";
-						v -> dump();
-						v ->getType() -> dump();
-						for(User* x: v ->users()){
-							errs() << "\t";
-							x ->  dump();
-
+				if(!name.compare(0, prefix.size(), prefix)){
+					Value* v = i -> getArgOperand(1);
+					for(User* x: v ->users()){
+						if(InvokeInst* next_invoke = dyn_cast<InvokeInst>(&*x)){
+							if(next_invoke->getCalledValue() ->getName().str() == "_ZNSsC1EPKcRKSaIcE"){
+								Value* arg1;
+								arg1 = next_invoke -> getArgOperand(1);
+								if(ConstantExpr* yarg= dyn_cast<ConstantExpr>(&*arg1)){
+									Constant* const_ref = yarg-> getOperand(0);
+									if(GlobalVariable* c = dyn_cast<GlobalVariable>(&*const_ref)){
+										Constant * init = c -> getInitializer();
+										if(ConstantDataArray* a = dyn_cast<ConstantDataArray>(&*init)){
+											ret =  a -> getAsCString().str();
+										}
+									}
+								}
+							}
 						}
-
-				  }
+					}
+				}
 			}
-			u -> dump();
 		}
 	}
-	return "";
+	return ret;
 }
 
 
@@ -204,15 +217,16 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	std::string src_str = get_param_src_string(src);
 
 	std::pair<std::string, int> location = get_file_lineno(branch.first);
-	branch.second[0] -> dump();
 	Json::Value thresh_info;
 	//TODO fix tdistance calculator calculations
 	thresh_info["distance"] = 1;
 	thresh_info["file"] = location.first;
-	thresh_info["name"] = uids;
+	std::stringstream names;
+	names << src_str << " in " << location.first;
+	thresh_info["name"] = names.str();
 	thresh_info["other_thresholds"] = 0;
 	thresh_info["topic"] = "unknown";
-	thresh_info["source"] = "";
+	thresh_info["source"] = src_str;
 	thresh_info["relation"] = "";
 	thresh_info["lineno"] = location.second;
 	thresh_info["key"]=uids;
@@ -251,7 +265,6 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	if(mapping.at("cmp_0")->getType()->isFloatTy()){
 		args.push_back(mapping.at("cmp_0"));
 	}else{
-		mapping.at("cmp_0") -> getType() -> dump();
 		CastInst* conv = new SIToFPInst(mapping.at("cmp_0"),
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
 				"conversion_cmp",
