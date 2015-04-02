@@ -373,6 +373,12 @@ bool InstrumentBranches::runOnModule(Module& M)
 char InstrumentBranches::ID = 0;
 RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);
 
+void LLVMAddInstrumentBranchesPasss(LLVMPassMangerRef PM){
+    unwrape(PM) -> add(createInstrumentBranchesPass());
+}
+
+ModulePass *llvm::createInstrumentBranchesPass(){ return new InstrumentBranches()};
+
 static void loadInstrumentPass(const PassManagerBuilder &,
 		legacy::PassManagerBase&PM) {
 	//PM.add(new ExternCallFinder());
