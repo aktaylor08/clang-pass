@@ -1,8 +1,8 @@
-#include "include/BackwardPropigate.h"
+#include "llvm/Transforms/RosThresholds/BackwardPropigate.h"
 using namespace llvm;
 
 #define DEBUG_TYPE "backward_propigate"
-namespace ros_thresh{
+namespace llvm{
 
 
 BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
@@ -406,11 +406,19 @@ bool BackwardPropigate::runOnModule(Module& M)
 	return false;
 }
 
-Pass *createPubCallFinderPass() {
+ModulePass *createBackwardPropigatePass() {
 	return new BackwardPropigate();
 }
 char BackwardPropigate::ID = 0;
-RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
+INITIALIZE_PASS_BEGIN(BackwardPropigate, "ros-back-prop", "Id which blocks are in the flow of calls", false, false);
+INITIALIZE_PASS_DEPENDENCY(LoopInfoWrapperPass);
+INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass);
+INITIALIZE_PASS_DEPENDENCY(ExternCallFinder);
+INITIALIZE_PASS_DEPENDENCY(IfStatements);
+INITIALIZE_PASS_DEPENDENCY(ClassObjectAccess);
+INITIALIZE_PASS_DEPENDENCY(	SimpleCallGraph);
+INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in the flow of calls", false, false);
+//RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
 
 }

@@ -1,9 +1,8 @@
-#include "include/ParamUsageFinder.h"
+#include "llvm/Transforms/RosThresholds/ParamUsageFinder.h"
 
 #define DEBUG_TYPE "param_usage_finder"
 
-namespace ros_thresh{
-char ParamUsageFinder::ID = 0;
+namespace llvm{
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
 	back_prop_res = nullptr;
@@ -201,6 +200,12 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	}
 	return false;
 }
-RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
+char ParamUsageFinder::ID = 0;
+INITIALIZE_PASS_BEGIN(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false);
+INITIALIZE_PASS_DEPENDENCY(ParamCallFinder);
+INITIALIZE_PASS_DEPENDENCY(BackwardPropigate);
+INITIALIZE_PASS_END(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false);
+ModulePass * createParamUsageFinderPass(){return new ParamUsageFinder();}
+//RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
 
 }

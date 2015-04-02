@@ -1,9 +1,9 @@
-#include "include/ExternCallFinder.h"
+#include "llvm/Transforms/RosThresholds/ExternCallFinder.h"
 
 using namespace llvm;
 
 #define DEBUG_TYPE "external_call_finder"
-namespace ros_thresh{
+namespace llvm{
 
 
 /**
@@ -68,5 +68,7 @@ bool ExternCallFinder::runOnModule(Module& M) {
 }
 
 char ExternCallFinder::ID = 0;
-RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);
+INITIALIZE_PASS(ExternCallFinder, "ros-extern-calls", "identifying ROS publish and service calls", false, false);
+//RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);
+ModulePass * createExternCallFinderPass(){return new ExternCallFinder();}
 }

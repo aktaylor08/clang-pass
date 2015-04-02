@@ -1,5 +1,5 @@
-#include "include/InstrumentBranches.h"
-#include "include/GatherResults.h"
+#include "llvm/Transforms/RosThresholds/InstrumentBranches.h"
+#include "llvm/Transforms/RosThresholds/GatherResults.h"
 
 #include <ctime>
 #include <fstream>
@@ -9,7 +9,7 @@
 #define DEBUG_TYPE "instrumentation"
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 
 InstrumentBranches::InstrumentBranches() : ModulePass(ID){
@@ -371,13 +371,18 @@ bool InstrumentBranches::runOnModule(Module& M)
 }
 
 char InstrumentBranches::ID = 0;
-RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);
+//RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);
 
-void LLVMAddInstrumentBranchesPasss(LLVMPassMangerRef PM){
-    unwrape(PM) -> add(createInstrumentBranchesPass());
+INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false);
+INITIALIZE_PASS_DEPENDENCY(GatherResults);
+INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false);
+
+ModulePass *createInstrumentBranchesPass(){ return new InstrumentBranches();};
+
+void LLVMAddInstrumentBranchesPasss(LLVMPassManagerRef PM){
+    unwrap(PM) -> add(createInstrumentBranchesPass());
 }
 
-ModulePass *llvm::createInstrumentBranchesPass(){ return new InstrumentBranches()};
 
 static void loadInstrumentPass(const PassManagerBuilder &,
 		legacy::PassManagerBase&PM) {
@@ -393,8 +398,10 @@ static void loadInstrumentPass(const PassManagerBuilder &,
 	PM.add(new GatherResults());
 	PM.add(new InstrumentBranches());
 }
+
 static RegisterStandardPasses
 RegisterInstrumentPass(PassManagerBuilder::EP_EnabledOnOptLevel0,
 		loadInstrumentPass);
+
 
 }

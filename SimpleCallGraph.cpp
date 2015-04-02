@@ -1,8 +1,8 @@
-#include "include/SimpleCallGraph.h"
+#include "llvm/Transforms/RosThresholds/SimpleCallGraph.h"
 
 using namespace llvm;
 
-namespace ros_thresh{
+namespace llvm{
 
 char SimpleCallGraph::ID = 0;
 
@@ -66,6 +66,8 @@ bool SimpleCallGraph::runOnModule(Module& M)
 	return false;
 }
 
-RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
+INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false);
+ModulePass * createSimpleCallGraphPass(){return new SimpleCallGraph();}
+//RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
 
 }

@@ -1,7 +1,7 @@
-#include "include/IfStatements.h"
+#include "llvm/Transforms/RosThresholds/IfStatements.h"
 #define DEBUG_TYPE "if_statements"
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 IfStatements::IfStatements() : ModulePass(ID) {
 	count = 0;
@@ -185,7 +185,11 @@ bool IfStatements::runOnModule(Module& M)
 }
 
 char IfStatements::ID = 0;
-RegisterPass<IfStatements> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
+INITIALIZE_PASS_BEGIN(IfStatements,"ros-if-statements", "If Statements and printing information", false, false);
+INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass);
+INITIALIZE_PASS_END(IfStatements ,"ros-if-statements", "If Statements and printing information", false, false);
+//RegisterPass<IfStatements> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
+ModulePass * createIfStatementsPass(){return new IfStatements();}
 
 
 }

@@ -1,8 +1,8 @@
-#include "include/ParamCallFinder.h"
+#include "llvm/Transforms/RosThresholds/ParamCallFinder.h"
 
 #define DEBUG_TYPE "param_call_finder"
 
-namespace ros_thresh{
+namespace llvm{
 
 char ParamCallFinder::ID = 0;
 
@@ -78,7 +78,10 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
     return false;
   }
-RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
+
+INITIALIZE_PASS(ParamCallFinder, "ros-param-setup", "Finding ROS Param calls", false, false);
+ModulePass * createParamCallFinderPass(){return new ParamCallFinder();}
+//RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
 
 
 }
