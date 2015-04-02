@@ -405,8 +405,9 @@ bool BackwardPropigate::runOnModule(Module& M)
 	}
 	return false;
 }
+}
 
-ModulePass *createBackwardPropigatePass() {
+ModulePass *llvm::createBackwardPropigatePass() {
 	return new BackwardPropigate();
 }
 char BackwardPropigate::ID = 0;
@@ -421,4 +422,4 @@ INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in
 //RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
 
-}
+

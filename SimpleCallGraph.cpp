@@ -22,8 +22,7 @@ void SimpleCallGraph::getAnalysisUsage(AnalysisUsage &AU) const
 call_vect SimpleCallGraph::getCallSites(Function* target){
 	if(call_map.count(target) > 0){
 		return call_map.at(target);
-	}else{
-		return call_vect();
+	}else{ return call_vect();
 	}
 }
 
@@ -66,8 +65,8 @@ bool SimpleCallGraph::runOnModule(Module& M)
 	return false;
 }
 
-INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false);
-ModulePass * createSimpleCallGraphPass(){return new SimpleCallGraph();}
 //RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
 
 }
+INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false);
+ModulePass * llvm::createSimpleCallGraphPass(){return new SimpleCallGraph();}

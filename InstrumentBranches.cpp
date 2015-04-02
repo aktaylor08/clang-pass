@@ -373,11 +373,6 @@ bool InstrumentBranches::runOnModule(Module& M)
 char InstrumentBranches::ID = 0;
 //RegisterPass<InstrumentBranches> THIS_PASS("ros-instrumentation", "Instrumenting marked branches", false, false);
 
-INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false);
-INITIALIZE_PASS_DEPENDENCY(GatherResults);
-INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false);
-
-ModulePass *createInstrumentBranchesPass(){ return new InstrumentBranches();};
 
 void LLVMAddInstrumentBranchesPasss(LLVMPassManagerRef PM){
     unwrap(PM) -> add(createInstrumentBranchesPass());
@@ -405,3 +400,9 @@ RegisterInstrumentPass(PassManagerBuilder::EP_EnabledOnOptLevel0,
 
 
 }
+
+INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false);
+INITIALIZE_PASS_DEPENDENCY(GatherResults);
+INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false);
+
+ModulePass *llvm::createInstrumentBranchesPass(){ return new InstrumentBranches();};

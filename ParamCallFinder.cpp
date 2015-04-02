@@ -79,9 +79,9 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
     return false;
   }
 
-INITIALIZE_PASS(ParamCallFinder, "ros-param-setup", "Finding ROS Param calls", false, false);
-ModulePass * createParamCallFinderPass(){return new ParamCallFinder();}
 //RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
 
 
 }
+INITIALIZE_PASS(ParamCallFinder, "ros-param-setup", "Finding ROS Param calls", false, false);
+ModulePass * llvm::createParamCallFinderPass(){return new ParamCallFinder();}
