@@ -1,0 +1,6 @@
+
+[component_0]
+type = Library
+name = RosThresholds 
+parent = Transforms
+required_libraries = Analysis Core IPA InstCombine Scalar Support TransformUtils Vectorize

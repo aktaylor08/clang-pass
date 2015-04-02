@@ -1,0 +1,200 @@
+Index: include/llvm/InitializePasses.h
+===================================================================
+--- include/llvm/InitializePasses.h	(revision 229870)
++++ include/llvm/InitializePasses.h	(working copy)
+@@ -293,6 +293,18 @@
+ void initializePlaceBackedgeSafepointsImplPass(PassRegistry&);
+ void initializePlaceSafepointsPass(PassRegistry&);
+ void initializeDwarfEHPreparePass(PassRegistry&);
++
++//Added below here by adam to try and get ros instrumentation stuff to work.
++void initializeInstrumentBranchesPass(PassRegistry&);
++void initializeSimpleCallGraphPass(PassRegistry&);
++void initializeClassObjectAccessPass(PassRegistry&);
++void initializeExternCallFinderPass(PassRegistry&);
++void initializeIfStatementsPass(PassRegistry&);
++void initializeBackwardPropigatePass(PassRegistry&);
++void initializeParamCallFinderPass(PassRegistry&);
++void initializeParamUsageFinderPass(PassRegistry&);
++void initializeGatherResultsPass(PassRegistry&);
++void initializeFindConstCompsPass(PassRegistry&);
+ }
+ 
+ #endif
+Index: include/llvm/LinkAllPasses.h
+===================================================================
+--- include/llvm/LinkAllPasses.h	(revision 229870)
++++ include/llvm/LinkAllPasses.h	(working copy)
+@@ -171,6 +171,19 @@
+       (void) llvm::createStraightLineStrengthReducePass();
+       (void) llvm::createMemDerefPrinter();
+ 
++      //Added by adam
++    (void) llvm::createInstrumentBranchesPass();
++    (void) llvm::SimpleCallGraphPass();
++    (void) llvm::ClassObjectAccessPass();
++    (void) llvm::ExternCallFinderPass();
++    (void) llvm::IfStatementsPass();
++    (void) llvm::BackwardPropigatePass();
++    (void) llvm::ParamCallFinderPass();
++    (void) llvm::ParamUsageFinderPass();
++    (void) llvm::GatherResultsPass();
++    (void) llvm::FindConstCompsPass();
++
++
+       (void)new llvm::IntervalPartition();
+       (void)new llvm::ScalarEvolution();
+       ((llvm::Function*)nullptr)->viewCFGOnly();
+Index: include/llvm/Transforms/IPO.h
+===================================================================
+--- include/llvm/Transforms/IPO.h	(revision 229870)
++++ include/llvm/Transforms/IPO.h	(working copy)
+@@ -118,6 +118,10 @@
+ /// createInternalizePass - Same as above, but with an empty exportList.
+ ModulePass *createInternalizePass();
+ 
++
++//DON't think I need to add anything here put I'm adding it for good measure
++ModulePass *createInstrumentBranchesPass();
++
+ //===----------------------------------------------------------------------===//
+ /// createDeadArgEliminationPass - This pass removes arguments from functions
+ /// which are not used by the body of the function.
+Index: include/llvm-c/Transforms/IPO.h
+===================================================================
+--- include/llvm-c/Transforms/IPO.h	(revision 229870)
++++ include/llvm-c/Transforms/IPO.h	(working copy)
+@@ -64,6 +64,9 @@
+ /** See llvm::createInternalizePass function. */
+ void LLVMAddInternalizePass(LLVMPassManagerRef, unsigned AllButMain);
+ 
++/** Added by adam */
++void LLVMAddInstrumentBranchesPass(LLVMPassManagerRef PM);
++
+ /** See llvm::createStripDeadPrototypesPass function. */
+ void LLVMAddStripDeadPrototypesPass(LLVMPassManagerRef PM);
+ 
+Index: lib/LTO/LLVMBuild.txt
+===================================================================
+--- lib/LTO/LLVMBuild.txt	(revision 229870)
++++ lib/LTO/LLVMBuild.txt	(working copy)
+@@ -19,4 +19,4 @@
+ type = Library
+ name = LTO
+ parent = Libraries
+-required_libraries = Analysis BitReader BitWriter CodeGen Core IPA IPO InstCombine Linker MC ObjCARC Object Scalar Support Target
++required_libraries = Analysis BitReader BitWriter CodeGen Core IPA IPO InstCombine Linker MC ObjCARC Object Scalar Support Target RosThresholds
+Index: lib/LTO/LTOCodeGenerator.cpp
+===================================================================
+--- lib/LTO/LTOCodeGenerator.cpp	(revision 229870)
++++ lib/LTO/LTOCodeGenerator.cpp	(working copy)
+@@ -53,6 +53,8 @@
+ #include "llvm/Transforms/IPO.h"
+ #include "llvm/Transforms/IPO/PassManagerBuilder.h"
+ #include "llvm/Transforms/ObjCARC.h"
++#include "llvm/Transforms/RosThresholds.h"
++#include "llvm/Transforms/RosThresholds/InstrumentBranches.h"
+ #include <system_error>
+ using namespace llvm;
+ 
+@@ -104,6 +106,9 @@
+ void LTOCodeGenerator::initializeLTOPasses() {
+   PassRegistry &R = *PassRegistry::getPassRegistry();
+ 
++  //Added my pass -- Adam
++  initializeInstrumentBranchesPass(R);
++
+   initializeInternalizePassPass(R);
+   initializeIPSCCPPass(R);
+   initializeGlobalOptPass(R);
+@@ -432,6 +437,8 @@
+   passes.add(createVerifierPass());
+   passes.add(createDebugInfoVerifierPass());
+ 
++  passes.add(createInstrumentBranchesPass());
++
+   // mark which symbols can not be internalized
+   Mangler Mangler(TargetMach->getDataLayout());
+   std::vector<const char*> MustPreserveList;
+Index: lib/LTO/LTOModule.cpp
+===================================================================
+--- lib/LTO/LTOModule.cpp	(revision 229870)
++++ lib/LTO/LTOModule.cpp	(working copy)
+@@ -45,6 +45,8 @@
+ #include "llvm/Target/TargetRegisterInfo.h"
+ #include "llvm/Target/TargetSubtargetInfo.h"
+ #include "llvm/Transforms/Utils/GlobalStatus.h"
++#include "llvm/Transforms/RosThresholds.h"
++#include "llvm/Transforms/RosThresholds/InstrumentBranches.h"
+ #include <system_error>
+ using namespace llvm;
+ using namespace llvm::object;
+Index: lib/Makefile
+===================================================================
+--- lib/Makefile	(revision 229870)
++++ lib/Makefile	(working copy)
+@@ -12,6 +12,6 @@
+ 
+ PARALLEL_DIRS := IR AsmParser Bitcode Analysis Transforms CodeGen Target      \
+                  ExecutionEngine Linker LTO MC Object Option DebugInfo        \
+-                 IRReader LineEditor ProfileData
++                 IRReader LineEditor ProfileData 
+ 
+ include $(LEVEL)/Makefile.common
+Index: lib/Transforms/IPO/PassManagerBuilder.cpp
+===================================================================
+--- lib/Transforms/IPO/PassManagerBuilder.cpp	(revision 229870)
++++ lib/Transforms/IPO/PassManagerBuilder.cpp	(working copy)
+@@ -27,6 +27,7 @@
+ #include "llvm/Transforms/IPO.h"
+ #include "llvm/Transforms/Scalar.h"
+ #include "llvm/Transforms/Vectorize.h"
++#include "llvm/Transforms/RosThresholds.h"
+ 
+ using namespace llvm;
+ 
+@@ -385,6 +386,8 @@
+ 
+ void PassManagerBuilder::addLTOOptimizationPasses(legacy::PassManagerBase &PM) {
+   // Provide AliasAnalysis services for optimizations.
++  //
++  
+   addInitialAliasAnalysisPasses(PM);
+ 
+   // Propagate constants at call sites into the functions they call.  This
+@@ -392,6 +395,9 @@
+   // pointers passed as arguments to direct uses of functions.
+   PM.add(createIPSCCPPass());
+ 
++//Run the instrument branches pass right after this one
++  PM.add(createInstrumentBranchesPass());
++
+   // Now that we internalized some globals, see if we can hack on them!
+   PM.add(createGlobalOptimizerPass());
+ 
+Index: lib/Transforms/LLVMBuild.txt
+===================================================================
+--- lib/Transforms/LLVMBuild.txt	(revision 229870)
++++ lib/Transforms/LLVMBuild.txt	(working copy)
+@@ -16,7 +16,7 @@
+ ;===------------------------------------------------------------------------===;
+ 
+ [common]
+-subdirectories = IPO InstCombine Instrumentation Scalar Utils Vectorize ObjCARC
++subdirectories = IPO InstCombine Instrumentation RosThresholds Scalar Utils Vectorize ObjCARC
+ 
+ [component_0]
+ type = Group
+Index: lib/Transforms/Makefile
+===================================================================
+--- lib/Transforms/Makefile	(revision 229870)
++++ lib/Transforms/Makefile	(working copy)
+@@ -8,7 +8,7 @@
+ ##===----------------------------------------------------------------------===##
+ 
+ LEVEL = ../..
+-PARALLEL_DIRS = Utils Instrumentation Scalar InstCombine IPO Vectorize Hello ObjCARC
++PARALLEL_DIRS = Utils Instrumentation Scalar InstCombine IPO Vectorize Hello ObjCARC RosThresholds
+ 
+ include $(LEVEL)/Makefile.config
+ 
