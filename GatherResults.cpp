@@ -1,5 +1,8 @@
 #include "llvm/Transforms/RosThresholds/GatherResults.h"
 
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
+
 #define DEBUG_TYPE "gathering_results"
 
 namespace llvm{
@@ -57,9 +60,9 @@ char GatherResults::ID = 0;
 ModulePass * createGatherResultsPass(){return new GatherResults();}
 
 }
-INITIALIZE_PASS_BEGIN(GatherResults, "gather-results", "Gathering Results for things", false, false);
-INITIALIZE_PASS_DEPENDENCY(ParamUsageFinder);
-INITIALIZE_PASS_END(GatherResults, "gather-results", "Gathering Results for things", false, false);
+INITIALIZE_PASS_BEGIN(GatherResults, "gather-results", "Gathering Results for things", false, false)
+INITIALIZE_PASS_DEPENDENCY(ParamUsageFinder)
+INITIALIZE_PASS_END(GatherResults, "gather-results", "Gathering Results for things", false, false)
 
 //RegisterPass<GatherResults> GATHERERRERER("gather-results", "Gathering Results for things", false, false);
 

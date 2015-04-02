@@ -1,4 +1,7 @@
 #include "llvm/Transforms/RosThresholds/BackwardPropigate.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
+
 using namespace llvm;
 
 #define DEBUG_TYPE "backward_propigate"
@@ -407,7 +410,7 @@ bool BackwardPropigate::runOnModule(Module& M)
 }
 char BackwardPropigate::ID = 0;
 ModulePass *createBackwardPropigatePass() {
-	return new BackwardPropigate();
+	return new llvm::BackwardPropigate();
 }
 }
 

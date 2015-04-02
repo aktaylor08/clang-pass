@@ -1,4 +1,6 @@
 #include "llvm/Transforms/RosThresholds/ParamUsageFinder.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "param_usage_finder"
 

@@ -1,4 +1,6 @@
 #include "llvm/Transforms/RosThresholds/ClassObjectAccess.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "object_pointers"
 

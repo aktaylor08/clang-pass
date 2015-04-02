@@ -1,4 +1,6 @@
 #include "llvm/Transforms/RosThresholds/ParamCallFinder.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "param_call_finder"
 

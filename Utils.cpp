@@ -2,6 +2,8 @@
 #include "llvm/IR/DebugInfo.h"
 #include <sstream>
 #include <set>
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 
 

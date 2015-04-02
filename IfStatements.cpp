@@ -1,4 +1,7 @@
 #include "llvm/Transforms/RosThresholds/IfStatements.h"
+
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 #define DEBUG_TYPE "if_statements"
 using namespace llvm;
 namespace llvm{

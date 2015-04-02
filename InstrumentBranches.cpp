@@ -1,5 +1,7 @@
 #include "llvm/Transforms/RosThresholds/InstrumentBranches.h"
 #include "llvm/Transforms/RosThresholds/GatherResults.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #include <ctime>
 #include <fstream>

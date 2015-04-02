@@ -1,5 +1,8 @@
 #include "llvm/Transforms/RosThresholds/FindConstComps.h"
 
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
+
 #define DEBUG_TYPE "param_usage_finder"
 
 namespace llvm{
