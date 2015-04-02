@@ -66,7 +66,7 @@ bool SimpleCallGraph::runOnModule(Module& M)
 }
 
 //RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
+ModulePass * createSimpleCallGraphPass(){return new SimpleCallGraph();}
 
 }
-INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false);
-ModulePass * llvm::createSimpleCallGraphPass(){return new SimpleCallGraph();}
+INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false)

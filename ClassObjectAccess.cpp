@@ -117,11 +117,12 @@ bool ClassObjectAccess::runOnModule(Module &M){
 //    }
 	return false;
 }
+
+char ClassObjectAccess::ID = 0;
+ModulePass * createClassObjectAccessPass(){return new ClassObjectAccess();}
 }
 
 
 //RegisterPass<ClassObjectAccess> M("ros-element-ptr-access", "Getting object access patterns", false, false);
-char ClassObjectAccess::ID = 0;
-INITIALIZE_PASS(ClassObjectAccess, "ros-element-ptr-access", "Getting object access patterns", false, false);
-ModulePass * llvm::createClassObjectAccessPass(){return new ClassObjectAccess();}
+INITIALIZE_PASS(ClassObjectAccess, "ros-element-ptr-access", "Getting object access patterns", false, false)
 

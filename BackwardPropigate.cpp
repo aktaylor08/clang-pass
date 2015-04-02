@@ -405,20 +405,20 @@ bool BackwardPropigate::runOnModule(Module& M)
 	}
 	return false;
 }
-}
-
-ModulePass *llvm::createBackwardPropigatePass() {
+char BackwardPropigate::ID = 0;
+ModulePass *createBackwardPropigatePass() {
 	return new BackwardPropigate();
 }
-char BackwardPropigate::ID = 0;
-INITIALIZE_PASS_BEGIN(BackwardPropigate, "ros-back-prop", "Id which blocks are in the flow of calls", false, false);
-INITIALIZE_PASS_DEPENDENCY(LoopInfoWrapperPass);
-INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass);
-INITIALIZE_PASS_DEPENDENCY(ExternCallFinder);
-INITIALIZE_PASS_DEPENDENCY(IfStatements);
-INITIALIZE_PASS_DEPENDENCY(ClassObjectAccess);
-INITIALIZE_PASS_DEPENDENCY(	SimpleCallGraph);
-INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in the flow of calls", false, false);
+}
+
+INITIALIZE_PASS_BEGIN(BackwardPropigate, "ros-back-prop", "Id which blocks are in the flow of calls", false, false)
+INITIALIZE_PASS_DEPENDENCY(LoopInfoWrapperPass)
+INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
+INITIALIZE_PASS_DEPENDENCY(ExternCallFinder)
+INITIALIZE_PASS_DEPENDENCY(IfStatements)
+INITIALIZE_PASS_DEPENDENCY(ClassObjectAccess)
+INITIALIZE_PASS_DEPENDENCY(	SimpleCallGraph)
+INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in the flow of calls", false, false)
 //RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
 

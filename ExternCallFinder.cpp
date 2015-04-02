@@ -66,9 +66,9 @@ bool ExternCallFinder::runOnModule(Module& M) {
 	}
 	return false;
 }
+char ExternCallFinder::ID = 0;
+ModulePass * createExternCallFinderPass(){return new ExternCallFinder();}
 }
 
-char ExternCallFinder::ID = 0;
-INITIALIZE_PASS(ExternCallFinder, "ros-extern-calls", "identifying ROS publish and service calls", false, false);
+INITIALIZE_PASS(ExternCallFinder, "ros-extern-calls", "identifying ROS publish and service calls", false, false)
 //RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);
-ModulePass * llvm::createExternCallFinderPass(){return new ExternCallFinder();}

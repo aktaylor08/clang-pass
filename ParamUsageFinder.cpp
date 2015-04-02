@@ -202,10 +202,10 @@ bool ParamUsageFinder::runOnModule(Module& M)
 }
 char ParamUsageFinder::ID = 0;
 //RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
+ModulePass * createParamUsageFinderPass(){return new ParamUsageFinder();}
 
 }
-INITIALIZE_PASS_BEGIN(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false);
-INITIALIZE_PASS_DEPENDENCY(ParamCallFinder);
-INITIALIZE_PASS_DEPENDENCY(BackwardPropigate);
-INITIALIZE_PASS_END(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false);
-ModulePass * llvm::createParamUsageFinderPass(){return new ParamUsageFinder();}
+INITIALIZE_PASS_BEGIN(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)
+INITIALIZE_PASS_DEPENDENCY(ParamCallFinder)
+INITIALIZE_PASS_DEPENDENCY(BackwardPropigate)
+INITIALIZE_PASS_END(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)
