@@ -377,24 +377,24 @@ bool InstrumentBranches::runOnModule(Module& M)
 
 
 
-static void loadInstrumentPass(const PassManagerBuilder &,
-		legacy::PassManagerBase&PM) {
-	//PM.add(new ExternCallFinder());
-	PM.add(new LoopInfoWrapperPass());
-	PM.add(new DominatorTreeWrapperPass());
-	PM.add(new SimpleCallGraph());
-	PM.add(new ClassObjectAccess());
-	PM.add(new IfStatements());
-	PM.add(new BackwardPropigate());
-	PM.add(new ParamCallFinder());
-	PM.add(new ParamUsageFinder());
-	PM.add(new GatherResults());
-	PM.add(new InstrumentBranches());
-}
+// static void loadInstrumentPass(const PassManagerBuilder &,
+//         legacy::PassManagerBase&PM) {
+//     //PM.add(new ExternCallFinder());
+//     PM.add(new LoopInfoWrapperPass());
+//     PM.add(new DominatorTreeWrapperPass());
+//     PM.add(new SimpleCallGraph());
+//     PM.add(new ClassObjectAccess());
+//     PM.add(new IfStatements());
+//     PM.add(new BackwardPropigate());
+//     PM.add(new ParamCallFinder());
+//     PM.add(new ParamUsageFinder());
+//     PM.add(new GatherResults());
+//     PM.add(new InstrumentBranches());
+// }
 
-static RegisterStandardPasses
-RegisterInstrumentPass(PassManagerBuilder::EP_EnabledOnOptLevel0,
-		loadInstrumentPass);
+// static RegisterStandardPasses
+// RegisterInstrumentPass(PassManagerBuilder::EP_EnabledOnOptLevel0,
+//         loadInstrumentPass);
 
 
 char InstrumentBranches::ID = 0;
