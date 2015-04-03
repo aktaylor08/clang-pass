@@ -1,0 +1,158 @@
+Index: include/llvm/InitializePasses.h
+===================================================================
+--- include/llvm/InitializePasses.h	(revision 229871)
++++ include/llvm/InitializePasses.h	(working copy)
+@@ -19,6 +19,20 @@
+ 
+ class PassRegistry;
+ 
++///Initialize all of the passes I put in the Ros Threshold passes registry
++void initializeRosThresholds(PassRegistry&);
++void initializeSimpleCallGraphPass(PassRegistry&);
++void initializeClassObjectAccessPass(PassRegistry&);
++void initializeExternCallFinderPass(PassRegistry&);
++void initializeIfStatementsPass(PassRegistry&);
++void initializeBackwardPropigatePass(PassRegistry&);
++void initializeParamCallFinderPass(PassRegistry&);
++void initializeParamUsageFinderPass(PassRegistry&);
++void initializeGatherResultsPass(PassRegistry&);
++void initializeFindConstCompsPass(PassRegistry&);
++void initializeInstrumentBranchesPass(PassRegistry&);
++
++
+ /// initializeCore - Initialize all passes linked into the
+ /// TransformUtils library.
+ void initializeCore(PassRegistry&);
+@@ -62,6 +76,7 @@
+ /// initializeCodeGen - Initialize all passes linked into the CodeGen library.
+ void initializeTarget(PassRegistry&);
+ 
++
+ void initializeAAEvalPass(PassRegistry&);
+ void initializeAddDiscriminatorsPass(PassRegistry&);
+ void initializeADCEPass(PassRegistry&);
+Index: include/llvm/LinkAllPasses.h
+===================================================================
+--- include/llvm/LinkAllPasses.h	(revision 229871)
++++ include/llvm/LinkAllPasses.h	(working copy)
+@@ -35,6 +35,7 @@
+ #include "llvm/Transforms/Utils/SymbolRewriter.h"
+ #include "llvm/Transforms/Utils/UnifyFunctionExitNodes.h"
+ #include "llvm/Transforms/Vectorize.h"
++#include "llvm/Transforms/RosThresholds.h"
+ #include <cstdlib>
+ 
+ namespace {
+@@ -155,6 +156,7 @@
+       (void) llvm::createPrintBasicBlockPass(*(llvm::raw_ostream*)nullptr);
+       (void) llvm::createModuleDebugInfoPrinterPass();
+       (void) llvm::createPartialInliningPass();
++
+       (void) llvm::createLintPass();
+       (void) llvm::createSinkingPass();
+       (void) llvm::createLowerAtomicPass();
+@@ -171,6 +173,20 @@
+       (void) llvm::createStraightLineStrengthReducePass();
+       (void) llvm::createMemDerefPrinter();
+ 
++        //added custom passes here
++      (void) llvm::createSimpleCallGraphPass();
++      (void) llvm::createClassObjectAccessPass();
++      (void) llvm::createExternCallFinderPass();
++      (void) llvm::createIfStatementsPass();
++      (void) llvm::createBackwardPropigatePass();
++      (void) llvm::createParamCallFinderPass();
++      (void) llvm::createParamUsageFinderPass();
++      (void) llvm::createGatherResultsPass();
++      (void) llvm::createFindConstCompsPass();
++      (void) llvm::createInstrumentBranchesPass();
++        
++
++
+       (void)new llvm::IntervalPartition();
+       (void)new llvm::ScalarEvolution();
+       ((llvm::Function*)nullptr)->viewCFGOnly();
+Index: lib/Transforms/CMakeLists.txt
+===================================================================
+--- lib/Transforms/CMakeLists.txt	(revision 229871)
++++ lib/Transforms/CMakeLists.txt	(working copy)
+@@ -6,3 +6,4 @@
+ add_subdirectory(Vectorize)
+ add_subdirectory(Hello)
+ add_subdirectory(ObjCARC)
++add_subdirectory(RosThresholds)
+Index: lib/Transforms/Makefile
+===================================================================
+--- lib/Transforms/Makefile	(revision 229871)
++++ lib/Transforms/Makefile	(working copy)
+@@ -8,7 +8,7 @@
+ ##===----------------------------------------------------------------------===##
+ 
+ LEVEL = ../..
+-PARALLEL_DIRS = Utils Instrumentation Scalar InstCombine IPO Vectorize Hello ObjCARC
++PARALLEL_DIRS = Utils Instrumentation Scalar InstCombine IPO Vectorize Hello ObjCARC RosThresholds
+ 
+ include $(LEVEL)/Makefile.config
+ 
+Index: tools/bugpoint/CMakeLists.txt
+===================================================================
+--- tools/bugpoint/CMakeLists.txt	(revision 229871)
++++ tools/bugpoint/CMakeLists.txt	(working copy)
+@@ -15,6 +15,7 @@
+   Target
+   TransformUtils
+   Vectorize
++  RosThresholds
+   )
+ 
+ # Support plugins.
+Index: tools/bugpoint/Makefile
+===================================================================
+--- tools/bugpoint/Makefile	(revision 229871)
++++ tools/bugpoint/Makefile	(working copy)
+@@ -10,7 +10,7 @@
+ LEVEL := ../..
+ TOOLNAME := bugpoint
+ LINK_COMPONENTS := asmparser instrumentation scalaropts ipo linker bitreader \
+-                   bitwriter irreader vectorize objcarcopts codegen
++                   bitwriter irreader vectorize objcarcopts codegen RosThresholds
+ 
+ # Support plugins.
+ NO_DEAD_STRIP := 1
+Index: tools/opt/CMakeLists.txt
+===================================================================
+--- tools/opt/CMakeLists.txt	(revision 229871)
++++ tools/opt/CMakeLists.txt	(working copy)
+@@ -16,6 +16,7 @@
+   Target
+   TransformUtils
+   Vectorize
++  RosThresholds
+   )
+ 
+ # Support plugins.
+Index: tools/opt/Makefile
+===================================================================
+--- tools/opt/Makefile	(revision 229871)
++++ tools/opt/Makefile	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ LEVEL := ../..
+ TOOLNAME := opt
+-LINK_COMPONENTS := bitreader bitwriter asmparser irreader instrumentation scalaropts objcarcopts ipo vectorize all-targets codegen
++LINK_COMPONENTS := bitreader bitwriter asmparser irreader instrumentation scalaropts objcarcopts ipo vectorize all-targets codegen RosThresholds
+ 
+ # Support plugins.
+ NO_DEAD_STRIP := 1
+Index: tools/opt/opt.cpp
+===================================================================
+--- tools/opt/opt.cpp	(revision 229871)
++++ tools/opt/opt.cpp	(working copy)
+@@ -326,6 +326,7 @@
+   initializeRewriteSymbolsPass(Registry);
+   initializeWinEHPreparePass(Registry);
+   initializeDwarfEHPreparePass(Registry);
++  initializeRosThresholds();
+ 
+ #ifdef LINK_POLLY_INTO_TOOLS
+   polly::initializePollyPasses(Registry);

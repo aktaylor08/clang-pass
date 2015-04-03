@@ -420,7 +420,7 @@ INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
 INITIALIZE_PASS_DEPENDENCY(ExternCallFinder)
 INITIALIZE_PASS_DEPENDENCY(IfStatements)
 INITIALIZE_PASS_DEPENDENCY(ClassObjectAccess)
-INITIALIZE_PASS_DEPENDENCY(	SimpleCallGraph)
+INITIALIZE_PASS_DEPENDENCY(SimpleCallGraph)
 INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in the flow of calls", false, false)
 //RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
