@@ -1,8 +1,8 @@
 Index: include/llvm/InitializePasses.h
 ===================================================================
---- include/llvm/InitializePasses.h	(revision 229870)
+--- include/llvm/InitializePasses.h	(revision 229871)
 +++ include/llvm/InitializePasses.h	(working copy)
-@@ -293,6 +293,18 @@
+@@ -293,6 +293,20 @@
  void initializePlaceBackedgeSafepointsImplPass(PassRegistry&);
  void initializePlaceSafepointsPass(PassRegistry&);
  void initializeDwarfEHPreparePass(PassRegistry&);
@@ -18,28 +18,38 @@ Index: include/llvm/InitializePasses.h
 +void initializeParamUsageFinderPass(PassRegistry&);
 +void initializeGatherResultsPass(PassRegistry&);
 +void initializeFindConstCompsPass(PassRegistry&);
++
++
  }
  
  #endif
 Index: include/llvm/LinkAllPasses.h
 ===================================================================
---- include/llvm/LinkAllPasses.h	(revision 229870)
+--- include/llvm/LinkAllPasses.h	(revision 229871)
 +++ include/llvm/LinkAllPasses.h	(working copy)
-@@ -171,6 +171,19 @@
+@@ -35,6 +35,7 @@
+ #include "llvm/Transforms/Utils/SymbolRewriter.h"
+ #include "llvm/Transforms/Utils/UnifyFunctionExitNodes.h"
+ #include "llvm/Transforms/Vectorize.h"
++#include "llvm/Transforms/RosThresholds.h"
+ #include <cstdlib>
+ 
+ namespace {
+@@ -171,6 +172,19 @@
        (void) llvm::createStraightLineStrengthReducePass();
        (void) llvm::createMemDerefPrinter();
  
 +      //Added by adam
++    (void) llvm::createSimpleCallGraphPass();
++    (void) llvm::createClassObjectAccessPass();
++    (void) llvm::createExternCallFinderPass();
++    (void) llvm::createIfStatementsPass();
++    (void) llvm::createBackwardPropigatePass();
++    (void) llvm::createParamCallFinderPass();
++    (void) llvm::createParamUsageFinderPass();
++    (void) llvm::createGatherResultsPass();
++    (void) llvm::createFindConstCompsPass();
 +    (void) llvm::createInstrumentBranchesPass();
-+    (void) llvm::SimpleCallGraphPass();
-+    (void) llvm::ClassObjectAccessPass();
-+    (void) llvm::ExternCallFinderPass();
-+    (void) llvm::IfStatementsPass();
-+    (void) llvm::BackwardPropigatePass();
-+    (void) llvm::ParamCallFinderPass();
-+    (void) llvm::ParamUsageFinderPass();
-+    (void) llvm::GatherResultsPass();
-+    (void) llvm::FindConstCompsPass();
 +
 +
        (void)new llvm::IntervalPartition();
@@ -47,7 +57,7 @@ Index: include/llvm/LinkAllPasses.h
        ((llvm::Function*)nullptr)->viewCFGOnly();
 Index: include/llvm/Transforms/IPO.h
 ===================================================================
---- include/llvm/Transforms/IPO.h	(revision 229870)
+--- include/llvm/Transforms/IPO.h	(revision 229871)
 +++ include/llvm/Transforms/IPO.h	(working copy)
 @@ -118,6 +118,10 @@
  /// createInternalizePass - Same as above, but with an empty exportList.
@@ -62,7 +72,7 @@ Index: include/llvm/Transforms/IPO.h
  /// which are not used by the body of the function.
 Index: include/llvm-c/Transforms/IPO.h
 ===================================================================
---- include/llvm-c/Transforms/IPO.h	(revision 229870)
+--- include/llvm-c/Transforms/IPO.h	(revision 229871)
 +++ include/llvm-c/Transforms/IPO.h	(working copy)
 @@ -64,6 +64,9 @@
  /** See llvm::createInternalizePass function. */
@@ -76,7 +86,7 @@ Index: include/llvm-c/Transforms/IPO.h
  
 Index: lib/LTO/LLVMBuild.txt
 ===================================================================
---- lib/LTO/LLVMBuild.txt	(revision 229870)
+--- lib/LTO/LLVMBuild.txt	(revision 229871)
 +++ lib/LTO/LLVMBuild.txt	(working copy)
 @@ -19,4 +19,4 @@
  type = Library
@@ -86,7 +96,7 @@ Index: lib/LTO/LLVMBuild.txt
 +required_libraries = Analysis BitReader BitWriter CodeGen Core IPA IPO InstCombine Linker MC ObjCARC Object Scalar Support Target RosThresholds
 Index: lib/LTO/LTOCodeGenerator.cpp
 ===================================================================
---- lib/LTO/LTOCodeGenerator.cpp	(revision 229870)
+--- lib/LTO/LTOCodeGenerator.cpp	(revision 229871)
 +++ lib/LTO/LTOCodeGenerator.cpp	(working copy)
 @@ -53,6 +53,8 @@
  #include "llvm/Transforms/IPO.h"
@@ -118,7 +128,7 @@ Index: lib/LTO/LTOCodeGenerator.cpp
    std::vector<const char*> MustPreserveList;
 Index: lib/LTO/LTOModule.cpp
 ===================================================================
---- lib/LTO/LTOModule.cpp	(revision 229870)
+--- lib/LTO/LTOModule.cpp	(revision 229871)
 +++ lib/LTO/LTOModule.cpp	(working copy)
 @@ -45,6 +45,8 @@
  #include "llvm/Target/TargetRegisterInfo.h"
@@ -131,7 +141,7 @@ Index: lib/LTO/LTOModule.cpp
  using namespace llvm::object;
 Index: lib/Makefile
 ===================================================================
---- lib/Makefile	(revision 229870)
+--- lib/Makefile	(revision 229871)
 +++ lib/Makefile	(working copy)
 @@ -12,6 +12,6 @@
  
@@ -143,7 +153,7 @@ Index: lib/Makefile
  include $(LEVEL)/Makefile.common
 Index: lib/Transforms/IPO/PassManagerBuilder.cpp
 ===================================================================
---- lib/Transforms/IPO/PassManagerBuilder.cpp	(revision 229870)
+--- lib/Transforms/IPO/PassManagerBuilder.cpp	(revision 229871)
 +++ lib/Transforms/IPO/PassManagerBuilder.cpp	(working copy)
 @@ -27,6 +27,7 @@
  #include "llvm/Transforms/IPO.h"
@@ -174,7 +184,7 @@ Index: lib/Transforms/IPO/PassManagerBuilder.cpp
  
 Index: lib/Transforms/LLVMBuild.txt
 ===================================================================
---- lib/Transforms/LLVMBuild.txt	(revision 229870)
+--- lib/Transforms/LLVMBuild.txt	(revision 229871)
 +++ lib/Transforms/LLVMBuild.txt	(working copy)
 @@ -16,7 +16,7 @@
  ;===------------------------------------------------------------------------===;
@@ -187,7 +197,7 @@ Index: lib/Transforms/LLVMBuild.txt
  type = Group
 Index: lib/Transforms/Makefile
 ===================================================================
---- lib/Transforms/Makefile	(revision 229870)
+--- lib/Transforms/Makefile	(revision 229871)
 +++ lib/Transforms/Makefile	(working copy)
 @@ -8,7 +8,7 @@
  ##===----------------------------------------------------------------------===##
@@ -198,3 +208,73 @@ Index: lib/Transforms/Makefile
  
  include $(LEVEL)/Makefile.config
  
+Index: tools/bugpoint/LLVMBuild.txt
+===================================================================
+--- tools/bugpoint/LLVMBuild.txt	(revision 229871)
++++ tools/bugpoint/LLVMBuild.txt	(working copy)
+@@ -19,4 +19,4 @@
+ type = Tool
+ name = bugpoint
+ parent = Tools
+-required_libraries = AsmParser BitReader BitWriter CodeGen IRReader IPO Instrumentation Linker Scalar ObjCARC
++required_libraries = AsmParser BitReader BitWriter CodeGen IRReader IPO Instrumentation Linker Scalar ObjCARC RosThresholds
+Index: tools/bugpoint/Makefile
+===================================================================
+--- tools/bugpoint/Makefile	(revision 229871)
++++ tools/bugpoint/Makefile	(working copy)
+@@ -10,7 +10,7 @@
+ LEVEL := ../..
+ TOOLNAME := bugpoint
+ LINK_COMPONENTS := asmparser instrumentation scalaropts ipo linker bitreader \
+-                   bitwriter irreader vectorize objcarcopts codegen
++                   bitwriter irreader vectorize objcarcopts codegen RosThresholds
+ 
+ # Support plugins.
+ NO_DEAD_STRIP := 1
+Index: tools/opt/Makefile
+===================================================================
+--- tools/opt/Makefile	(revision 229871)
++++ tools/opt/Makefile	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ LEVEL := ../..
+ TOOLNAME := opt
+-LINK_COMPONENTS := bitreader bitwriter asmparser irreader instrumentation scalaropts objcarcopts ipo vectorize all-targets codegen
++LINK_COMPONENTS := bitreader bitwriter asmparser irreader instrumentation scalaropts objcarcopts ipo vectorize all-targets codegen RosThresholds
+ 
+ # Support plugins.
+ NO_DEAD_STRIP := 1
+Index: unittests/ExecutionEngine/MCJIT/Makefile
+===================================================================
+--- unittests/ExecutionEngine/MCJIT/Makefile	(revision 229871)
++++ unittests/ExecutionEngine/MCJIT/Makefile	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ LEVEL = ../../..
+ TESTNAME = MCJIT
+-LINK_COMPONENTS := core ipo mcjit native support
++LINK_COMPONENTS := core ipo mcjit native support RosThresholds
+ 
+ include $(LEVEL)/Makefile.config
+ include $(LLVM_SRC_ROOT)/unittests/Makefile.unittest
+Index: unittests/ExecutionEngine/Makefile
+===================================================================
+--- unittests/ExecutionEngine/Makefile	(revision 229871)
++++ unittests/ExecutionEngine/Makefile	(working copy)
+@@ -9,12 +9,12 @@
+ 
+ LEVEL = ../..
+ TESTNAME = ExecutionEngine
+-LINK_COMPONENTS :=interpreter
++LINK_COMPONENTS :=interpreter RosThresholds
+ 
+ include $(LEVEL)/Makefile.config
+ 
+-ifeq ($(TARGET_HAS_JIT),1)
+-  PARALLEL_DIRS = MCJIT
+-endif
++# ifeq ($(TARGET_HAS_JIT),1)
++#   PARALLEL_DIRS = #MCJIT
++# endif
+ 
+ include $(LLVM_SRC_ROOT)/unittests/Makefile.unittest
