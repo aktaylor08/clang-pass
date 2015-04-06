@@ -15,6 +15,7 @@ namespace llvm{
 
 
 InstrumentBranches::InstrumentBranches() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	logging_function = nullptr;
 	gather_results_results = nullptr;
 	name_int = 0;
@@ -133,12 +134,12 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	int rnum = 0;
 	std::map<std::string, Value*> mapping;
 
-	instruction_set insts;
 	bool found_cmp = false;
 	//loop through the thresholds
 	for(Instruction* thresh : branch.second){
 		//get the things tracing back to thresholds
-		getConnectingInstructions(branch.first, thresh, insts);
+	    instruction_set insts;
+        getConnectingInstructions(branch.first, thresh, insts); 
 		for(Instruction* i: insts){
 			//find comparisions
 
@@ -202,16 +203,17 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	//Now check if there is more than 1 threshold and comparision?
 	if(rnum>1){
 		errs() << "multiple CHECKS!\n";
-	}
-	std::ostringstream result_n;
-	result_n << "result";
-	if(Instruction* I = dyn_cast<Instruction>(branch.first -> getCondition())){
-		std::pair<std::string, Instruction*> val_res(result_n.str(),I);
-		mapping.insert(val_res);
 	}else{
-		//INVALID ASSERTION ON WHAT WE BE IN THE BRANCH!
-		assert(false);
-	}
+	    std::ostringstream result_n;
+	    result_n << "result";
+	    if(Instruction* I = dyn_cast<Instruction>(branch.first -> getCondition())){
+		    std::pair<std::string, Instruction*> val_res(result_n.str(),I);
+		    mapping.insert(val_res);
+	    }else{
+		    //INVALID ASSERTION ON WHAT WE BE IN THE BRANCH!
+		    assert(false);
+	    }
+    }
 
 
 	boost::uuids::uuid uuid = boost::uuids::random_generator()();
@@ -285,6 +287,9 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		);
 		args.push_back(conv);
 	//If it is a pointer than cast it and convert if needed
+	}else if(comp -> getType() -> isDoubleTy()){
+		args.push_back(comp);
+
 	}else if(PointerType*pt = dyn_cast<PointerType>(comp->getType())){
 		if(pt->getElementType() -> isFloatTy()){
 			LoadInst* lp = new LoadInst(comp,"loaded_val",branch.first);
@@ -298,12 +303,14 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		);
 		args.push_back(conv);
 		}else{
-			errs() << "UNKOWN POINTER TYPE";
+			errs() << "UNKNOWN POINTER TYPE comp";
+            pt->getElementType() -> dump(); 
 			okay = false;
 		}
 
 	}else{
-		errs() << "UNKOWN TYPE NOT CONVERTED!!";
+		errs() << "UNKOWN TYPE NOT CONVERTED comp!!\n";
+	    comp->getType()->dump();
 		okay = false;
 	}
 
@@ -317,6 +324,8 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 				branch.first
 		);
 		args.push_back(conv);
+	}else if(thresh -> getType() -> isDoubleTy()){
+		args.push_back(thresh);
 	}else if(PointerType*pt = dyn_cast<PointerType>(thresh->getType())){
 		if(pt->getElementType() -> isFloatTy()){
 			LoadInst* lp = new LoadInst(thresh,"loaded_val",branch.first);
@@ -330,12 +339,14 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		);
 		args.push_back(conv);
 		}else{
-			errs() << "UNKOWN POINTER TYPE";
+			errs() << "UNKOWN POINTER TYPE thresh";
+            pt->getElementType() -> dump(); 
 			okay = false;
 		}
 
 	}else{
-		errs() << "UNKOWN TYPE NOT CONVERTED!!";
+		errs() << "UNKOWN TYPE NOT CONVERTED thresh!!\n";
+	    thresh -> getType()->dump();
 		okay = false;
 	}
 

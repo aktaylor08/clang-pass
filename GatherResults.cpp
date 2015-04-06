@@ -9,6 +9,7 @@ namespace llvm{
 
 GatherResults::GatherResults() :
 		ModulePass(ID) {
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 GatherResults::~GatherResults() {

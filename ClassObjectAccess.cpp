@@ -9,6 +9,7 @@ namespace llvm{
 
 
 ClassObjectAccess::ClassObjectAccess(): ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	_count = 0;
 
 }

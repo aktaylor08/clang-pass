@@ -8,6 +8,7 @@ namespace llvm{
 
 IfStatements::IfStatements() : ModulePass(ID) {
 	count = 0;
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 

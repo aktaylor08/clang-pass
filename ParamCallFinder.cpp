@@ -8,6 +8,7 @@ namespace llvm{
 
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	totalCount = 0;
 }
 
@@ -67,12 +68,12 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
   bool ParamCallFinder::runOnModule(Module& M)
   {
-	 DEBUG(errs() << "\n\nFunning Parameter Finder.\n");
+	 errs() << "\n\nFunning Parameter Finder.\n";
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);
       }
-    DEBUG(errs() << "\tFound: " << totalCount << " Param setups\n");
+    errs() << "\tFound: " << totalCount << " Param setups\n";
     for(GetElementPtrInst* p : param_ptr_list){
     	DEBUG(dump_instruction(p, 1, ""));
     }

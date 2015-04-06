@@ -7,6 +7,7 @@
 namespace llvm{
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	back_prop_res = nullptr;
 	param_use_count = 0;
 	param_branch_count = 0;

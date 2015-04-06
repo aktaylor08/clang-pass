@@ -12,6 +12,7 @@ char SimpleCallGraph::ID = 0;
 
 SimpleCallGraph::SimpleCallGraph(): ModulePass(ID)
 {
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 SimpleCallGraph::~SimpleCallGraph()

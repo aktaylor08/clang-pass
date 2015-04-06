@@ -8,6 +8,7 @@
 namespace llvm{
 
 FindConstComps::FindConstComps() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	back_prop_res = nullptr;
 }
 

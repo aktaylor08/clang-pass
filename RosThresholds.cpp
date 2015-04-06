@@ -6,7 +6,6 @@ using namespace llvm;
 
 void llvm::initializeRosThresholds(PassRegistry &Registry){
     //Init all of the passes here
-    
     initializeSimpleCallGraphPass(Registry);
     initializeClassObjectAccessPass(Registry);
     initializeExternCallFinderPass(Registry);
@@ -17,8 +16,6 @@ void llvm::initializeRosThresholds(PassRegistry &Registry){
     initializeGatherResultsPass(Registry);
     initializeFindConstCompsPass(Registry);
     initializeInstrumentBranchesPass(Registry);
-
-    
     
 
 }

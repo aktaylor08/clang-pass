@@ -9,6 +9,7 @@ namespace llvm{
 
 
 BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	current_iter = new instruction_set;
 	next_iter = new instruction_set;
 	obj_acc = nullptr;
