@@ -8,7 +8,7 @@
 namespace llvm{
 
 FindConstComps::FindConstComps() : ModulePass(ID){
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	back_prop_res = nullptr;
 }
 
@@ -43,10 +43,11 @@ bool FindConstComps::runOnModule(Module& M)
 
 char FindConstComps::ID = 0;
 ModulePass * createFindConstCompsPass(){return new FindConstComps();}
+RegisterPass<FindConstComps> FCCP("ros-const-comps", "ROS Constant Comparisons", false, false);
 }
 
-INITIALIZE_PASS_BEGIN(FindConstComps, "ros-const-comps", "ROS Constant Comparisons", false, false);
-INITIALIZE_PASS_DEPENDENCY(ParamCallFinder);
-INITIALIZE_PASS_DEPENDENCY(BackwardPropigate);
-INITIALIZE_PASS_END(FindConstComps, "ros-const-comps", "ROS Constant Comparisons", false, false);
+//INITIALIZE_PASS_BEGIN(FindConstComps, "ros-const-comps", "ROS Constant Comparisons", false, false);
+//INITIALIZE_PASS_DEPENDENCY(ParamCallFinder);
+//INITIALIZE_PASS_DEPENDENCY(BackwardPropigate);
+//INITIALIZE_PASS_END(FindConstComps, "ros-const-comps", "ROS Constant Comparisons", false, false);
 //RegisterPass<FindConstComps> whatisgoingon("ros-const-comps", "ROS Constant Comparisons", false, false);

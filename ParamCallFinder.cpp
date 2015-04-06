@@ -8,7 +8,7 @@ namespace llvm{
 
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	totalCount = 0;
 }
 
@@ -85,6 +85,7 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
 char ParamCallFinder::ID = 0;
 ModulePass * createParamCallFinderPass(){return new ParamCallFinder();}
+RegisterPass<ParamCallFinder> PCFP("ros-param-setup", "Finding ROS Param calls", false, false);
 
 }
-INITIALIZE_PASS(ParamCallFinder, "ros-param-setup", "Finding ROS Param calls", false, false)
+//INITIALIZE_PASS(ParamCallFinder, "ros-param-setup", "Finding ROS Param calls", false, false)

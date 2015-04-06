@@ -12,7 +12,7 @@ namespace llvm{
  * Setups and whatnot
  */
 ExternCallFinder::ExternCallFinder() :ModulePass(ID){
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
    
 }
 
@@ -72,7 +72,8 @@ bool ExternCallFinder::runOnModule(Module& M) {
 }
 char ExternCallFinder::ID = 0;
 ModulePass * createExternCallFinderPass(){return new ExternCallFinder();}
+RegisterPass<ExternCallFinder> ECFP("ros-extern-calls", "identifying ROS publish and service calls", false, false);
 }
 
-INITIALIZE_PASS(ExternCallFinder, "ros-extern-calls", "identifying ROS publish and service calls", false, false)
+//INITIALIZE_PASS(ExternCallFinder, "ros-extern-calls", "identifying ROS publish and service calls", false, false)
 //RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);

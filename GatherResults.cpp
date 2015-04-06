@@ -9,7 +9,7 @@ namespace llvm{
 
 GatherResults::GatherResults() :
 		ModulePass(ID) {
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 GatherResults::~GatherResults() {
@@ -59,11 +59,12 @@ bool GatherResults::runOnModule(Module& M) {
 
 char GatherResults::ID = 0;
 ModulePass * createGatherResultsPass(){return new GatherResults();}
+RegisterPass<GatherResults> GRP("gather-results", "Gathering Results for things", false, false);
 
 }
-INITIALIZE_PASS_BEGIN(GatherResults, "gather-results", "Gathering Results for things", false, false)
-INITIALIZE_PASS_DEPENDENCY(ParamUsageFinder)
-INITIALIZE_PASS_END(GatherResults, "gather-results", "Gathering Results for things", false, false)
+//INITIALIZE_PASS_BEGIN(GatherResults, "gather-results", "Gathering Results for things", false, false)
+//INITIALIZE_PASS_DEPENDENCY(ParamUsageFinder)
+//INITIALIZE_PASS_END(GatherResults, "gather-results", "Gathering Results for things", false, false)
 
 //RegisterPass<GatherResults> GATHERERRERER("gather-results", "Gathering Results for things", false, false);
 

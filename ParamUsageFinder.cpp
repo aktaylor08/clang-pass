@@ -7,7 +7,7 @@
 namespace llvm{
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	back_prop_res = nullptr;
 	param_use_count = 0;
 	param_branch_count = 0;
@@ -42,6 +42,15 @@ void ParamUsageFinder::add_to_result(BranchInst* branch, Instruction* threshold)
 		branch_thresh_pair to_add(branch, v);
 		results.insert(to_add);
 	}else{
+		for(Instruction* i: results.at(branch)){
+			if (i == threshold){
+				errs() << "Ignoring duplicate";
+				return;
+			}
+				i -> dump();
+				threshold -> dump();
+				errs() << "\n\n";
+		}
 		results.at(branch).push_back(threshold);
 	}
 }
@@ -206,9 +215,10 @@ bool ParamUsageFinder::runOnModule(Module& M)
 char ParamUsageFinder::ID = 0;
 //RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
 ModulePass * createParamUsageFinderPass(){return new ParamUsageFinder();}
+RegisterPass<ParamUsageFinder>  PUFP("ros-param-uses", "Finding Used Ros Params", false, false);
 
 }
-INITIALIZE_PASS_BEGIN(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)
-INITIALIZE_PASS_DEPENDENCY(ParamCallFinder)
-INITIALIZE_PASS_DEPENDENCY(BackwardPropigate)
-INITIALIZE_PASS_END(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)
+//INITIALIZE_PASS_BEGIN(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)
+//INITIALIZE_PASS_DEPENDENCY(ParamCallFinder)
+//INITIALIZE_PASS_DEPENDENCY(BackwardPropigate)
+//INITIALIZE_PASS_END(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)

@@ -9,7 +9,7 @@ namespace llvm{
 
 
 ClassObjectAccess::ClassObjectAccess(): ModulePass(ID){
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	_count = 0;
 
 }
@@ -123,9 +123,10 @@ bool ClassObjectAccess::runOnModule(Module &M){
 
 char ClassObjectAccess::ID = 0;
 ModulePass * createClassObjectAccessPass(){return new ClassObjectAccess();}
+RegisterPass<ClassObjectAccess> COAP("ros-element-ptr-access", "Getting object access patterns", false, false);
 }
 
 
 //RegisterPass<ClassObjectAccess> M("ros-element-ptr-access", "Getting object access patterns", false, false);
-INITIALIZE_PASS(ClassObjectAccess, "ros-element-ptr-access", "Getting object access patterns", false, false)
-
+//INITIALIZE_PASS(ClassObjectAccess, "ros-element-ptr-access", "Getting object access patterns", false, false)
+//

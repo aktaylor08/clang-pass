@@ -12,7 +12,7 @@ char SimpleCallGraph::ID = 0;
 
 SimpleCallGraph::SimpleCallGraph(): ModulePass(ID)
 {
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 SimpleCallGraph::~SimpleCallGraph()
@@ -72,6 +72,7 @@ bool SimpleCallGraph::runOnModule(Module& M)
 
 //RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
 ModulePass * createSimpleCallGraphPass(){return new SimpleCallGraph();}
+RegisterPass<SimpleCallGraph> SCGP("ros-module-call-map", "Build super simple call map", false, false);
 
 }
-INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false)
+//INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false)

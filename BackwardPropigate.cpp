@@ -1,4 +1,4 @@
-#include "llvm/Transforms/RosThresholds/BackwardPropigate.h"
+#include "include/RosThresholds/BackwardPropigate.h"
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
 
@@ -9,7 +9,7 @@ namespace llvm{
 
 
 BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
-    initializeRosThresholds(*PassRegistry::getPassRegistry());
+//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	current_iter = new instruction_set;
 	next_iter = new instruction_set;
 	obj_acc = nullptr;
@@ -403,26 +403,27 @@ bool BackwardPropigate::runOnModule(Module& M)
 	for(Function* f: func_to_examine){
 		iter_on_function(f);
 	}
-	DEBUG(errs() << ">\tIn " << pass_count << " passes found: " << marked_branches.size() << " Branches\n");
-	for(BranchInst* bi : marked_branches){
-		DEBUG(dump_instruction(bi, 1, ""));
-	}
+//	DEBUG(errs() << ">\tIn " << pass_count << " passes found: " << marked_branches.size() << " Branches\n");
+//	for(BranchInst* bi : marked_branches){
+//		DEBUG(dump_instruction(bi, 1, ""));
+//	}
 	return false;
 }
 char BackwardPropigate::ID = 0;
 ModulePass *createBackwardPropigatePass() {
 	return new llvm::BackwardPropigate();
 }
+RegisterPass<BackwardPropigate> BPP("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 }
 
-INITIALIZE_PASS_BEGIN(BackwardPropigate, "ros-back-prop", "Id which blocks are in the flow of calls", false, false)
-INITIALIZE_PASS_DEPENDENCY(LoopInfoWrapperPass)
-INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
-INITIALIZE_PASS_DEPENDENCY(ExternCallFinder)
-INITIALIZE_PASS_DEPENDENCY(IfStatements)
-INITIALIZE_PASS_DEPENDENCY(ClassObjectAccess)
-INITIALIZE_PASS_DEPENDENCY(SimpleCallGraph)
-INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in the flow of calls", false, false)
+//INITIALIZE_PASS_BEGIN(BackwardPropigate, "ros-back-prop", "Id which blocks are in the flow of calls", false, false)
+//INITIALIZE_PASS_DEPENDENCY(LoopInfoWrapperPass)
+//INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
+//INITIALIZE_PASS_DEPENDENCY(ExternCallFinder)
+//INITIALIZE_PASS_DEPENDENCY(IfStatements)
+//INITIALIZE_PASS_DEPENDENCY(ClassObjectAccess)
+//INITIALIZE_PASS_DEPENDENCY(SimpleCallGraph)
+//INITIALIZE_PASS_END(BackwardPropigate, "ros-back-prop",  "Id which blocks are in the flow of calls", false, false)
 //RegisterPass<BackwardPropigate> Z("ros-back-prop", "Id which blocks are in the flow of calls", false, false);
 
 

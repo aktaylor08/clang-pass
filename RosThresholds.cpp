@@ -4,24 +4,25 @@
 
 using namespace llvm;
 
-void llvm::initializeRosThresholds(PassRegistry &Registry){
+//void llvm::initializeRosThresholds(PassRegistry &Registry){
     //Init all of the passes here
-    initializeSimpleCallGraphPass(Registry);
-    initializeClassObjectAccessPass(Registry);
-    initializeExternCallFinderPass(Registry);
-    initializeIfStatementsPass(Registry);
-    initializeBackwardPropigatePass(Registry);
-    initializeParamCallFinderPass(Registry);
-    initializeParamUsageFinderPass(Registry);
-    initializeGatherResultsPass(Registry);
-    initializeFindConstCompsPass(Registry);
-    initializeInstrumentBranchesPass(Registry);
+//    initializeSimpleCallGraphPass(Registry);
+//    initializeClassObjectAccessPass(Registry);
+//    initializeExternCallFinderPass(Registry);
+//    initializeIfStatementsPass(Registry);
+//    initializeBackwardPropigatePass(Registry);
+//    initializeParamCallFinderPass(Registry);
+//    initializeParamUsageFinderPass(Registry);
+//    initializeGatherResultsPass(Registry);
+//    initializeFindConstCompsPass(Registry);
+//    initializeInstrumentBranchesPass(Registry);
     
 
-}
+//}
 
 
-void LLVMInitializeRosThresholds(LLVMPassRegistryRef R){
-    initializeRosThresholds(*unwrap(R));
-}
+//void LLVMInitializeRosThresholds(LLVMPassRegistryRef R){
+//    initializeRosThresholds(/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1*unwrap(R));
+//}
+
 
