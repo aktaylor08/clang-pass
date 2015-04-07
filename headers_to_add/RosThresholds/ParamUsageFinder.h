@@ -32,6 +32,7 @@ public:
 	branch_set getBranches();
 	thresh_result_type getResults();
 	std::map<Instruction*, Instruction*> getSetups();
+	std::map<Instruction*, int> getDistance();
 
 
 
@@ -40,6 +41,7 @@ private:
 	void add_to_result(BranchInst* branch, Instruction* threshold);
 	BackwardPropigate* back_prop_res;
 	branch_set thresh_branches;
+	std::map<Instruction*, int> dist_map;
 	thresh_result_type results;
 	std::map<Instruction*, Instruction*> map_to_setup;
 	ptr_vect params;

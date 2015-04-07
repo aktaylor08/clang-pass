@@ -25,6 +25,12 @@ void GatherResults::add_to_setups(std::map<Instruction*, Instruction*> setups_in
 	}
 }
 
+void GatherResults::add_to_distances(std::map<Instruction*, int> distance_in){
+	for(std::pair<Instruction*, int> val : distance_in){
+		distances.insert(val);
+	}
+}
+
 void GatherResults::add_to_results(thresh_result_type new_res){
 	for(branch_thresh_pair one_res : new_res){
 		if(cur_vals.count(one_res.first) == 0){
@@ -50,10 +56,15 @@ Instruction* GatherResults::get_setup(Instruction* lookup){
 	return setups.at(lookup);
 }
 
+int GatherResults::get_distance(Instruction* to_find){
+	return distances.at(to_find);
+}
+
 
 bool GatherResults::runOnModule(Module& M) {
 	add_to_results(getAnalysis<ParamUsageFinder>().getResults());
 	add_to_setups(getAnalysis<ParamUsageFinder>().getSetups());
+	add_to_distances(getAnalysis<ParamUsageFinder>().getDistance());
 	return false;
 }
 

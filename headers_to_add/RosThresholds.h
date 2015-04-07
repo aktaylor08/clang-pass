@@ -79,12 +79,20 @@ typedef std::map<BasicBlock*, block_set> block_set_map;
 typedef std::pair<BasicBlock*, block_set> block_set_map_type;
 
 
+ModulePass* createSimpleCallGraphPass();
+ModulePass* createClassObjectAccessPass();
+ModulePass* createExternCallFinderPass();
+ModulePass* createIfStatementsPass();
+ModulePass* createBackwardPropigatePass();
+ModulePass* createParamCallFinderPass();
+ModulePass* createParamUsageFinderPass();
+ModulePass* createGatherResultsPass();
+ModulePass* createFindConstCompsPass();
+ModulePass* createInstrumentBranchesPass();
 
 }//end Namespace
-
 void dump_instruction(Instruction* inst, int tabs, std::string msg);
 void dump_block_lines(BasicBlock* b, int tabs);
 std::pair<std::string, int> get_file_lineno(Instruction* inst);
-
 
 #endif /* LLVM_TRANSFROM_THRESHOLD_H_*/
