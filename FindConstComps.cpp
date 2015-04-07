@@ -1,12 +1,14 @@
-#include "include/FindConstComps.h"
+#include "llvm/Transforms/RosThresholds/FindConstComps.h"
+
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "param_usage_finder"
 
-namespace ros_thresh{
-
-char FindConstComps::ID = 0;
+namespace llvm{
 
 FindConstComps::FindConstComps() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	back_prop_res = nullptr;
 }
 
@@ -38,6 +40,13 @@ bool FindConstComps::runOnModule(Module& M)
 	}
 	return false;
 }
-RegisterPass<FindConstComps> whatisgoingon("ros-const-comps", "ROS Constant Comparisons", false, false);
 
+char FindConstComps::ID = 0;
+ModulePass * createFindConstCompsPass(){return new FindConstComps();}
 }
+
+INITIALIZE_PASS_BEGIN(FindConstComps, "ros-const-comps", "ROS Constant Comparisons", false, false);
+INITIALIZE_PASS_DEPENDENCY(ParamCallFinder);
+INITIALIZE_PASS_DEPENDENCY(BackwardPropigate);
+INITIALIZE_PASS_END(FindConstComps, "ros-const-comps", "ROS Constant Comparisons", false, false);
+//RegisterPass<FindConstComps> whatisgoingon("ros-const-comps", "ROS Constant Comparisons", false, false);

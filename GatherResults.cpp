@@ -1,12 +1,15 @@
-#include "include/GatherResults.h"
+#include "llvm/Transforms/RosThresholds/GatherResults.h"
+
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "gathering_results"
 
-namespace ros_thresh {
-char GatherResults::ID = 0;
+namespace llvm{
 
 GatherResults::GatherResults() :
 		ModulePass(ID) {
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 GatherResults::~GatherResults() {
@@ -19,6 +22,12 @@ void GatherResults::getAnalysisUsage(AnalysisUsage &AU) const {
 void GatherResults::add_to_setups(std::map<Instruction*, Instruction*> setups_in){
 	for(std::pair<Instruction*, Instruction*> val : setups_in){
 		setups.insert(val);
+	}
+}
+
+void GatherResults::add_to_distances(std::map<Instruction*, int> distance_in){
+	for(std::pair<Instruction*, int> val : distance_in){
+		distances.insert(val);
 	}
 }
 
@@ -47,16 +56,25 @@ Instruction* GatherResults::get_setup(Instruction* lookup){
 	return setups.at(lookup);
 }
 
+int GatherResults::get_distance(Instruction* to_find){
+	return distances.at(to_find);
+}
+
 
 bool GatherResults::runOnModule(Module& M) {
 	add_to_results(getAnalysis<ParamUsageFinder>().getResults());
 	add_to_setups(getAnalysis<ParamUsageFinder>().getSetups());
+	add_to_distances(getAnalysis<ParamUsageFinder>().getDistance());
 	return false;
 }
 
-RegisterPass<GatherResults> GATHERERRERER("gather-results",
-		"Gathering Results for things", false, false);
-
-
+char GatherResults::ID = 0;
+ModulePass * createGatherResultsPass(){return new GatherResults();}
 
 }
+INITIALIZE_PASS_BEGIN(GatherResults, "gather-results", "Gathering Results for things", false, false)
+INITIALIZE_PASS_DEPENDENCY(ParamUsageFinder)
+INITIALIZE_PASS_END(GatherResults, "gather-results", "Gathering Results for things", false, false)
+
+//RegisterPass<GatherResults> GATHERERRERER("gather-results", "Gathering Results for things", false, false);
+

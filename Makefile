@@ -3,9 +3,9 @@ LEVEL = ../../..
 
 CXXFLAGS=-fexceptions
 
-LIBRARYNAME = RosThresholds 
+LIBRARYNAME = LLVMRosThresholds 
 
-LOADABLE_MODULE = 1
+BUILD_ARCHIVE = 1
 
 # Include the makefile implementation stuff
 include $(LEVEL)/Makefile.common

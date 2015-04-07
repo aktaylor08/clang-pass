@@ -9,11 +9,11 @@
 #include "llvm/Analysis/LoopPass.h"
 
 #include <queue>
-#include "include/IfStatements.h"
+#include "llvm/Transforms/RosThresholds/IfStatements.h"
 
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 class BackwardPropigate: public ModulePass{
 

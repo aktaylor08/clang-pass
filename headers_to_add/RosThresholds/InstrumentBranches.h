@@ -18,11 +18,10 @@
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>
 
-#include "json/json.h"
-
-
+#include "llvm/Transforms/RosThresholds/json/json.h"
+ 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 class InstrumentBranches: public ModulePass{
 

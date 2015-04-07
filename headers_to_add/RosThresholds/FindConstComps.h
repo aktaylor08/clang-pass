@@ -4,28 +4,29 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-#ifndef PARAM_CALL_FINDER_H_ 
-#define PARAM_CALL_FINDER_H_ 
+#ifndef FIND_CONST_COMPS_H_
+#define FIND_CONST_COMPS_H_
 #include "RosThresholds.h"
+#include "BackwardPropigate.h"
+#include "ParamCallFinder.h"
+
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
-class ParamCallFinder : public ModulePass{
 
+class FindConstComps: public ModulePass{
 
 public:
 	static char ID;
-	ptr_vect param_ptr_list;
-	ptr_set param_ptr_set;
-	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
-	ParamCallFinder();
+	FindConstComps();
+	~FindConstComps();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	ptr_set* getParamPtrSet();
-	ptr_vect* getParamPtrList();
+
 private:
-	int totalCount;
+	BackwardPropigate* back_prop_res;
+
 };
 
 }//end namespace ros_thresh

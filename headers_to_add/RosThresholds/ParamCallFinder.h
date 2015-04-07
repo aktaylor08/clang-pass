@@ -4,26 +4,28 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-#ifndef  SIMPLE_CALL_GRAPH_H_
-#define SIMPLE_CALL_GRAPH_H_ 
-
+#ifndef PARAM_CALL_FINDER_H_ 
+#define PARAM_CALL_FINDER_H_ 
 #include "RosThresholds.h"
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
-class SimpleCallGraph: public ModulePass{
+class ParamCallFinder : public ModulePass{
+
+
 public:
 	static char ID;
-	SimpleCallGraph();
-	~SimpleCallGraph();
+	ptr_vect param_ptr_list;
+	ptr_set param_ptr_set;
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
+	ParamCallFinder();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	call_vect getCallSites(Function* target);
-
+	ptr_set* getParamPtrSet();
+	ptr_vect* getParamPtrList();
 private:
-	func_call_map_type call_map;
+	int totalCount;
 };
 
 }//end namespace ros_thresh

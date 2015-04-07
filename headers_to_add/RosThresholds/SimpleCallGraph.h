@@ -4,29 +4,26 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-#ifndef FIND_CONST_COMPS_H_
-#define FIND_CONST_COMPS_H_
-#include "RosThresholds.h"
-#include "BackwardPropigate.h"
-#include "ParamCallFinder.h"
+#ifndef  SIMPLE_CALL_GRAPH_H_
+#define SIMPLE_CALL_GRAPH_H_ 
 
+#include "RosThresholds.h"
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
-
-class FindConstComps: public ModulePass{
-
+class SimpleCallGraph: public ModulePass{
 public:
 	static char ID;
+	SimpleCallGraph();
+	~SimpleCallGraph();
+	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
-	FindConstComps();
-	~FindConstComps();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	call_vect getCallSites(Function* target);
 
 private:
-	BackwardPropigate* back_prop_res;
-
+	func_call_map_type call_map;
 };
 
 }//end namespace ros_thresh

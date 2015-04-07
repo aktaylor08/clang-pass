@@ -1,11 +1,13 @@
-#include "include/ParamUsageFinder.h"
+#include "llvm/Transforms/RosThresholds/ParamUsageFinder.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "param_usage_finder"
 
-namespace ros_thresh{
-char ParamUsageFinder::ID = 0;
+namespace llvm{
 
 ParamUsageFinder::ParamUsageFinder() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	back_prop_res = nullptr;
 	param_use_count = 0;
 	param_branch_count = 0;
@@ -40,6 +42,15 @@ void ParamUsageFinder::add_to_result(BranchInst* branch, Instruction* threshold)
 		branch_thresh_pair to_add(branch, v);
 		results.insert(to_add);
 	}else{
+		for(Instruction* i: results.at(branch)){
+			if (i == threshold){
+				errs() << "Ignoring duplicate";
+				return;
+			}
+				i -> dump();
+				threshold -> dump();
+				errs() << "\n\n";
+		}
 		results.at(branch).push_back(threshold);
 	}
 }
@@ -141,8 +152,11 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 							if((B = dyn_cast<BranchInst>(&*I))){
 								param_branch_count++;
 								branch_params.push_back(ptr_inst);
-								if(back_prop_res ->branch_marked(B)){
+								int dist = back_prop_res -> branch_marked(B);
+								if(dist >= 0){
 									thresh_branches.insert(B);
+									std::pair<BranchInst*, int> val(B, dist);
+									dist_map.insert(val);
 									add_to_result(B, ptr_inst);
 									std::pair<Instruction*, GetElementPtrInst*> insert_pair;
 									insert_pair.first = B;
@@ -170,6 +184,10 @@ branch_set ParamUsageFinder::getBranches(){
 
 thresh_result_type ParamUsageFinder::getResults(){
 	return results;
+}
+
+std::map<Instruction*, int> ParamUsageFinder::getDistance(){
+	return dist_map;
 }
 
 std::map<Instruction*, Instruction*> ParamUsageFinder::getSetups(){
@@ -201,6 +219,12 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	}
 	return false;
 }
-RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
+char ParamUsageFinder::ID = 0;
+//RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
+ModulePass * createParamUsageFinderPass(){return new ParamUsageFinder();}
 
 }
+INITIALIZE_PASS_BEGIN(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)
+INITIALIZE_PASS_DEPENDENCY(ParamCallFinder)
+INITIALIZE_PASS_DEPENDENCY(BackwardPropigate)
+INITIALIZE_PASS_END(ParamUsageFinder, "ros-param-uses", "Finding Used Ros Params", false, false)

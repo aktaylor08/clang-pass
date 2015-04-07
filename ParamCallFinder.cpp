@@ -1,12 +1,14 @@
-#include "include/ParamCallFinder.h"
+#include "llvm/Transforms/RosThresholds/ParamCallFinder.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "param_call_finder"
 
-namespace ros_thresh{
+namespace llvm{
 
-char ParamCallFinder::ID = 0;
 
 ParamCallFinder::ParamCallFinder() : ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	totalCount = 0;
 }
 
@@ -33,12 +35,6 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 					if(arg_size == 3 || arg_size == 4){
 						Value* val_arg = inv_inst -> getArgOperand(2);
 						if(GetElementPtrInst* ptr_inst = dyn_cast<GetElementPtrInst>(&*val_arg)){
-							llvm::Value* v;
-							v = inv_inst -> getArgOperand(1);
-
-							v -> dump();
-							v ->getType() -> dump();
-
 							totalCount++;
 							param_ptr_list.push_back(ptr_inst);
 							param_ptr_set.insert(ptr_inst);
@@ -72,19 +68,23 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
   bool ParamCallFinder::runOnModule(Module& M)
   {
-	 DEBUG(errs() << "\n\nFunning Parameter Finder.\n");
+	 errs() << "\n\nFunning Parameter Finder.\n";
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);
       }
-    DEBUG(errs() << "\tFound: " << totalCount << " Param setups\n");
+    errs() << "\tFound: " << totalCount << " Param setups\n";
     for(GetElementPtrInst* p : param_ptr_list){
     	DEBUG(dump_instruction(p, 1, ""));
     }
 
     return false;
   }
-RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
 
+//RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
+
+char ParamCallFinder::ID = 0;
+ModulePass * createParamCallFinderPass(){return new ParamCallFinder();}
 
 }
+INITIALIZE_PASS(ParamCallFinder, "ros-param-setup", "Finding ROS Param calls", false, false)

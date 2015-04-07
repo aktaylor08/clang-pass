@@ -1,13 +1,18 @@
-#include "include/SimpleCallGraph.h"
+#include "llvm/Transforms/RosThresholds/SimpleCallGraph.h"
+
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
+
 
 using namespace llvm;
 
-namespace ros_thresh{
+namespace llvm{
 
 char SimpleCallGraph::ID = 0;
 
 SimpleCallGraph::SimpleCallGraph(): ModulePass(ID)
 {
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 }
 
 SimpleCallGraph::~SimpleCallGraph()
@@ -22,8 +27,7 @@ void SimpleCallGraph::getAnalysisUsage(AnalysisUsage &AU) const
 call_vect SimpleCallGraph::getCallSites(Function* target){
 	if(call_map.count(target) > 0){
 		return call_map.at(target);
-	}else{
-		return call_vect();
+	}else{ return call_vect();
 	}
 }
 
@@ -66,6 +70,8 @@ bool SimpleCallGraph::runOnModule(Module& M)
 	return false;
 }
 
-RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
+//RegisterPass<SimpleCallGraph> GOBIGRED("ros-module-call-map", "Build super simple call map", false, false);
+ModulePass * createSimpleCallGraphPass(){return new SimpleCallGraph();}
 
 }
+INITIALIZE_PASS(SimpleCallGraph, "ros-module-call-map", "Build super simple call map", false, false)

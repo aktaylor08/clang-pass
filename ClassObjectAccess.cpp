@@ -1,13 +1,15 @@
-#include "include/ClassObjectAccess.h"
+#include "llvm/Transforms/RosThresholds/ClassObjectAccess.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 #define DEBUG_TYPE "object_pointers"
 
 
-namespace ros_thresh{
+namespace llvm{
 
-char ClassObjectAccess::ID = 0;
 
 ClassObjectAccess::ClassObjectAccess(): ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	_count = 0;
 
 }
@@ -119,7 +121,11 @@ bool ClassObjectAccess::runOnModule(Module &M){
 	return false;
 }
 
-
-RegisterPass<ClassObjectAccess> M("ros-element-ptr-access", "Getting object access patterns", false, false);
-
+char ClassObjectAccess::ID = 0;
+ModulePass * createClassObjectAccessPass(){return new ClassObjectAccess();}
 }
+
+
+//RegisterPass<ClassObjectAccess> M("ros-element-ptr-access", "Getting object access patterns", false, false);
+INITIALIZE_PASS(ClassObjectAccess, "ros-element-ptr-access", "Getting object access patterns", false, false)
+

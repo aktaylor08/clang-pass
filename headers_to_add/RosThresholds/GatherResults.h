@@ -10,7 +10,7 @@
 #include "ParamUsageFinder.h"
 
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 class GatherResults: public ModulePass{
 
@@ -22,13 +22,15 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	void add_to_results(thresh_result_type results);
 	void add_to_setups(std::map<Instruction*, Instruction*> setups_in);
+	void add_to_distances(std::map<Instruction*, int> distance_in);
 	thresh_result_type get_results();
 	Instruction* get_setup(Instruction* to_find);
+	int get_distance(Instruction* to_find);
 
 private:
 	thresh_result_type cur_vals;
 	std::map<Instruction*, Instruction*> setups;
-
+	std::map<Instruction*, int> distances;
 
 };
 

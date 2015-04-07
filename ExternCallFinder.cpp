@@ -1,15 +1,19 @@
-#include "include/ExternCallFinder.h"
+#include "llvm/Transforms/RosThresholds/ExternCallFinder.h"
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 using namespace llvm;
 
 #define DEBUG_TYPE "external_call_finder"
-namespace ros_thresh{
+namespace llvm{
 
 
 /**
  * Setups and whatnot
  */
 ExternCallFinder::ExternCallFinder() :ModulePass(ID){
+    initializeRosThresholds(*PassRegistry::getPassRegistry());
+   
 }
 
 ExternCallFinder::~ExternCallFinder() {
@@ -51,7 +55,7 @@ bool ExternCallFinder::runOnFunction(Function& F) {
  * Loop through everything
  */
 bool ExternCallFinder::runOnModule(Module& M) {
-	DEBUG( errs() << "\n\nStarting External Call Finder\n");
+	errs() << "\n\nStarting External Call Finder\n";
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		Function* f = MI;
@@ -59,14 +63,16 @@ bool ExternCallFinder::runOnModule(Module& M) {
 			runOnFunction(*MI);
 		}
 	}
-	DEBUG( errs() << "Found " << sites.size() << " External Calls\n" );
+	errs() << "Found " << sites.size() << " External Calls\n" ;
 	for(call_pair p: sites){
-		DEBUG( dump_instruction(p.second.getInstruction(), 1, ""));
+		 DEBUG(dump_instruction(p.second.getInstruction(), 1, ""));
 
 	}
 	return false;
 }
-
 char ExternCallFinder::ID = 0;
-RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);
+ModulePass * createExternCallFinderPass(){return new ExternCallFinder();}
 }
+
+INITIALIZE_PASS(ExternCallFinder, "ros-extern-calls", "identifying ROS publish and service calls", false, false)
+//RegisterPass<ExternCallFinder> BOBWEHADABABYITSABOY("ros-extern-calls", "identifying ROS publish and service calls", false, false);

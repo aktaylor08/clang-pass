@@ -1,7 +1,9 @@
-#include "include/RosThresholds.h"
+#include "llvm/Transforms/RosThresholds.h"
 #include "llvm/IR/DebugInfo.h"
 #include <sstream>
 #include <set>
+#include "llvm/InitializePasses.h"
+#include "llvm-c/Initialization.h"
 
 
 
@@ -14,8 +16,6 @@ std::pair<std::string, int> get_file_lineno(Instruction* inst){
 		DILocation Loc(N);
 		lineno =Loc.getLineNumber();
 		std::stringstream ss;
-		ss << Loc.getDirectory().str();
-		ss << "/";
 		ss << Loc.getFilename().str();
 		file = ss.str();
 	}else{

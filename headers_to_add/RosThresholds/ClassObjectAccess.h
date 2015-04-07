@@ -2,7 +2,7 @@
 #define CLASS_OBJECT_ACCESS_H_
 #include "RosThresholds.h"
 using namespace llvm;
-namespace ros_thresh{
+namespace llvm{
 
 
 //Get
