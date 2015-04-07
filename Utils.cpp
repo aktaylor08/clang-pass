@@ -16,8 +16,6 @@ std::pair<std::string, int> get_file_lineno(Instruction* inst){
 		DILocation Loc(N);
 		lineno =Loc.getLineNumber();
 		std::stringstream ss;
-		ss << Loc.getDirectory().str();
-		ss << "/";
 		ss << Loc.getFilename().str();
 		file = ss.str();
 	}else{
