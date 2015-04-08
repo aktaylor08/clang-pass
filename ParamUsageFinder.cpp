@@ -81,7 +81,8 @@ int ParamUsageFinder::matches_setup_param(GetElementPtrInst* ptr_inst){
 	return -1;
 }
 
-void iter_on_uses(Instruction * I){
+std::vector<Instruction*> iter_on_uses(Instruction * I){
+	std::vector<Instruction*> ret;
 	std::deque<Instruction*> to_process;
 	to_process.push_back(I);
 	while(!to_process.empty()){
@@ -89,13 +90,13 @@ void iter_on_uses(Instruction * I){
 		to_process.pop_back();
 		for(User *U : I -> users()){
 			if(Instruction* next_i = dyn_cast<Instruction>(U)){
-				next_i -> dump();
+				ret.push_back(next_i);
 				to_process.push_back(next_i);
 			}
 		}
 
 	}
-
+	return ret;
 }
 
 instruction_set get_usage_sinks(Instruction* I){
@@ -150,10 +151,22 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 						for(instruction_set::iterator s=sinks.begin(); s!=sinks.end(); ++s){
 							Instruction* I = *s;
 							if((B = dyn_cast<BranchInst>(&*I))){
+								bool good = true;
+								for(Instruction* x :  iter_on_uses(ptr_inst)){
+									if(BinaryOperator * bin = dyn_cast<BinaryOperator>(&*x)){
+										//for now any addition invalidates the constant from the global parameter
+										//TODO account for constant values added to the thing
+											good = false;
+										}
+									}
+								if(!good){
+									errs() << "Disregarding due to operation on parameter\n";
+								}
+
 								param_branch_count++;
 								branch_params.push_back(ptr_inst);
 								int dist = back_prop_res -> branch_marked(B);
-								if(dist >= 0){
+								if((dist >= 0) && (good)){
 									thresh_branches.insert(B);
 									std::pair<BranchInst*, int> val(B, dist);
 									dist_map.insert(val);
