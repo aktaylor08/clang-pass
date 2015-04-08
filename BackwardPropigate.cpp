@@ -26,8 +26,12 @@ branch_set* BackwardPropigate::get_marked_branches(){
 	return &marked_branches;
 }
 
-bool BackwardPropigate::branch_marked(BranchInst* check){
-	return marked_branches.count(check) > 0;
+int BackwardPropigate::branch_marked(BranchInst* check){
+	if(marked_branches.count(check) > 0){
+		return distance.at(check);
+	}else{
+		return -1;
+	}
 }
 
 // We don't modify the program, so we preserve all analyses
@@ -103,6 +107,10 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 		if(called_f){
 		    if(!called_f -> getFunctionType() -> isVoidTy()){
 			    func_to_examine.insert(cs.getCalledFunction());
+			    if(function_distance.count(cs.getCalledFunction()) == 0){
+			    	std::pair<Function*, int> val(cs.getCalledFunction(), pass_count);
+			    	function_distance.insert(val);
+			    }
 		    }
 
 		}
@@ -273,7 +281,7 @@ BasicBlock* BackwardPropigate::getWorkingBlock(Instruction* i){
 	return working_block;
 }
 
-void BackwardPropigate::iter_on_function(Function* F){
+void BackwardPropigate::iter_on_function(Function* F, int dist){
 	instruction_set* current = new instruction_set();
 	instruction_set* next = new instruction_set();
 	instruction_set* processed = new instruction_set();
@@ -302,6 +310,8 @@ void BackwardPropigate::iter_on_function(Function* F){
 				BranchInst* bi =  cast<BranchInst>(i);
 				in_func.insert(bi);
 				marked_branches.insert(bi);
+				std::pair<BranchInst*, int> to_insert(bi, dist);
+				distance.insert(to_insert);
 			}//end if it was in a loop or if statement
 			//no outside calls
 			for(Instruction* data_dep : getLocalDataDependencies(inst)){
@@ -352,6 +362,8 @@ void BackwardPropigate::do_an_iter(){
 					to_add.insert(i);
 					BranchInst* bi =  cast<BranchInst>(i);
 					marked_branches.insert(bi);
+					std::pair<BranchInst*, int> to_insert(bi, pass_count);
+					distance.insert(to_insert);
 				}//end if it was in a loop or if statement
 				else{
 					//At this location we are not inside an if or other loop type. So we will
@@ -401,7 +413,8 @@ bool BackwardPropigate::runOnModule(Module& M)
 		next_iter -> clear();
 	}
 	for(Function* f: func_to_examine){
-		iter_on_function(f);
+		int dist = function_distance.at(f);
+		iter_on_function(f, dist);
 	}
 //	DEBUG(errs() << ">\tIn " << pass_count << " passes found: " << marked_branches.size() << " Branches\n");
 //	for(BranchInst* bi : marked_branches){

@@ -1,4 +1,4 @@
-#include "llvm/Transforms/RosThresholds/ParamUsageFinder.h"
+#include "include/RosThresholds/ParamUsageFinder.h"
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
 
@@ -152,8 +152,11 @@ bool ParamUsageFinder::runOnFunction(Function &F)
 							if((B = dyn_cast<BranchInst>(&*I))){
 								param_branch_count++;
 								branch_params.push_back(ptr_inst);
-								if(back_prop_res ->branch_marked(B)){
+								int dist = back_prop_res -> branch_marked(B);
+								if(dist >= 0){
 									thresh_branches.insert(B);
+									std::pair<BranchInst*, int> val(B, dist);
+									dist_map.insert(val);
 									add_to_result(B, ptr_inst);
 									std::pair<Instruction*, GetElementPtrInst*> insert_pair;
 									insert_pair.first = B;
@@ -181,6 +184,10 @@ branch_set ParamUsageFinder::getBranches(){
 
 thresh_result_type ParamUsageFinder::getResults(){
 	return results;
+}
+
+std::map<Instruction*, int> ParamUsageFinder::getDistance(){
+	return dist_map;
 }
 
 std::map<Instruction*, Instruction*> ParamUsageFinder::getSetups(){

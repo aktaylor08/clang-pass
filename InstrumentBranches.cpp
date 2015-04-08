@@ -1,7 +1,8 @@
-#include "llvm/Transforms/RosThresholds/InstrumentBranches.h"
-#include "llvm/Transforms/RosThresholds/GatherResults.h"
+#include "include/RosThresholds/GatherResults.h"
+#include "include/RosThresholds/InstrumentBranches.h"
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
+#include "llvm/Analysis/CFG.h"
 
 #include <ctime>
 #include <fstream>
@@ -15,7 +16,7 @@ namespace llvm{
 
 
 InstrumentBranches::InstrumentBranches() : ModulePass(ID){
-//    initializeRosThresholds(*PassRegistry::getPassRegistry());
+	//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	logging_function = nullptr;
 	gather_results_results = nullptr;
 	name_int = 0;
@@ -28,6 +29,7 @@ InstrumentBranches::~InstrumentBranches(){
 void InstrumentBranches::getAnalysisUsage(AnalysisUsage &AU) const{
 	AU.setPreservesAll();
 	AU.addRequired<GatherResults>();
+	AU.addRequired<DominatorTreeWrapperPass>();
 }
 
 //write static information to sepcified file
@@ -51,6 +53,9 @@ void InstrumentBranches::write_to_file(){
 	return;
 }
 
+/**
+ * Check and see if the target is reachable from all of the operands of a node
+ */
 bool targetReachableBack(Instruction* current, Instruction* target){
 	if(target == current){
 		return true;
@@ -67,6 +72,10 @@ bool targetReachableBack(Instruction* current, Instruction* target){
 	return false;
 }
 
+/**
+ * Get all of the instructions that connect two instructions between one another in the def use
+ * chain
+ */
 bool getConnectingInstructions(Instruction* current, Instruction* target, instruction_set &vals){
 	if(target == current){
 		vals.insert(current);
@@ -87,11 +96,11 @@ bool getConnectingInstructions(Instruction* current, Instruction* target, instru
 }
 
 
-std::string get_param_src_string(Instruction* inst){
 	/**
-	 * This function is ugly and I do not care.  Not sure if this is the right way to get a constant string init call
-	 * to ros param but it seems to the be only way to get this to work..
+	 * This function is ugly but it gets the job done.
+	 * Will get the string value that defined a parameter source
 	 */
+std::string get_param_src_string(Instruction* inst){
 
 	std::string ret = "";
 	//This is making some assumptions about the method that llvm will use to setup the string name in the parameter
@@ -127,6 +136,62 @@ std::string get_param_src_string(Instruction* inst){
 }
 
 
+/**
+ * This function will take care of phis that are needed to instrument the code.
+ */
+Value* makePhis(BasicBlock* cur_block, Value* cur_val, BasicBlock* last_block, BasicBlock* target){
+	//If we have a previous block we need to add the phi value to the code here
+	if(last_block != nullptr){
+		std::vector<BasicBlock*> bad;
+		//look at all the predicessors and put them in the good or bad groups
+		for (pred_iterator PI = pred_begin(cur_block), E = pred_end(cur_block); PI != E; ++PI) {
+			BasicBlock *Pred = *PI;
+			if(Pred !=last_block){
+				bad.push_back(Pred);
+			}
+		}
+		//Create the phi nodes
+		PHINode* p = PHINode::Create(cur_val -> getType(), bad.size() + 1, "func_fix", cur_block->getFirstNonPHI());
+		p -> addIncoming(cur_val, last_block);
+		for(BasicBlock* b: bad){
+			if(cur_val -> getType() -> isIntegerTy()){
+				p -> addIncoming(ConstantInt::getFalse(cur_block -> getContext()),b);
+			}else if(cur_val -> getType() -> isFloatTy()){
+				p -> addIncoming(ConstantFP::get(Type::getFloatTy(cur_block -> getContext()), 0.0),b);
+			}else if(cur_val -> getType() -> isDoubleTy()){
+				p -> addIncoming(ConstantFP::get(Type::getDoubleTy(cur_block -> getContext()), 0.0),b);
+			}else{
+				//error out on unhandle types -> should not reach this point as we
+				//are all on the same thing here.
+				errs() << "TYPE NOT HANDLED ON  ON PHI NODE!!";
+				assert(false);
+			}
+
+		}
+		cur_val = p;
+	}
+	if(cur_block == target){
+		return cur_val;
+		//return the value for use if we are in the same block finally
+	}else{
+		//for each of the successors try and find the block we are searching for below
+		for (succ_iterator PI = succ_begin(cur_block), E = succ_end(cur_block); PI != E; ++PI) {
+			Value* final_val = makePhis(*PI, cur_val, cur_block, target);
+			if(final_val){
+				//we we find the block return the value returned from the function as this
+				//is the value to use in the function argument
+				return final_val;
+			}
+		}
+		//otherwise if we created a phi node and didn't use it delete it now.
+		if(PHINode* p = dyn_cast<PHINode>(cur_val)){
+			p -> removeFromParent();
+		}
+	}
+	//we didn't find it return a nullptr
+	return nullptr;
+}
+
 void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	//keep track of values
 	int cnum = 0;
@@ -140,7 +205,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		errs () << "\n\nMore than one threshold in instruction??:" << branch.second.size() << "\n";
 		branch.first -> dump();
 	}
-	//get the things tracing back to thresholds
+	//get the things tracing back to thresholds  We are only doing one at the moment.
 	Instruction* thresh_inst = branch.second[0];
 
 	//get all of the values that the threshold is used in
@@ -180,7 +245,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		}//end comparision check
 	}//end loop back to thresh source
 
-	//DO SOMETHING HERE TO SEE IF IT IS JUST A FLAG...
+	//DO SOMETHING HERE TO SEE IF IT IS JUST A FLAG
 	if(!found_cmp || cnum == 0 || tnum == 0){
 		errs() << "It is a flag!\n";
 		std::ostringstream os;
@@ -222,38 +287,13 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 
 
 
-	boost::uuids::uuid uuid = boost::uuids::random_generator()();
-	std::string uids = boost::uuids::to_string(uuid);
-	const char* cuuid = uids.c_str();
-
-	Instruction* src = gather_results_results -> get_setup(branch.first);
-	std::string src_str = get_param_src_string(src);
-
-	std::pair<std::string, int> location = get_file_lineno(branch.first);
-	Json::Value thresh_info;
-
-	//TODO fix tdistance calculator calculations
-	thresh_info["distance"] = 1;
-	thresh_info["file"] = location.first;
-	std::stringstream names;
-	names << src_str << " in " << location.first;
-	thresh_info["name"] = names.str();
-	thresh_info["other_thresholds"] = 0;
-	thresh_info["topic"] = "unknown";
-	thresh_info["source"] = src_str;
-	thresh_info["relation"] = "";
-	thresh_info["lineno"] = location.second;
-	thresh_info["key"]=uids;
-	thresh_info["source_code"]="";
-	thresh_info["other_thresholds"] = 0;
-	thresh_info["type"] = "Parameter";
-	static_informaiton[uids] = thresh_info;
-
-
 	//Get the module
 	Module &M = *branch.first->getParent()->getParent() -> getParent();
 
-	//create the
+	//create the uuid that is used for the key
+	boost::uuids::uuid uuid = boost::uuids::random_generator()();
+	std::string uids = boost::uuids::to_string(uuid);
+	const char* cuuid = uids.c_str();
 	StringRef str = StringRef(cuuid);
 	Constant *StrConstant = ConstantDataArray::getString(M.getContext(), str);
 	GlobalVariable *GV = new GlobalVariable(M, StrConstant->getType(),
@@ -283,7 +323,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	Value *comp = mapping.at("cmp_0");
 	if(comp->getType()->isFloatTy()){
 		args.push_back(comp);
-	//convert integer
+		//convert integer
 	}else if(comp->getType()->isIntegerTy()){
 		CastInst* conv = new SIToFPInst(comp,
 				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
@@ -291,7 +331,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 				branch.first
 		);
 		args.push_back(conv);
-	//If it is a pointer than cast it and convert if needed
+		//If it is a pointer than cast it and convert if needed
 	}else if(comp -> getType() -> isDoubleTy()){
 		args.push_back(comp);
 
@@ -300,22 +340,22 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 			LoadInst* lp = new LoadInst(comp,"loaded_val",branch.first);
 			args.push_back(lp);
 		}else if(pt->getElementType() -> isIntegerTy()){
-		LoadInst* lp = new LoadInst(comp,"loaded_val",branch.first);
-		CastInst* conv = new SIToFPInst(lp,
-				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
-				"conversion_cmp",
-				branch.first
-		);
-		args.push_back(conv);
+			LoadInst* lp = new LoadInst(comp,"loaded_val",branch.first);
+			CastInst* conv = new SIToFPInst(lp,
+					Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
+					"conversion_cmp",
+					branch.first
+			);
+			args.push_back(conv);
 		}else{
 			errs() << "UNKNOWN POINTER TYPE comp";
-            pt->getElementType() -> dump(); 
+			pt->getElementType() -> dump();
 			okay = false;
 		}
 
 	}else{
 		errs() << "UNKOWN TYPE NOT CONVERTED comp!!\n";
-	    comp->getType()->dump();
+		comp->getType()->dump();
 		okay = false;
 	}
 
@@ -336,22 +376,22 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 			LoadInst* lp = new LoadInst(thresh,"loaded_val",branch.first);
 			args.push_back(lp);
 		} else if(pt->getElementType() -> isIntegerTy()){
-		LoadInst* lp = new LoadInst(thresh,"loaded_val",branch.first);
-		CastInst* conv = new SIToFPInst(lp,
-				Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
-				"conversion_thresh",
-				branch.first
-		);
-		args.push_back(conv);
+			LoadInst* lp = new LoadInst(thresh,"loaded_val",branch.first);
+			CastInst* conv = new SIToFPInst(lp,
+					Type::getDoubleTy(branch.first->getParent()->getParent()->getContext()),
+					"conversion_thresh",
+					branch.first
+			);
+			args.push_back(conv);
 		}else{
 			errs() << "UNKOWN POINTER TYPE thresh";
-            pt->getElementType() -> dump(); 
+			pt->getElementType() -> dump();
 			okay = false;
 		}
 
 	}else{
 		errs() << "UNKOWN TYPE NOT CONVERTED thresh!!\n";
-	    thresh -> getType()->dump();
+		thresh -> getType()->dump();
 		okay = false;
 	}
 
@@ -359,9 +399,61 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	Value* res = mapping.at("res_0");
 	args.push_back(res);
 
+	std::vector<Value*> clean_args;
+
+	//clean up the arguments and make sure that we are okay on the values we are passing to the functions
+	DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(*branch.first->getParent() -> getParent()).getDomTree();
+	for(Value* v : args)
+	{
+		if(Instruction* arg = dyn_cast<Instruction>(v))
+		{
+			if(!dom_tree->dominates(arg, branch.first))
+			{
+				//add phis until we are in the right block
+				BasicBlock* curblock = arg -> getParent();
+				BasicBlock*  target = branch.first -> getParent();
+				Value* cur_val = makePhis(curblock, v,nullptr,target);
+				clean_args.push_back(cur_val);
+			}
+			else
+			{
+				clean_args.push_back(v);
+			}
+		}
+		else
+		{
+			clean_args.push_back(v);
+		}
+	}
+
+
+	//We are good to go on instrumentation
 	if(okay){
+		//instrument the file if we are okay
+		Instruction* src = gather_results_results -> get_setup(branch.first);
+		int distance = gather_results_results -> get_distance(branch.first);
+		std::string src_str = get_param_src_string(src);
+
+		std::pair<std::string, int> location = get_file_lineno(branch.first);
+
+		Json::Value thresh_info;
+		thresh_info["distance"] = distance;
+		thresh_info["file"] = location.first;
+		std::stringstream names;
+		names << src_str << " in " << location.first;
+		thresh_info["name"] = names.str();
+		thresh_info["other_thresholds"] = 0;
+		thresh_info["topic"] = "unknown";
+		thresh_info["source"] = src_str;
+		thresh_info["relation"] = "";
+		thresh_info["lineno"] = location.second;
+		thresh_info["key"]=uids;
+		thresh_info["source_code"]="";
+		thresh_info["other_thresholds"] = 0;
+		thresh_info["type"] = "Parameter";
+		static_informaiton[uids] = thresh_info;
 		//Create the new instruction that calls the function and insert it into the code
-		Instruction* new_inst = CallInst::Create(logging_function, args);
+		Instruction* new_inst = CallInst::Create(logging_function, clean_args);
 		branch.first->getParent()->getInstList().insert(branch.first, new_inst);
 	}
 
@@ -398,6 +490,7 @@ RegisterPass<InstrumentBranches> IBP("ros-instrumentation", "Instrumenting marke
 }
 
 //INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false)
+//INITIALIZE_PASS_DEPENDENCY(GatherResults)
 //INITIALIZE_PASS_DEPENDENCY(GatherResults)
 //INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false)
 

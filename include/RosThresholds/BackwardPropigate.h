@@ -22,14 +22,14 @@ public:
 	static char ID;
 //	virtual bool runOnFunction(Function &F);
 	void do_an_iter();
-	void iter_on_function(Function* F);
+	void iter_on_function(Function* F,int dist);
 	virtual bool runOnModule(Module &M);
 	bool poop(Function &F);
 	BackwardPropigate();
 	~BackwardPropigate();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	branch_set* get_marked_branches();
-	bool branch_marked(BranchInst*);
+	int branch_marked(BranchInst*);
 	instruction_set getDataDependencies(Instruction* inst);
 	void testDataDependencies(Instruction* inst);
 	instruction_set getLocalDataDependencies(Instruction* inst);
@@ -42,6 +42,7 @@ private:
 	instruction_set* current_iter;
 	instruction_set* next_iter;
 	instruction_set visited;
+	std::map<Function*, int> function_distance;
 	function_set func_to_examine;
 
 
@@ -49,6 +50,7 @@ private:
 
 	//Predicates and successors
 	branch_set marked_branches;
+	std::map<BranchInst*, int> distance;
 	inst_map preds;
 	inst_map succs;
 
