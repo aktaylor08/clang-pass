@@ -455,7 +455,6 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		int pubs = extern_call_finder_results -> getSites() -> size();
 		thresh_info["publishes"] = pubs;
 		thresh_info["type"] = gather_results_results->get_type(branch.first);
-		errs() << thresh_info.toStyledString();
 		static_informaiton[uids] = thresh_info;
 		//Create the new instruction that calls the function and insert it into the code
 		Instruction* new_inst = CallInst::Create(logging_function, clean_args);
