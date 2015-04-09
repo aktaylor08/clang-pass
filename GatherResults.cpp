@@ -31,7 +31,7 @@ void GatherResults::add_to_distances(std::map<Instruction*, int> distance_in){
 	}
 }
 
-void GatherResults::add_to_results(thresh_result_type new_res){
+void GatherResults::add_to_results(thresh_result_type new_res, std::string type){
 	for(branch_thresh_pair one_res : new_res){
 		if(cur_vals.count(one_res.first) == 0){
 			instruction_vect v;
@@ -45,7 +45,10 @@ void GatherResults::add_to_results(thresh_result_type new_res){
 				cur_vals.at(one_res.first).push_back(i);
 			}
 		}
+		std::pair<Instruction*, std::string> insert(one_res.first, type);
+		types.insert(insert);
 	}
+
 }
 
 thresh_result_type GatherResults::get_results(){
@@ -60,9 +63,13 @@ int GatherResults::get_distance(Instruction* to_find){
 	return distances.at(to_find);
 }
 
+std::string GatherResults::get_type(Instruction* to_find){
+	return types.at(to_find);
+}
+
 
 bool GatherResults::runOnModule(Module& M) {
-	add_to_results(getAnalysis<ParamUsageFinder>().getResults());
+	add_to_results(getAnalysis<ParamUsageFinder>().getResults(), "Parameter");
 	add_to_setups(getAnalysis<ParamUsageFinder>().getSetups());
 	add_to_distances(getAnalysis<ParamUsageFinder>().getDistance());
 	return false;

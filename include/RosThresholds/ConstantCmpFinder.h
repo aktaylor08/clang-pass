@@ -4,11 +4,10 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-#ifndef PARAM_USAGE_FINDER_H_
-#define PARAM_USAGE_FINDER_H_
+#ifndef  CONST_CMP_FINDER_H_
+#define CONST_CMP_FINDER_H_
 #include "RosThresholds.h"
 #include "BackwardPropigate.h"
-#include "ParamCallFinder.h"
 
 #include <queue>
 
@@ -18,17 +17,14 @@
 using namespace llvm;
 namespace llvm{
 
-class ParamUsageFinder: public ModulePass{
+class ConstantCmpFinder: public ModulePass{
 
 public:
 	static char ID;
-	ParamUsageFinder();
+	ConstantCmpFinder();
 	virtual bool runOnFunction(Function &F);
 	virtual bool runOnModule(Module &M);
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
-	ptr_set result_set;
-	ptr_vect result_list;
-	int matches_setup_param(GetElementPtrInst * ptr_inst);
 	branch_set getBranches();
 	thresh_result_type getResults();
 	std::map<Instruction*, Instruction*> getSetups();
@@ -40,14 +36,13 @@ public:
 private:
 	void add_to_result(BranchInst* branch, Instruction* threshold);
 	BackwardPropigate* back_prop_res;
-	branch_set thresh_branches;
+	branch_set const_branches;
 	std::map<Instruction*, int> dist_map;
 	thresh_result_type results;
 	std::map<Instruction*, Instruction*> map_to_setup;
 	ptr_vect params;
 	int param_use_count;
 	ptr_vect branch_params;
-	int param_branch_count;
 
 
 };

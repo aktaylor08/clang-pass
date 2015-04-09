@@ -8,6 +8,7 @@
 #define INSTRUMENT_BRANCHES_H_ 
 #include "RosThresholds.h"
 #include "GatherResults.h"
+#include "ExternCallFinder.h"
 
 #include <queue>
 #include <string>
@@ -35,6 +36,7 @@ public:
 	void write_to_file();
 
 private:
+	ExternCallFinder* extern_call_finder_results;
 	GatherResults* gather_results_results;
 	branch_set inst_to_instrument;
 	std::string get_key(Instruction* inst);

@@ -14,8 +14,6 @@
 using namespace llvm;
 namespace llvm{
 
-class BackwardPropigate;
-
 
 class ExternCallFinder : public ModulePass{
 public:
