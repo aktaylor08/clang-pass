@@ -6,6 +6,7 @@ __author__ = 'ataylor'
 from glob import glob
 import argparse
 import subprocess
+import time
 
 opt_name = "/Users/ataylor/Research/llvm_src/plugin_llvm/llvm/Debug+Asserts/bin/opt"
 if not os.path.exists(opt_name):
@@ -42,6 +43,7 @@ if __name__ == '__main__':
 
     for in_file in asdf:
         print(in_file +  ":")
+        st = time.time()
         command = [opt_name, '-load', dyn_lib, output_loc, '<', in_file] + passes
         command = ' '.join(command)
         if args.verbose:
@@ -49,5 +51,7 @@ if __name__ == '__main__':
         if args.time:
             command += ' -time-passes'
         a = subprocess.Popen(command, shell=True).communicate()
-        print("\n")
+        et = time.time()
+        print "time: ", et -st
+        print("------\n\n\n")
 
