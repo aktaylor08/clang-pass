@@ -7,13 +7,13 @@ from glob import glob
 import argparse
 import subprocess
 
-opt_name = "/Users/ataylor/Research/llvm_src/llvm/Debug+Asserts/bin/opt"
+opt_name = "/Users/ataylor/Research/llvm_src/plugin_llvm/llvm/Debug+Asserts/bin/opt"
 if not os.path.exists(opt_name):
     opt_name = "/home/ataylor/llvm_src/llvm/Debug+Asserts/bin/opt"
 
-dyn_lib = "/Users/ataylor/Research/llvm_src/llvm/Debug+Asserts/lib/RosThresholds.dylib"
+dyn_lib = "/Users/ataylor/Research/llvm_src/plugin_llvm/llvm/Debug+Asserts/lib/LLVMRosThresholds.dylib"
 if not os.path.exists(dyn_lib):
-    dyn_lib = "/home/ataylor/llvm_src/llvm/Debug+Asserts/lib/RosThresholds.so"
+    dyn_lib = "/home/ataylor/llvm_src/llvm/Debug+Asserts/lib/LLVMRosThresholds.so"
 
 output_loc = ">/dev/null"
 
