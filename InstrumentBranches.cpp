@@ -1,5 +1,6 @@
 #include "llvm/Transforms/RosThresholds/GatherResults.h"
 #include "llvm/Transforms/RosThresholds/InstrumentBranches.h"
+#include "llvm/Transforms/RosThresholds/ExternCallFinder.h"
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
 #include "llvm/Analysis/CFG.h"
@@ -19,6 +20,7 @@ InstrumentBranches::InstrumentBranches() : ModulePass(ID){
 	//    initializeRosThresholds(*PassRegistry::getPassRegistry());
 	logging_function = nullptr;
 	gather_results_results = nullptr;
+	extern_call_finder_results = nullptr;
 	name_int = 0;
 }
 
@@ -27,8 +29,8 @@ InstrumentBranches::~InstrumentBranches(){
 }
 
 void InstrumentBranches::getAnalysisUsage(AnalysisUsage &AU) const{
-	AU.setPreservesAll();
 	AU.addRequired<GatherResults>();
+	AU.addRequired<ExternCallFinder>();
 	AU.addRequired<DominatorTreeWrapperPass>();
 }
 
@@ -450,7 +452,9 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		thresh_info["key"]=uids;
 		thresh_info["source_code"]="";
 		thresh_info["other_thresholds"] = 0;
-		thresh_info["type"] = "Parameter";
+		int pubs = extern_call_finder_results -> getSites() -> size();
+		thresh_info["publishes"] = pubs;
+		thresh_info["type"] = gather_results_results->get_type(branch.first);
 		static_informaiton[uids] = thresh_info;
 		//Create the new instruction that calls the function and insert it into the code
 		Instruction* new_inst = CallInst::Create(logging_function, clean_args);
@@ -471,6 +475,7 @@ bool InstrumentBranches::runOnModule(Module& M)
 
 	errs() << "\n\nStarting instrumentation :\n";
 	gather_results_results = &getAnalysis<GatherResults>();
+	extern_call_finder_results = &getAnalysis<ExternCallFinder>();
 	thresh_result_type vals = gather_results_results -> get_results();
 	errs() << "Must instrument " << vals.size() << " Locations\n";
 	for(branch_thresh_pair b: vals){
@@ -492,5 +497,6 @@ ModulePass *createInstrumentBranchesPass(){ return new InstrumentBranches();}
 INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false)
 INITIALIZE_PASS_DEPENDENCY(GatherResults)
 INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
+INITIALIZE_PASS_DEPENDENCY(ExternCallFinder)
 INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false)
 
