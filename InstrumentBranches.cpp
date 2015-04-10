@@ -31,6 +31,7 @@ InstrumentBranches::~InstrumentBranches(){
 void InstrumentBranches::getAnalysisUsage(AnalysisUsage &AU) const{
 	AU.addRequired<GatherResults>();
 	AU.addRequired<ExternCallFinder>();
+	AU.addRequired<ParamCallFinder>();
 	AU.addRequired<DominatorTreeWrapperPass>();
 }
 
@@ -453,9 +454,12 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 		thresh_info["source_code"]="";
 		thresh_info["other_thresholds"] = 0;
 		int pubs = extern_call_finder_results -> getSites() -> size();
+		int params = param_call_finder_results -> getParamCount();
+		thresh_info["param_reads"] = params;
 		thresh_info["publishes"] = pubs;
 		thresh_info["type"] = gather_results_results->get_type(branch.first);
 		static_informaiton[uids] = thresh_info;
+       //errs() << thresh_info.toStyledString();
 		//Create the new instruction that calls the function and insert it into the code
 		Instruction* new_inst = CallInst::Create(logging_function, clean_args);
 		branch.first->getParent()->getInstList().insert(branch.first, new_inst);
@@ -476,6 +480,7 @@ bool InstrumentBranches::runOnModule(Module& M)
 	errs() << "\n\nStarting instrumentation :\n";
 	gather_results_results = &getAnalysis<GatherResults>();
 	extern_call_finder_results = &getAnalysis<ExternCallFinder>();
+	param_call_finder_results = &getAnalysis<ParamCallFinder>();
 	thresh_result_type vals = gather_results_results -> get_results();
 	errs() << "Must instrument " << vals.size() << " Locations\n";
 	for(branch_thresh_pair b: vals){
@@ -498,5 +503,6 @@ INITIALIZE_PASS_BEGIN(InstrumentBranches, "ros-instrumentation", "Instrumenting 
 INITIALIZE_PASS_DEPENDENCY(GatherResults)
 INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
 INITIALIZE_PASS_DEPENDENCY(ExternCallFinder)
+INITIALIZE_PASS_DEPENDENCY(ParamCallFinder)
 INITIALIZE_PASS_END(InstrumentBranches, "ros-instrumentation", "Instrumenting marked branches", false, false)
 

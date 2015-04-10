@@ -37,14 +37,25 @@ bool ExternCallFinder::runOnFunction(Function& F) {
 				CallSite cs(inst);
 				std::string f_name = cs.getCalledValue() -> getName().str();
 				//Check to see if it is a correct call
-				if( (!f_name.compare( 0, pub_name.size(), pub_name)) ||
-						(!f_name.compare( 0, srv_name.size(), srv_name))){
+				if (!f_name.compare( 0, pub_name.size(), pub_name)){ 
 					BasicBlock * BB = inst ->getParent();
 					call_pair p;
 					p.first = BB;
 					p.second = cs;
 					sites.push_back(p);
 				}
+                if( (!f_name.compare( 0, srv_name.size(), srv_name))){
+                    if( Function* f = dyn_cast<Function>(&*(cs.getCalledValue()))){  
+                         if(f -> getArgumentList().size() == 2){ 
+    					    BasicBlock * BB = inst ->getParent();
+					        call_pair p;
+					        p.first = BB;
+					        p.second = cs;
+					        sites.push_back(p);
+                        }
+                    }
+
+                }
 			}
 		}
 	}
@@ -55,7 +66,6 @@ bool ExternCallFinder::runOnFunction(Function& F) {
  * Loop through everything
  */
 bool ExternCallFinder::runOnModule(Module& M) {
-	errs() << "\n\nStarting External Call Finder\n";
 	for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
 	{
 		Function* f = MI;
@@ -63,7 +73,7 @@ bool ExternCallFinder::runOnModule(Module& M) {
 			runOnFunction(*MI);
 		}
 	}
-	errs() << "Found " << sites.size() << " External Calls\n" ;
+	errs() << "Found: " << sites.size() << " External Calls\n" ;
 	for(call_pair p: sites){
 		 DEBUG(dump_instruction(p.second.getInstruction(), 1, ""));
 
