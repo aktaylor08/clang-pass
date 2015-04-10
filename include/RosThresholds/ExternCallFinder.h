@@ -32,7 +32,7 @@ public:
 private:
 	call_pair_vect sites;
 	std::string pub_name = "_ZNK3ros9Publisher7publishIN";
-	std::string srv_name = "FIGURE_THIS_ONE_OUT";
+	std::string srv_name = "_ZN3ros13ServiceClient4callIN";
 
 };
 

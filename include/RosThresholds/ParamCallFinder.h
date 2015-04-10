@@ -24,6 +24,7 @@ public:
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
 	ptr_set* getParamPtrSet();
 	ptr_vect* getParamPtrList();
+    int getParamCount();
 private:
 	int totalCount;
 };

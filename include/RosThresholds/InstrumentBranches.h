@@ -37,6 +37,7 @@ public:
 
 private:
 	ExternCallFinder* extern_call_finder_results;
+	ParamCallFinder* param_call_finder_results;
 	GatherResults* gather_results_results;
 	branch_set inst_to_instrument;
 	std::string get_key(Instruction* inst);

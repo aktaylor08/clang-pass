@@ -23,6 +23,11 @@ ptr_set* ParamCallFinder::getParamPtrSet(){
 ptr_vect* ParamCallFinder::getParamPtrList(){
 	return &param_ptr_list;
 }
+
+int ParamCallFinder::getParamCount(){
+    return totalCount;
+}
+
   bool ParamCallFinder::runOnFunction(Function &F)
   {
 	std::string prefix("_ZNK3ros10NodeHandle5param");
@@ -68,12 +73,11 @@ ptr_vect* ParamCallFinder::getParamPtrList(){
 
   bool ParamCallFinder::runOnModule(Module& M)
   {
-	 errs() << "\n\nFunning Parameter Finder.\n";
     for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
       {
     	runOnFunction(*MI);
       }
-    errs() << "\tFound: " << totalCount << " Param setups\n";
+    errs() << "Found: " << totalCount << " Param setups\n";
     for(GetElementPtrInst* p : param_ptr_list){
     	DEBUG(dump_instruction(p, 1, ""));
     }
