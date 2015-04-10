@@ -1,0 +1,23 @@
+diff --git a/include/RosThresholds/BackwardPropigate.h b/include/RosThresholds/BackwardPropigate.h
+index e55811f..d67da13 100644
+--- a/include/RosThresholds/BackwardPropigate.h
++++ b/include/RosThresholds/BackwardPropigate.h
+@@ -19,6 +19,7 @@ namespace llvm{
+ class BackwardPropigate: public ModulePass{
+ 
+ public:
++
+ 	static char ID;
+ //	virtual bool runOnFunction(Function &F);
+ 	void do_an_iter();
+@@ -44,6 +45,10 @@ private:
+ 	instruction_set visited;
+ 	std::map<Function*, int> function_distance;
+ 	function_set func_to_examine;
++	std::map<BasicBlock*, BasicBlock*> work_block_store;
++	std::map<BasicBlock*, Loop*> loop_store;
++	std::set<Value*> global_data_visit;
++
+ 
+ 
+ 	single_inst_map return_point;
