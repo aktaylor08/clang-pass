@@ -18,6 +18,7 @@ namespace llvm{
 class BackwardPropigate: public ModulePass{
 
 public:
+
 	static char ID;
 //	virtual bool runOnFunction(Function &F);
 	void do_an_iter();
@@ -43,6 +44,10 @@ private:
 	instruction_set visited;
 	std::map<Function*, int> function_distance;
 	function_set func_to_examine;
+	std::map<BasicBlock*, BasicBlock*> work_block_store;
+	std::map<BasicBlock*, Loop*> loop_store;
+	std::set<Value*> global_data_visit;
+
 
 
 	single_inst_map return_point;

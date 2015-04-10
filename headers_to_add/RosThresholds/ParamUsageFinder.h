@@ -4,8 +4,8 @@
  *  Created on: Feb 23, 2015
  *      Author: ataylor
  */
-#ifndef EXTERN_CALL_FINDER_H_
-#define EXTERN_CALL_FINDER_H_
+#ifndef PARAM_USAGE_FINDER_H_
+#define PARAM_USAGE_FINDER_H_
 #include "RosThresholds.h"
 #include "BackwardPropigate.h"
 #include "ParamCallFinder.h"
