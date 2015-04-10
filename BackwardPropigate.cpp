@@ -8,6 +8,7 @@ using namespace llvm;
 namespace llvm{
 
 
+
 BackwardPropigate::BackwardPropigate() : ModulePass(ID) {
     initializeRosThresholds(*PassRegistry::getPassRegistry());
 	current_iter = new instruction_set;
@@ -98,6 +99,10 @@ void BackwardPropigate::testDataDependencies(Instruction* inst){
 
 instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 	instruction_set ret_val;
+	if(global_data_visit.count(inst) > 0){
+		return ret_val;
+	}
+	global_data_visit.insert(inst);
 	std::deque<Value*> list;
 	SmallPtrSet<Value*, 10> visited;
 	list.push_back(inst);
@@ -121,16 +126,17 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 		Value* cur_val = list.front();
 		list.pop_front();
 		visited.insert(cur_val);
-
 		//We want to see if there was anything allocated to that was then assigned to a a value
 		//that would affect the value at the location. a somewhat hacky approach...
 		if(LoadInst* asdf = dyn_cast<LoadInst>(&*cur_val)){
 			llvm::Value* pop;
 			pop = asdf -> getPointerOperand();
 			for(Value::user_iterator S = pop->user_begin(), E = pop -> user_end(); S!=E; ++S){
-				if(Instruction* thing = dyn_cast<Instruction>(*S)){
-					if(visited.count(thing) == 0){
-						list.push_back(thing);
+				if(global_data_visit.count(*S) == 0){
+					if(Instruction* thing = dyn_cast<Instruction>(*S)){
+						if(visited.count(thing) == 0){
+							list.push_back(thing);
+						}
 					}
 				}
 			}
@@ -151,7 +157,7 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 
 			}
 			for(Use &U : alloc -> operands()){
-					if(visited.count(U.get()) == 0){
+					if(global_data_visit.count(U.get()) == 0 && visited.count(U.get()) == 0){
 						list.push_back(U.get());
 					}
 			}
@@ -171,7 +177,7 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 			}
 			//Add all of the operands
 			for(Use &U : gep -> operands()){
-					if(visited.count(U.get()) == 0){
+					if(global_data_visit.count(U.get()) == 0 && visited.count(U.get()) == 0){
 						list.push_back(U.get());
 					}
 			}
@@ -179,18 +185,23 @@ instruction_set BackwardPropigate::getDataDependencies(Instruction* inst){
 			//Otherwise just add things on the use def chain
 			ret_val.insert(inst);
 			for(Use &U : inst -> operands()){
-					if(visited.count(U.get()) == 0){
+					if(global_data_visit.count(U.get()) == 0 && visited.count(U.get()) == 0){
 						list.push_back(U.get());
 					}
 			}
 
 		}
+
 	}
 	return ret_val;
 }
 
 instruction_set BackwardPropigate::getLocalDataDependencies(Instruction* inst){
 	instruction_set ret_val;
+	if(global_data_visit.count(inst) != 0){
+		return ret_val;
+	}
+	global_data_visit.insert(inst);
 	std::deque<Value*> list;
 	SmallPtrSet<Value*, 10> visited;
 	list.push_back(inst);
@@ -235,6 +246,7 @@ instruction_set BackwardPropigate::getLocalDataDependencies(Instruction* inst){
 					}
 			}
 
+
 		}else if(Instruction* inst = dyn_cast<Instruction>(&*cur_val)){
 			//Otherwise just add things on the use def chain
 			ret_val.insert(inst);
@@ -251,20 +263,38 @@ instruction_set BackwardPropigate::getLocalDataDependencies(Instruction* inst){
 
 BasicBlock* BackwardPropigate::getWorkingBlock(Instruction* i){
 	//Get if it is in a loop or if it is in an if statement here
+	BasicBlock *b = i -> getParent();
 	Function* F =i-> getParent() -> getParent();
-	LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(*F).getLoopInfo();
-	DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(*F).getDomTree();
+
+	//trying to store values to get a speed improvment.
+	if(work_block_store.count(b) > 0){
+		return work_block_store.at(b);
+	}
+	//get from store or create and store loop informaiton
+	Loop* loop;
+	if(loop_store.count(b) > 0){
+		loop = loop_store.at(b);
+	}else{
+		LoopInfo* loop_info = &getAnalysis<LoopInfoWrapperPass>(*F).getLoopInfo();
+		loop = loop_info -> getLoopFor(i -> getParent());
+		std::pair<BasicBlock*, Loop*> to_store(b, loop);
+		loop_store.insert(to_store);
+	}
+	//Check to see if it is in a loop?
+
+
+
 
 	BasicBlock* working_block = nullptr;
 	BasicBlock* loop_branch = nullptr;
-	//Check to see if it is in a loop?
-	Loop* loop = loop_info -> getLoopFor(i -> getParent());
 	if(loop){
 		loop_branch = getLoopBranch(loop -> getHeader());
 	}
 	BasicBlock* if_branch = if_info ->getLocalParent(i -> getParent());
 
 	if(loop_branch && if_branch){
+		//only get the dominator if we have to
+		DominatorTree* dom_tree = &getAnalysis<DominatorTreeWrapperPass>(*F).getDomTree();
 		//They are the same process the loop first;
 		if(if_branch == loop_branch){
 			working_block = loop_branch;
@@ -278,6 +308,8 @@ BasicBlock* BackwardPropigate::getWorkingBlock(Instruction* i){
 	}else if(if_branch){
 		working_block = if_branch;
 	}
+	std::pair<BasicBlock*, BasicBlock*> to_store(b, working_block);
+	work_block_store.insert(to_store);
 	return working_block;
 }
 
@@ -292,6 +324,7 @@ void BackwardPropigate::iter_on_function(Function* F, int dist){
 			current->insert(ri);
 		}
 	}
+
 	while(current->size() > 0){
 		for(instruction_set::iterator cur_inst=current->begin(), end = current-> end(); cur_inst != end; ++cur_inst){
 			Instruction* inst = *cur_inst;
@@ -340,7 +373,6 @@ void BackwardPropigate::iter_on_function(Function* F, int dist){
  */
 void BackwardPropigate::do_an_iter(){
 
-	//Maybe we should do something smart here to get rid of a lot of unessary iterations
 	//If it is an instruction we should visit than start doing work.
 	for(instruction_set::iterator cur_inst=current_iter->begin(), end = current_iter -> end(); cur_inst != end; ++cur_inst){
 				Instruction* inst = *cur_inst;
@@ -351,6 +383,7 @@ void BackwardPropigate::do_an_iter(){
 				visited.insert(inst);
 				//set of next round of instructions
 				instruction_set to_add;
+
 
 				//Get if it is in a loop or if it is in an if statement here
 				BasicBlock* working_block = getWorkingBlock(inst);
@@ -383,7 +416,6 @@ void BackwardPropigate::do_an_iter(){
 				for(Instruction *I : to_add){
 					if(visited.count(I) == 0){
 						next_iter -> insert(I);
-//						DEBUG(dump_instruction(I, 2, "Added: "));
 					}
 				}
 			}//end work on instruction
@@ -405,7 +437,6 @@ bool BackwardPropigate::runOnModule(Module& M)
 
 	while(current_iter->size() > 0){
 		pass_count++;
-//		DEBUG(errs() << "\nOn Pass " << pass_count << "\n\n");
 		do_an_iter();
 		instruction_set* temp = current_iter;
 		current_iter = next_iter;
