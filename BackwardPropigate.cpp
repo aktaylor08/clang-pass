@@ -423,6 +423,10 @@ void BackwardPropigate::do_an_iter(){
 
 
 
+bool BackwardPropigate::runOnFunction(Function& F){
+    return false;
+}
+
 bool BackwardPropigate::runOnModule(Module& M)
 {
 	DEBUG(errs() << "\n\nStarting Backward Propigate Pass:\n");

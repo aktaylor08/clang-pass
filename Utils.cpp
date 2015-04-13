@@ -12,7 +12,7 @@ using namespace llvm;
 std::pair<std::string, int> get_file_lineno(Instruction* inst){
 	int lineno = 0;
 	std::string file = "no info";
-	if(MDNode *N = inst -> getMetadata("dbg")){
+	if(MDLocation *N = inst -> getDebugLoc()){
 		DILocation Loc(N);
 		lineno =Loc.getLineNumber();
 		std::stringstream ss;
@@ -31,7 +31,7 @@ void dump_instruction(Instruction* inst, int tabs, std::string msg){
 		errs() << "\t";
 	}
 	errs() << msg;
-	if(MDNode *N = inst -> getMetadata("dbg")){
+	if(MDLocation *N = inst -> getDebugLoc()){
 		DILocation Loc(N);
 		errs()<< "Line Number: ";
 		errs() << Loc.getLineNumber();
@@ -49,7 +49,7 @@ void dump_instruction(Instruction* inst, int tabs, std::string msg){
 void dump_block_lines(BasicBlock* b, int tabs){
 	std::set<int> line_nums;
 	for(BasicBlock::iterator I = b->begin(), E = b->end(); I != E; ++I){
-		if(MDNode *N = I -> getMetadata("dbg")){
+		if(MDLocation *N = I -> getDebugLoc()){
 			DILocation Loc(N);
 			line_nums.insert(Loc.getLineNumber());
 		}

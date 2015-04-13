@@ -310,7 +310,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	indexes[0] = ConstantInt::getSigned(Type::getInt32Ty(M.getContext()), 0);
 	indexes[1] = ConstantInt::getSigned(Type::getInt32Ty(M.getContext()), 0);
 
-	Constant* to_global = ConstantExpr::getGetElementPtr(GV, indexes, true);
+	Constant* to_global = ConstantExpr::getGetElementPtr(GV->getType(), GV, indexes);
 
 	//Create the argument list next.  Do this by adding values from the mapping we made and from the global
 	//pointer that we just created

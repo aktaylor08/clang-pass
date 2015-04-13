@@ -193,9 +193,9 @@ ModulePass * createIfStatementsPass(){return new IfStatements();}
 
 }
 
-INITIALIZE_PASS_BEGIN(IfStatements,"ros-if-statements", "If Statements and printing information", false, false);
-INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass);
-INITIALIZE_PASS_END(IfStatements ,"ros-if-statements", "If Statements and printing information", false, false);
+INITIALIZE_PASS_BEGIN(IfStatements,"ros-if-statements", "If Statements and printing information", false, false)
+INITIALIZE_PASS_DEPENDENCY(DominatorTreeWrapperPass)
+INITIALIZE_PASS_END(IfStatements ,"ros-if-statements", "If Statements and printing information", false, false)
 //RegisterPass<IfStatements> IHAVENOMORENAMES("ros-if-statements", "If Statements and printing information", false, false);
 
 
