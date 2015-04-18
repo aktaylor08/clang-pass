@@ -17,4 +17,5 @@ add_llvm_library(LLVMRosThresholds
   ${LLVM_MAIN_INCLUDE_DIR}/llvm/Transforms/RosThresholds
   )
 
-add_dependencies(LLVMScalarOpts )
+set_target_properties(LLVMRosThresholds PROPERTIES COMPILE_FLAGS "-fexceptions")
+add_dependencies(LLVMScalarOpts Analysis Core IPA InstCombine Scalar Support TransformUtils Vectorize)
