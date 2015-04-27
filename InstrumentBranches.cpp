@@ -47,8 +47,8 @@ void InstrumentBranches::write_to_file(){
 	timeinfo = localtime(&rawtime);
 	strftime(buffer, 80, "%Y-%m-%d-%I-%M-%S", timeinfo);
 	std::string str(buffer);
-	std::string fname = "/home/ataylor/clang_results/" + str + ".json";
-
+	std::string fname = "/home/ataylor/clang_results/" + str + '_' + last_uids +  ".json";
+    errs() << fname << "\n";
 	std::ofstream outfile;
 	outfile.open(fname.c_str());
 	outfile << static_informaiton;
@@ -296,6 +296,7 @@ void InstrumentBranches::instrumentBranch(branch_thresh_pair branch){
 	//create the uuid that is used for the key
 	boost::uuids::uuid uuid = boost::uuids::random_generator()();
 	std::string uids = boost::uuids::to_string(uuid);
+    last_uids = uids;
 	const char* cuuid = uids.c_str();
 	StringRef str = StringRef(cuuid);
 	Constant *StrConstant = ConstantDataArray::getString(M.getContext(), str);
