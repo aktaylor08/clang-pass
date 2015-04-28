@@ -47,12 +47,16 @@ void InstrumentBranches::write_to_file(){
 	timeinfo = localtime(&rawtime);
 	strftime(buffer, 80, "%Y-%m-%d-%I-%M-%S", timeinfo);
 	std::string str(buffer);
-	std::string fname = "/home/ataylor/clang_results/" + str + '_' + last_uids +  ".json";
+	std::string fname = "/Users/ataylor/" + str + '_' + last_uids +  ".json";
     errs() << fname << "\n";
 	std::ofstream outfile;
 	outfile.open(fname.c_str());
 	outfile << static_informaiton;
 	outfile.close();
+
+
+
+
 	return;
 }
 
@@ -488,11 +492,21 @@ bool InstrumentBranches::runOnModule(Module& M)
 		instrumentBranch(b);
 	}
 	write_to_file();
+    outputPredicates(vals);
 	return true;
 }
 
-//         loadInstrumentPass);
+void InstrumentBranches::outputPredicates(thresh_result_type vals){
+	std::string name2= "/Users/ataylor/preds_on_thresh.txt";
+	std::ofstream info;
+	info.open(name2.c_str());
+	for(branch_thresh_pair b: vals){
+    	std::pair<std::string, int> val =get_file_lineno(b.first);
+    	info << val.first << "\t" << val.second << "\n";
+	}
+	info.close();
 
+}
 
 char InstrumentBranches::ID = 0;
 ModulePass *createInstrumentBranchesPass(){ return new InstrumentBranches();}

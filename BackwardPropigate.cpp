@@ -1,6 +1,8 @@
 #include "include/RosThresholds/BackwardPropigate.h"
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
+#include <iostream>
+#include <fstream>
 
 using namespace llvm;
 
@@ -451,8 +453,43 @@ bool BackwardPropigate::runOnModule(Module& M)
 //	for(BranchInst* bi : marked_branches){
 //		DEBUG(dump_instruction(bi, 1, ""));
 //	}
+    outputPredicates();
+    outputAllPredicates(M);
 	return false;
 }
+
+
+ void BackwardPropigate::outputPredicates(){
+	 std::ofstream myfile;
+	std::string fname = "/Users/ataylor/backward_preds.txt";
+	 myfile.open(fname, std::ios::out | std::ios::app );
+    for(BranchInst* bi : marked_branches){
+    	std::pair<std::string, int> val =get_file_lineno(bi);
+    	myfile  << val.first << "\t" << val.second << "\n";
+    }
+    myfile.close();
+ }
+
+void BackwardPropigate::outputAllPredicates(Module &M){
+	 std::ofstream myfile;
+	std::string fname = "/Users/ataylor/all_preds.txt";
+	 myfile.open(fname, std::ios::out | std::ios::app );
+    for (Module::iterator MI = M.begin(), ME = M.end(); MI != ME; ++MI)
+      {
+	    for(Function::iterator block = *MI -> begin(), E=*MI -> end(); block != E; ++block){
+		    for(BasicBlock::iterator inst = block->begin(), ie = block -> end(); inst != ie; ++inst){
+                if(BranchInst *b = dyn_cast<BranchInst>(inst)){
+                    if(b -> isConditional()){
+                        std::pair<std::string, int> val = get_file_lineno(b);
+    	                myfile  << val.first << "\t" << val.second << "\n";
+                        }
+                    }
+                }
+            }
+        }
+}
+
+
 char BackwardPropigate::ID = 0;
 ModulePass *createBackwardPropigatePass() {
 	return new llvm::BackwardPropigate();

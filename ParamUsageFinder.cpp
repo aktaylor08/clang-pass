@@ -2,6 +2,9 @@
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
 
+#include <iostream>
+#include <fstream>
+
 #define DEBUG_TYPE "param_usage_finder"
 
 namespace llvm{
@@ -219,6 +222,7 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	}
 	DEBUG(errs() << "Found: " << params.size() << " Param uses\n\n");
 	DEBUG(errs() << "Found: " << branch_params.size() << " Branch Parameter uses\n");
+    outputParamPreds();
 	for(GetElementPtrInst* gepi : branch_params){
 		DEBUG(dump_instruction(gepi, 1, "param: "));
 	}
@@ -232,6 +236,18 @@ bool ParamUsageFinder::runOnModule(Module& M)
 	}
 	return false;
 }
+
+void ParamUsageFinder::outputParamPreds(){
+	 std::ofstream myfile;
+	std::string fname = "/Users/ataylor/param_preds.txt";
+	 myfile.open(fname, std::ios::out | std::ios::app );
+	for(GetElementPtrInst* gepi : branch_params){
+    	std::pair<std::string, int> val =get_file_lineno(gepi);
+    	myfile  << val.first << "\t" << val.second << "\n";
+    }
+    myfile.close();
+}
+
 char ParamUsageFinder::ID = 0;
 //RegisterPass<ParamUsageFinder> Y("ros-param-uses", "Finding Used Ros Params", false, false);
 ModulePass * createParamUsageFinderPass(){return new ParamUsageFinder();}

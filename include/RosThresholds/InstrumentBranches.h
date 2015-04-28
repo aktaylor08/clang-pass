@@ -43,6 +43,7 @@ private:
 	std::string get_key(Instruction* inst);
 	Constant* logging_function;
 	int name_int;
+    void outputPredicates(thresh_result_type);
     std::string last_uids;
 	Json::Value static_informaiton;
 };

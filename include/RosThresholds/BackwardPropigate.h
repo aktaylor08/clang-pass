@@ -29,6 +29,8 @@ public:
 	BackwardPropigate();
 	~BackwardPropigate();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+    void outputPredicates();
+    void outputAllPredicates(Module&);
 	branch_set* get_marked_branches();
 	int branch_marked(BranchInst*);
 	instruction_set getDataDependencies(Instruction* inst);

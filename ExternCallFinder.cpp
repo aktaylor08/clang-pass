@@ -2,6 +2,10 @@
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
 
+#include <iostream>
+#include <fstream>
+
+
 using namespace llvm;
 
 #define DEBUG_TYPE "external_call_finder"
@@ -76,10 +80,24 @@ bool ExternCallFinder::runOnModule(Module& M) {
 	errs() << "Found: " << sites.size() << " External Calls\n" ;
 	for(call_pair p: sites){
 		 DEBUG(dump_instruction(p.second.getInstruction(), 1, ""));
-
 	}
+	outputCalls();
 	return false;
 }
+
+
+void ExternCallFinder::outputCalls(){
+	 std::ofstream myfile;
+	std::string fname = "/Users/ataylor/call_sites.txt";
+	 myfile.open(fname, std::ios::out | std::ios::app );
+   for(call_pair p : sites){
+   	std::pair<std::string, int> val =get_file_lineno(p.second.getInstruction());
+   	myfile  << val.first << "\t" << val.second << "\n";
+   }
+   myfile.close();
+}
+
+
 char ExternCallFinder::ID = 0;
 ModulePass * createExternCallFinderPass(){return new ExternCallFinder();}
 RegisterPass<ExternCallFinder> ECFP("ros-extern-calls", "identifying ROS publish and service calls", false, false);

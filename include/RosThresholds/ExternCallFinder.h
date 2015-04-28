@@ -23,6 +23,7 @@ public:
 	ExternCallFinder();
 	~ExternCallFinder();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+	void outputCalls();
 
 
 	call_pair_vect* getSites() {
