@@ -488,11 +488,21 @@ bool InstrumentBranches::runOnModule(Module& M)
 		instrumentBranch(b);
 	}
 	write_to_file();
+    outputPredicates(vals);
 	return true;
 }
 
-//         loadInstrumentPass);
+void InstrumentBranches::outputPredicates(thresh_result_type vals){
+	std::string name2= "/home/ataylor/clang_results/preds_on_thresh.txt";
+	std::ofstream info;
+	info.open(name2.c_str(), std::ios::out | std::ios::app );
+	for(branch_thresh_pair b: vals){
+    	std::pair<std::string, int> val =get_file_lineno(b.first);
+    	info << val.first << "\t" << val.second << "\n";
+	}
+	info.close();
 
+}
 
 char InstrumentBranches::ID = 0;
 ModulePass *createInstrumentBranchesPass(){ return new InstrumentBranches();}

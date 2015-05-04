@@ -2,6 +2,9 @@
 #include "llvm/InitializePasses.h"
 #include "llvm-c/Initialization.h"
 
+#include <iostream>
+#include <fstream>
+
 #define DEBUG_TYPE "param_call_finder"
 
 namespace llvm{
@@ -80,10 +83,23 @@ int ParamCallFinder::getParamCount(){
     errs() << "Found: " << totalCount << " Param setups\n";
     for(GetElementPtrInst* p : param_ptr_list){
     	DEBUG(dump_instruction(p, 1, ""));
+
     }
+    outputParams();
 
     return false;
   }
+
+ void ParamCallFinder::outputParams(){
+	 std::ofstream myfile;
+	std::string fname = "/home/ataylor/clang_results/params.txt";
+	 myfile.open(fname, std::ios::out | std::ios::app );
+    for(GetElementPtrInst* p : param_ptr_list){
+    	std::pair<std::string, int> val =get_file_lineno(p);
+    	myfile  << val.first << "\t" << val.second << "\n";
+    }
+    myfile.close();
+ }
 
 //RegisterPass<ParamCallFinder> X("ros-param-setup", "Finding ROS Param calls", false, false);
 
