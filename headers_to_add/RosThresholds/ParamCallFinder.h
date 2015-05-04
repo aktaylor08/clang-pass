@@ -25,6 +25,7 @@ public:
 	ptr_set* getParamPtrSet();
 	ptr_vect* getParamPtrList();
     int getParamCount();
+    void outputParams();
 private:
 	int totalCount;
 };

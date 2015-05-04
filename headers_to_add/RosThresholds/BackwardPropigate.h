@@ -20,7 +20,7 @@ class BackwardPropigate: public ModulePass{
 public:
 
 	static char ID;
-//	virtual bool runOnFunction(Function &F);
+	virtual bool runOnFunction(Function &F);
 	void do_an_iter();
 	void iter_on_function(Function* F,int dist);
 	virtual bool runOnModule(Module &M);
@@ -28,6 +28,8 @@ public:
 	BackwardPropigate();
 	~BackwardPropigate();
 	virtual void getAnalysisUsage(AnalysisUsage &AU) const override;
+    void outputPredicates();
+    void outputAllPredicates(Module&);
 	branch_set* get_marked_branches();
 	int branch_marked(BranchInst*);
 	instruction_set getDataDependencies(Instruction* inst);

@@ -30,6 +30,7 @@ public:
 	ptr_vect result_list;
 	int matches_setup_param(GetElementPtrInst * ptr_inst);
 	branch_set getBranches();
+    void outputParamPreds();
 	thresh_result_type getResults();
 	std::map<Instruction*, Instruction*> getSetups();
 	std::map<Instruction*, int> getDistance();
